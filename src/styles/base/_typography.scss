@@ -1,0 +1,12 @@
+@use "../abstracts/variables" as vars;
+/* Logo Font "Mundial" */
+@import url("https://use.typekit.net/ran2vxb.css");
+
+// Standard-Typographie:
+body {
+    font-family: vars.$primary-font;
+    font-weight: vars.$primary-weight;
+    font-style: vars.$primary-style;
+    font-size: 20px;
+    color: purple;
+}
