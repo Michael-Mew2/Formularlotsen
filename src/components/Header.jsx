@@ -1,4 +1,6 @@
 import * as React from "react";
+import Nav from "./Nav";
+import LanguageSelector from "./LanguageSelector";
 
 export default function StickyHeader() {
   const [isSticky, setIsSticky] = React.useState(false);
@@ -39,6 +41,7 @@ export default function StickyHeader() {
     <header className="header">
       <div ref={headerTopRef} className="header--top">
         <h1>Header Top</h1>
+        <LanguageSelector />
       </div>
       <div
         ref={headerBottomRef}
@@ -49,6 +52,7 @@ export default function StickyHeader() {
         }}
       >
         <h2>Header Bottom</h2>
+        <Nav />
       </div>
     </header>
   );

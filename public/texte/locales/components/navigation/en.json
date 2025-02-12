@@ -1,0 +1,13 @@
+{
+    "navigation": {
+        "home": "Home",
+        "timeAndLocation": "Times & Places",
+        "joinUs": "Join us",
+        "press": "Press",
+        "contact": "Contact",
+        "flyer": "Flyer",
+        "imprint": "Impress",
+        "termsAndCondition": "Terms & Conditions",
+        "dataProtection": "Data Protection Agreement."
+    }
+}
