@@ -11,7 +11,7 @@
       width: 100%;
       background: transparent;
       z-index: 5;
-      transition: background 0.3s ease-in-out;
+      transition: background 0.4s ease-in-out;
     }
 
     &--top.scrolled {
@@ -36,9 +36,14 @@
     }
 }
 
-.headerLogo {
+.headerContentTop {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+}
 
-  margin: 1.5rem;
+.headerLogo {
+  // margin: 1.5rem;
   width: fit-content;
   
   .headerLogoHitBox {
@@ -50,7 +55,8 @@
     width: fit-content;
     
     img {
-      width: 100px;
+      width: 110px;
+      // aspect-ratio: 1;
     }
     
     p {
@@ -77,3 +83,24 @@
   }
 }
 
+.headerCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: vars.$secondary-color;
+  border: 1px solid vars.$secondary-light-color;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.headerCardToggleButton {
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  background-color: vars.$secondary-color;
+  color: vars.$primary-color;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  height: auto; // Initial height
+}
