@@ -1,8 +1,14 @@
 {
     "join": {
-        "heroMainTitle": "Hello and welcome",
-        "heroSubTitle": "This is our Website",
-        "title": "Welcome to our Homepage.",
-        "description": "This is an example in english!"
+        "hero": {
+            "heroPicture": "images/heroImages/AdobeStock_566575988.jpeg",
+            "heroPictureAlt": "A group of people putting their hands together as a gesture of teamwork",
+            "heroMainTitle": "Hello and welcome",
+            "heroSubTitle": "This is our Website"
+        },
+        "pageContent": {
+            "title": "Welcome to our Homepage.",
+            "description": "This is an example in english!"
+        }
     }
 }

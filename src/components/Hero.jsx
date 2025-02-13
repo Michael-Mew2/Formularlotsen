@@ -9,8 +9,8 @@ export default function Hero() {
     <div className='hero'>
         <HeroPicture />
         <div className="hero hero--overlay">
-          <h1 style={{backgroundColor: "green", margin: "20px", display: "flex"}}>{texts.startseite?.heroMainTitle || "lädt..."}</h1>
-          <h2 style={{backgroundColor: "green", margin: "20px", display: "flex"}}>{texts.startseite?.heroSubTitle || "lädt..."}</h2>
+          <h1 style={{backgroundColor: "green", margin: "20px", display: "flex"}}>{texts.startseite?.hero?.heroMainTitle || "lädt..."}</h1>
+          <h2 style={{backgroundColor: "green", margin: "20px", display: "flex"}}>{texts.startseite?.hero?.heroSubTitle || "lädt..."}</h2>
         </div>
     </div>
     </>

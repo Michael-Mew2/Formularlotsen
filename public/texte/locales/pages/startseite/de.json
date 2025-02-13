@@ -1,8 +1,31 @@
 {
     "startseite": {
-        "heroMainTitle": "Hallo und willkommen",
-        "heroSubTitle": "das ist unsere Webseite",
-        "title": "Wilkommen auf der Startseite",
-        "description": "Dies ist ein Beispieltext auf deutsch!"
+        "hero": {
+            "heroPicture": "images/heroImages/AdobeStock_548190067.jpeg",
+            "heroPictureAlt": "Personen bei einem Beratungsgespräch",
+            "heroMainTitle": "Hallo und willkommen",
+            "heroSubTitle": "das ist unsere Webseite"
+        },
+        "pageContent": {
+            "title": "Wilkommen auf der Startseite",
+            "description": "Dies ist ein Beispieltext auf deutsch!",
+            "firstList": {
+                "listTitle": "Die Bremerhavener Formularlotsen...",
+                "listContent": ["sind speziell geschulte Ehrenamtliche", "unterstützen beim Ausfüllen von Anträgen", "stellen mit Ihnen die dafür benötigten Unterlagen zusammen", "bieten kostenlose und vertrauliche Hilfe", "sind in vielen Stadtteilen zu finden", "vermitteln bei Bedarf den Kontakt zur passenden Beratungsstelle"]
+            },
+            "firstParagraph": {
+                "paragraphTitle": "Schnelle und einfache Unterstützung:",
+                "paragraphContent": ["Unsere Formularlotsen sind für Sie da, um Ihnen bei Ihren Anliegen zu helfen. Sie stehen Ihnen zu regelmäßigen Zeiten an festen Orten zur Verfügung, und Sie müssen keinen Termin vereinbaren. Dies ermöglicht Ihnen einen bequemen und unkomplizierten Zugang zu unseren Dienstleistungen. Wir sind darauf spezialisiert, vollständige Anträge mit allen erforderlichen Unterlagen zu bearbeiten, sodass die Ämter diese zügig verarbeiten können. Bei uns geht es darum, Ihre Anforderungen so einfach und effizient wie möglich zu erfüllen."]
+            },
+            "secondList": {
+                "listTitle": "Bei diesen Anträgen helfen wir!",
+                "listContent": ["Bürgergeld", "Grundsicherung", "Wohngeld", "Kindergeld", "Kinderzuschlag", "Elterngeld"]
+            },
+            "secondParagraph": {
+                "paragraphTitle": "Wen unterstützen die Formularlotsen?",
+                "paragraphContent": ["Die Formularlotsen helfen allen Bremerhavener:innen, die Unterstützung bei der Beantragung von Sozialleistungen möchten.", "Für die Verständigung sind bei Bedarf Sprachmittlerinnen und Sprachmittler dabei."]
+            }
+        }
+        
     }
 }
