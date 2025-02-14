@@ -16,6 +16,7 @@
 @use "components/buttons" as buttons;
 @use "components/card" as card;
 @use "components/nav" as nav;
+@use "components/languageSelector" as lan;
 
 // Seiten
 @use "pages/home" as home;

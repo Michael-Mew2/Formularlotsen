@@ -23,6 +23,7 @@ export default function HeaderDropdown() {
     <div className="headerDropdown" ref={dropdownRef}>
       {/* Button bleibt fixiert */}
       <motion.button
+        aria-label="Knopf für Sprachen - Button for Languages"
         onClick={toggleDropdown}
         className="headerCardToggleButton"
         animate={{
@@ -32,7 +33,9 @@ export default function HeaderDropdown() {
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         <FontAwesomeIcon
-          icon={isOpen ? "fa-regular fa-circle-xmark" : "fa-solid fa-language"}
+          icon={
+            isOpen ? "fa-regular fa-circle-xmark" : "fa-solid fa-earth-europe"
+          }
         />
       </motion.button>
 
