@@ -11,7 +11,6 @@ const HeaderBottom = React.forwardRef(({ isSticky, topOffset, scrollY }, ref) =>
         transform: isSticky ? "none" : `translateY(-${scrollY}px)`,
       }}
     >
-      <h2>Header Bottom</h2>
       <Nav />
     </div>
   );
