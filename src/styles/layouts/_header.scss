@@ -43,7 +43,7 @@
 .headerContentTop {
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem;
+  padding: vars.$margin-site;
 }
 
 .headerLogo {
@@ -67,11 +67,12 @@
       font-family: vars.$primary-font;
       font-weight: vars.$primary-weight;
       font-size: 1.6rem;
-      line-height: 1.3;
+      line-height: 1.2;
       
       color: vars.$secondary-light-color;
       .headerLogoCity {
         color: vars.$highlight;
+        font-size: 1.4rem;
       }
       
       .headerLogoBrand {
@@ -98,11 +99,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70px;// Fixierte Größe
-  height: 70px;
+  width: 64px;// Fixierte Größe
+  height: 64px;
   background-color: vars.$secondary-color;
   color: vars.$primary-color;
-  font-size: 2.2rem;
+  font-size: 2rem;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -120,3 +121,5 @@
   padding: 1rem; // Abstand zum Inhalt
   z-index: 100;
 }
+
+// ----------

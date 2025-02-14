@@ -29,6 +29,10 @@ export default function Nav() {
             {navigationTexts.navigation?.joinUs || "lädt..."}
           </NavLink>
         </li>
+        <li><a href="/">hier</a></li>
+        <li><a href="/">hier</a></li>
+        <li><a href="/">hier</a></li>
+        <li><a href="/">hier</a></li>
       </ul>
     </nav>
   );
