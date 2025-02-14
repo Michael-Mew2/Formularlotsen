@@ -36,6 +36,10 @@
     }
 }
 
+// ----------
+
+// header-top:
+
 .headerContentTop {
   display: flex;
   justify-content: space-between;
@@ -83,24 +87,36 @@
   }
 }
 
-.headerCard {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: vars.$secondary-color;
-  border: 1px solid vars.$secondary-light-color;
-  padding: 1rem;
-  z-index: 10;
+.headerDropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .headerCardToggleButton {
-  padding: 0.5rem 1rem;
-  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;// Fixierte Größe
+  height: 70px;
   background-color: vars.$secondary-color;
   color: vars.$primary-color;
+  font-size: 2.2rem;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
-  height: auto; // Initial height
+  transition: all 0.3s ease-in-out;
+}
+
+.headerCardContent {
+  position: absolute;
+  top: calc(100% - 8px); // Direkt unter dem Button
+  right: 0; // Immer bündig zur rechten Seite des Buttons
+  width: fit-content; // Breite des Buttons übernehmen
+  background-color: vars.$secondary-color;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 12px 0 12px 12px;
+  overflow: hidden;
+  padding: 1rem; // Abstand zum Inhalt
+  z-index: 100;
 }

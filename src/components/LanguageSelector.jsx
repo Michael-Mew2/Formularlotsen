@@ -9,6 +9,10 @@ export default function LanguageSelector() {
     <>
       <button onClick={() => setLanguage("de")}>🇩🇪 Deutsch</button>
       <button onClick={() => setLanguage("en")}>🇬🇧 English</button>  
+      <button onClick={() => setLanguage("en")}>🇬🇧 English</button>  
+      <button onClick={() => setLanguage("en")}>🇬🇧 English</button>  
+      <button onClick={() => setLanguage("en")}>🇬🇧 English</button>  
+      <button onClick={() => setLanguage("en")}>🇬🇧 English</button>  
     </>
   )
 }
