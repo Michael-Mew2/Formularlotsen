@@ -8,23 +8,30 @@ export default function Home() {
   const setHeroAlt = useHeroPictureStore((state) => state.setHeroAlt);
 
   useEffect(() => {
-    setHeroPicture("images/heroImages/AdobeStock_548190067.jpeg");
-    setHeroAlt("Personen bei einem Beratungsgespräch");
     setPage("pages/startseite");
   }, []);
 
-  // Neuer useEffect, um zu warten, bis die Texte geladen sind
-  // useEffect(() => {
-  //   if (texts && Object.keys(texts).length > 0) {
-  //     console.warn("From JSX (nach Laden der Texte):", texts, texts.startseite.title);
-  //   }
-  // }, [texts]);
+  useEffect(() => {
+    if (texts.startseite?.hero) {
+      setHeroPicture(texts.startseite.hero?.heroPicture);
+      setHeroAlt(texts.startseite?.hero?.heroPictureAlt);
+    }
+  }, [texts]);
 
   return (
     <div className="home">
-
-      <h1>{texts.startseite?.title || "lädt..."}</h1>
-      <p>{texts.startseite?.description || "lädt..."}</p>
+      <h1>{texts.startseite?.pageContent?.title || "lädt..."}</h1>
+      <p>{texts.startseite?.pageContent?.description || "lädt..."}</p>
+      <h3>
+        {texts.startseite?.pageContent?.firstList?.listTitle || "lädt..."}
+      </h3>
+      <ul>
+        {texts.startseite?.pageContent?.firstList?.listContent?.map(
+          (item, index) => (
+            <li key={index}>{item}</li>
+          )
+        )}
+      </ul>
     </div>
   );
 }

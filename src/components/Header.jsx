@@ -1,11 +1,12 @@
 import * as React from "react";
-import Nav from "./Nav";
-import LanguageSelector from "./LanguageSelector";
+import HeaderTop from "./HeaderTop";
+import HeaderBottom from "./HeaderBottom";
 
 export default function StickyHeader() {
   const [isSticky, setIsSticky] = React.useState(false);
   const [topOffset, setTopOffset] = React.useState(0);
   const [scrollY, setScrollY] = React.useState(0);
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
   const headerTopRef = React.useRef(null);
   const headerBottomRef = React.useRef(null);
@@ -16,18 +17,26 @@ export default function StickyHeader() {
 
     if (!headerTop || !headerBottom) return;
 
-    setTopOffset(headerTop.offsetHeight); // Speichert die Höhe von header--top
+    setTopOffset(headerTop.offsetHeight); // Speichert die Höhe von HeaderTop
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
 
-      const bottomOffset = window.innerHeight - headerBottom.offsetHeight; // Startpunkt für header--bottom
+      const bottomOffset = window.innerHeight - headerBottom.offsetHeight; // Startpunkt für HeaderBottom
 
       if (currentScrollY >= bottomOffset - headerTop.offsetHeight) {
         setIsSticky(true);
       } else {
         setIsSticky(false);
+      }
+
+      // Für den Scrolleffekt vom Top-Header:
+      if (currentScrollY > 20) {
+        // wert je nach bedarf anpassbar
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
       }
     };
 
@@ -39,21 +48,13 @@ export default function StickyHeader() {
 
   return (
     <header className="header">
-      <div ref={headerTopRef} className="header--top">
-        <h1>Header Top</h1>
-        <LanguageSelector />
-      </div>
-      <div
+      <HeaderTop ref={headerTopRef} isScrolled={isScrolled} />
+      <HeaderBottom
         ref={headerBottomRef}
-        className={`header--bottom ${isSticky ? "sticky" : ""}`}
-        style={{
-          top: isSticky ? `${topOffset}px` : "auto",
-          transform: isSticky ? "none" : `translateY(-${scrollY}px)`,
-        }}
-      >
-        <h2>Header Bottom</h2>
-        <Nav />
-      </div>
+        isSticky={isSticky}
+        topOffset={topOffset}
+        scrollY={scrollY}
+      />
     </header>
   );
 }
