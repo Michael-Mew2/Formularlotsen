@@ -20,8 +20,13 @@ export default function Home() {
 
   return (
     <div className="home">
-      <h1>{texts.startseite?.pageContent?.title || "lädt..."}</h1>
-      <p>{texts.startseite?.pageContent?.description || "lädt..."}</p>
+      <div className="pageTitle">
+        <h1>{texts.startseite?.pageContent?.title || "lädt..."}</h1>
+        {texts.startseite?.pageContent?.description && <p>{texts.startseite?.pageContent?.description || "lädt..."}</p>}
+      </div>
+      <div className="pageContent">
+
+      </div>
       <h3>
         {texts.startseite?.pageContent?.firstList?.listTitle || "lädt..."}
       </h3>
