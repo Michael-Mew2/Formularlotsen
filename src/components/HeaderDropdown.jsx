@@ -34,7 +34,7 @@ export default function HeaderDropdown() {
       >
         <FontAwesomeIcon
           icon={
-            isOpen ? "fa-regular fa-circle-xmark" : "fa-solid fa-earth-europe"
+            isOpen ? "fa-regular fa-circle-xmark" : "fa-solid fa-language"
           }
         />
       </motion.button>

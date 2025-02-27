@@ -1,0 +1,7 @@
+@use "../abstracts/variables" as vars;
+
+main {
+    background-color: vars.$primary-light-color;
+    padding: vars.$margin-site;
+    color: pink;
+}
