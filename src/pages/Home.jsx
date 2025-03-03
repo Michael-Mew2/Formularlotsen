@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import Hero from "../components/Hero";
 import { useHeroPictureStore, useLanguageStore } from "../store";
+import PageSection from "../components/PageSection";
+import PageContent from "../components/PageContent";
 
 export default function Home() {
   const { texts, setPage } = useLanguageStore();
@@ -18,25 +19,30 @@ export default function Home() {
     }
   }, [texts]);
 
+  useEffect(() => {
+    console.log(texts.startseite?.meta?.content);
+  }, [texts]);
+
+  const hasPageContent = texts.startseite?.pageContent && Array.isArray(texts.startseite?.pageContent)
+
   return (
     <div className="home">
-      <div className="pageTitle">
-        <h1>{texts.startseite?.pageContent?.title || "lädt..."}</h1>
-        {texts.startseite?.pageContent?.description && <p>{texts.startseite?.pageContent?.description || "lädt..."}</p>}
-      </div>
-      <div className="pageContent">
 
-      </div>
-      <h3>
-        {texts.startseite?.pageContent?.firstList?.listTitle || "lädt..."}
-      </h3>
-      <ul>
-        {texts.startseite?.pageContent?.firstList?.listContent?.map(
-          (item, index) => (
-            <li key={index}>{item}</li>
-          )
-        )}
-      </ul>
+      {/* 👾 Metadata: */}
+      <title>
+        {texts.startseite?.meta?.title ||
+          "Startseite Bremerhavener Formularlotsen"}
+      </title>
+      <meta
+        name="description"
+        content={
+          texts.startseite?.meta?.content ||
+          "Willkommen bei den Bremerhavener Formularlotsen, Ihre Ansprechpartner, falls Sie Probleme mit Ihren Formularen haben."
+        }
+      />
+
+      {/* 📄 Content: */}
+      {hasPageContent &&<PageContent pageContent={texts.startseite?.pageContent} />}
     </div>
   );
 }

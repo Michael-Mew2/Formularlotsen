@@ -1,31 +1,79 @@
 {
-    "startseite": {
-        "hero": {
-            "heroPicture": "images/heroImages/AdobeStock_548190067.jpeg",
-            "heroPictureAlt": "Personen bei einem Beratungsgespräch",
-            "heroMainTitle": "Kommen Sie mit dem Antrag nicht zurecht?",
-            "heroSubTitle": "Dann sind wir für Sie da!"
-        },
-        "pageContent": {
-            "title": "Wilkommen auf der Startseite",
-            
-            "firstList": {
-                "listTitle": "Die Bremerhavener Formularlotsen...",
-                "listContent": ["sind speziell geschulte Ehrenamtliche", "unterstützen beim Ausfüllen von Anträgen", "stellen mit Ihnen die dafür benötigten Unterlagen zusammen", "bieten kostenlose und vertrauliche Hilfe", "sind in vielen Stadtteilen zu finden", "vermitteln bei Bedarf den Kontakt zur passenden Beratungsstelle"]
-            },
-            "firstParagraph": {
-                "paragraphTitle": "Schnelle und einfache Unterstützung:",
-                "paragraphContent": ["Unsere Formularlotsen sind für Sie da, um Ihnen bei Ihren Anliegen zu helfen. Sie stehen Ihnen zu regelmäßigen Zeiten an festen Orten zur Verfügung, und Sie müssen keinen Termin vereinbaren. Dies ermöglicht Ihnen einen bequemen und unkomplizierten Zugang zu unseren Dienstleistungen. Wir sind darauf spezialisiert, vollständige Anträge mit allen erforderlichen Unterlagen zu bearbeiten, sodass die Ämter diese zügig verarbeiten können. Bei uns geht es darum, Ihre Anforderungen so einfach und effizient wie möglich zu erfüllen."]
-            },
-            "secondList": {
-                "listTitle": "Bei diesen Anträgen helfen wir!",
-                "listContent": ["Bürgergeld", "Grundsicherung", "Wohngeld", "Kindergeld", "Kinderzuschlag", "Elterngeld"]
-            },
-            "secondParagraph": {
-                "paragraphTitle": "Wen unterstützen die Formularlotsen?",
-                "paragraphContent": ["Die Formularlotsen helfen allen Bremerhavener:innen, die Unterstützung bei der Beantragung von Sozialleistungen möchten.", "Für die Verständigung sind bei Bedarf Sprachmittlerinnen und Sprachmittler dabei."]
-            }
-        }
+  "startseite": {
+    "meta":{
+        "title":"Willkommen bei den Bremerhavener Formularlotsen",
+        "content": "Wir helfen Ihnen bei Ausfüllen Ihrer Formulare, ganz kostenlos!"
+    },
+    "hero": {
+      "heroPicture": "images/heroImages/AdobeStock_548190067.jpeg",
+      "heroPictureAlt": "Personen bei einem Beratungsgespräch",
+      "heroMainTitle": "Kommen Sie mit dem Antrag nicht zurecht?",
+      "heroSubTitle": "Dann sind wir für Sie da!"
+    },
+    "pageContent": [
+      {
+        "type": "intro",
+        "groupId": "page-title",
+        "groupStyle": "page-content-title",
+        "title": "Willkommen auf unserer Startseite!",
+        "content": "das ist eine Sehr schöne Startseite"
+      },
+      {
+        "type": "list",
+        "style": "page-left",
+        "groupId": "introduction",
+        "groupStyle": "page-two-columns",
+        "title": "Die Bremerhavener Formularlotsen...",
+        "items": [
+          "sind speziell geschulte Ehrenamtliche",
+          "unterstützen beim Ausfüllen von Anträgen",
+          "stellen mit Ihnen die dafür benötigten Unterlagen zusammen",
+          "bieten kostenlose und vertrauliche Hilfe",
+          "sind in vielen Stadtteilen zu finden",
+          "vermitteln bei Bedarf den Kontakt zur passenden Beratungsstelle"
+        ]
         
-    }
+      },
+      {
+        "type": "image",
+        "style": "page-right",
+        "groupId": "introduction",
+        "description": "Untertitel des Bildes. kann dazu verwendet werden das Bild und dessen Inhalt besser zu beschreiben. Besonders geeignet wenn das Bild auf dem ersten Blick nicht sofort verständlich wird.",
+        "picture": "images/pages/home/AdobeStock_124267298.jpeg",
+        "alt": "Ein alternativer Text der angezeigt wird falls das Bild nicht geladen werden kann. Wird auch gerne von Screenreadern verwendet um Menschen mit Sehbehinderung zu erklären was auf dem Bild zu sehen ist."
+      },
+      {
+        "type": "list",
+        "style": "card-left",
+        "groupId": "info-main",
+        "title": "Bei diesen Anträgen helfen wir!",
+        "items": [
+          "Bürgergeld",
+          "Grundsicherung",
+          "Wohngeld",
+          "Kindergeld",
+          "Kinderzuschlag",
+          "Elterngeld"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "style": "page-right",
+        "groupId":"info-main",
+        "groupStyle": "page-two-columns",
+        "title": "Schnelle und einfache Unterstützung:",
+        "content": "Unsere Formularlotsen sind für Sie da, um Ihnen bei Ihren Anliegen zu helfen. Sie stehen Ihnen zu regelmäßigen Zeiten an festen Orten zur Verfügung, und Sie müssen keinen Termin vereinbaren. Dies ermöglicht Ihnen einen bequemen und unkomplizierten Zugang zu unseren Dienstleistungen. Wir sind darauf spezialisiert, vollständige Anträge mit allen erforderlichen Unterlagen zu bearbeiten, sodass die Ämter diese zügig verarbeiten können. Bei uns geht es darum, Ihre Anforderungen so einfach und effizient wie möglich zu erfüllen."
+      },
+      {
+        "type": "paragraph",        
+        "style": "page-full",
+        "groupId": "lower-main",
+        "title": "Wen unterstützen die Formularlotsen?",
+        "content": [
+          "Die Formularlotsen helfen allen Bremerhavener:innen, die Unterstützung bei der Beantragung von Sozialleistungen möchten.",
+          "Für die Verständigung sind bei Bedarf Sprachmittlerinnen und Sprachmittler dabei."
+        ]
+      }
+    ]
+  }
 }

@@ -29,8 +29,8 @@ export default function HeaderDropdown() {
         animate={{
           borderRadius: isOpen ? "50px 50px 0 0" : "50px",
         }}
-        whileHover={{ backgroundColor: "orange" }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        whileHover={{ backgroundColor: "#F49C44" }}
+        transition={{ duration: 0.1, ease: "easeInOut" }}
       >
         <FontAwesomeIcon
           icon={
