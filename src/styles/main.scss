@@ -10,6 +10,7 @@
 @use "layouts/header" as header;
 @use "layouts/footer" as footer;
 @use "layouts/grid" as grid;
+@use "layouts/pageContent" as page;
 
 // Komponenten
 @use "components/hero" as hero;

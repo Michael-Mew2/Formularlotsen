@@ -1,49 +1,81 @@
 {
-    "startseite": {
-        "hero": {
-            "heroPicture": "images/heroImages/AdobeStock_548190067.jpeg",
-            "heroPictureAlt": "People in a consultation meeting",
-            "heroMainTitle": "Hello and welcome",
-            "heroSubTitle": "This is our website"
+  "startseite": {
+    "meta": {
+      "title": "Welcome at the Homepage of the Bremerhaven Form Assistants",
+      "content": "We are the 'Bremerhavener Formularlotsen' your local form assistants who will help you fill out your forms. We work completly free, just visit us!"
+    },
+    "hero": {
+      "heroPicture": "images/heroImages/AdobeStock_548190067.jpeg",
+      "heroPictureAlt": "People in a consultation meeting",
+      "heroMainTitle": "Hello and welcome",
+      "heroSubTitle": "This is our website"
+    },
+    "pageContent": [
+      {
+        "type": "intro",
+        "groupId": "page-title",
+        "groupStyle": "page-content-title",
+        "visible": false,
+        "title": "Welcome to the homepage",
+        "content": "This is a sample text in English!"
+      },
+
+      {
+        "type": "list",
+        "style": "page-left",
+        "groupId": "introduction",
+        "groupStyle": "page-two-columns",
+        "title": "The Bremerhaven Form Assistants...",
+        "items": [
+          "are specially trained volunteers",
+          "assist in filling out applications",
+          "help you gather the necessary documents",
+          "offer free and confidential support",
+          "can be found in many city districts",
+          "connect you with the appropriate counseling center if needed"
+        ]
+      },
+      {
+        "type": "image",
+        "style": "page-right",
+        "groupId": "introduction",
+        "description": "Untertitel des Bildes. kann dazu verwendet werden das Bild und dessen Inhalt besser zu beschreiben. Besonders geeignet wenn das Bild auf dem ersten Blick nicht sofort verständlich wird.",
+        "picture": "images/pages/home/AdobeStock_124267298.jpeg",
+        "alt": "Ein alternativer Text der angezeigt wird falls das Bild nicht geladen werden kann. Wird auch gerne von Screenreadern verwendet um Menschen mit Sehbehinderung zu erklären was auf dem Bild zu sehen ist."
+      },
+      {
+          "type": "list",
+          "style": "card-left",
+          "groupId": "info-main",
+          "groupStyle": "page-two-columns",
+          "title": "We help with these applications!",
+          "items": [
+              "Citizen's allowance",
+              "Basic security",
+              "Housing allowance",
+              "Child benefit",
+              "Child supplement",
+              "Parental allowance"
+            ]
         },
-        "pageContent": {
-            "title": "Welcome to the homepage",
-            "description": "This is a sample text in English!",
-            "firstList": {
-                "listTitle": "The Bremerhaven Form Assistants...",
-                "listContent": [
-                    "are specially trained volunteers",
-                    "assist in filling out applications",
-                    "help you gather the necessary documents",
-                    "offer free and confidential support",
-                    "can be found in many city districts",
-                    "connect you with the appropriate counseling center if needed"
-                ]
-            },
-            "firstParagraph": {
-                "paragraphTitle": "Fast and easy support:",
-                "paragraphContent": [
-                    "Our form assistants are here to help you with your concerns. They are available at fixed locations during regular hours, and you do not need an appointment. This allows for convenient and straightforward access to our services. We specialize in processing complete applications with all the required documents so that the authorities can handle them quickly. Our goal is to make your requests as simple and efficient as possible."
-                ]
-            },
-            "secondList": {
-                "listTitle": "We help with these applications!",
-                "listContent": [
-                    "Citizen's allowance",
-                    "Basic security",
-                    "Housing allowance",
-                    "Child benefit",
-                    "Child supplement",
-                    "Parental allowance"
-                ]
-            },
-            "secondParagraph": {
-                "paragraphTitle": "Who do the form assistants support?",
-                "paragraphContent": [
-                    "The form assistants help all residents of Bremerhaven who need support in applying for social benefits.",
-                    "If needed, language mediators are available to assist with communication."
-                ]
-            }
-        }
-    }
+        {
+          "type": "paragraph",
+          "style": "page-right",
+          "groupId": "info-main",
+          "groupStyle": "page-two-columns",
+          "title": "Fast and easy support:",
+          "content": "Our form assistants are here to help you with your concerns. They are available at fixed locations during regular hours, and you do not need an appointment. This allows for convenient and straightforward access to our services. We specialize in processing complete applications with all the required documents so that the authorities can handle them quickly. Our goal is to make your requests as simple and efficient as possible."
+        },
+      {
+        "type": "paragraph",
+        "style": "page-full",
+        "groupId": "lower-main",
+        "title": "Who do the form assistants support?",
+        "content": [
+          "The form assistants help all residents of Bremerhaven who need support in applying for social benefits.",
+          "If needed, language mediators are available to assist with communication."
+        ]
+      }
+    ]
+  }
 }
