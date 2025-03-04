@@ -21,6 +21,62 @@
         "ariaLabel": "Link to our data-agreement",
         "route": "/"
       }
-    ]
+    ],
+    "externalLinks": [
+        {
+            "text": "The 'Bremerhavener Formularlotsen' is an ecumenical project of",
+        "links": [
+            {
+                "name": "the catholic church of Bremerhaven",
+                "url": "https://www.katholische-kirche-bremerhaven.de/"
+            },
+            {
+                "name": " the evangelical lutheran Church Bremerhaven",
+                "url": "https://www.kirchenkreis-bremerhaven.de/"
+            }
+        ]
+        }
+    ],
+    "externalPartner": {
+        "partner":{
+            "text": "A project of:",
+            "organizations": [
+                {
+                    "name":"catholicchurch of Bremerhaven",
+                    "src":"./images/external/KKB Logo.svg",
+                    "alt": "Logo of the catholic church Bremerhaven",
+                    "aria":"Clickable logo of the catholic church of Bremerhaven, which leads to the homepage of the catholic church (this website is currently only available in german)",
+                    "link": "https://www.katholische-kirche-bremerhaven.de/"
+                },
+                {
+                    "name":"evangelisch-lutherischen Kirsche Bremerhaven",
+                    "src":"./images/external/KK_Logo.jpg",
+                    "alt": "Logo of the evangelic church of Bremerhaven",
+                    "aria": "Clicable logoof the  of the evangelic church of Bremerhaven, which leads to the website of the 'kirchenkreis Bremerhaven' (currently only available in german)",
+                    "link": "https://www.kirchenkreis-bremerhaven.de/"
+                }
+            ]
+        },
+        "sponsor": {
+            "text": "Gefördert durch:",
+            "organizations": [
+                {
+                    "name": "Sozialreferat der Seestadt Bremerhaven",
+                    "src": "./images/external/BRHV-Logo-2zeilig_Sozialreferat-1.svg",
+                    "alt": "Logo of the  'Sozialreferat vom Magistrat der Seestadt Bremerhaven'",
+                    "aria": "Clickable logo of the 'Sozialreferat der Seestadt Bremerhaven', which leads to the homepage of the city of Bremerhaven",
+                    "link": "https://www.bremerhaven.de/de/"
+                }
+            ]
+        } 
+    },
+    "credits": {
+        "recreation": {
+            "text": "Diese Seite würde designed und programmiert von Michael"
+        },
+        "original": {
+            "text": "Die originale Seite, auf die diese beruht wurde von Wernke erstellt"
+        }
+    }
   }
 }
