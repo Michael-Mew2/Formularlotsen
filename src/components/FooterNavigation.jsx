@@ -1,15 +1,7 @@
 import * as React from 'react'
 import { NavLink } from "react-router-dom";
-import { useFooterLanguageStore, useLanguageStore } from '../store';
 
-export default function FooterNavigation() {
-    const {footerTexts, loadFooter} = useFooterLanguageStore();
-    const {language} = useLanguageStore();
-
-    React.useEffect(() => {
-        loadFooter(language);
-    }, [language]);
-
+export default function FooterNavigation({footerTexts}) {
   return (
     <div className='footerNavigation'>
         <ul>

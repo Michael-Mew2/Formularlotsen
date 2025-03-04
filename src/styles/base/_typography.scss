@@ -22,6 +22,10 @@ body {
         margin-bottom: vars.$margin-site;
     }
 
+    h5 {
+        font-size: vars.$font-size-page-text;
+    }
+
     p, li {
         font-size: vars.$font-size-page-text;
     }
