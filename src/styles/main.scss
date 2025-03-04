@@ -10,7 +10,6 @@
 @use "layouts/header" as header;
 @use "layouts/footer" as footer;
 @use "layouts/grid" as grid;
-@use "layouts/pageContent" as page;
 
 // Komponenten
 @use "components/hero" as hero;
@@ -18,6 +17,8 @@
 @use "components/card" as card;
 @use "components/nav" as nav;
 @use "components/languageSelector" as lan;
+@use "components/pageContent" as page;
+@use "components/seperations" as sep;
 
 // Seiten
 @use "pages/home" as home;

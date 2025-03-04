@@ -1,0 +1,26 @@
+{
+  "footer": {
+    "navLinks": [
+      {
+        "name": "Homepage",
+        "ariaLabel": "Link to our homepage",
+        "route": "/"
+      },
+      {
+        "name": "Contact",
+        "ariaLabel": "Link to our contact-page",
+        "route": "/"
+      },
+      {
+        "name": "Imprint",
+        "ariaLabel": "Link to our imprint",
+        "route": "/"
+      },
+      {
+        "name": "Data-agreement",
+        "ariaLabel": "Link to our data-agreement",
+        "route": "/"
+      }
+    ]
+  }
+}
