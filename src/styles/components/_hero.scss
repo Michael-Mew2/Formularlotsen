@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as vars;
+
 .hero {
     width: 100%;
     height: 100vh;
@@ -16,11 +17,51 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: vars.$primary-color;
-        opacity: 75%;
         z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // padding: vars.$margin-site;
     //     -webkit-backdrop-filter: blur(5px);
     // backdrop-filter: blur(8px);
-        
+    }      
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: vars.$primary-color;
+        opacity: 80%;
+        z-index: -1;
+    }
+    
+    &--insidebox {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: vars.$hero-secondary-fs;
+        // border: 2px solid lime;
+        width: 80%;
+        height: fit-content;
+        opacity: 100%;
+
+        h1, h2 {
+            display: inline-block;
+            // background-color: vars.$primary-light-color;
+            font-family: vars.$primary-font;
+            font-weight: vars.$primary-weight;
+            font-size: vars.$hero-main-fs;
+            color: vars.$secondary-color;
+            width: 60%;
+        }
+
+        h2 {
+            align-self: flex-end;
+            color: white;
+    
+        }
     }
 }

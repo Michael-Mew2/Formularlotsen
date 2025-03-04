@@ -1,37 +1,73 @@
 @use "../abstracts/variables" as vars;
 
 nav {
+    height: 100%;
+    background-color: vars.$primary-color;
     ul {
-        margin: vars.$margin-site ;
+        // margin: 0 vars.$margin-site ;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 4px;
+        height: 100%;
         li {
+            display: flex;
+            flex-grow: 1;
+            // border: 1px solid lime;
+            text-align: center;
+            // height: 100%;
+            align-items: stretch;
             
             &:first-of-type {
                 padding-left: 0;
+                
+                &::before {
+                    content: "";
+                    padding-left: vars.$margin-site;
+                    background-color: vars.$secondary-light-color;
+                    border-right: 4px inset vars.$primary-color;
+                }
+                
             }
             
             &:last-of-type {
                 padding-right: 0;
-                border: none;
-            }            
 
+                &::after {
+                    content: "";
+                    padding-left: vars.$margin-site;
+                    background-color: vars.$secondary-light-color;
+                    border-left: 4px inset vars.$primary-color;
+                }
+            }
+            
             a {
+                padding: vars.$margin-site 0;
+                align-self: stretch;
                 font-size: vars.$header-secondary-fs;
                 text-decoration: none;
                 font-family: vars.$primary-font;
                 color: white;
                 font-weight: 600;
                 letter-spacing: 0.06rem;
-                padding: vars.$margin-site;
+                // padding: vars.$margin-site;
+                width: 100%;
+                background-color: vars.$secondary-light-color;
+                color: vars.$primary-color;
+
                 
                 &.active {
                     background-color: vars.$primary-light-color;
+                    color: white;
+
+                    &:hover {
+                        background-color: vars.$primary-light-color;
+                        color: white;
+                    }
                 }
 
                 &:hover {
-                    background-color: vars.$secondary-light-color;
+                    background-color: vars.$secondary-color;
                     color: vars.$primary-color;
                 }
 

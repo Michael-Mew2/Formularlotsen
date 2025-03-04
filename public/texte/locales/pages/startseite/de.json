@@ -3,12 +3,12 @@
         "hero": {
             "heroPicture": "images/heroImages/AdobeStock_548190067.jpeg",
             "heroPictureAlt": "Personen bei einem Beratungsgespräch",
-            "heroMainTitle": "Hallo und willkommen",
-            "heroSubTitle": "das ist unsere Webseite"
+            "heroMainTitle": "Kommen Sie mit dem Antrag nicht zurecht?",
+            "heroSubTitle": "Dann sind wir für Sie da!"
         },
         "pageContent": {
             "title": "Wilkommen auf der Startseite",
-            "description": "Dies ist ein Beispieltext auf deutsch!",
+            
             "firstList": {
                 "listTitle": "Die Bremerhavener Formularlotsen...",
                 "listContent": ["sind speziell geschulte Ehrenamtliche", "unterstützen beim Ausfüllen von Anträgen", "stellen mit Ihnen die dafür benötigten Unterlagen zusammen", "bieten kostenlose und vertrauliche Hilfe", "sind in vielen Stadtteilen zu finden", "vermitteln bei Bedarf den Kontakt zur passenden Beratungsstelle"]
