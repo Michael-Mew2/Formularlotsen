@@ -1,0 +1,10 @@
+@use "../abstracts/variables" as vars;
+
+.seperation {
+
+    &--orange {
+        height: vars.$margin-site;
+        background-color: vars.$warning;
+        margin-bottom: vars.$margin-site;
+    }
+}

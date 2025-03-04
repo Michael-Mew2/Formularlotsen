@@ -8,6 +8,7 @@ $warning: #F49C44;
 $highlight: #E95555;
 
 $text-color: #333;
+$text-alt-color: #FBFBFF;
 
 // Spacing
 $spacing-xs: 1px;
@@ -17,16 +18,27 @@ $spacing-lg: 24px;
 
 // Margin
 $margin-site: 1.6rem;
-$margin-main: 3.2rem;
+$margin-main: 4.8rem;
+$margin-xs: 0.6rem;
 
 // Fonts
 $primary-font: mundial, sans-serif;
-$primary-weight: 600;
 $primary-style: normal;
+
+// Fontweights
+$primary-weight: 600;
+$font-weight-page-title-main: 600;
 
 // Fontsizes
 $header-main-fs: 1.6rem;
 $header-secondary-fs: 1.4rem;
 $hero-main-fs: 4.0rem;
 $hero-secondary-fs: 2.4rem;
-$paragraph-standard: 1.2rem
+$paragraph-standard: 1.2rem;
+$font-size-page-title-main: 3.0rem;
+$font-size-page-title-div: 2.2rem;
+$font-size-page-text: 1.6rem;
+$font-size-page-bullet: 1.6rem;
+$font-size-page-figcaption: 1.2rem;
+$font-size-footer-nav: 1.4rem;
+$font-size-footer-title: 1.2rem;

@@ -1,0 +1,147 @@
+@use "../abstracts/variables" as vars;
+
+footer {
+    background-color: white;
+    .footerNavigation {
+        margin: 0 vars.$margin-site;
+        margin-bottom: vars.$margin-main;
+
+        ul {
+            display: flex;
+            // color: grey;
+            justify-content: space-between;
+            align-items: center;
+            background-color: vars.$primary-color;
+            gap: 4px;
+            height: 100%;
+
+            li {
+                display: flex;
+                flex-grow: 1;
+                text-align: center;
+                padding: vars.$margin-xs ;
+                // border: 2px solid orange;
+                background-color: white;
+                
+                a {
+                    width: 100%;
+                    text-decoration: none;
+                    font-size: vars.$font-size-footer-nav;
+                    // font-weight: vars.$primary-weight;
+                    letter-spacing: vars.$spacing-xs;
+                    color: vars.$primary-color;
+                }
+                
+                &:hover {
+                    background-color: vars.$highlight;
+                    
+                    a {
+                        height: 100%;
+                        color: vars.$text-alt-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .footerPartner {
+        font-family: vars.$primary-font;
+        display: flex;
+        margin: vars.$margin-site 0;
+        justify-content: flex-start;
+        // flex-direction: row-reverse;
+        padding: 0 vars.$margin-site;
+        gap: vars.$margin-main;
+    
+        h5 {
+            font-size: vars.$font-size-footer-title;
+            color: vars.$primary-color;
+            margin-bottom: vars.$spacing-md;
+        }
+        
+        div { /* sectionLeft & sectionRight */
+            // border: 2px solid hotpink;
+            gap: 10px;
+            width: 40%;
+    
+            .footerLogoContainer {
+                // border: 2px solid green;
+                height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                width: auto;
+                gap: 10px;
+    
+                a {
+                    // border: 2px solid orange;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: auto;
+                    // flex: 1; /* Alle <a>-Tags haben gleiche Breite */
+    
+                    img {
+                        height: 100%;
+                        width: auto; /* Wichtige Änderung */
+                        max-width: 100%;
+                        object-fit: cover;
+                        // border: 2px solid blue;
+                    }
+                }
+            }
+        }
+    }
+
+    .footerExternal {
+        margin: vars.$margin-site;
+        p {
+            font-family: vars.$primary-font;
+            font-size: vars.$font-size-footer-title;
+            color: vars.$primary-color;
+
+            a {
+                text-decoration: none;
+                color: vars.$primary-light-color;
+
+                &:hover {
+                    background-color: vars.$highlight;
+                    color: vars.$text-alt-color;
+                }
+            }
+        }
+    }
+
+    .footerCredits {
+        text-align: center;
+        font-family: vars.$primary-font;
+        
+        .upperBlock{
+            margin: vars.$margin-site 0;
+            margin-bottom: 0;
+            padding: vars.$margin-site;
+            background-color: vars.$highlight;
+            color: vars.$text-alt-color;
+
+        }
+        .specialThanks{
+            // margin: vars.$margin-site 0;
+            padding: vars.$margin-site;
+            background-color: vars.$text-alt-color;
+            color: vars.$primary-color;
+            
+        }
+        p {
+            font-size: vars.$font-size-footer-title;
+        }
+        
+    }
+    .end {
+    display: block;
+    height: 10px;
+        width: 100%;
+        background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(255, 154, 0, 1) 10%, rgba(208, 222, 33, 1) 20%, rgba(79, 220, 74, 1) 30%, rgba(63, 218, 216, 1) 40%, rgba(47, 201, 226, 1) 50%, rgba(28, 127, 238, 1) 60%, rgba(95, 21, 242, 1) 70%, rgba(186, 12, 248, 1) 80%, rgba(251, 7, 217, 1) 90%, rgba(255, 0, 0, 1) 100%);
+    }
+}
+
