@@ -114,28 +114,28 @@ footer {
     }
 
     .footerCredits {
+        text-align: center;
+        font-family: vars.$primary-font;
+        
         .upperBlock{
-            margin: vars.$margin-main 0;
+            margin: vars.$margin-site 0;
             margin-bottom: 0;
             padding: vars.$margin-site;
             background-color: vars.$highlight;
-            text-align: center;
-            font-family: vars.$primary-font;
             color: vars.$text-alt-color;
+
         }
         .specialThanks{
             // margin: vars.$margin-site 0;
             padding: vars.$margin-site;
             background-color: vars.$text-alt-color;
-            text-align: center;
-            font-family: vars.$primary-font;
             color: vars.$primary-color;
             
-            p {
-                position: relative;
-            }
-            
         }
+        p {
+            font-size: vars.$font-size-footer-title;
+        }
+        
     }
     .end {
     display: block;
