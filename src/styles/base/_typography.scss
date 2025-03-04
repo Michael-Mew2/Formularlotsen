@@ -1,9 +1,37 @@
 @use "../abstracts/variables" as vars;
 
 // Standard-Typographie:
-body {
+* {
     font-family: vars.$primary-font;
+}
+
+body {
     font-weight: vars.$primary-weight;
     font-style: vars.$primary-style;
     font-size: 16px;
+
+    h3 {
+        font-size: vars.$font-size-page-title-main;
+        font-weight: vars.$font-weight-page-title-main;
+        margin-bottom: vars.$margin-site;
+    }
+
+    h4 {
+        font-weight: vars.$font-weight-page-title-main;
+        font-size: vars.$font-size-page-title-div;
+        margin-bottom: vars.$margin-site;
+    }
+
+    p, li {
+        font-size: vars.$font-size-page-text;
+    }
+
+    figcaption {
+        font-size: vars.$font-size-page-figcaption;
+        margin-right: vars.$margin-site;
+    }
+
+    a {
+        font-family: vars.$primary-font;
+    }
 }

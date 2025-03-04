@@ -1,0 +1,26 @@
+{
+  "footer": {
+    "navLinks": [
+      {
+        "name": "Startseite",
+        "ariaLabel": "Link zu unserer Startseite",
+        "route": "/"
+      },
+      {
+        "name": "Kontakt",
+        "ariaLabel": "Link zu unserer Kontaktseite",
+        "route": "/"
+      },
+      {
+        "name": "Impressum",
+        "ariaLabel": "Link zu unserem Impressum",
+        "route": "/"
+      },
+      {
+        "name": "Datenschutz",
+        "ariaLabel": "Link zu unseren Datenschutzbestimmungen",
+        "route": "/"
+      }
+    ]
+  }
+}

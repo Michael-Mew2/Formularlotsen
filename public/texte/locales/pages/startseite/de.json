@@ -20,9 +20,9 @@
       },
       {
         "type": "list",
-        "style": "page-left",
+        "style": "text-left",
         "groupId": "introduction",
-        "groupStyle": "page-two-columns",
+        "groupStyle": "text-with-picture-right",
         "title": "Die Bremerhavener Formularlotsen...",
         "items": [
           "sind speziell geschulte Ehrenamtliche",
@@ -43,9 +43,18 @@
         "alt": "Ein alternativer Text der angezeigt wird falls das Bild nicht geladen werden kann. Wird auch gerne von Screenreadern verwendet um Menschen mit Sehbehinderung zu erklären was auf dem Bild zu sehen ist."
       },
       {
+        "type": "paragraph",
+        "style": "page-full",
+        "groupId":"middle",
+        "groupStyle": "full-width",
+        "title": "Schnelle und einfache Unterstützung:",
+        "content": "Unsere Formularlotsen sind für Sie da, um Ihnen bei Ihren Anliegen zu helfen. Sie stehen Ihnen zu regelmäßigen Zeiten an festen Orten zur Verfügung, und Sie müssen keinen Termin vereinbaren. Dies ermöglicht Ihnen einen bequemen und unkomplizierten Zugang zu unseren Dienstleistungen. Wir sind darauf spezialisiert, vollständige Anträge mit allen erforderlichen Unterlagen zu bearbeiten, sodass die Ämter diese zügig verarbeiten können. Bei uns geht es darum, Ihre Anforderungen so einfach und effizient wie möglich zu erfüllen."
+      },
+      {
         "type": "list",
         "style": "card-left",
         "groupId": "info-main",
+        "groupStyle":"text-with-card-left",
         "title": "Bei diesen Anträgen helfen wir!",
         "items": [
           "Bürgergeld",
@@ -57,17 +66,10 @@
         ]
       },
       {
-        "type": "paragraph",
-        "style": "page-right",
-        "groupId":"info-main",
-        "groupStyle": "page-two-columns",
-        "title": "Schnelle und einfache Unterstützung:",
-        "content": "Unsere Formularlotsen sind für Sie da, um Ihnen bei Ihren Anliegen zu helfen. Sie stehen Ihnen zu regelmäßigen Zeiten an festen Orten zur Verfügung, und Sie müssen keinen Termin vereinbaren. Dies ermöglicht Ihnen einen bequemen und unkomplizierten Zugang zu unseren Dienstleistungen. Wir sind darauf spezialisiert, vollständige Anträge mit allen erforderlichen Unterlagen zu bearbeiten, sodass die Ämter diese zügig verarbeiten können. Bei uns geht es darum, Ihre Anforderungen so einfach und effizient wie möglich zu erfüllen."
-      },
-      {
         "type": "paragraph",        
-        "style": "page-full",
-        "groupId": "lower-main",
+        "style": "text-right",
+        "groupId": "info-main",
+        "groupStyle":"text-with-card-left",
         "title": "Wen unterstützen die Formularlotsen?",
         "content": [
           "Die Formularlotsen helfen allen Bremerhavener:innen, die Unterstützung bei der Beantragung von Sozialleistungen möchten.",

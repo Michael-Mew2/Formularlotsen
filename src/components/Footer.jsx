@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import FooterNavigation from "./FooterNavigation";
+import FooterExternal from "./FooterExternal";
+import FooterPartner from "./FooterPartner";
+import FooterCredits from "./FooterCredits";
 
 export default function Footer() {
   return (
     <footer>
-        <h1>Footer</h1>
+      <div className="seperation--orange" />
+      <FooterNavigation />
+      <FooterExternal />
+      <FooterPartner />
+      <FooterCredits />
     </footer>
-  )
+  );
 }

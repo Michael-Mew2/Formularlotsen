@@ -22,9 +22,9 @@
 
       {
         "type": "list",
-        "style": "page-left",
+        "style": "text-left",
         "groupId": "introduction",
-        "groupStyle": "page-two-columns",
+        "groupStyle": "text-with-picture-right",
         "title": "The Bremerhaven Form Assistants...",
         "items": [
           "are specially trained volunteers",
@@ -39,15 +39,23 @@
         "type": "image",
         "style": "page-right",
         "groupId": "introduction",
-        "description": "Untertitel des Bildes. kann dazu verwendet werden das Bild und dessen Inhalt besser zu beschreiben. Besonders geeignet wenn das Bild auf dem ersten Blick nicht sofort verständlich wird.",
+        "description": "",
         "picture": "images/pages/home/AdobeStock_124267298.jpeg",
         "alt": "Ein alternativer Text der angezeigt wird falls das Bild nicht geladen werden kann. Wird auch gerne von Screenreadern verwendet um Menschen mit Sehbehinderung zu erklären was auf dem Bild zu sehen ist."
+      },
+      {
+        "type": "paragraph",
+        "style": "page-full",
+        "groupId": "middle",
+        "groupStyle": "full-width",
+        "title": "Fast and easy support:",
+        "content": "Our form assistants are here to help you with your concerns. They are available at fixed locations during regular hours, and you do not need an appointment. This allows for convenient and straightforward access to our services. We specialize in processing complete applications with all the required documents so that the authorities can handle them quickly. Our goal is to make your requests as simple and efficient as possible."
       },
       {
           "type": "list",
           "style": "card-left",
           "groupId": "info-main",
-          "groupStyle": "page-two-columns",
+          "groupStyle": "text-with-card-left",
           "title": "We help with these applications!",
           "items": [
               "Citizen's allowance",
@@ -58,18 +66,10 @@
               "Parental allowance"
             ]
         },
-        {
-          "type": "paragraph",
-          "style": "page-right",
-          "groupId": "info-main",
-          "groupStyle": "page-two-columns",
-          "title": "Fast and easy support:",
-          "content": "Our form assistants are here to help you with your concerns. They are available at fixed locations during regular hours, and you do not need an appointment. This allows for convenient and straightforward access to our services. We specialize in processing complete applications with all the required documents so that the authorities can handle them quickly. Our goal is to make your requests as simple and efficient as possible."
-        },
       {
         "type": "paragraph",
-        "style": "page-full",
-        "groupId": "lower-main",
+        "style": "text-right",
+        "groupId": "info-main",
         "title": "Who do the form assistants support?",
         "content": [
           "The form assistants help all residents of Bremerhaven who need support in applying for social benefits.",
