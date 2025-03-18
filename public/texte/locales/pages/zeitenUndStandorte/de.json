@@ -97,12 +97,63 @@
         "borough": "Lehe",
         "location": "Pfarrheim der Herz-Jesu Lehe",
         "address": ["Geibelstr. 11", "27576 Bremerhaven"],
-        "schedule": [{"dayId": 2, "timeId": 0}],
+        "schedule": [{ "dayId": 2, "timeId": 0 }],
         "additionalInformation": {
-            "publicTransport": {
+          "publicTransport": {
             "icon": "fa-bus",
             "title": "Erreichbar mit",
             "content": "der 502, 508, 509 und S (Haltestelle Ernst-Reuter-Pl., ca. 10 min Laufweg) oder der 504, 505 und 506 (Haltestelle Waldemar-Becké-Pl., ca. 9 min. Laufweg)"
+          }
+        },
+        "accessabilityIds": [0, 1],
+        "map": "",
+        "location-svg": ""
+      },
+      {
+        "borough": "Geestemünde",
+        "location": "Gemeindehaus der Marienkirche",
+        "address": ["An der Mühle 12", "27570 Bremerhaven"],
+        "schedule": [{ "dayId": 2, "timeId": 1 }],
+        "additionalInformation": {
+          "publicTransport": {
+            "icon": "fa-bus",
+            "title": "Erreichbar mit",
+            "content": "der 502, 505, 506, HL und S (Haltestelle Konrad-Adenauer-Platz, ca. 6 bis 12 min. Laufweg)"
+          }
+        },
+        "accessabilityIds": [0, 1],
+        "map": "",
+        "location-svg": ""
+      },
+      {
+        "borough": "Mitte",
+        "location": "Kirchengemeinde der St. Marien",
+        "address": ["Grazer Str. 15", "27568 Bremerhaven"],
+        "schedule": [
+          { "dayId": 3, "timeId": 0 },
+          { "dayId": 4, "timeId": 0 }
+        ],
+        "additionalInformation": {
+          "publicTransport": {
+            "icon": "fa-bus",
+            "title": "Erreichbar mit",
+            "content": "der 502, 504, 505, 506, 508, 509 und S (Haltestelle Bürgermeister-Smidt-Str., ca. 4 min Laufweg)"
+          }
+        },
+        "accessabilityIds": [0, 1],
+        "map": "",
+        "location-svg": ""
+      },
+      {
+        "borough": "Wulsdorf",
+        "location": "Kirchengemeinde der St. Marien",
+        "address": ["Grazer Str. 15", "27568 Bremerhaven"],
+        "schedule": [{ "dayId": 4, "timeId": 1 }],
+        "additionalInformation": {
+          "publicTransport": {
+            "icon": "fa-bus",
+            "title": "Erreichbar mit",
+            "content": "der 502, 504, 505 und 506 (Haltestelle Bielefelder Str., ca. 5 min. Laufweg)"
           }
         },
         "accessabilityIds": [0, 1],
