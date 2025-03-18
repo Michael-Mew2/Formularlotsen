@@ -27,7 +27,9 @@ export default function GridTable() {
       {/* table-head */}
       <div className="grid-header">
         {tableHeads.map((column, index) => (
-          <div key={index}>{column.title}</div>
+          <div key={index}>
+            <h5>{column.title}</h5>
+          </div>
         ))}
       </div>
 
@@ -42,7 +44,9 @@ export default function GridTable() {
 
           return (
             <React.Fragment key={day.id}>
-              <div className="grid-cell">{day.name}</div>
+              <div className="grid-cell day">
+                <p>{day.name}</p>
+              </div>
 
               {locationsForDay.map((location, index) => {
                 return location.schedule.map((schedule, subIndex) => {
@@ -66,14 +70,19 @@ export default function GridTable() {
                   return (
                     <React.Fragment key={`${index}-${subIndex} `}>
                       {/* time */}
-                      <div className="grid-cell">{time}</div>
+                      <div className="grid-cell time">
+                        <p>{time}</p>
+                      </div>
 
                       {/* location + icons */}
-                      <div className="grid-cell">
-                        <div className="grid-cell-location">
-                          {location.location}
-                        </div>
-                        <div className="grid-cell-icons">{accessIcons}</div>
+                      <div className="grid-cell location" onClick={""}>
+                          <div className="grid-cell-borough">
+                            <p>{location.borough}</p>
+                          </div>
+                          <div className="grid-cell-location">
+                            <p>{location.location}</p>
+                          </div>
+                          <div className="grid-cell-icons">{accessIcons}</div>
                       </div>
                     </React.Fragment>
                   );
