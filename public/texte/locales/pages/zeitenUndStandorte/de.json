@@ -1,0 +1,89 @@
+{
+  "zeitenUndStandorte": {
+    "meta": {
+      "title": "Hier finden Sie uns!",
+      "content": "Wir sind nicht zu jeder Zeit am selben Standort, daher sehen Sie hier an welchen Tagen und Uhrzeiten an welchem Ort sind."
+    },
+    "hero": {
+      "heroPicture": "",
+      "heroPictureAlt": "",
+      "heroMainTitle": "",
+      "heroSubTitle": ""
+    },
+    "pageContent": [
+      {
+        "type": "intro",
+        "groupId": "page-title",
+        "groupStyle": "page-content-title",
+        "title": "Hier sehen Sie wann wir wo für Sie da sind!",
+        "content": "Einfach vorbeischauen, es ist kein Termin notwendig!"
+      },
+      {
+        "type": "table",
+        "style": "left-column",
+        "groupId": "time-table",
+        "groupStyle": "two-equal-columns",
+        "title": "Wir sind täglich für Sie da!",
+        "items": "tableTimesFunction"
+      }
+    ],
+    "locations": [
+      {
+        "dayOrder": 0,
+        "timeOrder": 0,
+        "day": "Montag",
+        "time": "10 - 12 Uhr",
+        "borough": "Leherheide",
+        "location": "Gemeindehaus der Lukaskirche",
+        "address": ["Louise-Schroeder-Str.1", "27578 Bremerhaven"],
+        "additionalInformation": {
+          "publicTransport": {
+            "icon": "fa-bus",
+            "title": "Erreichbar mit",
+            "content": "Erreichbar mit der 502, 503, 508 und S (Haltestelle Louise-Schroeder-Str.) oder der 506 (Haltestelle Hermann-Löns-Straße, ca. 14 min. Laufweg)"
+          }
+        },
+        "accessability": ["wheelchair", "toys"],
+        "map": "",
+        "location-svg": ""
+      },
+      {
+        "dayOrder": 1,
+        "timeOrder": 0,
+        "day": "Dienstag",
+        "time": "10 - 12 Uhr",
+        "borough": "Geestemünde",
+        "location": "Pfarrheim der Herz-Jesu Geestemünde",
+        "address": ["Buchtstr. 54", "27570 Bremerhaven"],
+        "additionalInformation": {
+            "publicTransport": {
+                "icon": "fa-bus",
+                "title": "Erreichbar mit",
+                "content": "Erreichbar mit der jedem Bus der am Hauptbahnhof hält!"
+            }
+        },
+        "accessability": ["wheelchair", "toys"],
+        "map": "",
+        "location-svg": ""
+      }
+    ],
+    "accessability": {
+      "wheelchair": {
+        "icon": "fa-wheelchair",
+        "aria": "Bild mit einem Rollstuhl - Dieser Standort ist Rollstuhl gerecht",
+        "description": "Standorte mit diesem Symbol sind uneingeschränkt mit dem Rollstuhl erreichbar und bieten eine rollstuhl gerechte Toilette.",
+        "link": ""
+      },
+      "toys": {
+        "icon": "fa-puzzle-piece",
+        "aria": "Bild mit einem Puzzelteil - Dieser Standort bietet Spiele für die Kinder",
+        "description": "Standorte mit diesem Symbol haben Spielzeuge und Malvorlagen zur Unterhaltung von (klein)Kindern"
+      },
+      "baby": {
+        "icon": "fa-baby",
+        "aria": "Bild mit einem Baby - Dieser Standort bietet eine Wickelmöglichkeit für Babies und Kleinkinder",
+        "descriptin": "Standorte mit diesem Symbol haben einen Wickeltisch zum wechseln der Windeln von Babies und Kleinkindern"
+      }
+    }
+  }
+}

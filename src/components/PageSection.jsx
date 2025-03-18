@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;

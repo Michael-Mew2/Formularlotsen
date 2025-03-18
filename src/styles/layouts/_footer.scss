@@ -48,7 +48,7 @@ footer {
         font-family: vars.$primary-font;
         display: flex;
         margin: vars.$margin-site 0;
-        justify-content: flex-start;
+        justify-content: space-between;
         // flex-direction: row-reverse;
         padding: 0 vars.$margin-site;
         gap: vars.$margin-main;
