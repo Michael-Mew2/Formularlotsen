@@ -1,4 +1,5 @@
 import * as React from "react";
+import GridTable from "./GridTable";
 
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;
@@ -49,8 +50,10 @@ export default function PageSection({ section }) {
           <figcaption>{section.description}</figcaption>
         </figure>
       );
+
+    case "table":
+      return <GridTable data={section.data} title={section.title} />;
     default:
       return null;
   }
-
 }
