@@ -1,0 +1,24 @@
+.hero {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+
+    &--picture {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    &--overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0f3f6942;
+        z-index: 1;
+    //     -webkit-backdrop-filter: blur(5px);
+    // backdrop-filter: blur(8px);
+        
+    }
+}

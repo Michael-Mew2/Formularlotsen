@@ -1,0 +1,30 @@
+.header {
+    width: 100%;
+    position: relative;
+  
+    &--top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      z-index: 5;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+  
+    &--bottom {
+      position: fixed;
+      bottom: 0; // Startet am unteren Rand
+      left: 0;
+      right: 0;
+      background: red;
+      z-index: 4;
+    //   transition: bottom 0.3s ease-in-out, transform 0.3s ease-out;
+  
+      &.sticky {
+        top: 50px; // Dynamische Höhe kommt aus React
+        bottom: auto;
+        transform: none; // Kein weiteres Hochbewegen nach dem Kleben
+      }
+    }
+  }
