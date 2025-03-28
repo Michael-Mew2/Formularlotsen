@@ -1,38 +1,31 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
+name: "🐛 Bug Report"
+about: "Melde einen Fehler, der das System beeinträchtigt."
+title: "[Bug] Kurzbeschreibung des Fehlers"
+labels: ["bug", "needs-triage"]
+assignees: []
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+# 🐛 Fehlerbericht
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+## 📝 Beschreibung  
+Beschreibe den Fehler kurz und präzise.
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+## 🔄 Schritte zur Reproduktion  
+1. Gehe zu '...'  
+2. Klicke auf '...'  
+3. Siehe den Fehler: '...'
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+## 💻 Erwartetes Verhalten  
+Was sollte eigentlich passieren?
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+## 🖥 Umgebung  
+- Betriebssystem: Windows / Mac / Linux  
+- Node.js Version: `16.x`  
+- Browser (falls relevant): Chrome / Firefox / Edge  
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+## 📷 Screenshots oder Logs  
+Falls verfügbar, bitte relevante Screenshots oder Konsolen-Logs anhängen.
 
-**Additional context**
-Add any other context about the problem here.
+## 🔍 Mögliche Lösung  
+Falls du eine Idee zur Behebung hast, füge sie hier hinzu.

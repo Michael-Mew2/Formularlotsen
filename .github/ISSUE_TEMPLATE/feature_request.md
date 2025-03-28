@@ -1,20 +1,24 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
-
+name: "✨ Feature Request"
+about: "Schlage eine neue Funktion oder Verbesserung vor."
+title: "[Feature] Kurzbeschreibung der Idee"
+labels: ["enhancement", "discussion"]
+assignees: []
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+# ✨ Funktionswunsch Anfrage
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+## 🚀 Beschreibung  
+Beschreibe die neue Funktion oder Verbesserung.
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## 🎯 Warum ist das Feature nützlich?  
+Erkläre, warum diese Änderung das Projekt verbessert.
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+## 🔄 Mögliche Implementierung  
+Falls du eine Idee hast, wie es umgesetzt werden kann, schreibe sie hier.
+
+## 💡 Alternative Lösungen  
+Gibt es andere Wege, das gleiche Ziel zu erreichen?
+
+## 🖼 Zusätzliche Informationen  
+Falls möglich, füge Skizzen, Mockups oder Beispiele hinzu.
