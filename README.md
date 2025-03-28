@@ -11,7 +11,7 @@
   <a href="https://github.com/Michael-Mew2/formularlotsen/discussions">
     <img alt="Frag uns alles" src="https://img.shields.io/badge/Frag%20uns-alles-1abc9c.svg?style=flat-square">
   </a>
-  <a href="https://github.com/Michael-Mew2/formularlotsen/blob/main/CONTRIBUTING.md">
+  <a href="https://github.com/Michael-Mew2/formularlotsen/blob/main/.github/CONTRIBUTING.md">
     <img alt="Contributor's Guide" src="https://img.shields.io/badge/Contributor's%20Guide-vorhanden-blauviolett?style=flat-square">
   </a>
 </p>
@@ -65,7 +65,7 @@ npm run dev
 
 
 ## 🤝 Mitwirken
-Falls du helfen möchtest, sieh dir [CONTRIBUTING.md](./CONTRIBUTING.md) an.
+Falls du helfen möchtest, sieh dir [CONTRIBUTING.md](./.github/CONTRIBUTING.md) an.
 
 ## 📝 Lizenz
 MIT License
