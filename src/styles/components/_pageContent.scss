@@ -1,12 +1,15 @@
 @use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
 
 .page-content {
-    padding: vars.$margin-main 0;
-    background-color: vars.$primary-light-color;
+    padding: vars.$margin-main;
+    background-color: vars.$text-alt-color;
     overflow: hidden;
-    color: vars.$text-alt-color;
+    border: 4px solid vars.$text-color;
+    @include mix.bold_shadow;
+    // color: vars.$text-alt-color;
 
-    .flex-container {
+    .page-content-row {
         display: flex;
         margin: vars.$margin-main 0;
 
@@ -19,10 +22,7 @@
         }
     }
 
-    .page-content-title {
-        justify-content: center;
-        text-align: center;
-    }
+  
 
     .text-with-picture-right {
         justify-content: space-between;

@@ -25,7 +25,7 @@ export default function Home() {
   const hasPageContent = texts.startseite?.pageContent && Array.isArray(texts.startseite?.pageContent)
 
   return (
-    <div className="home">
+    <div id="home">
 
       {/* 👾 Metadata: */}
       <title>

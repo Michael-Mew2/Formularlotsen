@@ -12,6 +12,7 @@
 @use "layouts/grid" as grid;
 
 // Komponenten
+@use "components/title" as title;
 @use "components/hero" as hero;
 @use "components/buttons" as buttons;
 @use "components/card" as card;
@@ -21,4 +22,5 @@
 @use "components/seperations" as sep;
 
 // Seiten
+@use "pages/backbone" as backbone;
 @use "pages/home" as home;

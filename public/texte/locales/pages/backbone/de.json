@@ -1,0 +1,23 @@
+{
+  "backbone": {
+    "meta": {
+      "title": "Backbone 🦴",
+      "content": "The backdoor to our drawingboard"
+    },
+    "hero": {
+      "heroPicture": "images/heroImages/AdobeStock_binary.jpeg",
+      "heroPictureAlt": "a bunch of light-blue ones and zeros on a dark-blue background.",
+      "heroMainTitle": "Welcome to this sites Backbone",
+      "heroSubTitle": "The playground for our creativity!"
+    },
+    "pageContent": [
+      {
+        "type": "intro",
+        "groupId": "page-title",
+        "groupStyle": "page-content-title",
+        "title": "Willkommen auf unserer Startseite!",
+        "content": "das ist eine Sehr schöne Startseite"
+      }
+    ]
+  }
+}

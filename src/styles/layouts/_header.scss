@@ -1,4 +1,6 @@
 @use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+
 .header {
     width: 100%;
     position: relative;
@@ -104,7 +106,8 @@
   background-color: vars.$secondary-color;
   color: vars.$primary-color;
   font-size: 2rem;
-  border: none;
+  @include mix.bold_shadow($sz: vars.$shadow-size-sm);
+
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -115,7 +118,7 @@
   right: 0; // Immer bündig zur rechten Seite des Buttons
   width: fit-content; // Breite des Buttons übernehmen
   background-color: vars.$secondary-color;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  @include mix.bold_shadow($sz:vars.$shadow-size-sm);
   border-radius: 12px 0 12px 12px;
   overflow: hidden;
   padding: 1rem; // Abstand zum Inhalt

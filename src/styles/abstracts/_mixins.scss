@@ -1,3 +1,5 @@
+@use "../abstracts/variables" as vars;
+
 @mixin flex-center {
     display: flex;
     justify-content: center;
@@ -14,3 +16,14 @@
     }
   }
   
+
+@mixin background_pages($clr_bg: vars.$primary-light-color) {
+  background-color: $clr_bg;
+  padding: vars.$margin-site;
+}
+
+@mixin bold_shadow($rad:10px, $clr: vars.$text-color, $sz: vars.$shadow-size-st) {
+  border-radius: $rad;
+  box-shadow: $sz 0px 0px $clr;
+  border: 4px solid vars.$text-color;
+}

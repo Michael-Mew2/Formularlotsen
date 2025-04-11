@@ -1,17 +1,8 @@
 @use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
 
-// .home {
-//     // background-image: url("/heroImages/AdobeStock_548190067.jpeg");
-//     background-attachment: scroll;
-//     background-position: center;
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//     padding: vars.$margin-main;
-//     background-color: vars.$primary-light-color;
-    
-//     font-family: vars.$primary-font;
-//     color: white;
-//     font-size: vars.$paragraph-standard;
+#home {
+   @include mix.background_pages;
     
 
-// }
+}
