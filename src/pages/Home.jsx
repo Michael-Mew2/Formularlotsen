@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import * as React from "react";
 import { useHeroPictureStore, useLanguageStore } from "../store";
-import PageSection from "../components/PageSection";
 import PageContent from "../components/PageContent";
 
 export default function Home() {
@@ -8,18 +7,18 @@ export default function Home() {
   const setHeroPicture = useHeroPictureStore((state) => state.setHeroPicture);
   const setHeroAlt = useHeroPictureStore((state) => state.setHeroAlt);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setPage("pages/startseite");
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (texts.startseite?.hero) {
       setHeroPicture(texts.startseite.hero?.heroPicture);
       setHeroAlt(texts.startseite?.hero?.heroPictureAlt);
     }
   }, [texts]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     console.log(texts.startseite?.meta?.content);
   }, [texts]);
 

@@ -6,7 +6,7 @@ export default function Hero() {
   const { texts, page } = useLanguageStore();
 
   let currentPage = page.split("/")[1];
-  // console.log(currentPage);
+  console.log(currentPage);
 
   return (
     <>

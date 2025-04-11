@@ -1,9 +1,10 @@
-import React from "react";
+import * as React from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 import JoinUs from "../pages/JoinUs";
+import TimeAndPlace from "../pages/TimeAndPlace";
 
 export default function Routing() {
   return (
@@ -12,6 +13,7 @@ export default function Routing() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="join" element={<JoinUs />} />
+          <Route path="timeAndLocation" element={<TimeAndPlace />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
