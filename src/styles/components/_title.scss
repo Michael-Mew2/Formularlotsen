@@ -1,6 +1,15 @@
 @use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
 
 .page-content-title {
     justify-content: center;
     text-align: center;
+
+    h3 {
+        color: vars.$primary-color;
+        font-weight: 700;
+        // @include mix.letter-shadows;
+        // font-size: 100px;
+
+    }
 }

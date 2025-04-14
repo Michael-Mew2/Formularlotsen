@@ -1,4 +1,5 @@
 @use "../abstracts/variables" as vars;
+@use "../abstracts/functions" as functions;
 
 @mixin flex-center {
     display: flex;
@@ -26,4 +27,22 @@
   border-radius: $rad;
   box-shadow: $sz 0px 0px $clr;
   border: 4px solid vars.$text-color;
+}
+
+// Title 3D-Effect color selector:
+@mixin text-shadow-3d($color) {
+  color: $color;
+  text-shadow: functions.calculate-text-shadows($color);
+}
+
+// letter-shadows:
+@mixin letter-shadows($strg: 2px, $clr: vars.$text-color, $shdw-wth: vars.$shadow-size-sm, $shdw-clr: vars.$text-color) {
+  padding: 1rem;
+  -webkit-text-stroke: $strg $clr;
+  text-shadow: 
+    // (-$strg) (-$strg) 0 $clr, // top left
+    // $strg (-$strg) 0 $clr, // top right
+    // (-$strg) $strg 0 $clr, // bottom left
+    // $strg $strg 0 $clr, // bottom right
+    $shdw-wth 0 $shdw-clr;
 }

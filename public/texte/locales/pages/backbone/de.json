@@ -15,8 +15,24 @@
         "type": "intro",
         "groupId": "page-title",
         "groupStyle": "page-content-title",
-        "title": "Willkommen auf unserer Startseite!",
-        "content": "das ist eine Sehr schöne Startseite"
+        "title": "Jede Seite besteht aus Bausteinen",
+        "content": "hier werden diese Bausteine Definiert und gestyled"
+      },
+      {
+        "type": "list-card-lightBlue",
+        "style": "flex-item-left",
+        "groupId": "StylesOfComponents",
+        "groupStyle": "flex-row",
+        "title": "Folgende 'types' sind als Komponenten hier aufrufbar",
+        "items": [
+          "Listen (list)", "Paragraphen (paragraph)", "intro", "Bilder (image)", "Tabellen (table)", "Kurzinformationen (annotation)"
+        ]
+      },
+      {
+        "type": "annotation-yellow",
+        "style": "flex-item-right",
+        "groupId": "StylesOfComponents",
+        "content": "Über die 'types' werden auch die Farben sowie die Boxart bestimmt: z.B. list-card-lightBlue bei der Liste und annotation-yellow hier"
       }
     ]
   }
