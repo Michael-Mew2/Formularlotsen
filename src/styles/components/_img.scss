@@ -1,0 +1,27 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+
+.image {
+    width: 100%;
+    position: relative;
+
+    img {
+        width: 95%;
+        aspect-ratio: 2/1;
+        object-fit: cover;
+        @include mix.bold_shadow;
+    }
+
+    figcaption {
+        @include mix.bold_shadow;
+        padding: vars.$margin-xs;
+        position: absolute;
+        max-width: 70%;
+        background-color: vars.$highlight;
+        // color: vars.$text-alt-color;
+        bottom: 0;
+        right: 15px;
+        transform: translateY(50%);
+
+    }
+} 

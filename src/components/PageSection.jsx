@@ -1,6 +1,7 @@
 import * as React from "react";
 import GridTable from "./GridTable";
 import Annotation from "./Annotation";
+import Pictures from "./Pictures";
 
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;
@@ -62,12 +63,7 @@ export default function PageSection({ section }) {
 
     case "image":
       return (
-        <figure
-          className={`${section.type} ${section.position || "page-full"}`.trim()}
-        >
-          <img src={section.picture} alt={section.alt} />
-          <figcaption>{section.description}</figcaption>
-        </figure>
+       <Pictures type={section.type} position={section.position} picture={section.picture} alt={section.alt} description={section.description} />
       );
 
     case "table":

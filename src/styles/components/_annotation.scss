@@ -5,6 +5,7 @@
     @include mix.bold_shadow;
     padding: vars.$margin-site;
     position: relative;
+    width: 40%;
 
     .annotationBubble {
         @include mix.title_pill($bg-clr: vars.$primary-light-color, $tx-clr: vars.$text-alt-color);
@@ -24,4 +25,8 @@
     .warning {
         background-color: vars.$highlight;
     }
+
+    // .annotationContent {
+    //     // width: 30%;
+    // }
 }

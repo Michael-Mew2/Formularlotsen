@@ -37,8 +37,9 @@
             order: -5;
         }
         
-        > div {
-            width: 45%;
+        > div, figure {
+            // border: 2px solid hotpink;
+            width: 50%;
             height: fit-content;
         }
     }
