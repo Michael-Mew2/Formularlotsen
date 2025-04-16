@@ -21,6 +21,8 @@
 @use "components/languageSelector" as lan;
 @use "components/pageContent" as page;
 @use "components/seperations" as sep;
+@use "components/lists" as list;
+@use "components/annotation" as anno;
 
 // Seiten
 @use "pages/backbone" as backbone;

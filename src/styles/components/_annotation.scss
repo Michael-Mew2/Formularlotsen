@@ -1,0 +1,27 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+
+.annotation {
+    @include mix.bold_shadow;
+    padding: vars.$margin-site;
+    position: relative;
+
+    .annotationBubble {
+        @include mix.title_pill($bg-clr: vars.$primary-light-color, $tx-clr: vars.$text-alt-color);
+        width: fit-content;
+        font-size: vars.$font-size-page-title-div;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        transform: translateY(-50%);
+    }
+
+    .question {
+        background-color: vars.$secondary-color;
+        color: vars.$primary-color;
+    }
+
+    .warning {
+        background-color: vars.$highlight;
+    }
+}

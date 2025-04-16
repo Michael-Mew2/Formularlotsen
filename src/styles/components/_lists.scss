@@ -1,3 +1,83 @@
 @use "../abstracts/variables" as var;
 @use "../abstracts/mixins" as mix;
 
+.list {
+    @include mix.bold_shadow;
+    margin-bottom: 8px;
+    padding: var.$margin-site;
+    position: relative;
+    margin-top: 60px;
+
+    
+    .list-title{
+        @include mix.title_pill;
+        width: fit-content;
+        max-width: 70%;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        transform: translateY(-50%);
+        
+
+        h3, h4 {
+            margin: 0;
+            font-size: var.$font-size-page-text;
+        }
+    }
+
+    ul {
+        // margin-top: /* Wird über JS berechnet. */
+        // border: 2px solid hotpink;
+
+        li {
+            position: relative;
+            padding-left: 2.2rem;
+            margin: var.$spacing-md;
+            
+        }
+    }
+        .lifeRing ::before {
+            content: "\f1cd";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 8%;
+            color: var.$warning;
+            font-size: var.$font-size-page-bullet;
+        }
+
+        .compass ::before {
+            content: "\f14e";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 8%;
+            color: var.$primary-color;
+            font-size: var.$font-size-page-bullet;
+        }
+        
+        .lightYellow {
+            @include mix.title_pill($bg-clr: var.$secondary-light-color);
+        }
+
+        .orange {
+            @include mix.title_pill($bg-clr: var.$warning);
+        }
+
+        .red {
+            @include mix.title_pill($bg-clr: var.$highlight);
+            color: var.$text-alt-color;
+        }
+
+        .blue {
+            @include mix.title_pill($bg-clr: var.$primary-color);
+            color: var.$text-alt-color;
+        }
+
+        .lightBlue {
+            @include mix.title_pill($bg-clr: var.$primary-light-color);
+            color: var.$text-alt-color;
+        }
+}

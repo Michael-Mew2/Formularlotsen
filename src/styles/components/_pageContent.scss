@@ -23,6 +23,25 @@
         }
     }
 
+    .flex-two-columns {
+        justify-content: space-between;
+        overflow: hidden;
+        height: fit-content;
+        align-items: center;
+
+        .flex-item-right {
+            order: 5;
+        }
+
+        .flex-item-left {
+            order: -5;
+        }
+        
+        > div {
+            width: 45%;
+            height: fit-content;
+        }
+    }
   
 
     .text-with-picture-right {
