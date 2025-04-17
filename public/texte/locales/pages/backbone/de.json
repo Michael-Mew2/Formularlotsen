@@ -43,6 +43,8 @@
         "groupId": "third-row",
         "groupStyle": "flex-two-columns",
         "title": "Das ist ein einfacher Paragraph",
+        "titleColor": "orange",
+        "contentColor": "red",
         "content": [
           "Einfache Paragraphen erkennt man daran, dass dort viel drinn steht, wie in diesem hier. Unter anderem stehen dort sachen wie texte, texte wörtser und noch mehr texte drinnen",
           "Paragraphen sind einfach gestaltet: die sind über den tpe: 'paragraph' einfügbar und benötigen nur einen 'content' (idealerweie in einem Array, falls man darin weitere Absätzte einbauen will) und wenn gewünscht noch einen 'title'"

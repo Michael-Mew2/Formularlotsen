@@ -3,6 +3,7 @@ import GridTable from "./GridTable";
 import Annotation from "./Annotation";
 import Pictures from "./Pictures";
 import List from "./List";
+import Paragraph from "./Paragraph";
 
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;
@@ -18,16 +19,7 @@ export default function PageSection({ section }) {
 
     case "paragraph":
       return (
-        <div
-          className={`${section.type} ${section.position || "page-full"}`.trim()}
-        >
-          {section.title && <h4>{section.title}</h4>}
-          {Array.isArray(section.content) ? (
-            section.content.map((text, index) => <p key={index}>{text}</p>)
-          ) : (
-            <p>{section.content}</p>
-          )}
-        </div>
+       <Paragraph type={section.type} position={section.position} title={section.title} content={section.content} titleColor={section.titleColor} contentColor={section.contentColor} />
       );
 
     case "list":

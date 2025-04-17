@@ -33,12 +33,16 @@
         ul {
             // margin-top: /* Wird über JS berechnet. */
             // border: 2px solid hotpink;
-            width: 50%;
+            // width: 50%;
 
             li {
                 position: relative;
                 padding-left: 2.2rem;
-                margin: var.$spacing-md;
+                margin: var.$spacing-md 0;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
                 
             }
         }
