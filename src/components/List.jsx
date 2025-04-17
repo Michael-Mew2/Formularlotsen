@@ -8,29 +8,38 @@ export default function List({
   listStyle,
   items,
 }) {
+  const listBoxRef = React.useRef(null);
+  const listTitleRef = React.useRef(null);
+  const listUlRef = React.useRef(null);
+
   React.useEffect(() => {
-    const listBox = document.querySelector(".list");
-    const listTitle = document.querySelector(".list-title");
-    const listUl = document.querySelector(".list ul");
+    const listBox = listBoxRef.current;
+    const listTitle = listTitleRef.current;
+    const listUl = listUlRef.current;
 
-    const listTitleHeight = listTitle.offsetHeight;
-    console.log(listTitleHeight);
+    if (listBox && listTitle && listUl) {
+      const listTitleHeight = listTitle.offsetHeight;
+      console.log(listTitleHeight);
 
-    const additionalContentSpacing = 0;
-    const additionalBoxSpacing = 0;
-    
-    listUl.style.marginTop = `${listTitleHeight / 2 + additionalContentSpacing}px`;
+      const additionalContentSpacing = 0;
+      const additionalBoxSpacing = 0;
 
-
-    listBox.style.marginTop = `${listTitleHeight / 2 + additionalBoxSpacing}px`
+      listUl.style.marginTop = `${
+        listTitleHeight / 2 + additionalContentSpacing
+      }px`;
+      listBox.style.marginTop = `${
+        listTitleHeight / 2 + additionalBoxSpacing
+      }px`;
+    }
   }, []);
+
   return (
-    <div className={`${type} ${position || "page-full"}`.trim()}>
+    <div ref={listBoxRef} className={`${type} ${position || "page-full"}`.trim()}>
       <div className="innerBox">
-        <div className={`list-title ${titleColor || "yellow"}`.trim()}>
+        <div ref={listTitleRef} className={`list-title ${titleColor || "yellow"}`.trim()}>
           <h4>{title}</h4>
         </div>
-        <ul className={`${listStyle || "lifeRing"}`.trim()}>
+        <ul ref={listUlRef} className={`${listStyle || "lifeRing"}`.trim()}>
           {items.map((item, index) => (
             <li key={index}>{item}</li>
           ))}

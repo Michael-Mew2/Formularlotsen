@@ -57,6 +57,43 @@
         "description": "Bilder werden mit dem type: 'image' hinzugefügt. Diese benötigen dann noch einen 'alt' und wenn gewünscht noch eine kleine 'description' wie diese hier",
         "alt": "A random picture from lorempicsum",
         "picture": "https://picsum.photos/1200/717"
+      },
+      {
+        "groupId": "fourth-row",
+        "groupStyle": "flex-two-columns"
+      },
+      {
+        "type": "paragraph",
+        "position": "flex-item-right",
+        "groupId": "fourth-row",
+        "contentColor": "light-blue",
+        "content": "And I don't know what I'm cryin' for I don't think I could love you more It might not be long, but baby, I I'll love you 'til the day that I die 'Til the day that I die 'Til the light leaves my eyes 'Til the day that I die"
+      },
+      {
+        "type": "image",
+        "position":"flex-item-left",
+        "groupId": "fourth-row",
+        "picture": "https://picsum.photos/1080/717",
+        "alt": "Another random picture from lorem-picsum"
+      },
+      {
+        "groupId": "fifth-row",
+        "groupStyle": "flex-two-columns"
+      },
+      {
+        "groupId": "fifth-row",
+        "type": "list",
+        "position": "flex-item-right",
+        "titleColor": "blue",
+        "listStyle": "compass",
+        "title": "Best Bands ever!",
+        "items": ["Queen", "Rolling Stones", "Maroon 5", "Jonas Brothers", "Big Time Rush"]
+      },
+      {
+        "groupId": "fifth-row",
+        "type": "paragraph",
+        "position": "flex-item-left",
+        "content": ["Hey (oh), hey (oh)", "Listen to your heart now (eh)", "Hey (oh), hey (oh)", "Don't you feel the rush?", "Hey (oh), hey (oh)", "Better take your shot now", "Oh-oh, oh-oh (hey), oh-oh, oh-oh"]
       }
     ]
   }

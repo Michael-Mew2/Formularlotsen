@@ -7,25 +7,38 @@ export default function Annotation({
   annotationType,
   content,
 }) {
+  const annotationBoxRef = React.useRef(null);
+  const annotationIconRef = React.useRef(null);
+  const annotationContentRef = React.useRef(null);
+
   React.useEffect(() => {
-    const annotationBox = document.querySelector(".annotation");
-    const annotationIcon = document.querySelector(".annotationBubble");
-    const annotationContent = document.querySelector(".annotationContent");
+    const annotationBox = annotationBoxRef.current;
+    const annotationIcon = annotationIconRef.current;
+    const annotationContent = annotationContentRef.current;
 
-    const annotationIconHeight = annotationIcon.offsetHeight;
+    if (annotationBox && annotationIcon && annotationContent) {
+      const annotationIconHeight = annotationIcon.offsetHeight;
 
-    const additionalSpacing = 0;
-    const additionalBoxSpacing = 0;
-    annotationContent.style.marginTop = `${
-      annotationIconHeight / 3 + additionalSpacing
-    }px`;
-    annotationBox.style.marginTop = `${annotationIconHeight / 2 + additionalBoxSpacing}px`;
+      const additionalSpacing = 0;
+      const additionalBoxSpacing = 0;
+
+      annotationContent.style.marginTop = `${
+        annotationIconHeight / 3 + additionalSpacing
+      }px`;
+      annotationBox.style.marginTop = `${
+        annotationIconHeight / 2 + additionalBoxSpacing
+      }px`;
+    }
   }, []);
 
   return (
-    <div className={`${type} ${annotationStyle || "page-full"}`.trim()}>
+    <div
+      ref={annotationBoxRef}
+      className={`${type} ${annotationStyle || "page-full"}`.trim()}
+    >
       <div className="innerBox">
         <div
+          ref={annotationIconRef}
           className={`annotationBubble ${
             annotationType || "information"
           }`.trim()}
@@ -48,7 +61,7 @@ export default function Annotation({
             }
           })()}
         </div>
-        <div className="annotationContent">
+        <div ref={annotationContentRef} className="annotationContent">
           <p>{content}</p>
         </div>
       </div>

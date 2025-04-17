@@ -5,6 +5,7 @@
 .image {
     width: 100%;
     position: relative;
+    margin-bottom: 6px;
 
     img {
         width: function.calculate-max-width();
