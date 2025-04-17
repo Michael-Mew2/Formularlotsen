@@ -1,15 +1,20 @@
 @use "../abstracts/variables" as var;
 @use "../abstracts/mixins" as mix;
+@use "../abstracts/functions" as function;
 
 .list {
-    @include mix.bold_shadow;
-    margin-bottom: 8px;
-    padding: var.$margin-site;
+    width: 100%;
+    margin-bottom: 6px;
     position: relative;
-    margin-top: 60px;
-
     
-    .list-title{
+    .innerBox {
+        @include mix.bold_shadow;
+        padding: var.$margin-site;
+        width: function.calculate-max-width($brdr-wdt: calc(#{var.$margin-site} + 4px));
+        
+        
+        
+        .list-title{
         @include mix.title_pill;
         width: fit-content;
         max-width: 70%;
@@ -19,23 +24,24 @@
         transform: translateY(-50%);
         
 
-        h3, h4 {
-            margin: 0;
-            font-size: var.$font-size-page-text;
+            h3, h4 {
+                margin: 0;
+                font-size: var.$font-size-page-text;
+            }
         }
-    }
 
-    ul {
-        // margin-top: /* Wird über JS berechnet. */
-        // border: 2px solid hotpink;
+        ul {
+            // margin-top: /* Wird über JS berechnet. */
+            // border: 2px solid hotpink;
+            width: 50%;
 
-        li {
-            position: relative;
-            padding-left: 2.2rem;
-            margin: var.$spacing-md;
-            
+            li {
+                position: relative;
+                padding-left: 2.2rem;
+                margin: var.$spacing-md;
+                
+            }
         }
-    }
         .lifeRing ::before {
             content: "\f1cd";
             font-family: "Font Awesome 6 Free";
@@ -80,4 +86,5 @@
             @include mix.title_pill($bg-clr: var.$primary-light-color);
             color: var.$text-alt-color;
         }
+    }
 }

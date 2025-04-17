@@ -1,12 +1,13 @@
 @use "../abstracts/variables" as vars;
 @use "../abstracts/mixins" as mix;
+@use "../abstracts/functions" as function;
 
 .image {
     width: 100%;
     position: relative;
 
     img {
-        width: 95%;
+        width: function.calculate-max-width();
         aspect-ratio: 2/1;
         object-fit: cover;
         @include mix.bold_shadow;

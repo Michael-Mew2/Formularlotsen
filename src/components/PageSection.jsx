@@ -2,20 +2,10 @@ import * as React from "react";
 import GridTable from "./GridTable";
 import Annotation from "./Annotation";
 import Pictures from "./Pictures";
+import List from "./List";
 
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;
-
-  React.useEffect(() => {
-    const listTitle = document.querySelector(".list-title");
-    const listUl = document.querySelector(".list ul");
-
-    const listTitleHeight = listTitle.offsetHeight;
-    console.log(listTitleHeight);
-    
-    const additionalSpacing = 0;
-    listUl.style.marginTop = `${listTitleHeight / 2 + additionalSpacing}px`
-  }, [])
 
   switch (section.type) {
     case "intro":
@@ -42,18 +32,7 @@ export default function PageSection({ section }) {
 
     case "list":
       return (
-        <div
-          className={`${section.type} ${section.position || "page-full"}`.trim()}
-        >
-          <div className={`list-title ${section.titleColor || "yellow"}`.trim()}>
-            <h4>{section.title}</h4>
-          </div>
-          <ul className={`${section.listStyle || "lifeRing"}`.trim()}>
-            {section.items.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </div>
+        <List type={section.type} position={section.position} titleColor={section.titleColor} title={section.title} listStyle={section.listStyle} items={section.items} />
       );
 
     case "annotation":

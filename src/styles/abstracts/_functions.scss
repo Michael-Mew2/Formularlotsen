@@ -19,3 +19,13 @@
 
     @return $shadows;
 }
+
+@function calculate-max-width($shdw-sz: 6px, $brdr-wdt: vars.$border-width-st) {
+    $base-width: 100%;
+    $shadow: #{$shdw-sz};
+    $border: #{$brdr-wdt};
+
+    $max-width: calc($base-width - ($shadow + ($border * 2) ));
+
+    @return $max-width;
+}
