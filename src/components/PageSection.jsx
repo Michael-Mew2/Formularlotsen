@@ -4,6 +4,7 @@ import Annotation from "./Annotation";
 import Pictures from "./Pictures";
 import List from "./List";
 import Paragraph from "./Paragraph";
+import PageContent from "./PageContent";
 
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;
@@ -39,6 +40,10 @@ export default function PageSection({ section }) {
 
     case "table":
       return <GridTable data={section.data} title={section.title} />;
+
+    case "interactiveMapBoroughs":
+      return <p>Hello</p>
+
     default:
       return null;
   }

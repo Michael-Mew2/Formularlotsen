@@ -20,7 +20,7 @@
       },
       {
         "type": "list",
-        "position": "flex-item-right",
+        "position": "flex-item-left",
         "titleColor": "lightYellow",
         "listStyle": "lifeRing",
         "groupId": "StylesOfComponents",
@@ -32,7 +32,7 @@
       },
       {
         "type": "annotation",
-        "position": "flex-item-left",
+        "position": "flex-item-right",
         "annotationType": "warning",
         "groupId": "StylesOfComponents",
         "content": "Das hier ist eine 'annotation'. Ich bin dazu da zusätzliche Informationen zu geben. Mich gibt es als 'annotationType': 'information', 'question' und 'warning'. Standartmäßig bin ich als 'information' eingestellt."
@@ -94,6 +94,20 @@
         "type": "paragraph",
         "position": "flex-item-left",
         "content": ["Hey (oh), hey (oh)", "Listen to your heart now (eh)", "Hey (oh), hey (oh)", "Don't you feel the rush?", "Hey (oh), hey (oh)", "Better take your shot now", "Oh-oh, oh-oh (hey), oh-oh, oh-oh"]
+      },
+      {
+        "groupId": "sixth-row",
+        "groupStyle": "flex-two-columns"
+      },
+      {
+        "groupId": "sixth-row",
+        "type": "paragraph",
+        "position": "flex-item-right",
+        "content": ["Go and shake it up, what you gotta lose?", "Go and make your luck with the life you choose (life you choose)", "If you want it all, lay it on the line", "It's the only life you got So you gotta live it big time"]
+      },
+      {
+        "groupId": "sixth-row",
+        "type": "interactiveMapBoroughs"
       }
     ]
   }
