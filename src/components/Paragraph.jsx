@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Paragraph({type, position, title, titleColor, content, contentColor}) {
-  console.log(contentColor);
+  // console.log(contentColor);
   
   return (
     <div

@@ -107,7 +107,8 @@
       },
       {
         "groupId": "sixth-row",
-        "type": "interactiveMapBoroughs"
+        "type": "svg-map",
+        "position":"flex-item-left"
       }
     ]
   }

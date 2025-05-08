@@ -19,7 +19,7 @@ export default function List({
 
     if (listBox && listTitle && listUl) {
       const listTitleHeight = listTitle.offsetHeight;
-      console.log(listTitleHeight);
+      // console.log(listTitleHeight);
 
       const additionalContentSpacing = 0;
       const additionalBoxSpacing = 0;

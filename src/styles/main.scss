@@ -25,6 +25,7 @@
 @use "components/annotation" as anno;
 @use "components/img" as img;
 @use "components/paragraph" as paragraph;
+@use "components/simpleSVGMap" as simpleSVGMap;
 
 // Seiten
 @use "pages/backbone" as backbone;
