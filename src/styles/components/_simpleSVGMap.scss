@@ -3,24 +3,23 @@
 @use "../abstracts/functions" as function;
 
 .svgCityMap {
+  .stadtteil {
+    position: absolute;
+    stroke: vars.$border-color;
+    stroke-width: 2px;
+    fill: vars.$secondary-color;
+    filter: drop-shadow(4px 4px 0 vars.$text-color);
 
-    .stadtteil {
-        position: absolute;
-        stroke: vars.$border-color;
-        stroke-width: vars.$border-width-sm;
-        fill: vars.$secondary-color;
-        filter: drop-shadow(3px 3px 0 vars.$text-color);
-
-        &:hover {
-            fill: vars.$warning;
-            cursor: pointer;
-        }
+    &:hover {
+      fill: vars.$warning;
+      cursor: pointer;
     }
+  }
 
-    .pin {
-        position: absolute;
-        color: red;
-        font-size: 24px;
-        pointer-events: none;
-    }
+  .pin {
+    position: absolute;
+    color: red;
+    font-size: 24px;
+    pointer-events: none;
+  }
 }
