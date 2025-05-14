@@ -3,7 +3,7 @@ import PageSection from "./PageSection";
 
 const FlexGroup = ({id, children, style})  => {
     return (
-        <div id={id} className={`flex-container ${style || ""}`.trim()} style={{display:"flex", gap: "2rem"}}>
+        <div id={id} className={`flex-row ${style || ""}`.trim()}>
             {children}
         </div>
     )

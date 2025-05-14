@@ -12,10 +12,10 @@
         align-items: center;
         gap: 10px;
         padding: 8px 12px;
-        border: 1px solid #eee;
+        border: vars.$border-width-st solid vars.$border-color;
         background-color: vars.$secondary-light-color;
         cursor: pointer;
-        border-radius: 4px;
+        border-radius: 12px;
         transition: background-color 0.2s;
 
         &:hover {

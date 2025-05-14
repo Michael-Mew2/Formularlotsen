@@ -1,0 +1,170 @@
+{
+  "locationData": {
+    "data": {
+      "locations": [
+        {
+          "borough": "Leherheide",
+          "location": "Gemeindehaus der Lukaskirche",
+          "address": ["Louise-Schroeder-Str.1", "27578 Bremerhaven"],
+          "schedule": [{ "dayId": 0, "timeId": 0 }],
+          "additionalInformation": {
+            "publicTransport": {
+              "icon": "fa-bus",
+              "title": "Erreichbar mit",
+              "content": "Erreichbar mit der 502, 503, 508 und S (Haltestelle Louise-Schroeder-Str.) oder der 506 (Haltestelle Hermann-Löns-Straße, ca. 14 min. Laufweg)"
+            }
+          },
+          "accessabilityIds": [0, 1],
+          "map": "",
+          "pinPosition": {
+            "x": 160,
+            "y": 200
+          }
+        },
+        {
+          "borough": "Geestemünde",
+          "location": "Pfarrheim der Herz-Jesu Geestemünde",
+          "address": ["Buchtstr. 54", "27570 Bremerhaven"],
+          "schedule": [{ "dayId": 1, "timeId": 0 }],
+          "additionalInformation": {
+            "publicTransport": {
+              "icon": "fa-bus",
+              "title": "Erreichbar mit",
+              "content": "Erreichbar mit der jedem Bus der am Hauptbahnhof hält!"
+            }
+          },
+          "accessabilityIds": [0, 1],
+          "map": "",
+          "pinPosition": {
+            "x": 120,
+            "y": 93
+          }
+        },
+        {
+          "borough": "Lehe",
+          "location": "Pfarrheim der Herz-Jesu Lehe",
+          "address": ["Geibelstr. 11", "27576 Bremerhaven"],
+          "schedule": [{ "dayId": 2, "timeId": 0 }],
+          "additionalInformation": {
+            "publicTransport": {
+              "icon": "fa-bus",
+              "title": "Erreichbar mit",
+              "content": "der 502, 508, 509 und S (Haltestelle Ernst-Reuter-Pl., ca. 10 min Laufweg) oder der 504, 505 und 506 (Haltestelle Waldemar-Becké-Pl., ca. 9 min. Laufweg)"
+            }
+          },
+          "accessabilityIds": [0, 1],
+          "map": "",
+          "pinPosition": {
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "borough": "Geestemünde",
+          "location": "Gemeindehaus der Marienkirche",
+          "address": ["An der Mühle 12", "27570 Bremerhaven"],
+          "schedule": [{ "dayId": 2, "timeId": 1 }],
+          "additionalInformation": {
+            "publicTransport": {
+              "icon": "fa-bus",
+              "title": "Erreichbar mit",
+              "content": "der 502, 505, 506, HL und S (Haltestelle Konrad-Adenauer-Platz, ca. 6 bis 12 min. Laufweg)"
+            }
+          },
+          "accessabilityIds": [0, 1],
+          "map": "",
+          "pinPosition": {
+            "x": 57,
+            "y": 200
+          }
+        },
+        {
+          "borough": "Mitte",
+          "location": "Kirchengemeinde der St. Marien",
+          "address": ["Grazer Str. 15", "27568 Bremerhaven"],
+          "schedule": [
+            { "dayId": 3, "timeId": 0 },
+            { "dayId": 4, "timeId": 0 }
+          ],
+          "additionalInformation": {
+            "publicTransport": {
+              "icon": "fa-bus",
+              "title": "Erreichbar mit",
+              "content": "der 502, 504, 505, 506, 508, 509 und S (Haltestelle Bürgermeister-Smidt-Str., ca. 4 min Laufweg)"
+            }
+          },
+          "accessabilityIds": [0, 1],
+          "map": "",
+          "pinPosition": {
+            "x": 100,
+            "y": 100
+          }
+        },
+        {
+          "borough": "Wulsdorf",
+          "location": "Gemeindehaus Martin-Luther-Kirche",
+          "address": ["Krummenacker 27", "27572 Bremerhaven"],
+          "schedule": [{ "dayId": 4, "timeId": 2 }],
+          "additionalInformation": {
+            "publicTransport": {
+              "icon": "fa-bus",
+              "title": "Erreichbar mit",
+              "content": "der 502, 504, 505 und 506 (Haltestelle Bielefelder Str., ca. 9 min. Laufweg)"
+            }
+          },
+          "accessabilityIds": [0, 1],
+          "map": "",
+          "pinPosition": {
+            "x": 130,
+            "y": 279
+          }
+        }
+      ]
+    },
+    "variables": {
+      "accessability": {
+        "wheelchair": {
+          "id": 0,
+          "icon": "fa-wheelchair",
+          "aria": "Bild mit einem Rollstuhl - Dieser Standort ist Rollstuhl gerecht",
+          "description": "Standorte mit diesem Symbol sind uneingeschränkt mit dem Rollstuhl erreichbar und bieten eine rollstuhl gerechte Toilette.",
+          "link": ""
+        },
+        "toys": {
+          "id": 1,
+          "icon": "fa-puzzle-piece",
+          "aria": "Bild mit einem Puzzelteil - Dieser Standort bietet Spiele für die Kinder",
+          "description": "Standorte mit diesem Symbol haben Spielzeuge und Malvorlagen zur Unterhaltung von (klein)Kindern"
+        },
+        "baby": {
+          "id": 2,
+          "icon": "fa-baby",
+          "aria": "Bild mit einem Baby - Dieser Standort bietet eine Wickelmöglichkeit für Babies und Kleinkinder",
+          "descriptin": "Standorte mit diesem Symbol haben einen Wickeltisch zum wechseln der Windeln von Babies und Kleinkindern"
+        }
+      },
+      "days": [
+        { "id": 0, "name": "Montag" },
+        { "id": 1, "name": "Dienstag" },
+        { "id": 2, "name": "Mittwoch" },
+        { "id": 3, "name": "Donnerstag" },
+        { "id": 4, "name": "Freitag" },
+        { "id": 5, "name": "Samstag" }
+      ],
+      "times": [
+        { "id": 0, "range": "10 - 12 Uhr" },
+        { "id": 1, "range": "15 - 17 Uhr" },
+        { "id": 2, "range": "14:30 - 16:30 Uhr" }
+      ]
+    },
+    "pageTranslations": {
+      "table": {
+        "tableHeads": [
+          { "title": "Tag" },
+          { "title": "Uhrzeit" },
+          { "title": "Standort" }
+        ]
+      }
+    }
+  }
+}

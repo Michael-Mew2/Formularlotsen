@@ -1,5 +1,11 @@
 import * as React from "react";
 import GridTable from "./GridTable";
+import Annotation from "./Annotation";
+import Pictures from "./Pictures";
+import List from "./List";
+import Paragraph from "./Paragraph";
+import PageContent from "./PageContent";
+import SimpleSVGMap from "./SimpleSVGMap";
 
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;
@@ -15,44 +21,30 @@ export default function PageSection({ section }) {
 
     case "paragraph":
       return (
-        <div
-          className={`${section.type} ${section.style || "page-full"}`.trim()}
-        >
-          <h4>{section.title}</h4>
-          {Array.isArray(section.content) ? (
-            section.content.map((text, index) => <p key={index}>{text}</p>)
-          ) : (
-            <p>{section.content}</p>
-          )}
-        </div>
+       <Paragraph type={section.type} position={section.position} title={section.title} content={section.content} titleColor={section.titleColor} contentColor={section.contentColor} />
       );
 
     case "list":
       return (
-        <div
-          className={`${section.type} ${section.style || "page-full"}`.trim()}
-        >
-          <h4>{section.title}</h4>
-          <ul>
-            {section.items.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </div>
+        <List type={section.type} position={section.position} titleColor={section.titleColor} title={section.title} listStyle={section.listStyle} items={section.items} />
+      );
+
+    case "annotation":
+      return (
+        <Annotation type={section.type} annotationStyle={section.position} annotationType={section.annotationType} content={section.content} />
       );
 
     case "image":
       return (
-        <figure
-          className={`${section.type} ${section.style || "page-full"}`.trim()}
-        >
-          <img src={section.picture} alt={section.alt} />
-          <figcaption>{section.description}</figcaption>
-        </figure>
+       <Pictures type={section.type} position={section.position} picture={section.picture} alt={section.alt} description={section.description} />
       );
 
     case "table":
       return <GridTable data={section.data} title={section.title} />;
+
+    case "svg-map":
+      return <SimpleSVGMap />
+
     default:
       return null;
   }

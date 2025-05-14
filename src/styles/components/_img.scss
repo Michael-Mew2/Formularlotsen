@@ -1,0 +1,29 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/functions" as function;
+
+.image {
+    width: 100%;
+    position: relative;
+    margin-bottom: 6px;
+
+    img {
+        width: function.calculate-max-width();
+        aspect-ratio: 2/1;
+        object-fit: cover;
+        @include mix.bold_shadow;
+    }
+
+    figcaption {
+        @include mix.bold_shadow;
+        padding: vars.$margin-xs;
+        position: absolute;
+        max-width: 70%;
+        background-color: vars.$highlight;
+        // color: vars.$text-alt-color;
+        bottom: 0;
+        right: 15px;
+        transform: translateY(50%);
+
+    }
+} 

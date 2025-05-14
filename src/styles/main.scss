@@ -1,6 +1,7 @@
 // Abstrakte Stile
 @use "./abstracts/variables" as vars;
 @use "abstracts/mixins" as mix;
+@use "abstracts/functions" as functions;
 
 // Basis-Stile
 @use "base/typography" as typo;
@@ -12,6 +13,7 @@
 @use "layouts/grid" as grid;
 
 // Komponenten
+@use "components/title" as title;
 @use "components/hero" as hero;
 @use "components/buttons" as buttons;
 @use "components/card" as card;
@@ -19,6 +21,12 @@
 @use "components/languageSelector" as lan;
 @use "components/pageContent" as page;
 @use "components/seperations" as sep;
+@use "components/lists" as list;
+@use "components/annotation" as anno;
+@use "components/img" as img;
+@use "components/paragraph" as paragraph;
+@use "components/simpleSVGMap" as simpleSVGMap;
 
 // Seiten
+@use "pages/backbone" as backbone;
 @use "pages/home" as home;

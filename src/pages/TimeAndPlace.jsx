@@ -27,8 +27,8 @@ export default function TimeAndPlace() {
     texts.zeitenUndStandorte?.pageContent &&
     Array.isArray(texts.zeitenUndStandorte.pageContent);
 
-    console.log(texts);
-    
+  console.log(texts);
+
   return (
     <div className="timeAndPlace">
       {/* 👾 Metadata: */}
@@ -44,7 +44,9 @@ export default function TimeAndPlace() {
       />
 
       {/* 📄 Content: */}
-      {hasPageContent && <PageContent pageContent={texts.zeitenUndStandorte?.pageContent} />}
+      {hasPageContent && (
+        <PageContent pageContent={texts.zeitenUndStandorte?.pageContent} />
+      )}
     </div>
   );
 }
