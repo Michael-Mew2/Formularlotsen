@@ -74,15 +74,43 @@ export default function SimpleSVGMap() {
 
     console.log("svg-Koordinaten:", svgCoords);
 
+    // Referenzpunkt für Bremerhaven
+    const referencePoint = {
+      lat: 53.55,
+      lng: 8.575,
+      pixelX: 110,
+      pixelY: 175,
+    };
+
+    const metersPerDegreeLat = 111320; // Meter pro Grad Breite
+    const metersPerDegreeLng =
+      111320 * Math.cos((referencePoint.lat * Math.PI) / 180);
+
+    const lngDiff = svgCoords.x - referencePoint.lng;
+    const latDiff = svgCoords.y - referencePoint.lat;
+
+    const pixelX = referencePoint.pixelX + (lngDiff * metersPerDegreeLng) / 0.5;
+    const pixelY = referencePoint.pixelY + (latDiff * metersPerDegreeLat) / 0.5;
+
     const viewBox = { minX: -1, minY: -1, width: 220, height: 349 };
-    const scaleX = containerDimensions.width / viewBox.width;
-    const scaleY = containerDimensions.height / viewBox.height;
 
-    const calculatedX = (svgCoords.x - viewBox.minX) * scaleX;
-    const calculatedY = (svgCoords.y - viewBox.minY) * scaleY;
-    console.log("Berechnete Position:", { x: calculatedX, y: calculatedY });
+    const normalizedX =
+      ((pixelX - viewBox.minX) / viewBox.width) * containerDimensions.width;
+    const normalizedY =
+      ((pixelY - viewBox.minY) / viewBox.height) * containerDimensions.height;
 
-    return { x: calculatedX, y: calculatedY };
+    // Begrenzung auf sichtbaren Bereich
+    const boundedX = Math.max(
+      0,
+      Math.min(normalizedX, containerDimensions.width)
+    );
+    const boundedY = Math.max(
+      0,
+      Math.min(normalizedY, containerDimensions.height)
+    );
+
+    console.log("Berechnete Position:", { x: boundedX, y: boundedY });
+    return { x: boundedX, y: boundedY };
   };
 
   // Funktion zum Finden der Pin-Positionen
@@ -211,7 +239,7 @@ export default function SimpleSVGMap() {
 
                 return (
                   <FontAwesomeIcon
-                  className="pin"
+                    className="pin"
                     key={`${hoveredDistrict}-${index}`}
                     icon={faMapPin}
                     style={{
