@@ -3,23 +3,61 @@
 @use "../abstracts/functions" as function;
 
 .svgCityMap {
-  .stadtteil {
-    position: absolute;
-    stroke: vars.$border-color;
-    stroke-width: 2px;
-    fill: vars.$secondary-color;
-    filter: drop-shadow(4px 4px 0 vars.$text-color);
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 60vh;
+  max-height: 70vh;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    &:hover {
-      fill: vars.$warning;
-      cursor: pointer;
+  .map-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    svg {
+      width: 100%;
+      height: auto;
+      max-height: 70vh;
+      object-fit: contain;
+      overflow: visible;
+
+      .stadtteil {
+        position: relative;
+        stroke: vars.$border-color;
+        stroke-width: 2px;
+        fill: vars.$secondary-color;
+        filter: drop-shadow(4px 4px 0 vars.$text-color);
+
+        &:hover {
+          fill: vars.$secondary-light-color;
+          cursor: pointer;
+        }
+      }
     }
-  }
 
-  .pin {
-    position: absolute;
-    color: red;
-    font-size: 24px;
-    pointer-events: none;
+    .pins-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+
+      .pin {
+        position: absolute;
+        color: vars.$primary-color;
+        height: 24px;
+        font-size: 6px;
+        pointer-events: none;
+        z-index: 10;
+        transform: translate(-50%, -50%);
+
+        transition: opacity 0.2s ease-in-out;
+      }
+    }
   }
 }
