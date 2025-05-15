@@ -6,6 +6,7 @@ import List from "./List";
 import Paragraph from "./Paragraph";
 import PageContent from "./PageContent";
 import SimpleSVGMap from "./SimpleSVGMap";
+import BremerhavenMap from "./BremerhavenMap";
 
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;
@@ -44,6 +45,9 @@ export default function PageSection({ section }) {
 
     case "svg-map":
       return <SimpleSVGMap />
+
+    case "city-map":
+      return <BremerhavenMap />
 
     default:
       return null;
