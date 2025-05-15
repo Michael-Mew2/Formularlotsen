@@ -2,7 +2,77 @@ import * as React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapPin } from "@fortawesome/free-solid-svg-icons";
 import { useLanguageStore } from "../store";
-import { width } from "@fortawesome/free-brands-svg-icons/fa42Group";
+
+// ==========
+
+// Funktion zur Berechnung der Extrempunkte der gesamten Stadt
+const calculateCityExtremes = (svgPaths) => {
+  let minX = Infinity,
+    maxX = -Infinity;
+  let minY = Infinity,
+    maxY = -Infinity;
+
+  svgPaths.forEach((path) => {
+    const points = path.points ? path.points.split(" ") : [];
+    points.forEach((point) => {
+      const [x, y] = point.split(",").map(Number);
+      if (!isNaN(x) && !isNaN(y)) {
+        minX = Math.min(minX, x);
+        maxX = Math.max(maxX, x);
+        minY = Math.min(minY, y);
+        maxY = Math.max(maxY, y);
+      }
+    });
+  });
+
+  return { minX, maxX, minY, maxY };
+};
+
+// ----------
+
+// Funktion zur Umrechnung von Geo-Koordinaten in Pixel-Koordinaten
+const getPixelPosition = (geoCoords, svgPaths, containerDimensions) => {
+  if (!geoCoords || !containerDimensions.width || !containerDimensions.height) {
+    return { x: 0, y: 0 };
+  }
+
+  // Berechne Extrempunkte der gesamten Stadt
+  const extremes = calculateCityExtremes(svgPaths);
+
+  // Geo-Referenzpunkte für Bremerhaven (Nordwest- und Südostecke)
+  const geoExtremes = {
+    minLat: 53.52, // Nordwest-Ecke
+    maxLat: 53.58, // Südost-Ecke
+    minLng: 8.55, // Nordwest-Ecke
+    maxLng: 8.62, // Südost-Ecke
+  };
+
+  // Berechne Skalierungsfaktoren
+  const lngRange = extremes.maxX - extremes.minX;
+  const latRange = extremes.maxY - extremes.minY;
+
+  const geoLngRange = geoExtremes.maxLng - geoExtremes.minLng;
+  const geoLatRange = geoExtremes.maxLat - geoExtremes.minLat;
+
+  // Pixel pro Grad berechnen
+  const pixelsPerDegreeLng = lngRange / geoLngRange;
+  const pixelsPerDegreeLat = latRange / geoLatRange;
+
+  // Berechne die Position relativ zu den Extrempunkten
+  const pixelX = (geoCoords.lng - geoExtremes.minLng) * pixelsPerDegreeLng;
+  const pixelY = (geoExtremes.maxLat - geoCoords.lat) * pixelsPerDegreeLat; // Y-Achse invertiert
+
+  // Skalieren auf Container-Größe
+  const scaleX = containerDimensions.width / lngRange;
+  const scaleY = containerDimensions.height / latRange;
+
+  return {
+    x: pixelX * scaleX,
+    y: pixelY * scaleY,
+  };
+};
+
+// ==========
 
 export default function SimpleSVGMap() {
   const [hoveredDistrict, setHoveredDistrict] = React.useState(null);
@@ -14,6 +84,8 @@ export default function SimpleSVGMap() {
   const svgContainerRef = React.useRef(null);
 
   const { language } = useLanguageStore();
+
+  // ----------
 
   React.useEffect(() => {
     const loadLocationInfo = async () => {
@@ -34,23 +106,25 @@ export default function SimpleSVGMap() {
     loadLocationInfo();
   }, [language]);
 
+  // ----------
+
   // Aktualisierung der Container-Dimensionen
   React.useEffect(() => {
     if (!svgContainerRef.current) {
-      console.log("Container-Ref ist null - kann nicht beobachten!");
+      // console.log("Container-Ref ist null - kann nicht beobachten!");
       return;
     }
 
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
         const { width, height } = entry.contentRect;
-        console.log("Neue Container-Dimensionen:", { width, height });
+        // console.log("Neue Container-Dimensionen:", { width, height });
         setContainerDimensions({ width, height });
       }
     });
 
     resizeObserver.observe(svgContainerRef.current);
-    console.log("containerDimensions setting:", containerDimensions);
+    // console.log("containerDimensions setting:", containerDimensions);
 
     return () => {
       resizeObserver.disconnect();
@@ -58,8 +132,8 @@ export default function SimpleSVGMap() {
   }, []);
 
   // Umrechnung von SVG-Koordinaten in px:
-  const getPixelPosition = (svgCoords) => {
-    if (!svgCoords) {
+  const getPixelPosition = (geoCoords) => {
+    if (!geoCoords) {
       console.log("Keine SVG-Koordinaten vorhanden!");
       return { x: 0, y: 0 };
     }
@@ -72,17 +146,31 @@ export default function SimpleSVGMap() {
       return { x: 0, y: 0 };
     }
 
-    console.log("svg-Koordinaten:", svgCoords);
+    console.log("svg-Koordinaten:", geoCoords);
 
-    const viewBox = { minX: -1, minY: -1, width: 220, height: 349 };
-    const scaleX = containerDimensions.width / viewBox.width;
-    const scaleY = containerDimensions.height / viewBox.height;
+    // Referenzpunkt für Bremerhaven
+    const referencePoint = {
+      lat: 53.55,
+      lng: 8.575,
+      pixelX: 110,
+      pixelY: 175,
+    };
 
-    const calculatedX = (svgCoords.x - viewBox.minX) * scaleX;
-    const calculatedY = (svgCoords.y - viewBox.minY) * scaleY;
-    console.log("Berechnete Position:", { x: calculatedX, y: calculatedY });
+    console.log("Referenz:", referencePoint);
 
-    return { x: calculatedX, y: calculatedY };
+    const pixelsPerDegreeLat = 2000; // Meter pro Grad Breite
+    const pixelsPerDegreeLng = 2500;
+
+    const lngDiff = geoCoords.lng - referencePoint.lng;
+    const latDiff = geoCoords.lat - referencePoint.lat;
+
+    console.log("Koordinaten-Differenz:", { lngDiff, latDiff });
+
+    const pixelX = referencePoint.pixelX + lngDiff * pixelsPerDegreeLng;
+    const pixelY = referencePoint.pixelY - latDiff * pixelsPerDegreeLat;
+
+    console.log("Berechnete Position:", { pixelX, pixelY });
+    return { x: pixelX, y: pixelY };
   };
 
   // Funktion zum Finden der Pin-Positionen
@@ -211,7 +299,7 @@ export default function SimpleSVGMap() {
 
                 return (
                   <FontAwesomeIcon
-                  className="pin"
+                    className="pin"
                     key={`${hoveredDistrict}-${index}`}
                     icon={faMapPin}
                     style={{
