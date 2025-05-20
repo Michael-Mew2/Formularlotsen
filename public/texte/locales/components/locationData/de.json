@@ -36,8 +36,8 @@
           "accessabilityIds": [0, 1],
           "map": "",
           "pinPosition": {
-            "x": 120,
-            "y": 93
+            "lat": 53.53367541357883,
+            "lng":  8.596525885547447
           }
         },
         {
@@ -55,8 +55,8 @@
           "accessabilityIds": [0, 1],
           "map": "",
           "pinPosition": {
-            "x": 120,
-            "y": 100
+            "lat": 53.55828581050328, 
+            "lng": 8.575894597998236
           }
         },
         {
@@ -74,8 +74,8 @@
           "accessabilityIds": [0, 1],
           "map": "",
           "pinPosition": {
-            "x": 57,
-            "y": 200
+            "lat": 53.52908960300087,
+            "lng":  8.59114693974411
           }
         },
         {
@@ -96,27 +96,8 @@
           "accessabilityIds": [0, 1],
           "map": "",
           "pinPosition": {
-            "lat": 53.55,
-            "lng": 8.575
-          }
-        },
-        {
-          "borough": "Wulsdorf",
-          "location": "Gemeindehaus Martin-Luther-Kirche",
-          "address": ["Krummenacker 27", "27572 Bremerhaven"],
-          "schedule": [{ "dayId": 4, "timeId": 2 }],
-          "additionalInformation": {
-            "publicTransport": {
-              "icon": "fa-bus",
-              "title": "Erreichbar mit",
-              "content": "der 502, 504, 505 und 506 (Haltestelle Bielefelder Str., ca. 9 min. Laufweg)"
-            }
-          },
-          "accessabilityIds": [0, 1],
-          "map": "",
-          "pinPosition": {
-            "lat": 53.509401354609636,
-            "lng":  8.604536780133726
+            "lat": 53.546489188943916, 
+            "lng": 8.57766083838778
           }
         }
       ]

@@ -107,7 +107,7 @@
       },
       {
         "groupId": "sixth-row",
-        "type": "svg-map",
+        "type": "city-map",
         "position":"flex-item-left"
       }
     ]

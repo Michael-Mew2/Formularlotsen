@@ -1,0 +1,56 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/functions" as function;
+
+/* größe des MapContainers*/
+
+.bremerhaven-map-container {
+    width: 50%;
+
+    .leaflet-container {
+        background-color: vars.$text-alt-color;
+        height: 100%;
+        z-index: 10;
+
+        .leaflet-interactive {
+            fill: vars.$primary-color;
+            fill-opacity: 1; // 0-1
+            stroke: vars.$text-alt-color;
+            stroke-width: vars.$border-width-sm;
+            // filter: drop-shadow(4px 4px 0 vars.$text-color);
+
+            &:hover {
+                fill: vars.$secondary-color;
+            }
+        }
+    
+
+        .leaflet-marker-icon {
+            filter: drop-shadow(0px 0px 0 vars.$text-alt-color);
+
+            .marker-icon {
+
+                i {
+                    font-size: vars.$font-size-page-title-div;
+                    color: vars.$highlight;
+                    text-shadow: -2px 0 vars.$text-alt-color, 0 2px vars.$text-alt-color, 2px 0 vars.$text-alt-color, 0 -2px vars.$text-alt-color;
+                }
+            }
+
+        }
+
+        .cluster-icon {
+            height: 2rem;
+            width: 2rem;
+            border-radius: 50%;
+            background-color: vars.$primary-color;
+            transform: translate(-25%, -25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1rem;
+            color: vars.$text-alt-color;
+        }
+    }
+}
