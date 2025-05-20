@@ -61,14 +61,14 @@
     width: fit-content;
     
     img {
-      width: 110px;
+      width: 90px;
       // aspect-ratio: 1;
     }
     
     p {
       font-family: vars.$primary-font;
       font-weight: vars.$primary-weight;
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       line-height: 1.2;
       
       color: vars.$secondary-light-color;
@@ -101,11 +101,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 64px;// Fixierte Größe
-  height: 64px;
+  width: 50px;// Fixierte Größe
+  height: 50px;
   background-color: vars.$secondary-color;
   color: vars.$primary-color;
-  font-size: 2rem;
+  font-size: 1.5rem;
   @include mix.bold_shadow($sz: vars.$shadow-size-sm);
 
   cursor: pointer;
