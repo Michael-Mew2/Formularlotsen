@@ -13,11 +13,30 @@
         z-index: 10;
 
         .leaflet-interactive {
-            fill: vars.$secondary-light-color;
+            fill: vars.$primary-color;
             fill-opacity: 1; // 0-1
-            stroke: vars.$text-color;
-            stroke-width: vars.$border-width-st;
-            filter: drop-shadow(4px 4px 0 vars.$text-color);
+            stroke: vars.$text-alt-color;
+            stroke-width: vars.$border-width-sm;
+            // filter: drop-shadow(4px 4px 0 vars.$text-color);
+
+            &:hover {
+                fill: vars.$secondary-color;
+            }
+        }
+    
+
+        .leaflet-marker-icon {
+            filter: drop-shadow(0px 0px 0 vars.$text-alt-color);
+
+            .marker-icon {
+
+                i {
+                    font-size: vars.$font-size-page-title-div;
+                    color: vars.$highlight;
+                    text-shadow: -2px 0 vars.$text-alt-color, 0 2px vars.$text-alt-color, 2px 0 vars.$text-alt-color, 0 -2px vars.$text-alt-color;
+                }
+            }
+
         }
 
         .cluster-icon {
@@ -31,7 +50,7 @@
             justify-content: center;
             font-weight: 600;
             font-size: 1rem;
-            color: vars.$text-alt-color
+            color: vars.$text-alt-color;
         }
     }
 }

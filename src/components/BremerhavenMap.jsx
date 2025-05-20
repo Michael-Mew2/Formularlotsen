@@ -57,6 +57,19 @@ export default function BremerhavenMap() {
   // demo-center:
   const demoCenter = [];
 
+  // Funktion zum Erstellen des Font Awesome Icons
+const createFontAwesomeIcon = () => {
+  return new divIcon({
+    html: `<div class="marker-icon">
+             <i class="fas fa-map-pin"></i>
+           </div>`,
+    className: "font-awesome-icon",
+    iconSize: [20, 34],       // Größe des Icons
+    iconAnchor: [19, 38],     // Position des Icon-Ankers
+    popUpAnchor: [0, -38],    // Position des Popups relativ zum Icon
+  });
+};
+
   // demo-markers:
   const demoMarkers = [
     {
@@ -133,7 +146,8 @@ export default function BremerhavenMap() {
             <Marker
               key={`marker-${index}`}
               position={[marker.pinPosition.lat, marker.pinPosition.lng]}
-              icon={customIcon}
+              // icon={customIcon}
+              icon={createFontAwesomeIcon()}
             >
               <Popup>{marker.location}</Popup>
             </Marker>
