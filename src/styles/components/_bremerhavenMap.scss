@@ -8,8 +8,17 @@
     width: 50%;
 
     .leaflet-container {
+        background-color: vars.$text-alt-color;
         height: 100%;
         z-index: 10;
+
+        .leaflet-interactive {
+            fill: vars.$secondary-light-color;
+            fill-opacity: 1; // 0-1
+            stroke: vars.$text-color;
+            stroke-width: vars.$border-width-st;
+            filter: drop-shadow(4px 4px 0 vars.$text-color);
+        }
 
         .cluster-icon {
             height: 2rem;

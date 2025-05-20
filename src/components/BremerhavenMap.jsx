@@ -11,10 +11,8 @@ import {
 import L, { Icon, divIcon, point } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import MarkerClusterGroup from "react-leaflet-cluster";
-import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
-import markerIcon from "leaflet/dist/images/marker-icon.png";
-import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import { useLanguageStore } from "../store";
+import mapData from "../data/stadtteile.json";
 
 // ==========
 
@@ -36,6 +34,7 @@ export default function BremerhavenMap() {
 
         const data = await response.json();
         console.log("Daten erfolgreich geladen:", data);
+        console.log("geoJSON-Data:", mapData);
 
         setLocationData(data.locationData.data.locations);
       } catch (error) {
@@ -89,6 +88,12 @@ export default function BremerhavenMap() {
     });
   };
 
+  function onEachBorough(borough, layer) {
+    const boroughName = borough.properties.BEZ_ST;
+    console.log(boroughName);
+    layer.bindPopup(boroughName);
+  }
+
   // ----------
   return (
     <div className="bremerhaven-map-container" style={{ height: "600px" }}>
@@ -97,24 +102,45 @@ export default function BremerhavenMap() {
       ) : (
         <MapContainer
           center={[53.5395845, 8.5729424]} // Zentrum der Stadt
-          zoom={11}
+          zoom={11} // startwert
+          maxZoom={11} // wievie man reinzoomen kann
+          minZoom={11} // wieviel ma rauszoomen kann
+          // Interaktionsmöglichkeiten der Karte (geblockt):
+          scrollWheelZoom={false}
+          dragging={false}
+          zoomControl={false}
+          doubleClickZoom={false}
+          touchZoom={false}
+          boxZoom={false}
+          keyboard={false}
         >
-          <TileLayer
+          {/** Auskomentieren, falls komplete KArte gewünscht  */}
+          {/* <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
+          /> */}
 
+          <GeoJSON data={mapData.features} onEachFeature={onEachBorough} />
 
-            {locationData?.map((marker, index) => (
-              <Marker
-                key={`marker-${index}`}
-                position={[marker.pinPosition.lat, marker.pinPosition.lng]}
-                icon={customIcon}
-              >
-                <Popup>{marker.location}</Popup>
-              </Marker>
-            ))}
-
+          {/** Kluster hier nicht notwendig aber da falls gewünscht:
+           
+          <MarkerClusterGroup
+            chunkedLoading // Erlaubt es React alle Marker einzeln zu laden anstatt alle zusammen
+            iconCreateFunction={createCustomClusterIcon}
+          >
+           */}
+          {locationData?.map((marker, index) => (
+            <Marker
+              key={`marker-${index}`}
+              position={[marker.pinPosition.lat, marker.pinPosition.lng]}
+              icon={customIcon}
+            >
+              <Popup>{marker.location}</Popup>
+            </Marker>
+          ))}
+          {/* Nicht vergessen das mit auszukommentiern, wenn KLuster gewünscht sind!
+          </MarkerClusterGroup>
+            */}
         </MapContainer>
       )}
     </div>
