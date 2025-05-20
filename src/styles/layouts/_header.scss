@@ -12,7 +12,7 @@
       left: 0;
       width: 100%;
       background: transparent;
-      z-index: 5;
+      z-index: 20;
       transition: background 0.4s ease-in-out;
     }
 
@@ -27,7 +27,7 @@
       left: 0;
       right: 0;
       // background: red;
-      z-index: 4;
+      z-index: 19;
     //   transition: bottom 0.3s ease-in-out, transform 0.3s ease-out;
   
       &.sticky {
