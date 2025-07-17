@@ -101,7 +101,7 @@
       },
       {
         "groupId": "sixth-row",
-        "type": "paragraph",
+        "type": "time-table",
         "position": "flex-item-right",
         "content": ["Go and shake it up, what you gotta lose?", "Go and make your luck with the life you choose (life you choose)", "If you want it all, lay it on the line", "It's the only life you got So you gotta live it big time"]
       },

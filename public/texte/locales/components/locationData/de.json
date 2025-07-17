@@ -121,7 +121,7 @@
           "id": 2,
           "icon": "fa-baby",
           "aria": "Bild mit einem Baby - Dieser Standort bietet eine Wickelmöglichkeit für Babies und Kleinkinder",
-          "descriptin": "Standorte mit diesem Symbol haben einen Wickeltisch zum wechseln der Windeln von Babies und Kleinkindern"
+          "description": "Standorte mit diesem Symbol haben einen Wickeltisch zum wechseln der Windeln von Babies und Kleinkindern"
         }
       },
       "days": [

@@ -7,6 +7,7 @@ import Paragraph from "./Paragraph";
 import PageContent from "./PageContent";
 import SimpleSVGMap from "./SimpleSVGMap";
 import BremerhavenMap from "./BremerhavenMap";
+import TimeTable from "./TimeTable";
 
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;
@@ -47,7 +48,10 @@ export default function PageSection({ section }) {
       return <SimpleSVGMap />
 
     case "city-map":
-      return <BremerhavenMap />
+      return <BremerhavenMap position={section.position} />
+
+    case "time-table":
+      return <TimeTable position={section.position} />;
 
     default:
       return null;
