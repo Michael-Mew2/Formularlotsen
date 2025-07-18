@@ -32,6 +32,18 @@ export default function TimeTable({ position }) {
         if (!response.ok) throw new Error(`HTTP-Fehler: ${response.status}`);
 
         const data = await response.json();
+
+        // Validierung der Accessibility-Daten
+        if (data.locationData?.variables?.accessibility) {
+          Object.values(data.locationData.variables.accessibility).forEach(
+            (item) => {
+              if (!item.id || !item.description || !item.icon) {
+                console.warn("Ungültige Accessibility-Daten:", item);
+              }
+            }
+          );
+        }
+
         console.log("Daten erfolgreich geladen:", data);
         setTimeData(data.locationData);
         setIsLoading(false);
@@ -59,21 +71,25 @@ export default function TimeTable({ position }) {
     // Fallback
     const defaultColumns = ["day", "time", "borough"];
     if (!timeData.tableColumns) {
-        console.log("es wurde keine Daten bezüglich der Spalten gefunden!", timeData);
+      console.log(
+        "es wurde keine Daten bezüglich der Spalten gefunden!",
+        timeData
+      );
       return defaultColumns.slice(0, 3); // für schmale Bildschirme
     }
 
-    // Anzahl
+    // Anzahl der Spalten in Abhängigkeit zur Fenstergröße
     let visibleCount;
     if (windowWidth < 768) visibleCount = 3;
     else if (windowWidth < 2028) visibleCount = 4;
     else visibleCount = 5;
 
     console.log("screen:", windowWidth, "column-count:", visibleCount);
-     
-
+    const columns = Array.isArray(timeData.tableColumns)
+      ? timeData.tableColumns
+      : defaultColumns;
     // Gewählte Spalten
-    return timeData.tableColumns.slice(0, visibleCount);
+    return columns.slice(0, visibleCount);
   };
 
   // Sortieren der Standorte nach Tag und Uhrzeit
@@ -151,26 +167,32 @@ export default function TimeTable({ position }) {
 
   // render der Legende
   const renderLegend = () => {
+    console.log("Rendering legend with data:", timeData);
+
     if (
       !timeData ||
-      !timeData.pageTranslations?.table?.legend ||
+      !timeData.pageTranslations?.table?.legendTitle ||
       !timeData.variables?.accessibility
-    )
+    ) {
+      console.log("No accessibility data found!");
       return null;
+    }
 
     return (
-      <div className="table-legend">
-        <h3>{timeData.pageTranslations.table.legendTitle}</h3>
-        {Object.entries(timeData.variables.accessibility).map(
-          ([id, description]) => (
-            <div key={id} className="table-legend-item">
-              <FontAwesomeIcon
-                icon={timeData.variables.accessibility[id]?.icon}
-              />
-              <span>{description}</span>
-            </div>
-          )
-        )}
+      <div className="legend-container">
+        <h6>{timeData.pageTranslations?.table?.legendTitle || "Legend"}</h6>
+        <ul className="legend-list">
+          {Object.entries(timeData.variables?.accessibility).map(
+            ([id, iconData]) => (
+              <li key={id} className="legend-list-item">
+                <div key={id} className="legend-icon">
+                  <FontAwesomeIcon icon={iconData.icon} />
+                </div>
+                <div className="legend-description">{iconData.description}</div>
+              </li>
+            )
+          )}
+        </ul>
       </div>
     );
   };
@@ -185,7 +207,8 @@ export default function TimeTable({ position }) {
 
     // Template für verschiedene Spaltenanzahlen
     const getGridTemplate = () => {
-      return visibleColumns.map(() => "1fr").join(" ");
+      const columnCount = visibleColumns.length;
+      return Array(columnCount).fill("1fr").join(" ");
     };
 
     return (
@@ -227,14 +250,17 @@ export default function TimeTable({ position }) {
                   >
                     {visibleColumns.includes("day") && isFirstItemOfDay && (
                       <div
-                        className="grid-cell"
-                        style={{ gridRow: `span ${items.length}` }}
+                        className="grid-cell day-cell"
+                        style={{
+                          gridRow: `span ${items.length}`,
+                          position: "relative",
+                        }}
                       >
                         {days.find((d) => d.id === parseInt(dayId))?.name}
                       </div>
                     )}
                     {visibleColumns.includes("time") && (
-                      <div className="grid-cell">
+                      <div className="grid-cell time-cell">
                         {
                           times.find((t) => t.id === item.schedule[0].timeId)
                             .range
@@ -242,15 +268,17 @@ export default function TimeTable({ position }) {
                       </div>
                     )}
                     {visibleColumns.includes("borough") && (
-                      <div className="grid-cell">{item.borough}</div>
+                      <div className="grid-cell brough-cell">
+                        {item.borough}
+                      </div>
                     )}
                     {visibleColumns.includes("address") && (
-                      <div className="grid-cell">
+                      <div className="grid-cell address-cell">
                         {formatAddress(item.address)}
                       </div>
                     )}
                     {visibleColumns.includes("features") && (
-                      <div className="grid-cell">
+                      <div className="grid-cell features-cell">
                         {renderAccessibilityIcons(item.accessibilityIds)}
                       </div>
                     )}

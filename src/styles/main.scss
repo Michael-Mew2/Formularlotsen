@@ -27,6 +27,7 @@
 @use "components/paragraph" as paragraph;
 @use "components/simpleSVGMap" as simpleSVGMap;
 @use "components/bremerhavenMap" as bremerhavenMap;
+@use "components/timeTable" as timeTable;
 
 // Seiten
 @use "pages/backbone" as backbone;

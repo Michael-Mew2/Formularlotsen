@@ -1,0 +1,108 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/functions" as function;
+
+.time-table {
+  border: 2px solid hotpink;
+  width: 100%;
+  position: relative;
+  margin-bottom: 6px;
+
+  .table-title {
+    @include mix.title_pill(
+      $bg-clr: vars.$primary-light-color,
+      $tx-clr: vars.$text-alt-color
+    );
+    width: fit-content;
+    font-size: vars.$font-size-page-title-div;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    transform: translateY(-50%);
+  }
+
+  .grid-table-container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    width: function.calculate-max-width();
+    overflow: hidden;
+    @include mix.bold_shadow;
+
+    .grid-header {
+      display: grid;
+      background-color: vars.$primary-light-color;
+      font-weight: bold;
+      padding: vars.$margin-xs;
+      border-bottom: 1px solid vars.$primary-color;
+
+      &-cell {
+        padding: vars.$margin-xs;
+        text-align: left;
+        color: vars.$text-alt-color;
+      }
+    }
+
+    .grid-row {
+      display: grid;
+      border-bottom: 1px solid vars.$primary-color;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &.even {
+        background-color: rgba(vars.$primary-light-color, 0.3);
+      }
+
+      &.odd {
+        background-color: vars.$secondary-light-color;
+      }
+    }
+
+    .grid-cell {
+      padding: vars.$margin-xs;
+      display: flex;
+      align-items: center;
+      color: vars.$text-color;
+    }
+
+    //Spezifische Zellen:
+    .day-cell {
+      font-weight: bold;
+      background-color: rgba(vars.$primary-color, 0.1);
+      position: relative;
+    }
+
+    .time-cell {
+      font-family: monospace;
+    }
+
+    .borough-cell {
+      font-weight: 500;
+    }
+
+    .address-cell {
+      font-size: 0.9em;
+      color: vars.$text-alt-color;
+    }
+
+    .features-cell {
+        display: flex;
+        justify-content: space-between;
+        border: 2px solid hotpink;
+      gap: vars.$margin-xs;
+      flex-wrap: wrap;
+    }
+  }
+
+  .legend-container {
+    display: none;
+    position: absolute;
+    padding: vars.$margin-xs;
+    max-width: 70%;
+    bottom: 0;
+    right: 15px;
+    transform: translateY(50%);
+    @include mix.bold_shadow;
+  }
+}
