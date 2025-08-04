@@ -122,7 +122,7 @@ export default function TimeTable({ position }) {
     if (!timeData) return {};
 
     const grouped = {};
-    
+
     timeData.data.locations.forEach((location) => {
       location.schedule.forEach((scheduleItem) => {
         const dayId = scheduleItem.dayId;
@@ -142,22 +142,20 @@ export default function TimeTable({ position }) {
 
     Object.keys(grouped).forEach((dayId) => {
       grouped[dayId].sort((a, b) => {
-        const timeA = timeData.variables.times.find(
-        (t) => t.id === a.schedule[0].timeId
-      )?.range || "";
+        const timeA =
+          timeData.variables.times.find((t) => t.id === a.schedule[0].timeId)
+            ?.range || "";
 
-      const timeB = timeData.variables.times.find(
-        (t) => t.id === b.schedule[0].timeId
-      )?.range || "";
+        const timeB =
+          timeData.variables.times.find((t) => t.id === b.schedule[0].timeId)
+            ?.range || "";
 
-      return parseTimeRange(timeA) - parseTimeRange(timeB);
-      })
-    })
+        return parseTimeRange(timeA) - parseTimeRange(timeB);
+      });
+    });
 
-    return grouped
+    return grouped;
   };
-
-  console.log("Grouped Data:", getGroupedByDay());
 
   // Accessibility-Icons
   const renderAccessibilityIcons = (ids) => {
@@ -262,57 +260,60 @@ export default function TimeTable({ position }) {
 
         {/* Table Body*/}
         <div className="grid-body">
-          {Object.entries(groupedData).map(([dayId, items]) => (
-            <React.Fragment key={dayId}>
-              {items.map((item, itemIndex) => {
-                const isFirstItemOfDay = itemIndex === 0;
-                const rowColor = dayId % 2 === 0 ? "even" : "odd";
+          {Object.entries(groupedData).map(([dayId, items]) =>
+            items.map((item, itemIndex) => {
+              const rowColor = dayId % 2 === 0 ? "even" : "odd";
+              const visibleColumns = getVisibleColumns();
+              const times = timeData.variables.times;
+              const days = timeData.variables.days;
 
-                return (
-                  <div
-                    key={`${dayId}-${itemIndex}`}
-                    className={`grid-row ${rowColor}`}
-                    style={{ gridTemplateColumns: getGridTemplate() }}
-                  >
-                    {visibleColumns.includes("day") && isFirstItemOfDay && (
-                      <div
-                        className="grid-cell day-cell"
-                        style={{
-                          gridRow: `span ${items.length}`,
-                          position: "relative",
-                        }}
-                      >
-                        {days.find((d) => d.id === parseInt(dayId))?.name}
-                      </div>
-                    )}
-                    {visibleColumns.includes("time") && (
-                      <div className="grid-cell time-cell">
-                        {
-                          times.find((t) => t.id === item.schedule[0].timeId)
-                            .range
-                        }
-                      </div>
-                    )}
-                    {visibleColumns.includes("borough") && (
-                      <div className="grid-cell brough-cell">
-                        {item.borough}
-                      </div>
-                    )}
-                    {visibleColumns.includes("address") && (
-                      <div className="grid-cell address-cell">
-                        {formatAddress(item.address)}
-                      </div>
-                    )}
-                    {visibleColumns.includes("features") && (
-                      <div className="grid-cell features-cell">
-                        {renderAccessibilityIcons(item.accessibilityIds)}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </React.Fragment>
-          ))}
+              return (
+                <div
+                  key={`${dayId}-${itemIndex}`}
+                  className={`grid-row ${rowColor}`}
+                  style={{ gridTemplateColumns: getGridTemplate() }}
+                >
+                  {/* Day Column */}
+                  {visibleColumns.includes("day") && (
+                    <div className="grid-cell day-cell">
+                      {itemIndex === 0
+                        ? days.find((d) => d.id === parseInt(dayId))?.name
+                        : ""}
+                    </div>
+                  )}
+
+                  {/* Time Column */}
+                  {visibleColumns.includes("time") && (
+                    <div className="grid-cell time-cell">
+                      {
+                        times.find((t) => t.id === item.schedule[0].timeId)
+                          ?.range
+                      }
+                    </div>
+                  )}
+
+                  {/* Borough */}
+                  {visibleColumns.includes("borough") && (
+                    <div className="grid-cell borough-cell">{item.borough}</div>
+                  )}
+
+                  {/* Address */}
+                  {visibleColumns.includes("address") && (
+                    <div className="grid-cell address-cell">
+                      {formatAddress(item.address)}
+                    </div>
+                  )}
+
+                  {/* Accessibility */}
+                  {visibleColumns.includes("features") && (
+                    <div className="grid-cell features-cell">
+                      {renderAccessibilityIcons(item.accessibilityIds)}
+                    </div>
+                  )}
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
     );
