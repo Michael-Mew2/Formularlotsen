@@ -119,19 +119,45 @@ export default function TimeTable({ position }) {
 
   // Gruppieren nach Tagen
   const getGroupedByDay = () => {
-    const sortedData = getSortedData();
-    const grouped = {};
+    if (!timeData) return {};
 
-    sortedData.forEach((item) => {
-      const dayId = item.schedule[0].dayId;
-      if (!grouped[dayId]) {
-        grouped[dayId] = [];
-      }
-      grouped[dayId].push(item);
+    const grouped = {};
+    
+    timeData.data.locations.forEach((location) => {
+      location.schedule.forEach((scheduleItem) => {
+        const dayId = scheduleItem.dayId;
+
+        const flattenedEntry = {
+          ...location,
+          schedule: [scheduleItem],
+        };
+
+        if (!grouped[dayId]) {
+          grouped[dayId] = [];
+        }
+
+        grouped[dayId].push(flattenedEntry);
+      });
     });
 
-    return grouped;
+    Object.keys(grouped).forEach((dayId) => {
+      grouped[dayId].sort((a, b) => {
+        const timeA = timeData.variables.times.find(
+        (t) => t.id === a.schedule[0].timeId
+      )?.range || "";
+
+      const timeB = timeData.variables.times.find(
+        (t) => t.id === b.schedule[0].timeId
+      )?.range || "";
+
+      return parseTimeRange(timeA) - parseTimeRange(timeB);
+      })
+    })
+
+    return grouped
   };
+
+  console.log("Grouped Data:", getGroupedByDay());
 
   // Accessibility-Icons
   const renderAccessibilityIcons = (ids) => {
