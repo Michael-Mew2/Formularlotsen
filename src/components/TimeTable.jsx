@@ -339,6 +339,7 @@ export default function TimeTable({ position }) {
 
   return (
     <div className={`time-table ${position}`}>
+      <div className="table-title"><FontAwesomeIcon icon="fa-solid fa-clock" /></div>
       {renderGridTable()}
       {renderLegend()}
     </div>

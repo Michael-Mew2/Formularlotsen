@@ -5,7 +5,7 @@
 $grid-columns: 140px 100px 1fr 2fr 1.5fr; // Tag, Uhrzeit, Stadtteil, Adresse, Besonderheiten
 
 .time-table {
-  width: 100%;
+  width: function.calculate-max-width($brdr-wdt: calc(#{vars.$margin-site} + 4px));
   position: relative;
   margin-bottom: vars.$spacing-md;
   // border: vars.$border-width-st solid vars.$primary-color;
@@ -22,6 +22,8 @@ $grid-columns: 140px 100px 1fr 2fr 1.5fr; // Tag, Uhrzeit, Stadtteil, Adresse, B
     top: 0;
     left: 10px;
     transform: translateY(-50%);
+    background-color: vars.$secondary-light-color;
+    color: vars.$primary-color;
   }
 
   .grid-table-container {
@@ -37,7 +39,7 @@ $grid-columns: 140px 100px 1fr 2fr 1.5fr; // Tag, Uhrzeit, Stadtteil, Adresse, B
       grid-template-columns: $grid-columns;
       background-color: vars.$primary-light-color;
       font-weight: bold;
-      // padding: vars.$margin-xs;
+      padding-top: 34.6667px;
       border-bottom: vars.$border-width-sm solid vars.$primary-color;
 
       &-cell {
