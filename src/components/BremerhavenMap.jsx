@@ -18,7 +18,7 @@ import mapData from "../data/stadtteile.json";
 
 // ==========
 
-export default function BremerhavenMap() {
+export default function BremerhavenMap({position}) {
   const [locationData, setLocationData] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(true);
   const { language } = useLanguageStore();
@@ -109,7 +109,7 @@ const createFontAwesomeIcon = () => {
 
   // ----------
   return (
-    <div className="bremerhaven-map-container" style={{ height: "600px" }}>
+    <div className={`bremerhaven-map-container ${position}`} style={{ height: "600px" }}>
       {isLoading ? (
         <div className="map-loading">Map is loading...</div>
       ) : (

@@ -27,6 +27,11 @@ body {
         font-size: vars.$font-size-page-text;
     }
 
+    h6 {
+        font-size: vars.$font-size-page-text;
+        font-weight: vars.$font-weight-page-title-main;
+    }
+
     p, li {
         font-size: vars.$font-size-page-text;
     }
