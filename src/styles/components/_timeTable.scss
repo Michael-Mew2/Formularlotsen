@@ -2,12 +2,15 @@
 @use "../abstracts/mixins" as mix;
 @use "../abstracts/functions" as function;
 
+$grid-columns: 140px 100px 1fr 2fr 1.5fr; // Tag, Uhrzeit, Stadtteil, Adresse, Besonderheiten
+
 .time-table {
-  border: 2px solid hotpink;
   width: 100%;
   position: relative;
-  margin-bottom: 6px;
+  margin-bottom: vars.$spacing-md;
+  // border: vars.$border-width-st solid vars.$primary-color;
 
+  // Titel oben links als "Pill"
   .table-title {
     @include mix.title_pill(
       $bg-clr: vars.$primary-light-color,
@@ -28,73 +31,88 @@
     overflow: hidden;
     @include mix.bold_shadow;
 
+    // Tabellenkopf
     .grid-header {
       display: grid;
+      grid-template-columns: $grid-columns;
       background-color: vars.$primary-light-color;
       font-weight: bold;
-      padding: vars.$margin-xs;
-      border-bottom: 1px solid vars.$primary-color;
+      // padding: vars.$margin-xs;
+      border-bottom: vars.$border-width-sm solid vars.$primary-color;
 
       &-cell {
         padding: vars.$margin-xs;
-        text-align: left;
         color: vars.$text-alt-color;
+        text-align: left;
       }
     }
 
+    // Tabellenzeilen
     .grid-row {
       display: grid;
-      border-bottom: 1px solid vars.$primary-color;
-
+      grid-template-columns: $grid-columns;
+      border-bottom: vars.$border-width-sm solid vars.$primary-color;
+      
+      
       &:last-child {
         border-bottom: none;
       }
-
+      
       &.even {
-        background-color: rgba(vars.$primary-light-color, 0.3);
+        background-color: rgba(vars.$primary-light-color, 0.1);
       }
-
+      
       &.odd {
-        background-color: vars.$secondary-light-color;
+        background-color: rgba(vars.$secondary-light-color, 0.2);
+      }
+      &:hover {
+        background-color: vars.$warning;
+        cursor: pointer;
       }
     }
 
+    // Zellen-Styling
     .grid-cell {
       padding: vars.$margin-xs;
       display: flex;
       align-items: center;
       color: vars.$text-color;
+      min-width: 0;
+      word-break: break-word;
     }
 
-    //Spezifische Zellen:
+    // Spezialzellen
     .day-cell {
       font-weight: bold;
-      background-color: rgba(vars.$primary-color, 0.1);
-      position: relative;
+      background-color: rgba(vars.$primary-color, 0.05);
     }
 
     .time-cell {
       font-family: monospace;
+      font-size: 0.95rem;
     }
 
     .borough-cell {
       font-weight: 500;
+      background-color: rgba(vars.$primary-color, 0.05);
     }
 
     .address-cell {
-      font-size: 0.9em;
-      color: vars.$text-alt-color;
+      font-size: 0.9rem;
+      color: vars.$text-color;
     }
 
     .features-cell {
+      .accessibility-icons {
         display: flex;
-        justify-content: space-between;
-        border: 2px solid hotpink;
-      gap: vars.$margin-xs;
-      flex-wrap: wrap;
+        gap: vars.$margin-xs;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
     }
   }
 
+  // Legende (ausgeblendet, optional einblendbar)
   .legend-container {
     display: none;
     position: absolute;
@@ -104,5 +122,17 @@
     right: 15px;
     transform: translateY(50%);
     @include mix.bold_shadow;
+  }
+
+  // Optional: Responsivität
+  @include mix.responsive(sm) {
+    .grid-header,
+    .grid-row {
+      grid-template-columns: 1fr;
+    }
+
+    .grid-cell {
+      padding: vars.$spacing-sm;
+    }
   }
 }

@@ -80,7 +80,7 @@ export default function TimeTable({ position }) {
 
     // Anzahl der Spalten in Abhängigkeit zur Fenstergröße
     let visibleCount;
-    if (windowWidth < 768) visibleCount = 3;
+    if (windowWidth < 1180) visibleCount = 3;
     else if (windowWidth < 2028) visibleCount = 4;
     else visibleCount = 5;
 
@@ -242,7 +242,8 @@ export default function TimeTable({ position }) {
           className="grid-header"
           style={{ gridTemplateColumns: getGridTemplate() }}
         >
-          {visibleColumns.map((columnId) => {
+          {/* {visibleColumns.map((columnId) => {
+            
             // Überschrift in den tableHeads suchen
             const header = timeData.pageTranslations.table.tableHeads.find(
               (head) => head.id === columnId
@@ -255,7 +256,14 @@ export default function TimeTable({ position }) {
                 {header?.title || columnId}
               </div>
             );
-          })}
+          })} */}
+          {tableHeaders
+            .filter((head) => visibleColumns.includes(head.id))
+            .map((head) => (
+              <div key={head.id} className="grid-header-cell">
+                {head.title}
+              </div>
+            ))}
         </div>
 
         {/* Table Body*/}
