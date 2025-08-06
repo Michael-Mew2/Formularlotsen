@@ -1,0 +1,87 @@
+{
+  "startseite": {
+    "meta": {
+      "title": "مرحبًا بكم في دليل النماذج في بريمرهافن (Bremerhavener Formularlotsen)",
+      "content": "نحن نساعدك في تعبئة النماذج الخاصة بك، مجانًا تمامًا!"
+    },
+    "hero": {
+      "heroPicture": "images/heroImages/AdobeStock_548190067.jpeg",
+      "heroPictureAlt": "أشخاص في جلسة استشارية",
+      "heroMainTitle": "هل تجد صعوبة في تعبئة الطلب؟",
+      "heroSubTitle": "نحن هنا من أجلك!"
+    },
+    "pageContent": [
+      {
+        "type": "intro",
+        "groupId": "page-title",
+        "groupStyle": "page-content-title",
+        "title": "نحن دليل النماذج في بريمرهافن (Bremerhavener Formularlotsen)!",
+        "content": "نحن نساعدك في تعبئة طلباتك!"
+      },
+      {
+        "type": "list",
+        "position": "flex-item-left",
+        "titleColor": "lightYellow",
+        "listStyle": "lifeRing",
+        "groupId": "mainTop",
+        "groupStyle": "flex-two-columns",
+        "title": "دليل النماذج في بريمرهافن (Bremerhavener Formularlotsen)...",
+        "items": [
+          "هم متطوعون مدربون تدريبًا خاصًا",
+          "يدعمون في تعبئة الطلبات",
+          "يجمعون معك المستندات اللازمة لذلك",
+          "يقدمون المساعدة مجانًا وبشكل سري",
+          "يتواجدون في العديد من أحياء المدينة",
+          "يربطونك عند الحاجة بالجهة الاستشارية المناسبة"
+        ]
+      },
+      {
+        "type": "image",
+        "position": "flex-item-right",
+        "groupId": "mainTop",
+        "picture": "images/pages/home/AdobeStock_124267298.jpeg",
+        "alt": "شخص يملأ نموذجًا بقلم. هكذا يمكن أن يبدو عندما نملأ نموذجًا من أجلك."
+      },
+      {
+        "groupId": "mainMiddle",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "دعم سريع وسهل:",
+        "titleColor": "orange",
+        "content": "دليل النماذج في بريمرهافن (Formularlotsen) متواجدون من أجلك لمساعدتك في طلباتك. نحن نقدم خدماتنا في أوقات منتظمة وفي أماكن محددة، دون الحاجة إلى تحديد موعد. هذا يتيح لك الوصول السهل والمريح إلى خدماتنا. نحن متخصصون في تعبئة الطلبات كاملة بجميع المستندات المطلوبة بحيث تتم معالجتها بسرعة من قبل الدوائر الرسمية. هدفنا هو تلبية احتياجاتك بأبسط وأسهل طريقة ممكنة."
+      },
+      {
+        "groupId": "mainBottom",
+        "groupStyle": "flex-two-columns"
+      },
+      {
+        "groupId": "mainBottom",
+        "type": "list",
+        "position": "flex-item-right",
+        "titleColor": "lightYellow",
+        "title": "نساعدك في هذه الطلبات!",
+        "items": [
+          "معونة المواطنين (Bürgergeld)",
+          "الضمان الأساسي (Grundsicherung)",
+          "بدل السكن (Wohngeld)",
+          "بدل الطفل (Kindergeld)",
+          "إعانة الأطفال الإضافية (Kinderzuschlag)",
+          "بدل الوالدين (Elterngeld)"
+        ]
+      },
+      {
+        "groupId": "mainBottom",
+        "type": "paragraph",
+        "position": "flex-item-left",
+        "groupStyle": "text-with-card-left",
+        "title": "من هم الأشخاص الذين يدعمهم دليل النماذج؟",
+        "titleColor": "blue",
+        "content": [
+          "يساعد دليل النماذج (Formularlotsen) جميع سكان بريمرهافن (Bremerhavener) الذين يحتاجون إلى دعم في تقديم طلبات الخدمات الاجتماعية.",
+          "يتوفر مترجمون فوريون عند الحاجة لتسهيل التواصل."
+        ]
+      }
+    ]
+  }
+}

@@ -13,6 +13,10 @@ const useLanguageStore = create((set) => ({
     localStorage.setItem("language", language);
     set({ language });
 
+    // HTML-Attribute setzen
+    document.documentElement.lang = language;
+    document.documentElement.dir = ["ar", "fa", "he", "ur"].includes(language) ? "rtl" : "ltr";
+
     // Lade alle Inhalte neu (Seiteninhalte + Navigation)
     loadTexts(useLanguageStore.getState().page, language, set);
     useNavigationLanguageStore.getState().loadNavigation(language);

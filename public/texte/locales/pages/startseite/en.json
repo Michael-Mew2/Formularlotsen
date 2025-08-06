@@ -1,79 +1,85 @@
 {
   "startseite": {
     "meta": {
-      "title": "Welcome at the Homepage of the Bremerhaven Form Assistants",
-      "content": "We are the 'Bremerhavener Formularlotsen' your local form assistants who will help you fill out your forms. We work completly free, just visit us!"
+      "title": "Welcome to the Bremerhaven Form Helpers (Bremerhavener Formularlotsen)",
+      "content": "We help you fill out your forms, completely free of charge!"
     },
     "hero": {
       "heroPicture": "images/heroImages/AdobeStock_548190067.jpeg",
       "heroPictureAlt": "People in a consultation meeting",
-      "heroMainTitle": "Hello and welcome",
-      "heroSubTitle": "This is our website"
+      "heroMainTitle": "Struggling with your application?",
+      "heroSubTitle": "We are here for you!"
     },
     "pageContent": [
       {
         "type": "intro",
         "groupId": "page-title",
         "groupStyle": "page-content-title",
-        "visible": false,
-        "title": "Welcome to the homepage",
-        "content": "This is a sample text in English!"
+        "title": "We are the Bremerhaven Form Helpers (Bremerhavener Formularlotsen)!",
+        "content": "We help you fill out your applications!"
       },
-
       {
         "type": "list",
-        "style": "text-left",
-        "groupId": "introduction",
-        "groupStyle": "text-with-picture-right",
-        "title": "The Bremerhaven Form Assistants...",
+        "position": "flex-item-left",
+        "titleColor": "lightYellow",
+        "listStyle": "lifeRing",
+        "groupId": "mainTop",
+        "groupStyle": "flex-two-columns",
+        "title": "The Bremerhaven Form Helpers (Bremerhavener Formularlotsen)...",
         "items": [
           "are specially trained volunteers",
-          "assist in filling out applications",
-          "help you gather the necessary documents",
-          "offer free and confidential support",
-          "can be found in many city districts",
-          "connect you with the appropriate counseling center if needed"
+          "assist in completing applications",
+          "compile all necessary documents with you",
+          "offer free and confidential help",
+          "are available in many neighborhoods",
+          "refer you to appropriate counseling centers if needed"
         ]
       },
       {
         "type": "image",
-        "style": "page-right",
-        "groupId": "introduction",
-        "description": "",
+        "position": "flex-item-right",
+        "groupId": "mainTop",
         "picture": "images/pages/home/AdobeStock_124267298.jpeg",
-        "alt": "Ein alternativer Text der angezeigt wird falls das Bild nicht geladen werden kann. Wird auch gerne von Screenreadern verwendet um Menschen mit Sehbehinderung zu erklären was auf dem Bild zu sehen ist."
+        "alt": "A person filling out a form with a pen. This is how it might look when we help you with your form."
       },
       {
-        "type": "paragraph",
-        "style": "page-full",
-        "groupId": "middle",
+        "groupId": "mainMiddle",
         "groupStyle": "full-width",
-        "title": "Fast and easy support:",
-        "content": "Our form assistants are here to help you with your concerns. They are available at fixed locations during regular hours, and you do not need an appointment. This allows for convenient and straightforward access to our services. We specialize in processing complete applications with all the required documents so that the authorities can handle them quickly. Our goal is to make your requests as simple and efficient as possible."
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "Quick and easy support:",
+        "titleColor": "orange",
+        "content": "Our Form Helpers are here to assist you with your needs. They are available at regular times and fixed locations, and no appointment is necessary. This provides you with easy and convenient access to our services. We specialize in processing complete applications with all required documents so that authorities can handle them promptly. Our goal is to make meeting your requirements as simple and efficient as possible."
       },
       {
-          "type": "list",
-          "style": "card-left",
-          "groupId": "info-main",
-          "groupStyle": "text-with-card-left",
-          "title": "We help with these applications!",
-          "items": [
-              "Citizen's allowance",
-              "Basic security",
-              "Housing allowance",
-              "Child benefit",
-              "Child supplement",
-              "Parental allowance"
-            ]
-        },
+        "groupId": "mainBottom",
+        "groupStyle": "flex-two-columns"
+      },
       {
+        "groupId": "mainBottom",
+        "type": "list",
+        "position": "flex-item-right",
+        "titleColor": "lightYellow",
+        "title": "We can help with the following applications!",
+        "items": [
+          "Citizen’s Allowance (Bürgergeld)",
+          "Basic Security Benefits (Grundsicherung)",
+          "Housing Benefit (Wohngeld)",
+          "Child Benefit (Kindergeld)",
+          "Supplementary Child Allowance (Kinderzuschlag)",
+          "Parental Allowance (Elterngeld)"
+        ]
+      },
+      {
+        "groupId": "mainBottom",
         "type": "paragraph",
-        "style": "text-right",
-        "groupId": "info-main",
-        "title": "Who do the form assistants support?",
+        "position": "flex-item-left",
+        "groupStyle": "text-with-card-left",
+        "title": "Who do the Form Helpers support?",
+        "titleColor": "blue",
         "content": [
-          "The form assistants help all residents of Bremerhaven who need support in applying for social benefits.",
-          "If needed, language mediators are available to assist with communication."
+          "The Form Helpers support all residents of Bremerhaven (Bremerhavener:innen) who need assistance in applying for social benefits.",
+          "Language mediators are available if needed."
         ]
       }
     ]
