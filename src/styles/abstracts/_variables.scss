@@ -43,15 +43,19 @@ $primary-weight: 600;
 $font-weight-page-title-main: 600;
 
 // Fontsizes
-$header-main-fs: 1.4rem;
-$header-secondary-fs: 1rem;
-$hero-main-fs: 4.0rem;
-$hero-secondary-fs: 2.4rem;
-$paragraph-standard: 1.2rem;
-$font-size-page-title-main: 3.0rem;
-$font-size-page-title-div: 2.2rem;
-$font-size-page-text: 1.6rem;
-$font-size-page-bullet: 1.6rem;
-$font-size-page-figcaption: 1.2rem;
-$font-size-footer-nav: 1.4rem;
-$font-size-footer-title: 1.2rem;
+@function calculate-responsive-font-size($min-size, $preferred-size, $max-size) {
+    @return clamp(#{$min-size}, #{$preferred-size}, #{$max-size});
+}
+
+$header-main-fs: calculate-responsive-font-size(1rem, 1.4vw, 1.4rem);
+$header-secondary-fs: calculate-responsive-font-size(0.8rem, 1vw, 1rem);
+$hero-main-fs: calculate-responsive-font-size(2rem, 4vw, 4rem);
+$hero-secondary-fs: calculate-responsive-font-size(1.5rem, 2.4vw, 2.4rem);
+$paragraph-standard: calculate-responsive-font-size(1rem, 1.2vw, 1.2rem);
+$font-size-page-title-main: calculate-responsive-font-size(2rem, 3vw, 3rem);
+$font-size-page-title-div: calculate-responsive-font-size(1.5rem, 2.2vw, 2.2rem);
+$font-size-page-text: calculate-responsive-font-size(1.2rem, 1.6vw, 1.6rem);
+$font-size-page-bullet: calculate-responsive-font-size(1.2rem, 1.6vw, 1.6rem);
+$font-size-page-figcaption: calculate-responsive-font-size(1rem, 1.2vw, 1.2rem);
+$font-size-footer-nav: calculate-responsive-font-size(1rem, 1.4vw, 1.4rem);
+$font-size-footer-title: calculate-responsive-font-size(1rem, 1.2vw, 1.2rem);
