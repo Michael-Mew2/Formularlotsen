@@ -123,6 +123,12 @@
   overflow: hidden;
   padding: 1rem; // Abstand zum Inhalt
   z-index: 100;
+
+  [dir="rtl"] & {
+    left: 0;
+    right: auto;
+    border-radius: 0 12px 12px 12px;
+  }
 }
 
 // ----------
