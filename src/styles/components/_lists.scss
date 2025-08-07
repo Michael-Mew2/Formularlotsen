@@ -3,93 +3,113 @@
 @use "../abstracts/functions" as function;
 
 .list {
-    width: 100%;
-    max-height: 65vh;
-    margin-bottom: 6px;
-    position: relative;
-    
-    .innerBox {
-        @include mix.bold_shadow;
-        padding: var.$margin-site;
-        width: function.calculate-max-width($brdr-wdt: calc(#{var.$margin-site} + 4px));
-        
-        
-        
-        .list-title{
-        @include mix.title_pill;
-        width: fit-content;
-        max-width: 70%;
-        position: absolute;
-        top: 0;
-        left: 10px;
-        transform: translateY(-50%);
-        
+  width: 100%;
+  max-height: 65vh;
+  margin-bottom: 6px;
+  position: relative;
 
-            h3, h4 {
-                margin: 0;
-                font-size: var.$font-size-page-text;
-            }
-        }
+  .innerBox {
+    @include mix.bold_shadow;
+    padding: var.$margin-site;
+    width: function.calculate-max-width(
+      $brdr-wdt: calc(#{var.$margin-site} + 4px)
+    );
 
-        ul {
-            // margin-top: /* Wird über JS berechnet. */
-            // border: 2px solid hotpink;
-            // width: 50%;
+    .list-title {
+      @include mix.title_pill;
+      width: fit-content;
+      max-width: 70%;
+      position: absolute;
+      top: 0;
+      left: 10px;
+      transform: translateY(-50%);
 
-            li {
-                position: relative;
-                padding-left: 2.2rem;
-                margin: var.$spacing-md 0;
-
-                &:last-of-type {
-                    margin-bottom: 0;
-                }
-                
-            }
-        }
-        .lifeRing ::before {
-            content: "\f1cd";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 8%;
-            color: var.$warning;
-            font-size: var.$font-size-page-bullet;
-        }
-
-        .compass ::before {
-            content: "\f14e";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 8%;
-            color: var.$primary-color;
-            font-size: var.$font-size-page-bullet;
-        }
-        
-        .lightYellow {
-            @include mix.title_pill($bg-clr: var.$secondary-light-color);
-        }
-
-        .orange {
-            @include mix.title_pill($bg-clr: var.$warning);
-        }
-
-        .red {
-            @include mix.title_pill($bg-clr: var.$highlight);
-            color: var.$text-alt-color;
-        }
-
-        .blue {
-            @include mix.title_pill($bg-clr: var.$primary-color);
-            color: var.$text-alt-color;
-        }
-
-        .lightBlue {
-            @include mix.title_pill($bg-clr: var.$primary-light-color);
-            color: var.$text-alt-color;
-        }
+      h3,
+      h4 {
+        margin: 0;
+        font-size: var.$font-size-page-text;
+      }
     }
+
+    ul {
+      // margin-top: /* Wird über JS berechnet. */
+      // border: 2px solid hotpink;
+      // width: 50%;
+      direction: ltr; // default
+      [dir="rtl"] & {
+        direction: rtl;
+        text-align: right;
+      }
+
+      li {
+        position: relative;
+        padding-left: 2.2rem;
+        margin: var.$spacing-md 0;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        // RTL-Support
+        [dir="rtl"] & {
+          padding-left: 0;
+          padding-right: 2.2rem;
+        }
+      }
+    }
+    .lifeRing ::before {
+      content: "\f1cd";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 8%;
+      color: var.$warning;
+      font-size: var.$font-size-page-bullet;
+
+      [dir="rtl"] & {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    .compass ::before {
+      content: "\f14e";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      top: 8%;
+      color: var.$primary-color;
+      font-size: var.$font-size-page-bullet;
+
+      [dir="rtl"] & {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    .lightYellow {
+      @include mix.title_pill($bg-clr: var.$secondary-light-color);
+    }
+
+    .orange {
+      @include mix.title_pill($bg-clr: var.$warning);
+    }
+
+    .red {
+      @include mix.title_pill($bg-clr: var.$highlight);
+      color: var.$text-alt-color;
+    }
+
+    .blue {
+      @include mix.title_pill($bg-clr: var.$primary-color);
+      color: var.$text-alt-color;
+    }
+
+    .lightBlue {
+      @include mix.title_pill($bg-clr: var.$primary-light-color);
+      color: var.$text-alt-color;
+    }
+  }
 }

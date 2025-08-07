@@ -22,7 +22,7 @@
         "type": "list",
         "position": "flex-item-left",
         "titleColor": "lightYellow",
-        "listStyle": "lifeRing",
+        "listStyle": "compass",
         "groupId": "mainTop",
         "groupStyle": "flex-two-columns",
         "title": "دليل النماذج في بريمرهافن (Bremerhavener Formularlotsen)...",
