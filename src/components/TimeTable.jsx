@@ -7,12 +7,14 @@ import {
   faPuzzlePiece,
   faBaby,
 } from "@fortawesome/free-solid-svg-icons";
+import useDialogStore from "../store/useDialogStore";
 
 export default function TimeTable({ position }) {
   const [loading, setIsLoading] = React.useState(true);
   const [timeData, setTimeData] = React.useState(null);
   const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
   const { language } = useLanguageStore();
+  const {openDialog} = useDialogStore();
 
   // Überprüfe Fenstergröße
   React.useEffect(() => {
@@ -280,6 +282,7 @@ export default function TimeTable({ position }) {
                   key={`${dayId}-${itemIndex}`}
                   className={`grid-row ${rowColor}`}
                   style={{ gridTemplateColumns: getGridTemplate() }}
+                  onClick={() => openDialog(item)}
                 >
                   {/* Day Column */}
                   {visibleColumns.includes("day") && (
