@@ -10,7 +10,9 @@ import {
 } from "react-leaflet";
 import L, { Icon, divIcon, point } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import MarkerClusterGroup from "react-leaflet-cluster";
+// Wenn ich mal cluster (also mehrere Marker zusammenführen möchte) muss ich zu allererst react-leaflet-cluster installieren, dazu muss ich allerdings erst react-leaflet auf v4.2.1 downgraden. Dieser Code sollte auch problemlos unter v4.2.1 laufen (falls nicht leafletProvider vor und nach dem MapContainer hinzufügen). Erst dann die mit  ##Cluster markierten Kommentare auskommentieren! 
+//Oder alternative leaflet.markercluster verwenden!! (ist schon in v.5.0.0 vorhanden!)
+// ##Cluster import MarkerClusterGroup from "react-leaflet-cluster";
 import { useLanguageStore } from "../store";
 import mapData from "../data/stadtteile.json";
 
@@ -92,14 +94,15 @@ const createFontAwesomeIcon = () => {
     iconSize: [38, 38], // Größe des Icons
   });
 
+  // ##Cluster
   // Cluster-Icon erstellen:
-  const createCustomClusterIcon = (cluster) => {
+  /* const createCustomClusterIcon = (cluster) => {
     return new divIcon({
       html: `<div class="cluster-icon">${cluster.getChildCount()}</div>`,
       className: "custom-marker-cluster",
       iconSize: point(33, 33, true),
     });
-  };
+  }; */
 
   function onEachBorough(borough, layer) {
     const boroughName = borough.properties.BEZ_ST;
@@ -135,7 +138,7 @@ const createFontAwesomeIcon = () => {
 
           <GeoJSON data={mapData.features} onEachFeature={onEachBorough} />
 
-          {/** Kluster hier nicht notwendig aber da falls gewünscht:
+          {/** ##Cluster  Kluster hier nicht notwendig aber da falls gewünscht:
            
           <MarkerClusterGroup
             chunkedLoading // Erlaubt es React alle Marker einzeln zu laden anstatt alle zusammen
@@ -152,7 +155,7 @@ const createFontAwesomeIcon = () => {
               <Popup>{marker.location}</Popup>
             </Marker>
           ))}
-          {/* Nicht vergessen das mit auszukommentiern, wenn KLuster gewünscht sind!
+          {/* ##Cluster Nicht vergessen das mit auszukommentiern, wenn KLuster gewünscht sind!
           </MarkerClusterGroup>
             */}
         </MapContainer>
