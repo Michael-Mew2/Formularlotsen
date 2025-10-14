@@ -11,6 +11,7 @@ import {
 import L, { Icon, divIcon, point } from "leaflet";
 import "leaflet/dist/leaflet.css";
 // Wenn ich mal cluster (also mehrere Marker zusammenführen möchte) muss ich zu allererst react-leaflet-cluster installieren, dazu muss ich allerdings erst react-leaflet auf v4.2.1 downgraden. Dieser Code sollte auch problemlos unter v4.2.1 laufen (falls nicht leafletProvider vor und nach dem MapContainer hinzufügen). Erst dann die mit  ##Cluster markierten Kommentare auskommentieren! 
+//Oder alternative leaflet.markercluster verwenden!! (ist schon in v.5.0.0 vorhanden!)
 // ##Cluster import MarkerClusterGroup from "react-leaflet-cluster";
 import { useLanguageStore } from "../store";
 import mapData from "../data/stadtteile.json";
