@@ -7,14 +7,15 @@ import {
   faPuzzlePiece,
   faBaby,
 } from "@fortawesome/free-solid-svg-icons";
-import useDialogStore from "../store/useDialogStore";
+import { useDialogStore } from "../store";
+import LocationDialog from "./LocationDialog";
 
 export default function TimeTable({ position }) {
   const [loading, setIsLoading] = React.useState(true);
   const [timeData, setTimeData] = React.useState(null);
   const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
   const { language } = useLanguageStore();
-  const {openDialog} = useDialogStore();
+  const { openDialog } = useDialogStore();
 
   // Überprüfe Fenstergröße
   React.useEffect(() => {
@@ -46,7 +47,7 @@ export default function TimeTable({ position }) {
           );
         }
 
-        console.log("Daten erfolgreich geladen:", data);
+        // console.log("Daten erfolgreich geladen:", data);
         setTimeData(data.locationData);
         setIsLoading(false);
       } catch (error) {
@@ -86,7 +87,7 @@ export default function TimeTable({ position }) {
     else if (windowWidth < 2028) visibleCount = 4;
     else visibleCount = 5;
 
-    console.log("screen:", windowWidth, "column-count:", visibleCount);
+    // console.log("screen:", windowWidth, "column-count:", visibleCount);
     const columns = Array.isArray(timeData.tableColumns)
       ? timeData.tableColumns
       : defaultColumns;
@@ -193,7 +194,7 @@ export default function TimeTable({ position }) {
 
   // render der Legende
   const renderLegend = () => {
-    console.log("Rendering legend with data:", timeData);
+    // console.log("Rendering legend with data:", timeData);
 
     if (
       !timeData ||
@@ -277,12 +278,17 @@ export default function TimeTable({ position }) {
               const times = timeData.variables.times;
               const days = timeData.variables.days;
 
+              const handleRowClick = () => {
+                console.log("Zeile wurde geklickt", item);
+                openDialog(<LocationDialog location={item} />);
+              };
+
               return (
                 <div
                   key={`${dayId}-${itemIndex}`}
                   className={`grid-row ${rowColor}`}
                   style={{ gridTemplateColumns: getGridTemplate() }}
-                  onClick={() => openDialog(item)}
+                  onClick={handleRowClick}
                 >
                   {/* Day Column */}
                   {visibleColumns.includes("day") && (
@@ -342,7 +348,9 @@ export default function TimeTable({ position }) {
 
   return (
     <div className={`time-table ${position}`}>
-      <div className="table-title"><FontAwesomeIcon icon="fa-solid fa-clock" /></div>
+      <div className="table-title">
+        <FontAwesomeIcon icon="fa-solid fa-clock" />
+      </div>
       {renderGridTable()}
       {renderLegend()}
     </div>
