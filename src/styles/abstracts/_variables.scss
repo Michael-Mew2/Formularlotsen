@@ -59,3 +59,18 @@ $font-size-page-bullet: calculate-responsive-font-size(1.2rem, 1.6vw, 1.6rem);
 $font-size-page-figcaption: calculate-responsive-font-size(1rem, 1.2vw, 1.2rem);
 $font-size-footer-nav: calculate-responsive-font-size(1rem, 1.4vw, 1.4rem);
 $font-size-footer-title: calculate-responsive-font-size(1rem, 1.2vw, 1.2rem);
+
+// Transitions (für konsistente Animationen)
+$transition-fast: 0.15s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Z-Index System (für Layer-Management)
+$z-index-dropdown: 1000;
+$z-index-modal: 2000;
+$z-index-tooltip: 3000;
+
+// Opacity States
+$opacity-disabled: 0.5;
+$opacity-hover: 0.8;
+$opacity-active: 1;
