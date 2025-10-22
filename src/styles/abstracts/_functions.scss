@@ -2,6 +2,7 @@
 @use "../abstracts/variables" as vars;
 @use "sass:color";
 @use "sass:list";
+@use "sass:math";
 
 // Title 3D-text-Effect:
 @function calculate-text-shadows($color) {

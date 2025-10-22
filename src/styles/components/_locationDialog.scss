@@ -4,12 +4,16 @@
 
 // ===== Dialog Container =====
 .location-dialog-content {
-  @include mix.background_pages(vars.$text-alt-color);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   max-width: 800px;
-  margin: 0 auto;
+  height: 100%;
+  margin: vars.$margin-site 0;
 
   // ---- toggle switch ----
   .tab-mode-switch {
+    order: 2;
     display: inline-flex;
     align-items: center;
     gap: vars.$spacing-md;
@@ -34,14 +38,15 @@
 
   // Moderner Toggle-Switch
   .toggle-switch-container {
+    order: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: vars.$spacing-md;
-    margin-bottom: vars.$spacing-lg;
     padding: vars.$spacing-sm;
     background: vars.$text-alt-color;
-    @include mix.bold_shadow(12px, vars.$text-color, vars.$shadow-size-sm);
+     @include mix.bold_shadow(6px, vars.$text-color, vars.$shadow-size-sm);
+    
 
     .toggle-label {
       font-size: vars.$header-secondary-fs;
@@ -126,16 +131,14 @@
   // Äußere Tabs (Stadtteile/Tage) - UNTEN
   .outer-tabs {
     display: flex;
-    gap: vars.$spacing-sm;
+    gap: 0; /* Kein Abstand zwischen den Tabs */
     padding: 0;
     margin: 0;
     list-style: none;
     background: vars.$primary-color;
-    border-radius: vars.$border-radius-st;
-    padding: vars.$spacing-sm;
+    border-radius: 0; /* Keine abgerundeten Ecken */
     margin-top: vars.$spacing-md;
-    border: vars.$border-width-st solid vars.$text-color;
-    box-shadow: vars.$shadow-size-st 0px 0px vars.$text-color;
+    border: none; /* Kein Rahmen */
   }
 
   .outer-tab {
@@ -143,7 +146,7 @@
     padding: vars.$spacing-md;
     background: transparent;
     border: none;
-    border-radius: vars.$border-radius-st;
+    border-radius: 0; /* Keine abgerundeten Ecken */
     font-size: vars.$header-secondary-fs;
     font-weight: vars.$primary-weight;
     color: vars.$text-alt-color;
@@ -151,18 +154,18 @@
     transition: all 0.2s ease;
     text-align: center;
     opacity: 0.6;
+    border-bottom: 3px solid transparent; /* Transparenter unterer Rand */
 
     &:hover {
       opacity: 0.8;
       background: rgba(255, 255, 255, 0.1);
     }
 
-    &.react-tabs_tab--selected {
-      background: vars.$primary-light-color;
-      color: vars.$text-alt-color;
+    &.react-tabs__tab--selected {
+      background: transparent;
+      color: vars.$warning;
       opacity: 1;
-      border: 2px solid vars.$text-color;
-      box-shadow: inset 2px 2px 0px vars.$text-color;
+      border-bottom: 3px solid vars.$warning; /* Aktiver Tab hat gelben unteren Rand */
     }
   }
 
@@ -198,39 +201,64 @@
   // Innere Tabs (Standorte/Uhrzeiten)
   .inner-tabs {
     display: flex;
-    gap: vars.$spacing-sm;
-    padding: vars.$spacing-md;
+    gap: 0; /* Kein Abstand zwischen den Tabs */
+    padding: 0;
     margin: 0;
     list-style: none;
     background: vars.$secondary-light-color;
     flex-wrap: wrap;
-    border-bottom: vars.$border-width-st solid vars.$text-color;
+    border-bottom: none; /* Kein unterer Rand */
   }
 
   .inner-tab {
-    padding: vars.$spacing-sm vars.$spacing-md;
-    background: vars.$warning;
-    border: vars.$border-width-sm solid vars.$text-color;
-    border-radius: vars.$border-radius-st;
+    flex: 1;
+    padding: vars.$spacing-md;
+    background: transparent;
+    border: none;
+    border-radius: 0; /* Keine abgerundeten Ecken */
     cursor: pointer;
     transition: all 0.2s ease;
     font-size: vars.$header-secondary-fs;
     font-weight: vars.$primary-weight;
     color: vars.$text-color;
-    box-shadow: vars.$shadow-size-sm 0px 0px vars.$text-color;
+    border-bottom: 3px solid transparent; /* Transparenter unterer Rand */
 
     &:hover {
-      transform: translateY(-2px);
-      box-shadow: vars.$shadow-size-st 0px 0px vars.$text-color;
+      background: rgba(255, 255, 255, 0.1);
     }
 
     &.react-tabs__tab--selected {
-      background: vars.$secondary-color;
-      border-width: vars.$border-width-st;
-      box-shadow: vars.$shadow-size-st 0px 0px vars.$text-color;
-      transform: translateY(-2px);
+      color: vars.$warning;
+      border-bottom: 3px solid vars.$warning; /* Aktiver Tab hat gelben unteren Rand */
     }
   }
 
-  // Content Panel (Details)
+  // ===== Content Panel (Details) =====
+  .content-panel {
+    padding: vars.$spacing-md 0;
+    background: transparent;
+    border: 2px solid green;
+    border-bottom: none;
+    border-top-left-radius: vars.$border-radius-st;
+    border-top-right-radius: vars.$border-radius-st;
+    box-shadow: vars.$shadow-size-sm 0px 0px vars.$text-color;
+
+    h2 {
+      margin: 0 0 vars.$spacing-md 0;
+      font-size: vars.$font-size-page-title-div;
+      font-weight: vars.$font-weight-page-title-main;
+      color: vars.$text-color;
+    }
+
+    p {
+      margin: vars.$spacing-md 0;
+      font-size: vars.$font-size-page-text;
+      color: vars.$text-color;
+      line-height: 1.6;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
 }
