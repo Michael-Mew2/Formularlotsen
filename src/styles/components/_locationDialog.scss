@@ -2,6 +2,14 @@
 @use "../abstracts/mixins" as mix;
 @use "../abstracts/functions" as function;
 
+/** -------- Height of Layer-levels -------- 
+    outher Tabs (unselected) = 550
+    outher Tabs (selected) = 561
+    inner Tabs (unselected) = 560
+    inner Tabs (selected) = 571
+    content = 570
+*/
+
 // ===== Dialog Container =====
 .location-dialog-content {
   display: flex;
@@ -9,7 +17,7 @@
   width: 100%;
   max-width: 800px;
   height: 100%;
-  margin: vars.$margin-site 0;
+  // margin: vars.$margin-site 0;
 
   // ---- toggle switch ----
   .tab-mode-switch {
@@ -45,8 +53,11 @@
     gap: vars.$spacing-md;
     padding: vars.$spacing-sm;
     background: vars.$text-alt-color;
-     @include mix.bold_shadow(6px, vars.$text-color, vars.$shadow-size-sm);
-    
+    @include mix.bold_shadow(
+      vars.$border-radius-st,
+      vars.$text-color,
+      vars.$shadow-size-sm
+    );
 
     .toggle-label {
       font-size: vars.$header-secondary-fs;
@@ -116,10 +127,12 @@
   .react-tabs {
     display: flex;
     flex-direction: column;
+    margin: 0;
 
     // äußere Tabs ganz nach unten:
     > .outer-tabs {
       order: 2;
+      margin: 0;
     }
 
     // Panels (mit Content) nach oben:
@@ -135,113 +148,111 @@
     padding: 0;
     margin: 0;
     list-style: none;
-    background: vars.$primary-color;
+    // background: vars.$primary-color;
     border-radius: 0; /* Keine abgerundeten Ecken */
-    margin-top: vars.$spacing-md;
-    border: none; /* Kein Rahmen */
+    // margin-top: vars.$spacing-md;
+    // border: 2px solid brown;
+    position: relative;
+    top: -4px;
   }
 
   .outer-tab {
     flex: 1;
     padding: vars.$spacing-md;
-    background: transparent;
-    border: none;
-    border-radius: 0; /* Keine abgerundeten Ecken */
+    background: vars.$primary-color;
     font-size: vars.$header-secondary-fs;
     font-weight: vars.$primary-weight;
     color: vars.$text-alt-color;
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
-    opacity: 0.6;
-    border-bottom: 3px solid transparent; /* Transparenter unterer Rand */
+    @include mix.bold_shadow;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    z-index: 550;
 
     &:hover {
-      opacity: 0.8;
-      background: rgba(255, 255, 255, 0.1);
+      background: vars.$primary-light-color;
     }
 
     &.react-tabs__tab--selected {
-      background: transparent;
-      color: vars.$warning;
-      opacity: 1;
-      border-bottom: 3px solid vars.$warning; /* Aktiver Tab hat gelben unteren Rand */
+      background: vars.$warning;
+      color: vars.$text-color;
+      z-index: 561;
+      border-top: none;
     }
   }
 
-  // Container für innere Tabs
-  .react-tabs__tab-panel {
-    background: vars.$text-alt-color;
-    border-radius: vars.$border-radius-st;
-    overflow: hidden;
-    @include mix.bold_shadow(
-      vars.$border-radius-st,
-      vars.$text-color,
-      vars.$shadow-size-st
-    );
-    margin-bottom: vars.$spacing-md;
-
-    // Inner Tabs - OBEN
-    .react-tabs {
-      display: flex;
-      flex-direction: column;
-
-      // Tabs nch unten:
-      > .inner-tabs {
-        order: 2;
-      }
-
-      // Panels (mit Content) nach oben:
-      > .react-tabs__tab-panel {
-        order: 1;
-      }
-    }
-  }
-
-  // Innere Tabs (Standorte/Uhrzeiten)
-  .inner-tabs {
-    display: flex;
-    gap: 0; /* Kein Abstand zwischen den Tabs */
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    background: vars.$secondary-light-color;
-    flex-wrap: wrap;
-    border-bottom: none; /* Kein unterer Rand */
-  }
-
-  .inner-tab {
-    flex: 1;
+  .content-and-inner-tabs-container {
     padding: vars.$spacing-md;
-    background: transparent;
-    border: none;
-    border-radius: 0; /* Keine abgerundeten Ecken */
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: vars.$header-secondary-fs;
-    font-weight: vars.$primary-weight;
-    color: vars.$text-color;
-    border-bottom: 3px solid transparent; /* Transparenter unterer Rand */
+    background-color: vars.$warning;
+    @include mix.bold_shadow;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    z-index: 560;
 
-    &:hover {
-      background: rgba(255, 255, 255, 0.1);
+    // Container für innere Tabs
+    .react-tabs__tab-panel {
+      // background: vars.$text-alt-color;
+      // border-radius: vars.$border-radius-st;
+      overflow: hidden;
+      @include mix.bold_shadow(
+        vars.$border-radius-st,
+        vars.$text-color,
+        vars.$shadow-size-st
+      );
+      margin-bottom: vars.$spacing-md;
     }
 
-    &.react-tabs__tab--selected {
-      color: vars.$warning;
-      border-bottom: 3px solid vars.$warning; /* Aktiver Tab hat gelben unteren Rand */
+    // Innere Tabs (Standorte/Uhrzeiten)
+    .inner-tabs {
+      display: flex;
+      gap: 0; /* Kein Abstand zwischen den Tabs */
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      flex-wrap: wrap;
+      border-bottom: none; /* Kein unterer Rand */
+      position: relative;
+      top: -4px;
+    }
+
+    .inner-tab {
+      z-index: 565;
+      flex: 1;
+      padding: vars.$spacing-md;
+      background-color: vars.$secondary-color;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: vars.$header-secondary-fs;
+      font-weight: vars.$primary-weight;
+      color: vars.$text-color;
+      @include mix.bold_shadow;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+
+      &:hover {
+        background: vars.$secondary-light-color;
+      }
+
+      &.react-tabs__tab--selected {
+        // color: vars.$text-alt-color;
+        background-color: vars.$highlight;
+        border-top: none;
+        z-index: 571;
+      }
     }
   }
 
   // ===== Content Panel (Details) =====
   .content-panel {
-    padding: vars.$spacing-md 0;
-    background: transparent;
-    border: 2px solid green;
-    border-bottom: none;
-    border-top-left-radius: vars.$border-radius-st;
-    border-top-right-radius: vars.$border-radius-st;
-    box-shadow: vars.$shadow-size-sm 0px 0px vars.$text-color;
+    position: relative;
+    z-index: 570;
+    padding: vars.$spacing-md;
+    background-color: vars.$highlight;
+    @include mix.bold_shadow;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 
     h2 {
       margin: 0 0 vars.$spacing-md 0;

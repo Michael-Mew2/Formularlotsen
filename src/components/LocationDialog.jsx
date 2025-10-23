@@ -251,32 +251,17 @@ export default function LocationDialog({ location }) {
         </span>
       </div>
 
-      {/* Content des LocationDialogs */}
-      <LocationDialogContent
-        location={currentLocation}
-        getTimeRange={getTimeRange}
-      />
+      {/* Container für Inhalt und innerer Tabs */}
+      <div className="content-and-inner-tabs-container">
+        {/* Content des LocationDialogs */}
+        <LocationDialogContent
+          location={currentLocation}
+          getTimeRange={getTimeRange}
+        />
 
-      {/* Konditioniertes rendern der Tabs: */}
-      {tabMode === "borough" ? (
-        /* Tabs nach Stadtteilen und Standorten: */
-        <Tabs
-          selectedIndex={boroughTabIndex}
-          onSelect={(index) => {
-            setBoroughTabIndex(index);
-            setLocationTabIndex(0);
-            // Ersetzt (wird dank useEffect nicht mehr benötigt)
-            /* setBoroughTabIndex(index);
-            const boroughs = Object.keys(locationsByBorough);
-            const selectedBorough = boroughs[index];
-            const firstLocation = locationsByBorough[selectedBorough][0];
-            setSelectedLocation(firstLocation); */
-          }}
-        >
-          <div className="tab-content" style={{border: "2px solid red", padding: "5px"}}>
-          {/* Innere Tabs: Standorte pro Stadtteil - MITTE */}
+        {tabMode === "borough" ? (
+          /* Innere Tabs: Standorte pro Stadtteil - MITTE */
           <Tabs
-          style={{border: "2px solid limegreen"}}
             selectedIndex={locationTabIndex}
             onSelect={(tabIndex) => {
               setLocationTabIndex(tabIndex);
@@ -292,8 +277,43 @@ export default function LocationDialog({ location }) {
               ))}
             </TabList>
           </Tabs>
-          </div>
+        ) : (
+          /* Innere Tabs: Uhrzeiten - MITTE */
+          <Tabs
+            selectedIndex={timeTabIndex}
+            onSelect={(tabIndex) => {
+              setTimeTabIndex(tabIndex);
+            }}
+          >
+            <TabList className="inner-tabs">
+              {locationsByDay[Object.keys(locationsByDay)[dayTabIndex]]?.map(
+                (loc, locIndex) => (
+                  <Tab key={locIndex} className="inner-tab">
+                    {loc.timeRange}
+                  </Tab>
+                )
+              )}
+            </TabList>
+          </Tabs>
+        )}
+      </div>
 
+      {/* Äuere Tabs: Stadtteile/Tage - Unten */}
+      {tabMode === "borough" ? (
+        /* Tabs nach Stadtteilen und Standorten: */
+        <Tabs
+          selectedIndex={boroughTabIndex}
+          onSelect={(index) => {
+            setBoroughTabIndex(index);
+            setLocationTabIndex(0);
+            // Ersetzt (wird dank useEffect nicht mehr benötigt)
+            /* setBoroughTabIndex(index);
+            const boroughs = Object.keys(locationsByBorough);
+            const selectedBorough = boroughs[index];
+            const firstLocation = locationsByBorough[selectedBorough][0];
+            setSelectedLocation(firstLocation); */
+          }}
+        >
           {/* Äußere Tabs: Stadtteile */}
           <TabList className="outer-tabs">
             {Object.keys(locationsByBorough).map((borough, index) => (
@@ -312,24 +332,6 @@ export default function LocationDialog({ location }) {
             setTimeTabIndex(0);
           }}
         >
-          {/* Innere Tabs: Uhrzeiten - MITTE */}
-          <Tabs
-            selectedIndex={timeTabIndex}
-            onSelect={(tabIndex) => {
-              setTimeTabIndex(tabIndex);
-            }}
-          >
-            <TabList className="inner-tabs">
-              {locationsByDay[Object.keys(locationsByDay)[dayTabIndex]]?.map(
-                (loc, locIndex) => (
-                  <Tab key={locIndex} className="inner-tab">
-                    {loc.timeRange}
-                  </Tab>
-                )
-              )}
-            </TabList>
-          </Tabs>
-
           {/* Äußere Tabs: Tage - Unten */}
           <TabList className="outer-tabs">
             {Object.keys(locationsByDay).map((day, index) => (
