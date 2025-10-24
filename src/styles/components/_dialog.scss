@@ -18,8 +18,8 @@
     position: relative;
     @include mix.bold_shadow;
     @include mix.background_pages(vars.$text-alt-color);
-    max-width: 50vw;
-    width: 500px;
+    max-width: 80vw;
+    // width: 500px;
     max-height: 80vh;
     z-index: 501;
 
@@ -35,7 +35,7 @@
         font-size: vars.$font-size-page-title-div;
         position: absolute;
         top: 0;
-        right: 10px;
+        right: vars.$margin-site;
         transform: translateY(-50%);
         padding: vars.$margin-xs;
         font-weight: 800;
