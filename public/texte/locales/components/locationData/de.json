@@ -3,9 +3,29 @@
     "data": {
       "locations": [
         {
+          "borough": "Geestemünde",
+          "location": "Gemeindebüro der Emmaus-Kirchengemeinde",
+          "address": ["Haberstraße 12a", "27574 Bremerhaven"],
+          "schedule": [{ "dayId": 4, "timeId": 1 }],
+          "additionalInformation": {
+            "publicTransport": {
+              "icon": "fa-bus",
+              "title": "Erreichbar mit",
+              "content": ""
+            }
+          },
+          "accessibilityIds": [0, 1],
+          "map": "",
+          "pinPosition": {
+            "lng": 8.607512141896242,
+            "lat": 53.518920048674374 
+          },
+          "entrancePicture": "Haberstraße.jpg"
+        },
+        {
           "borough": "Leherheide",
           "location": "Gemeindehaus der Lukaskirche",
-          "address": ["Louise-Schroeder-Str.1", "27578 Bremerhaven"],
+          "address": ["Hans-Böckler-Str. 40", "27578 Bremerhaven"],
           "schedule": [{ "dayId": 0, "timeId": 0 }],
           "additionalInformation": {
             "publicTransport": {
@@ -19,7 +39,8 @@
           "pinPosition": {
             "lng": 8.619389645730202,
             "lat": 53.589224854619175
-          }
+          },
+          "entrancePicture": "Hans-Böckler-Str_40.jpg" 
         },
         {
           "borough": "Geestemünde",
@@ -38,7 +59,8 @@
           "pinPosition": {
             "lat": 53.53367541357883,
             "lng": 8.596525885547447
-          }
+          },
+          "entrancePicture": "Buchtstr.jpg"
         },
         {
           "borough": "Lehe",
@@ -57,7 +79,8 @@
           "pinPosition": {
             "lat": 53.55828581050328,
             "lng": 8.575894597998236
-          }
+          },
+          "entrancePicture": "Geibelstr_11.jpg"
         },
         {
           "borough": "Geestemünde",
@@ -76,7 +99,8 @@
           "pinPosition": {
             "lat": 53.52908960300087,
             "lng": 8.59114693974411
-          }
+          },
+          "entrancePicture": "An-der-Mühle_12.jpg"
         },
         {
           "borough": "Mitte",
@@ -98,7 +122,8 @@
           "pinPosition": {
             "lat": 53.546489188943916,
             "lng": 8.57766083838778
-          }
+          },
+          "entrancePicture": "Grazer-Str_15.jpg"
         }
       ]
     },
@@ -106,22 +131,25 @@
       "accessibility": {
         "wheelchair": {
           "id": 0,
-          "icon": "fa-wheelchair",
+          "icon": "fa-universal-access",
           "aria": "Bild mit einem Rollstuhl - Dieser Standort ist Rollstuhl gerecht",
-          "description": "Standorte mit diesem Symbol sind uneingeschränkt mit dem Rollstuhl erreichbar und bieten eine rollstuhl gerechte Toilette.",
+          "descriptionLong": "Standorte mit diesem Symbol für jeden uneingeschränkt erreichbar.",
+          "descriptionShort": "Dieser Standort ist für jeden uneingeschränkt erreichbar..",
           "link": ""
         },
         "toys": {
           "id": 1,
           "icon": "fa-puzzle-piece",
           "aria": "Bild mit einem Puzzelteil - Dieser Standort bietet Spiele für die Kinder",
-          "description": "Standorte mit diesem Symbol haben Spielzeuge und Malvorlagen zur Unterhaltung von (klein)Kindern"
+          "descriptionLong": "Standorte mit diesem Symbol haben Spielzeuge und Malvorlagen zur Unterhaltung von (klein)Kindern",
+          "descriptionShort": "Dieser Standort hat Spielzeuge und Malvorlagen für Kinder"
         },
         "baby": {
           "id": 2,
           "icon": "fa-baby",
           "aria": "Bild mit einem Baby - Dieser Standort bietet eine Wickelmöglichkeit für Babies und Kleinkinder",
-          "description": "Standorte mit diesem Symbol haben einen Wickeltisch zum wechseln der Windeln von Babies und Kleinkindern"
+          "descriptionLong": "Standorte mit diesem Symbol haben einen Wickeltisch zum wechseln der Windeln von Babies und Kleinkindern",
+          "descriptionShort": "Dieser Standort hat einen Wickeltisch."
         }
       },
       "days": [

@@ -41,6 +41,18 @@
   color: $tx-clr;
 }
 
+@mixin mini-title_bubble($bg-clr: vars.$secondary-color, $tx-clr: vars.$text-color, $border-clr: vars.$text-color, $shadow-sz: vars.$shadow-size-xs, $pdg: 10px) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $pdg;
+  border-radius: 50px;
+  border: 4px solid $border-clr;
+  background-color: $bg-clr;
+  box-shadow: $shadow-sz 0px 0px $border-clr;
+  color: $tx-clr; 
+}
+
 // Title 3D-Effect color selector:
 @mixin text-shadow-3d($color) {
   color: $color;

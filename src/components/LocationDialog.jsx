@@ -63,6 +63,13 @@ export default function LocationDialog({ location }) {
     );
   };
 
+  // Abrufen der Tage
+  const getDayName = (dayId) => {
+    if (!data?.locationData?.variables?.days?.length) return "Unbekannt";
+    const day = data.locationData.variables.days.find((d) => d.id === dayId);
+    return day ? day.name : "Unbekannt";
+  };
+
   // Standorte nach Tagen gruppieren
   const groupLocationsByDay = (locations) => {
     const grouped = {};
@@ -164,6 +171,18 @@ export default function LocationDialog({ location }) {
           timeTabIndex
         ];
 
+  const getAccessibilityInfo = (accessibilityIds) => {
+    if (!data?.locationData?.variables.accessibility) return [];
+
+    return Object.entries(data.locationData.variables.accessibility)
+      .filter(([__, accessibility]) => accessibilityIds.includes(accessibility.id))
+      .map(([_, accessibility]) => ({
+        icon: accessibility.icon,
+        description: accessibility.descriptionShort,
+        aria: accessibility.aria,
+      }));
+  };
+
   // Initial-Tabs für Stadtteile --> Standorte finden
   // Ersetzt durch useEffect
   /*   const findInitialTabIndices = () => {
@@ -257,6 +276,8 @@ export default function LocationDialog({ location }) {
         <LocationDialogContent
           location={currentLocation}
           getTimeRange={getTimeRange}
+          getDayName={getDayName}
+          getAccessibilityInfo={getAccessibilityInfo}
         />
 
         {tabMode === "borough" ? (

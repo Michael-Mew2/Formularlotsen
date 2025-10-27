@@ -33,11 +33,11 @@
         );
         width: fit-content;
         font-size: vars.$font-size-page-title-div;
+        padding: vars.$margin-xs;
         position: absolute;
         top: 0;
         right: vars.$margin-site;
         transform: translateY(-50%);
-        padding: vars.$margin-xs;
         font-weight: 800;
 
         &:hover {

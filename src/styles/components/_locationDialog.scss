@@ -158,7 +158,7 @@
 
   .outer-tab {
     flex: 1;
-    padding: vars.$spacing-md;
+    padding: vars.$spacing-10;
     background: vars.$primary-color;
     font-size: vars.$header-secondary-fs;
     font-weight: vars.$primary-weight;
@@ -220,7 +220,7 @@
     .inner-tab {
       z-index: 565;
       flex: 1;
-      padding: vars.$spacing-md;
+      padding: vars.$spacing-10;
       background-color: vars.$secondary-color;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -261,8 +261,8 @@
       padding: 10px;
       margin-bottom: vars.$margin-site;
 
-      h2 {
-        font-size: vars.$font-size-page-title-div;
+      h5 {
+        font-size: vars.$font-size-page-text;
         font-weight: vars.$font-weight-page-title-main;
         color: vars.$text-color;
       }
@@ -275,12 +275,63 @@
       justify-content: space-between;
       gap: 1rem;
 
-      >div {
+      > div {
         width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: vars.$spacing-md;
+
+        > div {
+          position: relative;
+
+          .location-dialog-bubble {
+            @include mix.mini-title_bubble;
+            width: fit-content;
+            font-size: vars.$font-size-page-figcaption;
+            padding: vars.$margin-xs;
+            position: absolute;
+            top: 0;
+            transform: translate(-50%, -50%);
+            z-index: 580;
+          }
+
+          .pin {
+            svg {
+              margin: 0 2px;
+            }
+
+            right: vars.$margin-xs;
+          }
+        }
       }
 
-      .map-container{
+      .map-container {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        margin: 0 0 0 8px;
+        width: 280px;
+
+        .address {
+          width: fit-content;
+          max-width: 80%;
+          @include mix.bold_shadow;
+          padding: vars.$spacing-sm;
+          background-color: vars.$text-alt-color;
+          position: relative;
+          z-index: 570;
+          margin-right: 14px;
+
+          p {
+            margin: 0;
+            font-size: vars.$font-size-page-figcaption;
+            color: vars.$text-color;
+            line-height: 1.2;
+          }
+        }
+
         .map {
+          margin-top: -20px;
           @include mix.bold_shadow();
           position: relative;
           cursor: pointer;
@@ -299,6 +350,19 @@
             gap: 8px;
             z-index: 560;
             opacity: 0;
+
+            i {
+              color: white;
+              font-size: 32px;
+            }
+
+            span {
+              color: white;
+              font-size: 14px;
+              font-weight: 500;
+              text-align: center;
+              text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            }
           }
 
           &:hover {
@@ -307,7 +371,56 @@
             }
           }
         }
-      } 
+      }
+
+      .times {
+        @include mix.bold_shadow;
+        display: flex;
+        flex-direction: column;
+        gap: vars.$spacing-sm;
+        padding: vars.$spacing-sm;
+        background-color: vars.$text-alt-color;
+        font-size: vars.$font-size-page-figcaption;
+        color: vars.$text-color;
+        margin: 0 6px 0 0;
+
+        .row {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          &:nth-of-type(even) {
+            background-color: rgba(0, 0, 0, 0.05);
+          }
+        }
+      }
+
+      .inclusiveAmenities {
+        @include mix.bold_shadow;
+        padding: vars.$spacing-sm;
+        background-color: vars.$text-alt-color;
+        font-size: vars.$font-size-page-figcaption;
+        color: vars.$text-color;
+        margin: 0 6px 0 0;
+
+        .accessibility-list {
+          // border: 2px solid brown;
+          display: flex;
+          flex-direction: column;
+          gap: vars.$spacing-sm;
+
+          .accessibility-item {
+            // border: 2px solid hotpink;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+
+            &:nth-of-type(even) {
+              background-color: rgba(0, 0, 0, 0.05);
+            }
+          }
+        }
+      }
     }
 
     p {
