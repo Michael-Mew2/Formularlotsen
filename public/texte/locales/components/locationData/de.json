@@ -20,7 +20,10 @@
             "lng": 8.607512141896242,
             "lat": 53.518920048674374 
           },
-          "entrancePicture": "Haberstraße.jpg"
+          "entrance": {
+            "entrancePicture": "Haberstr12a.jpg",
+            "entranceAlt": "Eingang des Gemeindebüros der Emmaus-Kirchengemeinde"
+          }
         },
         {
           "borough": "Leherheide",
@@ -40,7 +43,10 @@
             "lng": 8.619389645730202,
             "lat": 53.589224854619175
           },
-          "entrancePicture": "Hans-Böckler-Str_40.jpg" 
+          "entrance": {
+            "entrancePicture": "HansBoecklerStr40.jpg",
+            "entranceAlt": "Eingang des Gemeindehauses der Lukaskirche"
+          }
         },
         {
           "borough": "Geestemünde",
@@ -60,7 +66,10 @@
             "lat": 53.53367541357883,
             "lng": 8.596525885547447
           },
-          "entrancePicture": "Buchtstr.jpg"
+          "entrance": {
+            "entrancePicture": "Buchtstr54.jpg",
+            "entranceAlt": "Eingang des Pfarrheims der Herz-Jesu Geestemunde"
+          }
         },
         {
           "borough": "Lehe",
@@ -80,7 +89,10 @@
             "lat": 53.55828581050328,
             "lng": 8.575894597998236
           },
-          "entrancePicture": "Geibelstr_11.jpg"
+          "entrance": {
+            "entrancePicture": "Geibelstr11.jpg",
+            "entranceAlt": "Eingang des Pfarrheims der Herz-Jesu Lehe"
+          }
         },
         {
           "borough": "Geestemünde",
@@ -100,7 +112,10 @@
             "lat": 53.52908960300087,
             "lng": 8.59114693974411
           },
-          "entrancePicture": "An-der-Mühle_12.jpg"
+          "entrance": {
+            "entrancePicture": "AnDerMuehle12.jpg",
+            "entranceAlt": "Eingang des Gemeindehauses der Marienkirche"
+          }
         },
         {
           "borough": "Mitte",
@@ -123,7 +138,10 @@
             "lat": 53.546489188943916,
             "lng": 8.57766083838778
           },
-          "entrancePicture": "Grazer-Str_15.jpg"
+          "entrance": {
+            "entrancePicture": "GrazerStr15.jpg",
+            "entranceAlt": "Eingang der Kirchengemeinde der St. Marien"
+          }
         }
       ]
     },

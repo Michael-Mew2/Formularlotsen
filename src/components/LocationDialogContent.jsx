@@ -185,7 +185,9 @@ export default function LocationDialogContent({
           </div>
           {/* Beschreibung des Einganges */}
           <div className="entrance">
-            <div className="entrance-picture">Bild</div>
+            <div className="entrance-picture">
+              <img src={`images/components/locationDialog/entrances/${location.entrance.entrancePicture}`} alt="entrancePicture" />
+            </div>
             <div className="entrance-description">
               <p>Hier Text einfügen</p>
             </div>
