@@ -23,7 +23,7 @@ export default function LocationDialogContent({
   location,
   getTimeRange,
   getDayName,
-  getAccessibilityInfo
+  getAccessibilityInfo,
 }) {
   if (!location) {
     return (
@@ -78,7 +78,7 @@ export default function LocationDialogContent({
       {/* Inhalt  */}
       <div className="location-content">
         {/* Linke Seite */}
-        <div className="left-side">
+        <div className="left-side" style={{order: "2"}}>
           {/* Karte mit Adresse */}
           <div className="map-container">
             <div className="address">
@@ -157,7 +157,7 @@ export default function LocationDialogContent({
         </div>
 
         {/* Rechte Seite */}
-        <div className="right-side">
+        <div className="right-side" style={{order: "0"}}>
           {/* Inklusive Annehmlichkeiten */}
           <div className="inclusiveAmenities">
             {location.accessibilityIds &&
@@ -186,11 +186,16 @@ export default function LocationDialogContent({
           {/* Beschreibung des Einganges */}
           <div className="entrance">
             <div className="entrance-picture">
-              <img src={`images/components/locationDialog/entrances/${location.entrance.entrancePicture}`} alt="entrancePicture" />
+              <img
+                src={`images/components/locationDialog/entrances/${location.entrance.entrancePicture}`}
+                alt="entrancePicture"
+              />
             </div>
-            <div className="entrance-description">
-              <p>Hier Text einfügen</p>
-            </div>
+            {/* {location.entrance.entranceDescription && (
+              <div className="entrance-description">
+                <p>{location.entrance.entranceDescription}</p>
+              </div>
+            )} */}
           </div>
 
           {/* In Google/apple-Maps speichern */}

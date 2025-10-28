@@ -46,6 +46,7 @@
 
   // Moderner Toggle-Switch
   .toggle-switch-container {
+    position: absolute;
     order: 1;
     display: flex;
     align-items: center;
@@ -309,11 +310,11 @@
         display: flex;
         flex-direction: column;
         align-items: end;
-        margin: 0 0 0 8px;
-        width: 280px;
+        margin: 0 6px 0 8px;
+        //width: 280px;
 
         .address {
-          width: fit-content;
+          width: 185px;
           max-width: 80%;
           @include mix.bold_shadow;
           padding: vars.$spacing-sm;
@@ -396,12 +397,16 @@
       }
 
       .inclusiveAmenities {
+        order: 2;
         @include mix.bold_shadow;
         padding: vars.$spacing-sm;
         background-color: vars.$text-alt-color;
         font-size: vars.$font-size-page-figcaption;
         color: vars.$text-color;
         margin: 0 6px 0 0;
+        height: 15%;
+        overflow-y: scroll;
+        margin-bottom: -17px;
 
         .accessibility-list {
           // border: 2px solid brown;
@@ -423,10 +428,42 @@
       }
 
       .entrance {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin: 0 6px 0 8px;
+
         .entrance-picture {
+          height: 140px;
+          width: 100%;
+          @include mix.bold_shadow;
+          overflow: hidden;
+
           img {
-            width: 100px;
-            height: 100px;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+
+        .entrance-description {
+          @include mix.bold_shadow;
+          padding: vars.$spacing-sm;
+          background-color: vars.$text-alt-color;
+          color: vars.$text-color;
+          margin: -50px 6px 0 0;
+          width: fit-content;
+          max-width: 80%;
+          max-height: 20%;
+          overflow-y: overlay;
+          align-self: flex-start;
+
+          p {
+            margin: 0;
+            font-size: vars.$font-size-page-figcaption;
+            color: vars.$text-color;
+            line-height: 1.2;
           }
         }
       }

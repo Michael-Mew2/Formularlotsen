@@ -3,29 +3,6 @@
     "data": {
       "locations": [
         {
-          "borough": "Geestemünde",
-          "location": "Gemeindebüro der Emmaus-Kirchengemeinde",
-          "address": ["Haberstraße 12a", "27574 Bremerhaven"],
-          "schedule": [{ "dayId": 4, "timeId": 1 }],
-          "additionalInformation": {
-            "publicTransport": {
-              "icon": "fa-bus",
-              "title": "Erreichbar mit",
-              "content": ""
-            }
-          },
-          "accessibilityIds": [0, 1],
-          "map": "",
-          "pinPosition": {
-            "lng": 8.607512141896242,
-            "lat": 53.518920048674374 
-          },
-          "entrance": {
-            "entrancePicture": "Haberstr12a.jpg",
-            "entranceAlt": "Eingang des Gemeindebüros der Emmaus-Kirchengemeinde"
-          }
-        },
-        {
           "borough": "Leherheide",
           "location": "Gemeindehaus der Lukaskirche",
           "address": ["Hans-Böckler-Str. 40", "27578 Bremerhaven"],
@@ -46,6 +23,30 @@
           "entrance": {
             "entrancePicture": "HansBoecklerStr40.jpg",
             "entranceAlt": "Eingang des Gemeindehauses der Lukaskirche"
+          }
+        },
+        {
+          "borough": "Geestemünde",
+          "location": "Gemeindebüro der Emmaus-Kirchengemeinde",
+          "address": ["Haberstraße 12a", "27574 Bremerhaven"],
+          "schedule": [{ "dayId": 4, "timeId": 1 }],
+          "additionalInformation": {
+            "publicTransport": {
+              "icon": "fa-bus",
+              "title": "Erreichbar mit",
+              "content": ""
+            }
+          },
+          "accessibilityIds": [0, 1],
+          "map": "",
+          "pinPosition": {
+            "lng": 8.607512141896242,
+            "lat": 53.518920048674374 
+          },
+          "entrance": {
+            "entrancePicture": "Haberstr12a.jpg",
+            "entranceAlt": "Eingang des Gemeindebüros der Emmaus-Kirchengemeinde",
+            "entranceDescription": "Die Eingangshalle der Gemeindebüro der Emmaus-Kirchengemeinde ist auf der Haberstraße 12a gelegen."
           }
         },
         {
