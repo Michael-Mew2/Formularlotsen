@@ -19,66 +19,49 @@
   height: 100%;
   // margin: vars.$margin-site 0;
 
-  // ---- toggle switch ----
-  .tab-mode-switch {
-    order: 2;
-    display: inline-flex;
-    align-items: center;
-    gap: vars.$spacing-md;
-    margin-bottom: vars.$spacing-lg; // 24px (variable in margin ändern zum vereinheitlichen)
-    padding: vars.$spacing-md;
-    background: vars.$text-alt-color;
-    @include mix.bold_shadow(12px, vars.$text-color, vars.$shadow-size-sm);
-
-    span {
-      font-size: vars.$header-secondary-fs;
-      color: vars.$text-color;
-      font-weight: vars.$primary-weight;
-      transition: all 0.3s ease;
-      opacity: 0.5;
-
-      &.active {
-        opacity: 1;
-        font-weight: 700;
-      }
-    }
-  }
-
   // Moderner Toggle-Switch
   .toggle-switch-container {
-    position: absolute;
-    order: 1;
+    @include mix.title_pill(
+          $bg-clr: vars.$secondary-light-color,
+          $tx-clr: vars.$text-alt-color
+        );
+    padding: vars.$margin-xs;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: vars.$spacing-md;
-    padding: vars.$spacing-sm;
-    background: vars.$text-alt-color;
-    @include mix.bold_shadow(
+    
+    position: absolute;
+    top: 0;
+    left: vars.$margin-site;
+    transform: translateY(-50%);
+    z-index: 502;
+   /*  @include mix.bold_shadow(
       vars.$border-radius-st,
       vars.$text-color,
       vars.$shadow-size-sm
-    );
+    ); */
 
     .toggle-label {
-      font-size: vars.$header-secondary-fs;
+      font-size: vars.$header-main-fs;
       font-weight: vars.$primary-weight;
       color: vars.$text-color;
       transition: all 0.3s ease;
       opacity: 0.7;
 
       &.active {
-        color: vars.$warning;
-        font-weight: 700;
+        color: vars.$highlight;
+        // font-weight: 700;
         opacity: 1;
+        // text-decoration: underline;
       }
     }
 
     .toggle-switch {
       position: relative;
       display: inline-block;
-      width: 60px;
-      height: 30px;
+      width: 52px;
+      height: 22px;
 
       input {
         opacity: 0;
@@ -93,7 +76,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: vars.$primary-color;
+        background-color: vars.$secondary-color;
         transition: 0.4s;
         border-radius: 34px;
         border: 2px solid vars.$text-color;
@@ -103,8 +86,8 @@
       .slider:before {
         position: absolute;
         content: "";
-        height: 22px;
-        width: 22px;
+        height: 14px;
+        width: 14px;
         // left: 4px;
         // bottom: 4px;
         background-color: vars.$text-alt-color;
