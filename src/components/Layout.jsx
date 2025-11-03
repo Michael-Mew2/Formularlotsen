@@ -3,6 +3,7 @@ import Header from "./Header";
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import Hero from "./Hero";
+import Dialog from "./Dialog";
 import { useLanguageStore } from "../store";
 
 export default function Layout() {
@@ -31,6 +32,7 @@ export default function Layout() {
       <main>
         <Hero />
         <Outlet />
+        <Dialog />
       </main>
       <Footer />
     </>

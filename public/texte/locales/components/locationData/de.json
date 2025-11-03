@@ -5,7 +5,7 @@
         {
           "borough": "Leherheide",
           "location": "Gemeindehaus der Lukaskirche",
-          "address": ["Louise-Schroeder-Str.1", "27578 Bremerhaven"],
+          "address": ["Hans-Böckler-Str. 40", "27578 Bremerhaven"],
           "schedule": [{ "dayId": 0, "timeId": 0 }],
           "additionalInformation": {
             "publicTransport": {
@@ -19,6 +19,34 @@
           "pinPosition": {
             "lng": 8.619389645730202,
             "lat": 53.589224854619175
+          },
+          "entrance": {
+            "entrancePicture": "HansBoecklerStr40.jpg",
+            "entranceAlt": "Eingang des Gemeindehauses der Lukaskirche"
+          }
+        },
+        {
+          "borough": "Geestemünde",
+          "location": "Gemeindebüro der Emmaus-Kirchengemeinde",
+          "address": ["Haberstraße 12a", "27574 Bremerhaven"],
+          "schedule": [{ "dayId": 4, "timeId": 1 }],
+          "additionalInformation": {
+            "publicTransport": {
+              "icon": "fa-bus",
+              "title": "Erreichbar mit",
+              "content": ""
+            }
+          },
+          "accessibilityIds": [0, 1],
+          "map": "",
+          "pinPosition": {
+            "lng": 8.607512141896242,
+            "lat": 53.518920048674374 
+          },
+          "entrance": {
+            "entrancePicture": "Haberstr12a.jpg",
+            "entranceAlt": "Eingang des Gemeindebüros der Emmaus-Kirchengemeinde",
+            "entranceDescription": "Die Eingangshalle der Gemeindebüro der Emmaus-Kirchengemeinde ist auf der Haberstraße 12a gelegen."
           }
         },
         {
@@ -38,6 +66,10 @@
           "pinPosition": {
             "lat": 53.53367541357883,
             "lng": 8.596525885547447
+          },
+          "entrance": {
+            "entrancePicture": "Buchtstr54.jpg",
+            "entranceAlt": "Eingang des Pfarrheims der Herz-Jesu Geestemunde"
           }
         },
         {
@@ -57,6 +89,10 @@
           "pinPosition": {
             "lat": 53.55828581050328,
             "lng": 8.575894597998236
+          },
+          "entrance": {
+            "entrancePicture": "Geibelstr11.jpg",
+            "entranceAlt": "Eingang des Pfarrheims der Herz-Jesu Lehe"
           }
         },
         {
@@ -76,6 +112,10 @@
           "pinPosition": {
             "lat": 53.52908960300087,
             "lng": 8.59114693974411
+          },
+          "entrance": {
+            "entrancePicture": "AnDerMuehle12.jpg",
+            "entranceAlt": "Eingang des Gemeindehauses der Marienkirche"
           }
         },
         {
@@ -98,6 +138,10 @@
           "pinPosition": {
             "lat": 53.546489188943916,
             "lng": 8.57766083838778
+          },
+          "entrance": {
+            "entrancePicture": "GrazerStr15.jpg",
+            "entranceAlt": "Eingang der Kirchengemeinde der St. Marien"
           }
         }
       ]
@@ -106,22 +150,25 @@
       "accessibility": {
         "wheelchair": {
           "id": 0,
-          "icon": "fa-wheelchair",
+          "icon": "fa-universal-access",
           "aria": "Bild mit einem Rollstuhl - Dieser Standort ist Rollstuhl gerecht",
-          "description": "Standorte mit diesem Symbol sind uneingeschränkt mit dem Rollstuhl erreichbar und bieten eine rollstuhl gerechte Toilette.",
+          "descriptionLong": "Standorte mit diesem Symbol für jeden uneingeschränkt erreichbar.",
+          "descriptionShort": "Dieser Standort ist für jeden uneingeschränkt erreichbar..",
           "link": ""
         },
         "toys": {
           "id": 1,
           "icon": "fa-puzzle-piece",
           "aria": "Bild mit einem Puzzelteil - Dieser Standort bietet Spiele für die Kinder",
-          "description": "Standorte mit diesem Symbol haben Spielzeuge und Malvorlagen zur Unterhaltung von (klein)Kindern"
+          "descriptionLong": "Standorte mit diesem Symbol haben Spielzeuge und Malvorlagen zur Unterhaltung von (klein)Kindern",
+          "descriptionShort": "Dieser Standort hat Spielzeuge und Malvorlagen für Kinder"
         },
         "baby": {
           "id": 2,
           "icon": "fa-baby",
           "aria": "Bild mit einem Baby - Dieser Standort bietet eine Wickelmöglichkeit für Babies und Kleinkinder",
-          "description": "Standorte mit diesem Symbol haben einen Wickeltisch zum wechseln der Windeln von Babies und Kleinkindern"
+          "descriptionLong": "Standorte mit diesem Symbol haben einen Wickeltisch zum wechseln der Windeln von Babies und Kleinkindern",
+          "descriptionShort": "Dieser Standort hat einen Wickeltisch."
         }
       },
       "days": [

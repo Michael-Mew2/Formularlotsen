@@ -1,0 +1,51 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/functions" as function;
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: vars.$primary-opacity-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: vars.$z-index-dialog;
+
+  .dialog-content-container {
+    position: relative;
+    @include mix.bold_shadow;
+    @include mix.background_pages(vars.$text-alt-color);
+    max-width: 80vw;
+    // width: 500px;
+    max-height: 80vh;
+    z-index: 501;
+
+    .dialog-inner-box {
+    
+
+      .close-button {
+        @include mix.title_pill(
+          $bg-clr: vars.$highlight,
+          $tx-clr: vars.$text-alt-color
+        );
+        width: fit-content;
+        font-size: vars.$font-size-page-title-div;
+        padding: vars.$margin-xs;
+        position: absolute;
+        top: 0;
+        right: vars.$margin-site;
+        transform: translateY(-50%);
+        font-weight: 800;
+
+        &:hover {
+          cursor: pointer;
+          background-color: vars.$secondary-light-color;
+          color: vars.$highlight;
+        }
+      }
+    }
+  }
+}

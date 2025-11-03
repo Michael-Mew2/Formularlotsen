@@ -10,20 +10,31 @@ import {
 } from "react-leaflet";
 import L, { Icon, divIcon, point } from "leaflet";
 import "leaflet/dist/leaflet.css";
-// Wenn ich mal cluster (also mehrere Marker zusammenführen möchte) muss ich zu allererst react-leaflet-cluster installieren, dazu muss ich allerdings erst react-leaflet auf v4.2.1 downgraden. Dieser Code sollte auch problemlos unter v4.2.1 laufen (falls nicht leafletProvider vor und nach dem MapContainer hinzufügen). Erst dann die mit  ##Cluster markierten Kommentare auskommentieren! 
+// Wenn ich mal cluster (also mehrere Marker zusammenführen möchte) muss ich zu allererst react-leaflet-cluster installieren, dazu muss ich allerdings erst react-leaflet auf v4.2.1 downgraden. Dieser Code sollte auch problemlos unter v4.2.1 laufen (falls nicht leafletProvider vor und nach dem MapContainer hinzufügen). Erst dann die mit  ##Cluster markierten Kommentare auskommentieren!
 //Oder alternative leaflet.markercluster verwenden!! (ist schon in v.5.0.0 vorhanden!)
 // ##Cluster import MarkerClusterGroup from "react-leaflet-cluster";
 import { useLanguageStore } from "../store";
+import { useDialogStore } from "../store";
 import mapData from "../data/stadtteile.json";
+import LocationDialog from "./LocationDialog";
 
 // ==========
 
 // ==========
 
-export default function BremerhavenMap({position}) {
+export default function BremerhavenMap({ position }) {
   const [locationData, setLocationData] = React.useState(null);
+  const [fullData, setFullData] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(true);
+
   const { language } = useLanguageStore();
+  const { openDialog, closeDialog } = useDialogStore();
+
+  // Dialog mit Marker auf der Karte öffnen:
+  const handleMarkerClick = (location) => {
+    console.log("Marker geklickt:", location);
+    openDialog(<LocationDialog location={location} />);
+  };
 
   React.useEffect(() => {
     const loadLocationInfo = async () => {
@@ -60,17 +71,17 @@ export default function BremerhavenMap({position}) {
   const demoCenter = [];
 
   // Funktion zum Erstellen des Font Awesome Icons
-const createFontAwesomeIcon = () => {
-  return new divIcon({
-    html: `<div class="marker-icon">
+  const createFontAwesomeIcon = () => {
+    return new divIcon({
+      html: `<div class="marker-icon">
              <i class="fas fa-map-pin"></i>
            </div>`,
-    className: "font-awesome-icon",
-    iconSize: [20, 34],       // Größe des Icons
-    iconAnchor: [19, 38],     // Position des Icon-Ankers
-    popUpAnchor: [0, -38],    // Position des Popups relativ zum Icon
-  });
-};
+      className: "font-awesome-icon",
+      iconSize: [20, 34], // Größe des Icons
+      iconAnchor: [19, 38], // Position des Icon-Ankers
+      popUpAnchor: [0, -38], // Position des Popups relativ zum Icon
+    });
+  };
 
   // demo-markers:
   const demoMarkers = [
@@ -112,7 +123,10 @@ const createFontAwesomeIcon = () => {
 
   // ----------
   return (
-    <div className={`bremerhaven-map-container ${position}`} style={{ height: "600px" }}>
+    <div
+      className={`bremerhaven-map-container ${position}`}
+      style={{ height: "600px" }}
+    >
       {isLoading ? (
         <div className="map-loading">Map is loading...</div>
       ) : (
@@ -151,8 +165,14 @@ const createFontAwesomeIcon = () => {
               position={[marker.pinPosition.lat, marker.pinPosition.lng]}
               // icon={customIcon}
               icon={createFontAwesomeIcon()}
+              eventHandlers={{
+                click: () => handleMarkerClick(marker),
+              }}
             >
-              <Popup>{marker.location}</Popup>
+              {
+                // <Popup>{marker.location}</Popup>
+                // Öffnet einen eigens von Leaflet erstellten Popup
+              }
             </Marker>
           ))}
           {/* ##Cluster Nicht vergessen das mit auszukommentiern, wenn KLuster gewünscht sind!

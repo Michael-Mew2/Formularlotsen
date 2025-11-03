@@ -28,6 +28,8 @@
 @use "components/simpleSVGMap" as simpleSVGMap;
 @use "components/bremerhavenMap" as bremerhavenMap;
 @use "components/timeTable" as timeTable;
+@use "components/dialog" as dialog;
+@use "components/locationDialog" as locationDialog;
 
 // Seiten
 @use "pages/backbone" as backbone;

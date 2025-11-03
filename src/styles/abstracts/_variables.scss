@@ -18,13 +18,16 @@ $border-radius-st: 10px;
 
 // Shadows
 $shadow-color: #3f3f3f;
+$shadow-size-md: 8px 8px;
 $shadow-size-st: 6px 6px;
 $shadow-size-sm: 4px 4px;
+$shadow-size-xs: 2px 2px;
 
 
 // Spacing
 $spacing-xs: 1px;
 $spacing-sm: 8px;
+$spacing-10: 10px;
 $spacing-md: 16px;
 $spacing-lg: 24px;
 
@@ -59,3 +62,20 @@ $font-size-page-bullet: calculate-responsive-font-size(1.2rem, 1.6vw, 1.6rem);
 $font-size-page-figcaption: calculate-responsive-font-size(1rem, 1.2vw, 1.2rem);
 $font-size-footer-nav: calculate-responsive-font-size(1rem, 1.4vw, 1.4rem);
 $font-size-footer-title: calculate-responsive-font-size(1rem, 1.2vw, 1.2rem);
+
+// Transitions (für konsistente Animationen)
+$transition-fast: 0.15s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Z-Index System (für Layer-Management)
+$z-index-dropdown: 1000;
+$z-index-modal: 2000;
+$z-index-tooltip: 3000;
+$z-index-dialog: 500;
+
+
+// Opacity States
+$opacity-disabled: 0.5;
+$opacity-hover: 0.8;
+$opacity-active: 1;
