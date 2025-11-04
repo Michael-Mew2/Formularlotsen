@@ -1,3 +1,6 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+
 // Variablen (können in deine globale _variables.scss oder hier definiert werden)
 $accordion-border-color: #ddd;
 $accordion-border-radius: 50px;
@@ -8,18 +11,92 @@ $accordion-margin: 10px 0;
 
 // Accordion Haupt-Styles
 .accordion {
+  // border: 2px solid green;
   width: 100%;
-  margin: $accordion-margin;
+  // margin: $accordion-margin;
 
   &-item {
-    border: 8px solid $accordion-border-color;
-    border-radius: $accordion-border-radius;
+    @include mix.bold_shadow($rad: calc(50px + vars.$margin-site), $clr: transparent);
+    padding: vars.$margin-site;
     margin-bottom: $accordion-gap;
-    padding: $accordion-item-padding;
+    overflow: hidden;
+    border-radius: calc(50px + vars.$margin-site);
+    border: 0px solid transparent;
+    transition: border 0.3s ease, border-radius 0.3s ease;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: inherit;
+      border: 4px solid vars.$warning;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    &:hover:not(.open)::before {
+      opacity: 1;
+    }
 
     .accordion-title {
-      margin-top: 0;
-      color: $accordion-title-color;
+      @include mix.title_pill($bg-clr: vars.$text-alt-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      margin: 0;
+
+      &:hover {
+        background-color: vars.$secondary-light-color;
+      }
+
+      h3 {
+        margin: 0;
+      }
+
+      .accordion-icon {
+        transition: transform 0.2s ease;
+
+        &.open {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    .accordion-content {
+      border: 2px solid hotpink;
+      max-height: 0;
+      opacity: 0;
+      padding: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s ease, padding 0.3s ease;
+    }
+
+    &.open {
+        @include mix.bold_shadow($rad: calc(50px + vars.$margin-site));
+        border: 0px solid vars.$text-color;
+      border-radius: calc(30px + vars.$margin-site);
+
+      &::before {
+        border-color: vars.$text-color;;
+        opacity: 1;
+      }
+
+      .accordion-content {
+        border: 4px solid brown;
+        max-height: 2000px;
+        opacity: 1;
+        padding: vars.$margin-site 0;
+        margin-top: vars.$margin-site;
+      }
     }
   }
 
