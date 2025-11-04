@@ -1,0 +1,47 @@
+// Variablen (können in deine globale _variables.scss oder hier definiert werden)
+$accordion-border-color: #ddd;
+$accordion-border-radius: 50px;
+$accordion-title-color: #333;
+$accordion-gap: 10px;
+$accordion-item-padding: 10px;
+$accordion-margin: 10px 0;
+
+// Accordion Haupt-Styles
+.accordion {
+  width: 100%;
+  margin: $accordion-margin;
+
+  &-item {
+    border: 8px solid $accordion-border-color;
+    border-radius: $accordion-border-radius;
+    margin-bottom: $accordion-gap;
+    padding: $accordion-item-padding;
+
+    .accordion-title {
+      margin-top: 0;
+      color: $accordion-title-color;
+    }
+  }
+
+  &-content {
+    padding: $accordion-gap 0;
+
+    // Flexbox-Gruppen-Styles
+    > .flex-row {
+      display: flex;
+      flex-direction: row;
+      gap: $accordion-gap * 2;
+      align-items: flex-start;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+    }
+
+    > .flex-column {
+      display: flex;
+      flex-direction: column;
+      gap: $accordion-gap;
+    }
+  }
+}

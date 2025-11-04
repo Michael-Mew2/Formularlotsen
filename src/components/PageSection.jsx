@@ -8,6 +8,7 @@ import PageContent from "./PageContent";
 import SimpleSVGMap from "./SimpleSVGMap";
 import BremerhavenMap from "./BremerhavenMap";
 import TimeTable from "./TimeTable";
+import Accordion from "./Accordion";
 
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;
@@ -52,6 +53,9 @@ export default function PageSection({ section }) {
 
     case "time-table":
       return <TimeTable position={section.position} />;
+
+    case "accordion":
+      return <Accordion section={section} />;
 
     default:
       return null;

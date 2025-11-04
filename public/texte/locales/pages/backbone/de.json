@@ -27,7 +27,12 @@
         "groupStyle": "flex-two-columns",
         "title": "Folgende 'types' sind als Komponenten hier aufrufbar",
         "items": [
-          "Listen (list)", "Paragraphen (paragraph)", "intro", "Bilder (image)", "Tabellen (table)", "Kurzinformationen (annotation)"
+          "Listen (list)",
+          "Paragraphen (paragraph)",
+          "intro",
+          "Bilder (image)",
+          "Tabellen (table)",
+          "Kurzinformationen (annotation)"
         ]
       },
       {
@@ -71,7 +76,7 @@
       },
       {
         "type": "image",
-        "position":"flex-item-left",
+        "position": "flex-item-left",
         "groupId": "fourth-row",
         "picture": "https://picsum.photos/1080/717",
         "alt": "Another random picture from lorem-picsum"
@@ -87,13 +92,27 @@
         "titleColor": "blue",
         "listStyle": "compass",
         "title": "Best Bands ever!",
-        "items": ["Queen", "Rolling Stones", "Maroon 5", "Jonas Brothers", "Big Time Rush"]
+        "items": [
+          "Queen",
+          "Rolling Stones",
+          "Maroon 5",
+          "Jonas Brothers",
+          "Big Time Rush"
+        ]
       },
       {
         "groupId": "fifth-row",
         "type": "paragraph",
         "position": "flex-item-left",
-        "content": ["Hey (oh), hey (oh)", "Listen to your heart now (eh)", "Hey (oh), hey (oh)", "Don't you feel the rush?", "Hey (oh), hey (oh)", "Better take your shot now", "Oh-oh, oh-oh (hey), oh-oh, oh-oh"]
+        "content": [
+          "Hey (oh), hey (oh)",
+          "Listen to your heart now (eh)",
+          "Hey (oh), hey (oh)",
+          "Don't you feel the rush?",
+          "Hey (oh), hey (oh)",
+          "Better take your shot now",
+          "Oh-oh, oh-oh (hey), oh-oh, oh-oh"
+        ]
       },
       {
         "groupId": "sixth-row",
@@ -103,12 +122,106 @@
         "groupId": "sixth-row",
         "type": "time-table",
         "position": "flex-item-right",
-        "content": ["Go and shake it up, what you gotta lose?", "Go and make your luck with the life you choose (life you choose)", "If you want it all, lay it on the line", "It's the only life you got So you gotta live it big time"]
+        "content": [
+          "Go and shake it up, what you gotta lose?",
+          "Go and make your luck with the life you choose (life you choose)",
+          "If you want it all, lay it on the line",
+          "It's the only life you got So you gotta live it big time"
+        ]
       },
       {
         "groupId": "sixth-row",
         "type": "city-map",
-        "position":"flex-item-left"
+        "position": "flex-item-left"
+      },
+      {
+        "groupId": "seventh-row",
+        "groupStyle": "full-width",
+        "type": "accordion",
+        "position": "page-full",
+        "title": "Simpsons Characters",
+        "items": [
+          {
+            "title": "Homer Simpson",
+            "contentGroups": [
+              {
+                "direction": "row",
+                "items": [
+                  {
+                    "component": {
+                      "type": "paragraph",
+                      "content": ["Homer Jay Simpson ist der gutmütige, aber tollpatschige Vater..."]
+                    },
+                    "flex": 2
+                  },
+                  {
+                    "direction": "column",
+                    "flex": 1,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "image",
+                          "picture": "https://picsum.photos/1080/717",
+                          "alt": "Homer Simpson"
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "list",
+                          "items": [
+                            "Adresse: 742 Evergreen Terrace",
+                            "Geburtstag: 12.03.1955",
+                            "Geburtort: Springfield"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Marge Simpson",
+            "contentGroups": [
+              {
+                "direction": "row",
+                "items": [
+                  {
+                    "component": {
+                      "type": "paragraph",
+                      "content": ["Marge Simpson ist die Frau von Homer Simpson und die Mutter von Bart, Lisa und Maggie Simpson..."]
+                    },
+                    "flex": 2
+                  },
+                  {
+                    "direction": "column",
+                    "flex": 1,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "image",
+                          "picture": "https://picsum.photos/1080/717",
+                          "alt": "Marge Simpson"
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "list",
+                          "items": [
+                            "Adresse: 742 Evergreen Terrace",
+                            "Geburtstag: 12.03.1955",
+                            "Geburtort: Springfield"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     ]
   }
