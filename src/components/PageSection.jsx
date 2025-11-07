@@ -9,6 +9,9 @@ import SimpleSVGMap from "./SimpleSVGMap";
 import BremerhavenMap from "./BremerhavenMap";
 import TimeTable from "./TimeTable";
 import Accordion from "./Accordion";
+import AccAddress from "./AccAddress";
+import AccTimes from "./AccTimes";
+import AccContact from "./AccContact";
 
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;
@@ -56,6 +59,15 @@ export default function PageSection({ section }) {
 
     case "accordion":
       return <Accordion section={section} />;
+
+    case "accordion-address":
+      return <AccAddress />;
+
+    case "accordion-contact":
+      return <AccContact />;
+    
+    case "accordion-times":
+      return <AccTimes />;
 
     default:
       return null;

@@ -9,7 +9,7 @@ const FlexGroup = ({ direction = "row", flex, children, className = "" }) => {
         display: "flex",
         flexDirection: direction,
         flex: flex,
-        gap: "10px",
+        gap: "2rem",
       }}
       className={className}
     >
@@ -20,7 +20,7 @@ const FlexGroup = ({ direction = "row", flex, children, className = "" }) => {
 
 const FlexItem = ({ flex, children, className = "" }) => {
   return (
-    <div style={{ flex: flex || 1 }} className={className}>
+    <div /* style={{ flex: flex || 1 }} */ className={className}>
       {children}
     </div>
   );
@@ -58,7 +58,7 @@ export default function Accordion({ section }) {
                   key={groupIdx}
                   direction={group.direction}
                   flex={group.flex}
-                  className={group.className}
+                  className={group.direction}
                 >
                   {group.items?.map((groupItem, itemIdx) =>
                     groupItem.direction ? (
@@ -66,7 +66,7 @@ export default function Accordion({ section }) {
                         key={itemIdx}
                         direction={groupItem.direction}
                         flex={groupItem.flex}
-                        className={groupItem.className}
+                        className={groupItem.direction}
                       >
                         {groupItem.items?.map((nestedItem, nestedIdx) => (
                           <FlexItem
