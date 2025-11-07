@@ -67,7 +67,7 @@ export default function PageSection({ section }) {
       return <AccContact contactData={section.content} />;
     
     case "accordion-times":
-      return <AccTimes />;
+      return <AccTimes openingTimes={section.content} />;
 
     default:
       return null;

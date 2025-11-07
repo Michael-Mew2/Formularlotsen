@@ -3,6 +3,30 @@ import { icon } from "leaflet";
 import * as React from "react";
 
 export default function AccContact({ contactData }) {
+
+    const contactBoxRef = React.useRef(null);
+    const contactIconRef = React.useRef(null);
+    const contentRef = React.useRef(null);
+
+    React.useEffect(() => {
+        const contactBox = contactBoxRef.current;
+        const contactIcon = contactIconRef.current;
+        const contactContent = contentRef.current;
+    
+        if (contactBox && contactIcon && contactContent) {
+          const contactIconHeight = contactIcon.offsetHeight;
+    
+          const additionalSpacing = 0;
+          const additionalBoxSpacing = 0;
+    
+          contactContent.style.marginTop = `${
+            contactIconHeight / 2 + additionalSpacing
+          }px`;
+          contactBox.style.marginTop = `${
+            contactIconHeight / 2 + additionalBoxSpacing
+          }px`;
+        }
+    }, [])
   const getContactType = (value) => {
     if (!value) return { icon: null, action: null };
 
@@ -74,12 +98,12 @@ export default function AccContact({ contactData }) {
   };
 
   return (
-    <div className="contact-outerBox">
+    <div className="contact-outerBox" ref={contactBoxRef}>
       <div className="contact-innerBox">
-        <div className="contact-iconBubble">
+        <div className="contact-iconBubble" ref={contactIconRef}>
           <FontAwesomeIcon icon="fa-solid fa-message" />
         </div>
-        <div className="contact-contentBox">
+        <div className="contact-contentBox" ref={contentRef}>
           <ul className="contact-list">
             {Object.entries(contactData).map(([label, value]) => {
               const { icon, action, type } = getContactType(value);

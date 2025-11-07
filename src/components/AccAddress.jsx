@@ -20,7 +20,7 @@ export default function AccAddress({ content }) {
       const additionalBoxSpacing = 0;
 
       content.style.marginTop = `${
-        mapIconHeight / 3 + additionalSpacing
+        mapIconHeight / 2 + additionalSpacing
       }px`;
       addressBox.style.marginTop = `${
         mapIconHeight / 2 + additionalBoxSpacing
