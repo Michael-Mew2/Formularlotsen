@@ -61,10 +61,10 @@ export default function PageSection({ section }) {
       return <Accordion section={section} />;
 
     case "accordion-address":
-      return <AccAddress />;
+      return <AccAddress content={section.content} />;
 
     case "accordion-contact":
-      return <AccContact />;
+      return <AccContact contactData={section.content} />;
     
     case "accordion-times":
       return <AccTimes />;

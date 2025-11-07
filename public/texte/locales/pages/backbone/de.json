@@ -191,7 +191,7 @@
                         "component": {
                           "type": "accordion-address",
                           "content": [
-                            "Calle del Perro, 324522 Palma de Mallorca"
+                            "Calle del Perro", "324522 Palma de Mallorca"
                           ]
                         }
                       },
@@ -201,7 +201,8 @@
                           "content": {
                             "Telefon": "0123 456 789",
                             "E-Mail": "tastatur@bafts.de",
-                            "Webseite": "www.tastertursauberkeit.de"
+                            "Webseite": "www.tastertursauberkeit.de",
+                            "WhatsApp": "https://wa.me/123456789"
                           }
                         }
                       },
