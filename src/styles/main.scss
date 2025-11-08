@@ -31,6 +31,8 @@
 @use "components/dialog" as dialog;
 @use "components/locationDialog" as locationDialog;
 @use "components/accordion" as accordion;
+@use "components/accordionAddress" as accordionAddress;
+@use "components/accordionContact" as accordionContact;
 
 // Seiten
 @use "pages/backbone" as backbone;

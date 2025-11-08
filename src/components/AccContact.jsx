@@ -1,32 +1,56 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { icon } from "leaflet";
 import * as React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { formatPhoneNumber } from "../utils/formatPhoneNumber";
+import { icon } from "leaflet";
 
 export default function AccContact({ contactData }) {
+  const contactBoxRef = React.useRef(null);
+  const contactIconRef = React.useRef(null);
+  const contentRef = React.useRef(null);
 
-    const contactBoxRef = React.useRef(null);
-    const contactIconRef = React.useRef(null);
-    const contentRef = React.useRef(null);
+  React.useEffect(() => {
+    const contactBox = contactBoxRef.current;
+    const contactIcon = contactIconRef.current;
+    const contactContent = contentRef.current;
 
-    React.useEffect(() => {
-        const contactBox = contactBoxRef.current;
-        const contactIcon = contactIconRef.current;
-        const contactContent = contentRef.current;
-    
-        if (contactBox && contactIcon && contactContent) {
-          const contactIconHeight = contactIcon.offsetHeight;
-    
-          const additionalSpacing = 0;
-          const additionalBoxSpacing = 0;
-    
-          contactContent.style.marginTop = `${
-            contactIconHeight / 2 + additionalSpacing
-          }px`;
-          contactBox.style.marginTop = `${
-            contactIconHeight / 2 + additionalBoxSpacing
-          }px`;
-        }
-    }, [])
+    if (contactBox && contactIcon && contactContent) {
+      const contactIconHeight = contactIcon.offsetHeight;
+
+      const additionalSpacing = 0;
+      const additionalBoxSpacing = 0;
+
+      contactContent.style.marginTop = `${
+        contactIconHeight / 2 + additionalSpacing
+      }px`;
+      contactBox.style.marginTop = `${
+        contactIconHeight / 2 + additionalBoxSpacing
+      }px`;
+    }
+  }, []);
+
+  // Formatierung der Werte
+  const formatValue = (value, type) => {
+    // Webseiten
+    if (type === "website") {
+      return value
+        .replace(/^https?:\/\/(www\.)?/, "")
+        .replace(/^www\./, "")
+        .replace(/^\/+/, "");
+    }
+    // WhatsApp
+    else if (type === "whatsapp") {
+      const whatsappNumber = value.replace(/^https?:\/\/wa\.me\//, "");
+      return formatPhoneNumber(`+${whatsappNumber}`);
+    }
+    // Telefon
+    else if (type === "phone") {
+      return formatPhoneNumber(value);
+    }
+    // Alles andere
+    else {
+      return value; // Keine Formatierung nötig
+    }
+  };
   const getContactType = (value) => {
     if (!value) return { icon: null, action: null };
 
@@ -72,7 +96,11 @@ export default function AccContact({ contactData }) {
   };
 
   // Aktionen ausführen:
-  const handleAction = (action, value) => {
+  const handleAction = (action, originalValue, type) => {
+    let value = originalValue;
+    if (type === "whatsapp" && !value.startsWith("https://wa.me/")) {
+      value = `https://wa.me/${value.replace(/\D/g)}`;
+    }
     switch (action) {
       case "mailto":
         window.location.href = `mailto:${value}`;
@@ -105,24 +133,35 @@ export default function AccContact({ contactData }) {
         </div>
         <div className="contact-contentBox" ref={contentRef}>
           <ul className="contact-list">
-            {Object.entries(contactData).map(([label, value]) => {
-              const { icon, action, type } = getContactType(value);
+            {Object.entries(contactData).map(([label, originalValue]) => {
+              const { icon, action, type } = getContactType(originalValue);
+              const formattedValue = type
+                ? formatValue(originalValue, type)
+                : originalValue;
 
               return (
                 <li className="contact-item" key={label}>
                   <div className="contact-entry">
                     {icon && (
                       <button
-                        className="contact-button"
+                        className={`contact-button ${type}`}
                         aria-label={label}
-                        onClick={() => action && handleAction(action, value)}
+                        onClick={() =>
+                          action && handleAction(action, originalValue, type)
+                        }
                       >
                         <span className="contact-icon">
                           <FontAwesomeIcon icon={icon} />
                         </span>
                         <span className="contact-type">{label}</span>
-                        <span className="contact-value">{value}</span>
+                        <span className="contact-value">{formattedValue}</span>
                       </button>
+                    )}
+                    {!icon && (
+                      <div className="contact-static">
+                        <span className="contact-type">{label}</span>
+                        <span className="contact-value">{originalValue}</span>
+                      </div>
                     )}
                   </div>
                 </li>

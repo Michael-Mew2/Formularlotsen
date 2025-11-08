@@ -1,0 +1,38 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/functions" as function;
+
+.address-outerBox {
+  margin-bottom: 6px;
+  position: relative;
+
+  .address-innerBox {
+    @include mix.bold_shadow;
+    padding: vars.$margin-site;
+    width: function.calculate-max-width(
+      $brdr-wdt: calc(#{vars.$margin-site} + 4px)
+    );
+    
+    .address-iconBubble {
+        @include mix.title_pill($bg-clr: vars.$primary-color, $tx-clr: vars.$text-alt-color, $padding: vars.$margin-xs);
+        width: fit-content;
+        aspect-ratio: 1;
+        font-size: vars.$font-size-page-text;
+        position: absolute;
+        top: 0;
+        left: 10px;
+        transform: translateY(-50%);
+    }
+    .address-contentBox {
+      p {
+        font-size: vars.$font-size-page-text;
+        margin: 0;
+        margin-bottom: 6px;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

@@ -29,11 +29,11 @@
   border: 4px solid vars.$text-color;
 }
 
-@mixin title_pill($bg-clr: vars.$secondary-color, $tx-clr: vars.$text-color, $sz: vars.$shadow-size-sm) {
+@mixin title_pill($bg-clr: vars.$secondary-color, $tx-clr: vars.$text-color, $sz: vars.$shadow-size-sm, $padding: 20px) {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: $padding;
   border-radius: 50px;
   border: 4px solid vars.$text-color;
   background-color: $bg-clr;

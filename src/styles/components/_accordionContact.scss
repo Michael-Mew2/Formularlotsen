@@ -1,0 +1,91 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/functions" as function;
+
+.contact-outerBox {
+    margin-bottom: 6px;
+    position: relative;
+
+    .contact-innerBox {
+        @include mix.bold_shadow;
+        padding: vars.$margin-site;
+        width: function.calculate-max-width(
+          $brdr-wdt: calc(#{vars.$margin-site} + 4px)
+        );
+
+        .contact-iconBubble {
+            @include mix.title_pill($bg-clr: vars.$primary-color, $tx-clr: vars.$text-alt-color, $padding: vars.$margin-xs);
+            width: fit-content;
+            aspect-ratio: 1;
+            font-size: vars.$font-size-page-text;
+            position: absolute;
+            top: 0;
+            left: 10px;
+            transform: translateY(-50%);
+
+        }
+        .contact-contentBox {
+            // border: 2px solid greenyellow;
+           .contact-list {
+            // border: 2px solid hotpink;
+            .contact-item {
+                margin: vars.$spacing-md 0;
+                // border: 2px solid aqua;
+
+                &:last-of-type, &:first-of-type {
+                    margin: 0;
+                }
+                .contact-entry {
+                    .contact-button {
+                        @include mix.title_pill($bg-clr: vars.$text-alt-color, $tx-clr: vars.$primary-color, $padding: vars.$shadow-size-md);
+                        display: flex;
+                        gap: 8px;
+                        cursor: pointer;
+                        transition: box-shadow 0.2s ease 0s, color 0.2s ease 0s, background-color 0.2s ease 0s;
+
+                        &:hover {
+                            background-color: vars.$primary-color;
+                            color: vars.$text-alt-color;
+                            box-shadow: none ;
+                        }
+
+                        &.whatsapp {
+                            background-color: #075E54;
+                            color: vars.$text-alt-color;
+
+                            &:hover {
+                                background-color: vars.$text-alt-color;
+                                color: #075E54;
+                            }
+                        }
+
+                        &.website {
+                            background-color: vars.$warning;
+                            color: vars.$text-color;
+                            
+                            &:hover {
+                                background-color: vars.$text-color;
+                                color: vars.$warning;
+                            }
+                        }
+                        
+                        .contact-icon {
+
+                        }
+                        .contact-type {
+                            font-weight: vars.$font-weight-page-title-main;
+
+                            &::after {
+                                content: ":";
+                            }
+                        }
+                        .contact-value {
+
+                        }
+                    }
+                }
+            }
+           }
+        }
+    }
+}
