@@ -62,16 +62,15 @@
                         &.website {
                             background-color: vars.$warning;
                             color: vars.$text-color;
-                            
+
                             &:hover {
                                 background-color: vars.$text-color;
                                 color: vars.$warning;
                             }
                         }
                         
-                        .contact-icon {
-
-                        }
+                        /* .contact-icon {
+                        } */
                         .contact-type {
                             font-weight: vars.$font-weight-page-title-main;
 
@@ -79,9 +78,9 @@
                                 content: ":";
                             }
                         }
-                        .contact-value {
+                        /* .contact-value {
 
-                        }
+                        } */
                     }
                 }
             }
