@@ -57,8 +57,9 @@ $accordion-margin: 10px 0;
         background-color: vars.$secondary-light-color;
       }
 
-      h3 {
+      h3, h4 {
         margin: 0;
+        font-size: vars.$font-size-page-text;
       }
 
       .accordion-icon {

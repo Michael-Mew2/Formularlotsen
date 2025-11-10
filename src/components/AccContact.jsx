@@ -19,9 +19,9 @@ export default function AccContact({ contactData }) {
       const additionalSpacing = 0;
       const additionalBoxSpacing = 0;
 
-      contactContent.style.marginTop = `${
+      /* contactContent.style.marginTop = `${
         contactIconHeight / 2 + additionalSpacing
-      }px`;
+      }px`; */
       contactBox.style.marginTop = `${
         contactIconHeight / 2 + additionalBoxSpacing
       }px`;

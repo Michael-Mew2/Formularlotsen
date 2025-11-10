@@ -17,7 +17,7 @@ export default function AccTimes({ openingTimes }) {
       const additionalSpacing = 0;
       const additionalBoxSpacing = 0;
 
-      content.style.marginTop = `${timeIconHeight / 2 + additionalSpacing}px`;
+      /* content.style.marginTop = `${timeIconHeight / 2 + additionalSpacing}px`; */
       timeBox.style.marginTop = `${
         timeIconHeight / 2 + additionalBoxSpacing
       }px`;
