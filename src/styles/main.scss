@@ -33,6 +33,7 @@
 @use "components/accordion" as accordion;
 @use "components/accordionAddress" as accordionAddress;
 @use "components/accordionContact" as accordionContact;
+@use "components/accordionTimeTable" as accordionTimeTable;
 
 // Seiten
 @use "pages/backbone" as backbone;

@@ -33,11 +33,11 @@ export default function AccTimes({ openingTimes }) {
         <div className="time-contentBox" ref={contentRef}>
           <div className="times-grid">
             {Object.entries(openingTimes).map(([day, time]) => (
-              <React.Fragment key={day}>
+              <div key={day} className="times-row">
                 <div className="times-day">{day}</div>
                 <div className="times-value">{time}</div>
                 {/* Bitte mist CSS-Grid stylen!! */}
-              </React.Fragment>
+              </div>
             ))}
           </div>
         </div>
