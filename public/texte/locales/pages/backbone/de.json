@@ -27,7 +27,12 @@
         "groupStyle": "flex-two-columns",
         "title": "Folgende 'types' sind als Komponenten hier aufrufbar",
         "items": [
-          "Listen (list)", "Paragraphen (paragraph)", "intro", "Bilder (image)", "Tabellen (table)", "Kurzinformationen (annotation)"
+          "Listen (list)",
+          "Paragraphen (paragraph)",
+          "intro",
+          "Bilder (image)",
+          "Tabellen (table)",
+          "Kurzinformationen (annotation)"
         ]
       },
       {
@@ -71,7 +76,7 @@
       },
       {
         "type": "image",
-        "position":"flex-item-left",
+        "position": "flex-item-left",
         "groupId": "fourth-row",
         "picture": "https://picsum.photos/1080/717",
         "alt": "Another random picture from lorem-picsum"
@@ -87,13 +92,27 @@
         "titleColor": "blue",
         "listStyle": "compass",
         "title": "Best Bands ever!",
-        "items": ["Queen", "Rolling Stones", "Maroon 5", "Jonas Brothers", "Big Time Rush"]
+        "items": [
+          "Queen",
+          "Rolling Stones",
+          "Maroon 5",
+          "Jonas Brothers",
+          "Big Time Rush"
+        ]
       },
       {
         "groupId": "fifth-row",
         "type": "paragraph",
         "position": "flex-item-left",
-        "content": ["Hey (oh), hey (oh)", "Listen to your heart now (eh)", "Hey (oh), hey (oh)", "Don't you feel the rush?", "Hey (oh), hey (oh)", "Better take your shot now", "Oh-oh, oh-oh (hey), oh-oh, oh-oh"]
+        "content": [
+          "Hey (oh), hey (oh)",
+          "Listen to your heart now (eh)",
+          "Hey (oh), hey (oh)",
+          "Don't you feel the rush?",
+          "Hey (oh), hey (oh)",
+          "Better take your shot now",
+          "Oh-oh, oh-oh (hey), oh-oh, oh-oh"
+        ]
       },
       {
         "groupId": "sixth-row",
@@ -103,12 +122,149 @@
         "groupId": "sixth-row",
         "type": "time-table",
         "position": "flex-item-right",
-        "content": ["Go and shake it up, what you gotta lose?", "Go and make your luck with the life you choose (life you choose)", "If you want it all, lay it on the line", "It's the only life you got So you gotta live it big time"]
+        "content": [
+          "Go and shake it up, what you gotta lose?",
+          "Go and make your luck with the life you choose (life you choose)",
+          "If you want it all, lay it on the line",
+          "It's the only life you got So you gotta live it big time"
+        ]
       },
       {
         "groupId": "sixth-row",
         "type": "city-map",
-        "position":"flex-item-left"
+        "position": "flex-item-left"
+      },
+      {
+        "groupId": "seventh-row",
+        "groupStyle": "full-width",
+        "type": "accordion",
+        "position": "page-full",
+        "title": "Unnötige erfundene Ämter",
+        "items": [
+          {
+            "title": "Amt zur Überprüfung von Tastertursauberkeiten",
+            "contentGroups": [
+              {
+                "direction": "row",
+                "items": [
+                  {
+                    "direction": "column",
+                    "flex": 2,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "paragraph",
+                          "content": [
+                            "Das Bundesamt zur Überprüfung von Tastertursauberkeiten ist ein erfundenes Amt welches das Ziel hat ein sicheres Tippen an seiner Tastertur zu gewährleisten. Die Dienste dieses Amtes kann von sowohl privat Personen sowie Unternehmen,  als auch von öffentlichen Stellen in Anspruch genommen werden. Berühmte Personen die diese Dienste bereits in Anspruch genommen haben sind unter anderen Thomas Jefferson, Benjamin Franklin und Johann Wolfgang von Goethe."
+                          ]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "list",
+                          "titleColor": "lightYellow",
+                          "listStyle": "compass",
+                          "title": "Welche Aufgaben hat das Bundesamt zurüberprüfung von Tastertursauberkeiten?",
+                          "items": [
+                            "Stichprobenartige Sichtungen der Tasterturen in den Unternehmen durchführen",
+                            "Ausstelung von Verwarnungen bei missachtung der Tastertursauberkeiten",
+                            "Berät den Bundestag zu fragen bezglich der richtigen Tastertursauberkeit",
+                            "Freiwillige Sichtung von Tasterturen",
+                            "Ausstellung von Urkunden bezglich der Tastertursauberkeit"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "direction": "column",
+                    "flex": 1,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "image",
+                          "picture": "https://picsum.photos/id/2/1080/717",
+                          "alt": "Ein offenes Notebook als Beispiel zur Tastertursauberkeit im Büro zur klarstellung der Aufgaben des Bundesamts für Tastertursauberkeit"
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "accordion-address",
+                          "content": [
+                            "Hafenstr. 512", "27568 Bremerhaven"
+                          ]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "accordion-contact",
+                          "content": {
+                            "Telefon": "+1-9764905603",
+                            "E-Mail": "tastatur@bafts.de",
+                            "Webseite": "www.tastertursauberkeit.de",
+                            "WhatsApp": "https://wa.me/491602224456"
+                          }
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "accordion-times",
+                          "content": {
+                            "Mo": "14:00 - 17:00 Uhr",
+                            "Mi": "08:00 - 10:00 Uhr",
+                            "Do": "08:00 - 10:00 Uhr"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Marge Simpson",
+            "contentGroups": [
+              {
+                "direction": "row",
+                "items": [
+                  {
+                    "component": {
+                      "type": "paragraph",
+                      "content": [
+                        "Marge Simpson ist die Frau von Homer Simpson und die Mutter von Bart, Lisa und Maggie Simpson..."
+                      ]
+                    },
+                    "flex": 2
+                  },
+                  {
+                    "direction": "column",
+                    "flex": 1,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "image",
+                          "picture": "https://picsum.photos/1080/717",
+                          "alt": "Marge Simpson"
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "list",
+                          "items": [
+                            "Adresse: 742 Evergreen Terrace",
+                            "Geburtstag: 12.03.1955",
+                            "Geburtort: Springfield"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     ]
   }
