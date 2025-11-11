@@ -30,7 +30,7 @@ export default function TimeAndPlace() {
   console.log(texts);
 
   return (
-    <div className="timeAndPlace">
+    <div id="timeAndPlace">
       {/* 👾 Metadata: */}
       <title>
         {texts.zeitenUndStandorte?.meta?.title || "Zeiten und Standorte"}

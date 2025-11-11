@@ -42,7 +42,7 @@ export default function PageSection({ section }) {
 
     case "image":
       return (
-       <Pictures type={section.type} position={section.position} picture={section.picture} alt={section.alt} description={section.description} />
+       <Pictures type={section.type} position={section.position} picture={section.picture} alt={section.alt} description={section.description} imageType={section.imageType} />
       );
 
     case "table":

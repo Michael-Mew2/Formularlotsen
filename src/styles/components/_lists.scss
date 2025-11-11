@@ -12,10 +12,11 @@
     @include mix.bold_shadow;
     padding: var.$margin-site;
     width: function.calculate-max-width(
-      $brdr-wdt: calc(#{var.$margin-site} + 4px)
-    );
+        $brdr-wdt: 4px,
+        $padding: var.$margin-site
+      );
 
-    .list-title {
+      .list-title {
       @include mix.title_pill;
       width: fit-content;
       max-width: 70%;

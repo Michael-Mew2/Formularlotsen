@@ -8,6 +8,7 @@
 @use "base/reset" as reset;
 
 // Layouts
+@use "layouts/pageDefaults" as pageDafaults;
 @use "layouts/header" as header;
 @use "layouts/footer" as footer;
 @use "layouts/grid" as grid;
@@ -38,3 +39,4 @@
 // Seiten
 @use "pages/backbone" as backbone;
 @use "pages/home" as home;
+@use "pages/timeAndPlace" as timeAndPlace;

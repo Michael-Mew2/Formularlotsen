@@ -10,18 +10,23 @@
     @include mix.bold_shadow;
     padding: vars.$margin-site;
     width: function.calculate-max-width(
-      $brdr-wdt: calc(#{vars.$margin-site} + 4px)
+      $brdr-wdt: 4px,
+      $padding: vars.$margin-site
     );
-    
+
     .address-iconBubble {
-        @include mix.title_pill($bg-clr: vars.$primary-color, $tx-clr: vars.$text-alt-color, $padding: vars.$margin-xs);
-        width: fit-content;
-        aspect-ratio: 1;
-        font-size: vars.$font-size-page-text;
-        position: absolute;
-        top: 0;
-        left: 10px;
-        transform: translateY(-50%);
+      @include mix.title_pill(
+        $bg-clr: vars.$primary-color,
+        $tx-clr: vars.$text-alt-color,
+        $padding: vars.$margin-xs
+      );
+      width: fit-content;
+      aspect-ratio: 1;
+      font-size: vars.$font-size-page-text;
+      position: absolute;
+      top: 0;
+      left: 10px;
+      transform: translateY(-50%);
     }
     .address-contentBox {
       p {

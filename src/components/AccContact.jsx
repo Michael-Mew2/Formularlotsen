@@ -1,7 +1,6 @@
 import * as React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { formatPhoneNumber } from "../utils/formatPhoneNumber";
-import { icon } from "leaflet";
 
 export default function AccContact({ contactData }) {
   const contactBoxRef = React.useRef(null);
@@ -35,7 +34,8 @@ export default function AccContact({ contactData }) {
       return value
         .replace(/^https?:\/\/(www\.)?/, "")
         .replace(/^www\./, "")
-        .replace(/^\/+/, "");
+        .replace(/^\/+/, "")
+        .split(/[/?#]/)[0]; 
     }
     // WhatsApp
     else if (type === "whatsapp") {
