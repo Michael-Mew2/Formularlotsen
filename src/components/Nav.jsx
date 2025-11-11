@@ -23,10 +23,10 @@ export default function Nav() {
         </li>
         <li>
           <NavLink
-            to="join"
+            to="/"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            {navigationTexts.navigation?.joinUs || "lädt..."}
+            {navigationTexts.navigation?.formsInformation || "lädt..."}
           </NavLink>
         </li>
         <li>
@@ -38,13 +38,28 @@ export default function Nav() {
           </NavLink>
         </li>
         <li>
-          <a href="/">hier</a>
+          <NavLink
+            to="aidOrganizations"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {navigationTexts.navigation?.aidOrganizations || "lädt..."}
+          </NavLink>
         </li>
         <li>
-          <a href="/">hier</a>
+          <NavLink
+            to="join"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {navigationTexts.navigation?.joinUs || "lädt..."}
+          </NavLink>
         </li>
         <li>
-          <a href="/">hier</a>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {navigationTexts.navigation?.contact || "lädt..."}
+          </NavLink>
         </li>
       </ul>
     </nav>
