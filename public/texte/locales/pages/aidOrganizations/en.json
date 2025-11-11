@@ -1,0 +1,236 @@
+{
+  "aidOrganizations": {
+    "meta": {
+      "title": "Aid Organizations",
+      "content": "Here you will find a list of aid organizations that operate both within and outside Bremerhaven, as well as nationwide and internationally, to support you with further concerns."
+    },
+    "hero": {
+      "heroPicture": "images/heroImages/ArbeitenAmPC.jpeg",
+      "heroPictureAlt": "A group of people sitting together at computers",
+      "heroMainTitle": "Aid Organizations",
+      "heroSubTitle": "Here you will find a list of aid organizations"
+    },
+    "pageContent": [
+      {
+        "groupId": "page-title",
+        "groupStyle": "page-content-title",
+        "type": "intro",
+        "title": "Aid Organizations",
+        "content": "Here you will find a list with information about aid organizations that operate both within and outside Bremerhaven, as well as nationwide and internationally, to help you with further concerns."
+      },
+      {
+        "groupId": "aidOrganizations",
+        "groupStyle": "full-width",
+        "type": "accordion",
+        "position": "page-full",
+        "title": "Aid Organizations",
+        "items": [
+          {
+            "title": "Caritas Bremerhaven",
+            "contentGroups": [
+              {
+                "direction": "row",
+                "items": [
+                  {
+                    "direction": "column",
+                    "flex": 2,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "paragraph",
+                          "content": [
+                            "For around 50 years, Caritas has been helping people who are in distress and need support. It is their concern to recognize the open and hidden needs of people and to offer them appropriate and adequate help.",
+                            "Caritas works free of charge and, of course, in compliance with confidentiality."
+                          ]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "list",
+                          "titleColor": "lightYellow",
+                          "listStyle": "lifeRing",
+                          "title": "What does Caritas do?",
+                          "items": [
+                            "Counseling for personal, social, and economic difficulties",
+                            "Counseling on measures to secure livelihood and social benefits",
+                            "Support with applications and their enforcement",
+                            "Referral and cooperation with other specialized services",
+                            "Support and care during pregnancy and beyond childbirth",
+                            "Help with conflicts during pregnancy",
+                            "Help with conversations with partners, parents, employers, and other people"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "direction": "column",
+                    "flex": 1,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "image",
+                          "picture": "images/external/aidOrganizations/Caritas_Logo_Quer_positive_red_sRGB_204_30_28.png",
+                          "imageType": "logo",
+                          "alt": "Logo of Caritas"
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "accordion-address",
+                          "content": ["Geibelstr. 9 A", "27576 Bremerhaven"]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "accordion-contact",
+                          "content": {
+                            "Website": "https://www.caritas-bremen-nord.de/angebote-bremerhaven/"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Counseling Center for People in Violent Living Conditions",
+            "contentGroups": [
+              {
+                "direction": "row",
+                "items": [
+                  {
+                    "direction": "column",
+                    "flex": 2,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "paragraph",
+                          "content": [
+                            "Domestic violence can affect anyone—regardless of gender, age, or background. The counseling center against domestic violence offers confidential, free, and timely support to those affected. The service is aimed at women and men who are threatened or affected by violence.",
+                            "Violence can take many forms: whether psychological, physical, or sexual abuse, stalking, forced marriage, sexual coercion, rape, threats, or harassment via phone and internet. The counseling center supports those affected in breaking the silence and finding a way out of violence. Here, they receive space and time to organize their thoughts and feelings and to inform themselves about their options."
+                          ]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "list",
+                          "titleColor": "red",
+                          "listStyle": "lifeRing",
+                          "title": "Services of the Counseling Center",
+                          "items": [
+                            "Confidential counseling",
+                            "Information and education",
+                            "Support in decision-making",
+                            "Referral to safe houses",
+                            "Help with protective measures against violence",
+                            "Support with police and legal steps",
+                            "Referral to group offers and family support",
+                            "Help with extreme control (e.g., money, free time, social contacts)",
+                            "Counseling for stalking, forced marriage, and sexual coercion"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "direction": "column",
+                    "flex": 1,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "accordion-address",
+                          "content": ["Dionysiusstraße 38", "27576 Bremerhaven"]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "accordion-contact",
+                          "content": {
+                            "Phone": "0471 8 30 01",
+                            "Email": "frauenhaus@diakonie-bhv.de",
+                            "Website": "https://diakonie-bhv.de/frauenberatungsstelle.html"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Women's Shelter",
+            "contentGroups": [
+              {
+                "direction": "row",
+                "items": [
+                  {
+                    "direction": "column",
+                    "flex": 2,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "paragraph",
+                          "content": [
+                            "The GISBU Women's Shelter offers a safe haven for women and mothers with children (sons up to the age of 18) who are affected by domestic violence. Additionally, the institution also supports women who are at risk of losing their homes or are affected by homelessness. Another service is the shelter for women who have become victims of human trafficking and/or forced prostitution.",
+                            "The Women's Shelter stands by those affected in acute danger situations and offers not only a safe place but also comprehensive counseling and support. Here, women find peace and security to reconsider their situation and develop perspectives for the future."
+                          ]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "list",
+                          "titleColor": "red",
+                          "listStyle": "lifeRing",
+                          "title": "How Can the Women's Shelter Help?",
+                          "items": [
+                            "Safe haven for women and mothers with children (sons up to 18 years) affected by domestic violence",
+                            "Counseling and support in case of loss of housing or homelessness",
+                            "Shelter for victims of human trafficking and forced prostitution",
+                            "Cost coverage by service providers in case of insufficient income – support with applications",
+                            "Admission in acute danger situations, also via the police, or planned admission after prior contact",
+                            "Referral to shelters in other cities if relocation is advisable",
+                            "24-hour availability for emergency admissions",
+                            "Independent living in shelters with self-responsible care",
+                            "Counseling and planning for the future in a safe environment",
+                            "Support in finding housing, dealing with debts, or health issues",
+                            "Free follow-up help after the stay, if desired"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "direction": "column",
+                    "flex": 1,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "accordion-address",
+                          "content": ["Dionysiusstraße 38", "27576 Bremerhaven"]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "accordion-contact",
+                          "content": {
+                            "Phone": "0471 8 30 01",
+                            "Email": "frauenhaus@diakonie-bhv.de",
+                            "Website": "https://diakonie-bhv.de/frauenberatungsstelle.html"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
