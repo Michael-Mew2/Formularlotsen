@@ -35,6 +35,7 @@
 @use "components/accordionAddress" as accordionAddress;
 @use "components/accordionContact" as accordionContact;
 @use "components/accordionTimeTable" as accordionTimeTable;
+@use "components/contactForm" as contactForm;
 
 // Seiten
 @use "pages/backbone" as backbone;

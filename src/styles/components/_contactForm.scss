@@ -1,0 +1,19 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/functions" as function;
+
+.contact-form {
+  @include mix.bold_shadow;
+  padding: vars.$margin-site;
+  width: function.calculate-max-width(
+    $shdw-sz: 14px,
+    $brdr-wdt: vars.$border-width-st,
+    $padding: 0px
+  );
+
+  form {
+    fieldset {
+      border: 4px solid grey;
+    }
+  }
+}
