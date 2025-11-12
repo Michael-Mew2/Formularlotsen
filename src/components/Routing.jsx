@@ -7,6 +7,7 @@ import JoinUs from "../pages/JoinUs";
 import TimeAndPlace from "../pages/TimeAndPlace";
 import Backbone from "../pages/Backbone";
 import AidOrganizations from "../pages/AidOrganizations";
+import Contact from "../pages/Contact";
 
 export default function Routing() {
   return (
@@ -17,6 +18,7 @@ export default function Routing() {
           <Route path="join" element={<JoinUs />} />
           <Route path="timeAndLocation" element={<TimeAndPlace />} />
           <Route path="aidOrganizations" element={<AidOrganizations />} />
+          <Route path="contact" element={<Contact />} />
           <Route path="§backbone" element={<Backbone />} />
           <Route path="*" element={<NotFound />} />
         </Route>

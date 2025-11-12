@@ -55,7 +55,7 @@ export default function Nav() {
         </li>
         <li>
           <NavLink
-            to="/"
+            to="contact"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             {navigationTexts.navigation?.contact || "lädt..."}
