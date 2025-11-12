@@ -6,27 +6,32 @@
 
 // Title 3D-text-Effect:
 @function calculate-text-shadows($color) {
-    $shadows: ();
+  $shadows: ();
 
-    @for $i from 1 through 7 {
-        $shadow-color: color.scale($color, $lightness: -$i * 3%);
-        $shadow: #{$i}px #{$i}px 0 $shadow-color;
-        $shadows: list.append($shadows, $shadow, comma);
-    }
+  @for $i from 1 through 7 {
+    $shadow-color: color.scale($color, $lightness: -$i * 3%);
+    $shadow: #{$i}px #{$i}px 0 $shadow-color;
+    $shadows: list.append($shadows, $shadow, comma);
+  }
 
-    $shadows: list.append($shadows, 5px 5px 4px rgba(0, 0, 0, 0.15), comma);
-    $shadows: list.append($shadows, 5px 5px 1px rgba(0, 0, 0, 0.50), comma);
-    $shadows: list.append($shadows, 0px 0px 4px rgba(0, 0, 0, 0.20), comma);
+  $shadows: list.append($shadows, 5px 5px 4px rgba(0, 0, 0, 0.15), comma);
+  $shadows: list.append($shadows, 5px 5px 1px rgba(0, 0, 0, 0.5), comma);
+  $shadows: list.append($shadows, 0px 0px 4px rgba(0, 0, 0, 0.2), comma);
 
-    @return $shadows;
+  @return $shadows;
 }
 
-@function calculate-max-width($shdw-sz: 6px, $brdr-wdt: vars.$border-width-st) {
-    $base-width: 100%;
-    $shadow: #{$shdw-sz};
-    $border: #{$brdr-wdt};
+@function calculate-max-width(
+  $shdw-sz: 6px,
+  $brdr-wdt: vars.$border-width-st,
+  $padding: 0px
+) {
+  $base-width: 100%;
+  $shadow: #{$shdw-sz};
+  $border: #{$brdr-wdt};
+  $padd: #{$padding};
 
-    $max-width: calc($base-width - ($shadow + ($border * 2) ));
+  $max-width: calc($base-width - ($shadow + ($border * 2) + ($padd * 2)));
 
-    @return $max-width;
+  @return $max-width;
 }

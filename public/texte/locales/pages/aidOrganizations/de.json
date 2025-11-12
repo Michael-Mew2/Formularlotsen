@@ -1,0 +1,238 @@
+{
+  "aidOrganizations": {
+    "meta": {
+      "title": "Hilfsorganisationen",
+      "content": "Hier finden Sie eine Liste von Hilfsorganisationen welche sowohl in- als auch außerhalb der Bremerhaven sowie Bundesweit und International tätig sind, die sie bei weiteren Anliegen unterstützen."
+    },
+    "hero": {
+      "heroPicture": "images/heroImages/ArbeitenAmPC.jpeg",
+      "heroPictureAlt": "Eine Gruppe von Menschen sitzt zusammen an Computern",
+      "heroMainTitle": "Hilfsorganisationen",
+      "heroSubTitle": "Hier finden Sie eine Liste von Hilfsorganisationen"
+    },
+
+    "pageContent": [
+      {
+        "groupId": "page-title",
+        "groupStyle": "page-content-title",
+        "type": "intro",
+        "title": "Hilfsorganisationen",
+        "content": "Hier finden Sie eine Liste mit Informationen von Hilfsorganisationen welche sowohl in- als auch außerhalb der Bremerhaven sowie Bundesweit und International tätig sind, die sie bei weiteren Anliegen helfen."
+      },
+      {
+        "groupId": "aidOrganizations",
+        "groupStyle": "full-width",
+        "type": "accordion",
+        "position": "page-full",
+
+        "title": "Hilfsorganisationen",
+        "items": [
+          {
+            "title": "Caritas Bremerhaven",
+            "contentGroups": [
+              {
+                "direction": "row",
+                "items": [
+                  {
+                    "direction": "column",
+                    "flex": 2,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "paragraph",
+                          "content": [
+                            "Die Caritas hilft seit rund 50 Jahren Menschen, die sich in einer Notlage befinden und Unterstützung brauchen. Es ist ihr Anliegen, die offene und verborgene Not der Menschen wahrzunehmen und ihnen bedarfsgerechte und angemessene Hilfe zu bieten.",
+                            "Die Caritas arbeitet Unentgeldlich und selbstverständlich unter einhaltung der Schwegepflicht."
+                          ]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "list",
+                          "titleColor": "lightYellow",
+                          "listStyle": "lifeRing",
+                          "title": "Was macht die Caritas?",
+                          "items": [
+                            "Beratung bei persönlichen, sozialen und wirtschaftlichen Schwierigkeiten",
+                            "Beratung über existenzsichernde Maßnahmen und soziale Leistungen",
+                            "Unterstützung bei Anträgen und deren Durchsetzung",
+                            "Weitervermittlung und Zusammenarbeit mit anderen Fachdiensten",
+                            "Begleitung und Betreuung während der Schwangerschaft und über die Geburt hinaus",
+                            "Hilfe bei Konflikten in der Schwangerschaft",
+                            "Hilfe bei Gesprächen mit dem Partner, den Eltern, Arbeitgebern und anderen Personen"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "direction": "column",
+                    "flex": 1,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "image",
+                          "picture": "images/external/aidOrganizations/Caritas_Logo_Quer_positive_red_sRGB_204_30_28.png",
+                          "imageType": "logo",
+                          "alt": "Logo der Caritas"
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "accordion-address",
+                          "content": ["Geibelstr. 9 A", "27576 Bremerhaven"]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "accordion-contact",
+                          "content": {
+                            "Webseite": "https://www.caritas-bremen-nord.de/angebote-bremerhaven/"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Beratungsstelle für Menschen in gewaltgeprägten Lebensumständen",
+            "contentGroups": [
+              {
+                "direction": "row",
+                "items": [
+                  {
+                    "direction": "column",
+                    "flex": 2,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "paragraph",
+                          "content": [
+                            "Häusliche Gewalt kann jeden treffen – unabhängig von Geschlecht, Alter oder Herkunft. Die Beratungsstelle gegen häusliche Gewalt bietet Betroffenen vertrauliche, kostenlose und zeitnahe Unterstützung. Das Angebot richtet sich an Frauen und Männer, die von Gewalt bedroht oder betroffen sind.",
+                            "Gewalt zeigt sich in vielen Formen: ob seelische, körperliche oder sexuelle Übergriffe, Stalking, Zwangsheirat, sexuelle Nötigung, Vergewaltigung, Bedrohungen oder Belästigungen über Telefon und Internet. Die Beratungsstelle unterstützt Betroffene dabei, das Schweigen zu brechen und einen Weg aus der Gewalt zu finden. Hier erhalten sie Raum und Zeit, um Gedanken und Gefühle zu ordnen und sich über ihre Möglichkeiten zu informieren."
+                          ]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "list",
+                          "titleColor": "red",
+                          "listStyle": "lifeRing",
+                          "title": "Angebote der Beratungsstelle",
+                          "items": [
+                            "Vertrauliche Beratung",
+                            "Information und Aufklärung",
+                            "Unterstützung bei Entscheidungsfindung",
+                            "Vermittlung von Schutzwohnungen",
+                            "Hilfe bei Gewaltschutzmaßnahmen",
+                            "Unterstützung bei polizeilichen und juristischen Schritten",
+                            "Vermittlung von Gruppenangeboten und Familienhilfen",
+                            "Hilfe bei extremer Kontrolle (z. B. Geld, Freizeit, soziale Kontakte)",
+                            "Beratung bei Stalking, Zwangsheirat und sexueller Nötigung"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "direction": "column",
+                    "flex": 1,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "accordion-address",
+                          "content": ["Dionysiusstraße 38", "27576 Bremerhaven"]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "accordion-contact",
+                          "content": {
+                            "Telefon": "0471 8 30 01",
+                            "E-Mail": "frauenhaus@diakonie-bhv.de",
+                            "Webseite": "https://diakonie-bhv.de/frauenberatungsstelle.html"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "Frauenhaus",
+            "contentGroups": [
+              {
+                "direction": "row",
+                "items": [
+                  {
+                    "direction": "column",
+                    "flex": 2,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "paragraph",
+                          "content": [
+                            "Das Frauenhaus der GISBU bietet Frauen und Müttern mit Kindern (Söhne bis zum 18. Lebensjahr) einen sicheren Schutzraum, die von häuslicher Gewalt betroffen sind. Darüber hinaus unterstützt die Einrichtung auch Frauen, die vom Verlust der Wohnung bedroht oder von Obdachlosigkeit betroffen sind. Ein weiteres Angebot ist die Schutzunterkunft für Frauen, die Opfer von Menschenhandel und/oder Zwangsprostitution geworden sind.",
+                            "Das Frauenhaus steht Betroffenen in akuten Gefahrensituationen zur Seite und bietet nicht nur einen sicheren Ort, sondern auch umfassende Beratung und Unterstützung. Hier finden Frauen Ruhe und Sicherheit, um ihre Situation zu überdenken und Perspektiven für die Zukunft zu entwickeln."
+                          ]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "list",
+                          "titleColor": "red",
+                          "listStyle": "lifeRing",
+                          "title": "Wie kann das Frauenhaus helfen?",
+                          "items": [
+                            "Schutzraum für von häuslicher Gewalt betroffene Frauen und Mütter mit Kindern (Söhne bis 18 Jahre)",
+                            "Beratung und Unterstützung bei Wohnungsverlust oder Obdachlosigkeit",
+                            "Schutzunterkunft für Opfer von Menschenhandel und Zwangsprostitution",
+                            "Kostenübernahme durch Leistungsträger bei fehlendem Einkommen – Unterstützung bei der Antragstellung",
+                            "Aufnahme in akuten Gefahrensituationen, auch durch die Polizei, oder geplante Aufnahme nach vorheriger Kontaktaufnahme",
+                            "Vermittlung von Schutzwohnungen in anderen Städten, falls ein Ortswechsel sinnvoll ist",
+                            "24-Stunden-Erreichbarkeit für Notaufnahmen",
+                            "Selbstständige Lebensgestaltung in Schutzwohnungen mit eigenverantwortlicher Versorgung",
+                            "Beratung und Planung für die Zukunft in einer sicheren Umgebung",
+                            "Unterstützung bei Wohnungssuche, Schulden oder gesundheitlichen Problemen",
+                            "Kostenlose nachgehende Hilfe nach dem Aufenthalt, falls gewünscht"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "direction": "column",
+                    "flex": 1,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "accordion-address",
+                          "content": ["Dionysiusstraße 38", "27576 Bremerhaven"]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "accordion-contact",
+                          "content": {
+                            "Telefon": "0471 8 30 01",
+                            "E-Mail": "frauenhaus@diakonie-bhv.de",
+                            "Webseite": "https://diakonie-bhv.de/frauenberatungsstelle.html"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

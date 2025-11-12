@@ -6,6 +6,7 @@ export default function Pictures({
   picture,
   alt,
   description,
+  imageType
 }) {
   const imageRef = React.useRef(null);
   const descriptionRef = React.useRef(null);
@@ -23,6 +24,7 @@ export default function Pictures({
         imageDescriptionHeight / 2 + additionalSpacing
       }px`;
     }
+    
   }, []);
 
   return (
@@ -30,7 +32,7 @@ export default function Pictures({
       ref={imageRef}
       className={`${type} ${position || "page-full"}`.trim()}
     >
-      <img src={picture} alt={alt} />
+      <img src={picture} alt={alt} className={imageType ? imageType : ""}  />
       {description && (
         <figcaption ref={descriptionRef}>{description}</figcaption>
       )}

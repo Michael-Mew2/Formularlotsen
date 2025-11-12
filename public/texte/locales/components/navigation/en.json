@@ -1,13 +1,15 @@
 {
     "navigation": {
         "home": "Home",
-        "timeAndLocation": "Times & Places",
-        "joinUs": "Join us",
+        "timeAndLocation": "Locations & Dates",
+        "joinUs": "Get Involved",
         "press": "Press",
         "contact": "Contact",
-        "flyer": "Flyer",
-        "imprint": "Impress",
-        "termsAndCondition": "Terms & Conditions",
-        "dataProtection": "Data Protection Agreement."
+        "flyer": "Flyers",
+        "imprint": "Imprint",
+        "termsAndCondition": "Terms and Conditions",
+        "dataProtection": "Data Protection Agreement",
+        "formsInformation": "Forms",
+        "aidOrganizations": "Other Aid Organizations"
     }
 }

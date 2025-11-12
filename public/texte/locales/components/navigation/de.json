@@ -8,6 +8,8 @@
         "flyer": "Flyer",
         "imprint": "Impressum",
         "termsAndCondition": "AGB",
-        "dataProtection": "Datenschutzvereinbarung"
+        "dataProtection": "Datenschutzvereinbarung",
+        "formsInformation": "Formulare",
+        "aidOrganizations": "Weitere Hilfsorganisationen"
     }
 }

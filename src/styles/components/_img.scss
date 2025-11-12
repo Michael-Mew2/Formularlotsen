@@ -13,8 +13,15 @@
         max-height: 70vh;
         object-fit: cover;
         @include mix.bold_shadow;
+
     }
 
+    .logo {
+        width: function.calculate-max-width($padding: 8px);
+        aspect-ratio: auto;
+        padding: 8px
+    }
+    
     figcaption {
         @include mix.bold_shadow;
         padding: vars.$margin-xs;
