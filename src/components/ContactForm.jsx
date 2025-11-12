@@ -11,6 +11,7 @@ export default function ContactForm({
   const [formErrors, setFormErrors] = React.useState({});
   const [touchedFields, setTouchedFields] = React.useState({});
   const [activeFieldset, setActiveFieldset] = React.useState(0);
+  const [legalErrors, setLegalErrors] = React.useState({});
 
   const fieldInfoTexts = React.useMemo(() => {
     const infoTexts = {};
@@ -80,6 +81,10 @@ export default function ContactForm({
     }
   };
 
+  const handleLegalValidation = (checkboxName, hasError) => {
+    setLegalErrors((prev) => ({ ...prev, [checkboxName]: hasError }));
+  };
+
   const renderField = (field) => {
     const commonProps = {
       name: field.name,
@@ -128,6 +133,43 @@ export default function ContactForm({
     return fieldset.groupInfoText || "";
   };
 
+  const getLegalFieldsetInfo = (fieldset) => {
+    const hasErrors = Object.values(legalErrors).some(
+      (error) => error === true
+    );
+
+    if (hasErrors) {
+      return fieldset.groupInfoError || "";
+    }
+    return fieldset.groupInfoText || "";
+  };
+
+  // Accordion mit Validierungs-Callbacks rendern
+  const renderLegalAccordion = (fieldset) => {
+    const enhancedAccordion = {
+      ...fieldset.accordion,
+      items: fieldset.accordion.items?.map((item) => ({
+        ...item,
+        contentGroups: item.contentGroups?.map((group) => ({
+          items: group.items?.map((groupItem) => ({
+            ...groupItem,
+            component:
+              groupItem.component?.type === "checkbox"
+                ? {
+                    ...groupItem.component,
+                    onValidationChange: handleLegalValidation,
+                  }
+                : groupItem.component,
+          })),
+        })),
+      })),
+    };
+
+    return (
+      <PageSection section={{ type: "accordion", ...enhancedAccordion }} />
+    );
+  };
+
   return (
     <div className="contact-form">
       {showTitle && <h4>{title}</h4>}
@@ -135,12 +177,25 @@ export default function ContactForm({
         {fieldsets?.map((fieldset, index) => {
           // Accordion für rechtliche Hinweise
           if (fieldset.type === "legal-accordion") {
+            const hasLegalErrors = Object.values(legalErrors).some(
+              (error) => error === true
+            );
+
             return (
               <fieldset key={index} className="legal-fieldset">
                 <legend>{fieldset.legend}</legend>
-                <PageSection
-                  section={{ type: "accordion", ...fieldset.accordion }}
-                />
+                <div className="fieldset-flex">
+                  <div className="form-inputs">
+                    {renderLegalAccordion(fieldset)}
+                  </div>
+                  {(fieldset.groupInfoText || fieldset.groupInfoError) && (
+                    <div
+                      className={`form-info ${hasLegalErrors ? "error" : ""}`}
+                    >
+                      <p>{getLegalFieldsetInfo(fieldset)}</p>
+                    </div>
+                  )}
+                </div>
               </fieldset>
             );
           }

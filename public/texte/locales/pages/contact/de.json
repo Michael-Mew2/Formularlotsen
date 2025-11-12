@@ -107,6 +107,8 @@
           {
             "legend": "Rechtliche Hinweise",
             "type": "legal-accordion",
+            "groupInfoText": "Bitte bestätigen Sie, dass Sie unsere Datenschutzerklärung und AGB gelesen haben und akzeptieren.",
+            "groupInfoError": "Sie müssen sowohl die Datenschutzerklärung als auch die AGB akzeptieren, um das Formular abzusenden.",
             "accordion": {
               "groupStyle": "legal-accordion",
               "items": [

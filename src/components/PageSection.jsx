@@ -13,6 +13,7 @@ import AccAddress from "./AccAddress";
 import AccTimes from "./AccTimes";
 import AccContact from "./AccContact";
 import ContactForm from "./ContactForm";
+import LegalCheckbox from "./LegalCheckbox";
 
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;
@@ -73,8 +74,8 @@ export default function PageSection({ section }) {
     case "contact-form":
       return <ContactForm title={section.title} showTitle={section.showTitle} fieldsets={section.fieldsets} items={section.items} submitButton={section.submitButton} />;
 
-    case "lagal-checkbox":
-      return <LegalCheckbox section={section} />;
+    case "legal-checkbox":
+      return <LegalCheckbox section={section} onValidationChange={section.onValidationChange} />;
 
     default:
       return null;
