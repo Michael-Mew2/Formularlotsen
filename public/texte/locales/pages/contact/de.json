@@ -84,7 +84,7 @@
                 }
               }
             ],
-             "groupInfoText": "Wir benötigen Ihre Email-Adresse, um Ihnen eine Bestätigung mit der Mitteilung das wir die Nachricht empfangen haben zu senden."
+            "groupInfoText": "Wir benötigen Ihre Email-Adresse, um Ihnen eine Bestätigung mit der Mitteilung das wir die Nachricht empfangen haben zu senden."
           },
           {
             "legend": "Nachricht",
@@ -102,7 +102,7 @@
                 }
               }
             ],
-             "groupInfoText": "Hier teilen Sie uns ihr Anliegen mit"
+            "groupInfoText": "Hier teilen Sie uns ihr Anliegen mit"
           },
           {
             "legend": "Rechtliche Hinweise",
@@ -176,6 +176,12 @@
           "successMessage": "Vielen Dank! Ihre Nachricht wurde erfolgreich versendet.",
           "errorMessage": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut."
         }
+      },
+      {
+        "groupId": "contact-info",
+        "groupStyle": "full-width",
+        "type": "contact-info",
+        "contactPerson": "Djawar Mohamad"
       }
     ]
   }
