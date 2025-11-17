@@ -21,6 +21,10 @@
         aspect-ratio: auto;
         padding: 8px
     }
+
+    .peoplePortrait {
+        aspect-ratio: 1/2;
+    }
     
     figcaption {
         @include mix.bold_shadow;
