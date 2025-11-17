@@ -12,6 +12,9 @@ import Accordion from "./Accordion";
 import AccAddress from "./AccAddress";
 import AccTimes from "./AccTimes";
 import AccContact from "./AccContact";
+import ContactForm from "./ContactForm";
+import LegalCheckbox from "./LegalCheckbox";
+import ContactInfo from "./ContactInfo";
 
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;
@@ -68,6 +71,15 @@ export default function PageSection({ section }) {
     
     case "accordion-times":
       return <AccTimes openingTimes={section.content} />;
+
+    case "contact-form":
+      return <ContactForm title={section.title} showTitle={section.showTitle} fieldsets={section.fieldsets} items={section.items} submitButton={section.submitButton} />;
+
+    case "legal-checkbox":
+      return <LegalCheckbox section={section} onValidationChange={section.onValidationChange} />;
+
+    case "contact-info":
+      return <ContactInfo section={section.contactPerson} />;
 
     default:
       return null;

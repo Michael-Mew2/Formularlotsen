@@ -1,0 +1,188 @@
+{
+  "contact": {
+    "meta": {
+      "title": "Kontakt",
+      "content": "Kontaktieren Sie uns!"
+    },
+    "hero": {
+      "heroPicture": "images/heroImages/AdobeStock_hände_zusammen.jpeg",
+      "heroPictureAlt": "Eine Gruppe von Menschen gibt sich zusammen die Hände",
+      "heroMainTitle": "Haben Sie ein Anliegen?",
+      "heroSubTitle": "Dann schreiben Sie uns, wir sind auch online für Sie da!"
+    },
+    "pageContent": [
+      {
+        "groupId": "page-title",
+        "groupStyle": "page-content-title",
+        "type": "intro",
+        "title": "Kontakt",
+        "content": "Haben Sie Fragen oder ein Anliegen? Dann teilen Sie uns das mit. Nutzen Sie dafür entweder unser Kontaktformular, oder schreiben Sie uns direkt eine Email oder auf WhatsApp und wir bemühen uns Ihnen so schnell wie möglich zu antworten."
+      },
+      {
+        "groupId": "contactForm",
+        "groupStyle": "full-width",
+        "type": "contact-form",
+        "position": "page-full",
+        "title": "Kontaktformular",
+        "showTitle": true,
+        "fieldsets": [
+          {
+            "legend": "Name",
+            "fields": [
+              {
+                "type": "text",
+                "label": "Vorname",
+                "name": "name",
+                "required": true,
+                "placeholder": "Ihr Vorname",
+                "errorMessage": "Bitte geben Sie Ihren Vornamen ein.",
+                "infoText": {
+                  "default": "Wir benötigen Ihren Namen, um Sie persönlich ansprechen zu können.",
+                  "error": "Bitte geben Sie Ihren Vornamen ein."
+                }
+              },
+              {
+                "type": "text",
+                "label": "Nachname",
+                "name": "lastName",
+                "required": true,
+                "placeholder": "Ihr Nachname",
+                "errorMessage": "Bitte geben Sie Ihren Nachnamen ein.",
+                "infoText": {
+                  "default": "Ihr Nachname hilft uns bei der eindeutigen Zuordnung Ihrer Anfrage.",
+                  "error": "Bitte geben Sie Ihren Nachnamen ein."
+                }
+              }
+            ],
+            "groupInfoText": "Wir benötigen Ihren vollständigen Namen für die persönliche Ansprache."
+          },
+          {
+            "legend": "Kontaktinformationen",
+            "fields": [
+              {
+                "type": "email",
+                "label": "Email",
+                "name": "email",
+                "required": true,
+                "placeholder": "Ihre Email",
+                "errorMessage": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+                "infoText": {
+                  "default": "Ihre E-Mail-Adresse benötigen wir, um Ihnen antworten zu können. Sie wird nicht an Dritte weitergegeben.",
+                  "error": "Bitte geben Sie eine gültige E-Mail-Adresse ein."
+                }
+              },
+              {
+                "type": "tel",
+                "label": "Telefon",
+                "name": "tel",
+                "required": false,
+                "placeholder": "Ihr Telefon",
+                "errorMessage": "Bitte geben Sie eine gültige Telefonnummer ein.",
+                "infoText": {
+                  "default": "Optional: Geben Sie Ihre Telefonnummer an, falls Sie einen Rückruf wünschen.",
+                  "error": "Bitte geben Sie eine gültige Telefonnummer ein."
+                }
+              }
+            ],
+            "groupInfoText": "Wir benötigen Ihre Email-Adresse, um Ihnen eine Bestätigung mit der Mitteilung das wir die Nachricht empfangen haben zu senden."
+          },
+          {
+            "legend": "Nachricht",
+            "fields": [
+              {
+                "type": "textarea",
+                "label": "Nachricht",
+                "name": "message",
+                "required": true,
+                "placeholder": "Ihre Nachricht",
+                "errorMessage": "Bitte geben Sie eine Nachricht ein.",
+                "infoText": {
+                  "default": "Beschreiben Sie Ihr Anliegen so detailliert wie möglich, damit wir Ihnen optimal helfen können.",
+                  "error": "Bitte geben Sie eine Nachricht ein."
+                }
+              }
+            ],
+            "groupInfoText": "Hier teilen Sie uns ihr Anliegen mit"
+          },
+          {
+            "legend": "Rechtliche Hinweise",
+            "type": "legal-accordion",
+            "groupInfoText": "Bitte bestätigen Sie, dass Sie unsere Datenschutzerklärung und AGB gelesen haben und akzeptieren.",
+            "groupInfoError": "Sie müssen sowohl die Datenschutzerklärung als auch die AGB akzeptieren, um das Formular abzusenden.",
+            "accordion": {
+              "groupStyle": "legal-accordion",
+              "items": [
+                {
+                  "title": "Datenschutzerklärung",
+                  "contentGroups": [
+                    {
+                      "direction": "column",
+                      "items": [
+                        {
+                          "component": {
+                            "type": "paragraph",
+                            "content": "Mit dem Absenden dieses Formulars stimmen Sie zu, dass Ihre angegebenen Daten zur Bearbeitung Ihrer Anfrage verwendet werden. Ihre Daten werden verschlüsselt übertragen und nicht an Dritte weitergegeben. Sie haben jederzeit das Recht auf Auskunft, Berichtigung oder Löschung Ihrer Daten."
+                          }
+                        },
+                        {
+                          "component": {
+                            "type": "legal-checkbox",
+                            "id": "privacy",
+                            "label": "Ich habe die Datenschutzerklärung gelesen und akzeptiere sie",
+                            "linkText": "Vollständige Datenschutzerklärung lesen",
+                            "linkUrl": "/datenschutz",
+                            "required": true,
+                            "errorMessage": "Bitte akzeptieren Sie die Datenschutzerklärung."
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Allgemeine Geschäftsbedingungen",
+                  "contentGroups": [
+                    {
+                      "direction": "column",
+                      "items": [
+                        {
+                          "component": {
+                            "type": "paragraph",
+                            "content": "Durch das Absenden dieser Anfrage erklären Sie sich mit unseren Geschäftsbedingungen einverstanden. Die Bearbeitung erfolgt während unserer Geschäftszeiten innerhalb von 48 Stunden. Bei Terminanfragen behalten wir uns vor, alternative Zeiten vorzuschlagen."
+                          }
+                        },
+                        {
+                          "component": {
+                            "type": "legal-checkbox",
+                            "id": "terms",
+                            "label": "Ich habe die AGB gelesen und akzeptiere sie",
+                            "linkText": "Vollständige AGB lesen",
+                            "linkUrl": "/agb",
+                            "required": true,
+                            "errorMessage": "Bitte akzeptieren Sie die AGB."
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "submitButton": {
+          "text": "Senden",
+          "loadingText": "Wird gesendet...",
+          "successMessage": "Vielen Dank! Ihre Nachricht wurde erfolgreich versendet.",
+          "errorMessage": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut."
+        }
+      },
+      {
+        "groupId": "contact-info",
+        "groupStyle": "full-width",
+        "type": "contact-info",
+        "contactPerson": "Djawar Mohamad"
+      }
+    ]
+  }
+}
