@@ -12,6 +12,7 @@ export default function ContactForm({
   const [touchedFields, setTouchedFields] = React.useState({});
   const [activeFieldset, setActiveFieldset] = React.useState(0);
   const [legalErrors, setLegalErrors] = React.useState({});
+  const [fieldValues, setFieldValues] = React.useState({});
 
   const fieldInfoTexts = React.useMemo(() => {
     const infoTexts = {};
@@ -52,6 +53,29 @@ export default function ContactForm({
     }
   };
 
+  const handleChange = (e) => {
+    const { name, value, required, type } = e.target;
+
+    setFieldValues((prev) => ({ ...prev, [name]: value }));
+
+    if (touchedFields[name]) {
+      let hasError = false;
+
+      if (required && !value.trim()) {
+        hasError = true;
+      } else if (
+        type === "email" &&
+        value &&
+        !value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
+      ) {
+        hasError = true;
+      }
+
+      setFormErrors((prev) => ({ ...prev, [name]: hasError }));
+      handleFieldError(name, hasError);
+    }
+  };
+
   const handelBlur = (e) => {
     const { name, value, required, type } = e.target;
     setTouchedFields((prev) => ({ ...prev, [name]: true }));
@@ -85,31 +109,64 @@ export default function ContactForm({
     setLegalErrors((prev) => ({ ...prev, [checkboxName]: hasError }));
   };
 
+  const isFieldValid = (fieldName, field) => {
+    return (
+      touchedFields[fieldName] &&
+      !formErrors[fieldName] &&
+      fieldValues[fieldName]?.trim() &&
+      (field.required ? true : true)
+    );
+  };
+
+  const isFieldsetValid = (fieldset) => {
+    if (!fieldset.fields) return false;
+
+    const requiredFields = fieldset.fields.filter((f) => f.required);
+
+    if (requiredFields.length === 0) return false;
+
+    return requiredFields.every((field) => isFieldValid(field.name, field));
+  };
+
+  const hasFieldsetError = (fieldset) => {
+    if (!fieldset.fields) return false;
+
+    return fieldset.fields.some(
+      (field) =>
+        field.required && touchedFields[field.name] && formErrors[field.name]
+    );
+  };
+
   const renderField = (field) => {
+    const hasError = touchedFields[field.name] && formErrors[field.name];
+    const isValid = isFieldValid(field.name, field);
+
     const commonProps = {
       name: field.name,
       id: field.name,
       placeholder: field.placeholder,
       required: field.required,
+      value: fieldValues[field.name],
+      onChange: handleChange,
       onFocus: () => handleFocus(field.name),
       onBlur: handelBlur,
-      className:
-        touchedFields[field.name] && formErrors[field.name] ? "error" : "",
+      className: `${hasError ? "error" : ""} ${isValid ? "valid" : ""}`,
+      /* touchedFields[field.name] && formErrors[field.name] ? "error" : "", */
     };
 
     switch (field.type) {
       case "textarea":
         return (
-          <label key={field.name}>
-            {field.label}
+          <label key={field.name} className={field.required ? "required" : ""}>
+            <span className="label-text">{field.label}</span>
             <textarea {...commonProps}></textarea>
           </label>
         );
 
       default:
         return (
-          <label key={field.name}>
-            {field.label}
+          <label key={field.name} className={field.required ? "required" : ""}>
+            <span className="label-text">{field.label}</span>
             <input type={field.type} {...commonProps} />
           </label>
         );
@@ -182,7 +239,10 @@ export default function ContactForm({
             );
 
             return (
-              <fieldset key={index} className="legal-fieldset">
+              <fieldset
+                key={index}
+                className={`legal-fieldset ${hasLegalErrors ? "error" : ""}`}
+              >
                 <legend>{fieldset.legend}</legend>
                 <div className="fieldset-flex">
                   <div className="form-inputs">
@@ -200,24 +260,22 @@ export default function ContactForm({
             );
           }
           // Normale Fieldsets
+          const fieldsetValid = isFieldValid(fieldset);
+          const fieldsetError = hasFieldsetError(fieldset);
           return (
-            <fieldset key={index}>
+            <fieldset
+              key={index}
+              className={`${fieldsetValid ? "valid" : ""} ${
+                fieldsetError ? "error" : ""
+              }`}
+            >
               <legend>{fieldset.legend}</legend>
               <div className="fieldset-flex">
                 <div className="form-inputs">
                   {fieldset.fields?.map((field) => renderField(field))}
                 </div>
                 {fieldset.fields?.some((f) => f.infoText) && (
-                  <div
-                    className={`form-info ${
-                      fieldset.fields?.some(
-                        (field) =>
-                          touchedFields[field.name] && formErrors[field.name]
-                      )
-                        ? "error"
-                        : ""
-                    }`}
-                  >
+                  <div className={`form-info ${fieldsetError ? "error" : ""}`}>
                     <p>{getFieldsetInfo(fieldset)}</p>
                   </div>
                 )}

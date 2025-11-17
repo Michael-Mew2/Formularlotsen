@@ -34,7 +34,7 @@ export default function LegalCheckbox({ section, onValidationChange }) {
       >
         {section.linkText}
       </a>
-      <label className="legal-checkbox">
+      <label className={`legal-checkbox ${section.required ? "required" : ""}`}>
         <input
           type="checkbox"
           name={section.id}
@@ -44,7 +44,7 @@ export default function LegalCheckbox({ section, onValidationChange }) {
           onBlur={() => setTouched(true)}
           required={section.required}
         />
-        <span>{section.label}</span>
+        <span className="label-text">{section.label}</span>
       </label>
       {showError && section.errorMessage && (
         <span className="error-message">{section.errorMessage}</span>
