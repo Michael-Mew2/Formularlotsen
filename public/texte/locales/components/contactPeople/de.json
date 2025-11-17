@@ -4,17 +4,21 @@
       "position": "Projektleitung",
       "organization": "Ökumenisches Projekt Formularlotsen",
       "phone": "015752683474",
-      "e-mail": "info@formularlotsen-bremerhaven.de",
+      "eMail": "info@formularlotsen-bremerhaven.de",
       "website": "https://www.formularlotsen-bremerhaven.de",
       "picture": "images/people/Djawar-Mohamad.jpg",
-      "pictureAlt": "Bild von Djawar"
+      "pictureAlt": "Bild von Djawar",
+      "showPositionAsTitle": false,
+      "whatsappInsteadOfTelephone": false,
+      "whatsappButton": true
     }
   },
   "translations": {
     "position": "Position",
     "organization": "Organisation",
     "phone": "Telefon",
-    "e-mail": "E-Mail",
-    "website": "Webseite"
+    "eMail": "E-Mail",
+    "website": "Webseite",
+    "whatsapp": "WhatsApp"
   }
 }

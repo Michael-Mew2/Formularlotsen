@@ -29,6 +29,10 @@ $legal-gap: 2rem;
 
         // color: vars.$primary-color;
       }
+
+      &:focus {
+        border-color: vars.$highlight;
+      }
     }
 
     fieldset {
