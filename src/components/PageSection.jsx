@@ -76,7 +76,7 @@ export default function PageSection({ section }) {
       return <ContactForm title={section.title} showTitle={section.showTitle} fieldsets={section.fieldsets} items={section.items} submitButton={section.submitButton} />;
 
     case "legal-checkbox":
-      return <LegalCheckbox section={section} onValidationChange={section.onValidationChange} />;
+      return <LegalCheckbox section={section} onValidationChange={section.onValidationChange} onValueChange={section.onValueChange} />;
 
     case "contact-info":
       return <ContactInfo section={section.contactPerson} />;

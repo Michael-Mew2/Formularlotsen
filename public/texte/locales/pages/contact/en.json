@@ -1,0 +1,188 @@
+{
+  "contact": {
+    "meta": {
+      "title": "Contact",
+      "content": "Contact us!"
+    },
+    "hero": {
+      "heroPicture": "images/heroImages/AdobeStock_hände_zusammen.jpeg",
+      "heroPictureAlt": "A group of people shaking hands together",
+      "heroMainTitle": "Do you have a concern?",
+      "heroSubTitle": "Then write to us, we are also available for you online!"
+    },
+    "pageContent": [
+      {
+        "groupId": "page-title",
+        "groupStyle": "page-content-title",
+        "type": "intro",
+        "title": "Contact",
+        "content": "Do you have questions or a concern? Then share it with us. Use our contact form, or write to us directly via email or WhatsApp, and we will try to respond to you as soon as possible."
+      },
+      {
+        "groupId": "contactForm",
+        "groupStyle": "full-width",
+        "type": "contact-form",
+        "position": "page-full",
+        "title": "Contact Form",
+        "showTitle": true,
+        "fieldsets": [
+          {
+            "legend": "Name",
+            "fields": [
+              {
+                "type": "text",
+                "label": "First Name",
+                "name": "name",
+                "required": true,
+                "placeholder": "Your first name",
+                "errorMessage": "Please enter your first name.",
+                "infoText": {
+                  "default": "We need your name to address you personally.",
+                  "error": "Please enter your first name."
+                }
+              },
+              {
+                "type": "text",
+                "label": "Last Name",
+                "name": "lastName",
+                "required": true,
+                "placeholder": "Your last name",
+                "errorMessage": "Please enter your last name.",
+                "infoText": {
+                  "default": "Your last name helps us to uniquely assign your request.",
+                  "error": "Please enter your last name."
+                }
+              }
+            ],
+            "groupInfoText": "We need your full name for personal address."
+          },
+          {
+            "legend": "Contact Information",
+            "fields": [
+              {
+                "type": "email",
+                "label": "Email",
+                "name": "email",
+                "required": true,
+                "placeholder": "Your email",
+                "errorMessage": "Please enter a valid email address.",
+                "infoText": {
+                  "default": "We need your email address to respond to you. It will not be passed on to third parties.",
+                  "error": "Please enter a valid email address."
+                }
+              },
+              {
+                "type": "tel",
+                "label": "Phone",
+                "name": "tel",
+                "required": false,
+                "placeholder": "Your phone",
+                "errorMessage": "Please enter a valid phone number.",
+                "infoText": {
+                  "default": "Optional: Enter your phone number if you would like a callback.",
+                  "error": "Please enter a valid phone number."
+                }
+              }
+            ],
+            "groupInfoText": "We need your email address to send you a confirmation that we have received your message."
+          },
+          {
+            "legend": "Message",
+            "fields": [
+              {
+                "type": "textarea",
+                "label": "Message",
+                "name": "message",
+                "required": true,
+                "placeholder": "Your message",
+                "errorMessage": "Please enter a message.",
+                "infoText": {
+                  "default": "Describe your concern in as much detail as possible so that we can help you optimally.",
+                  "error": "Please enter a message."
+                }
+              }
+            ],
+            "groupInfoText": "Share your concern with us here."
+          },
+          {
+            "legend": "Legal Notices",
+            "type": "legal-accordion",
+            "groupInfoText": "Please confirm that you have read and accept our privacy policy and terms and conditions.",
+            "groupInfoError": "You must accept both the privacy policy and the terms and conditions to submit the form.",
+            "accordion": {
+              "groupStyle": "legal-accordion",
+              "items": [
+                {
+                  "title": "Privacy Policy",
+                  "contentGroups": [
+                    {
+                      "direction": "column",
+                      "items": [
+                        {
+                          "component": {
+                            "type": "paragraph",
+                            "content": "By submitting this form, you agree that your provided data will be used to process your request. Your data will be transmitted encrypted and will not be passed on to third parties. You have the right to information, correction, or deletion of your data at any time."
+                          }
+                        },
+                        {
+                          "component": {
+                            "type": "legal-checkbox",
+                            "id": "privacy",
+                            "label": "I have read and accept the privacy policy",
+                            "linkText": "Read full privacy policy",
+                            "linkUrl": "/privacy",
+                            "required": true,
+                            "errorMessage": "Please accept the privacy policy."
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "Terms and Conditions",
+                  "contentGroups": [
+                    {
+                      "direction": "column",
+                      "items": [
+                        {
+                          "component": {
+                            "type": "paragraph",
+                            "content": "By submitting this request, you agree to our terms and conditions. Processing will take place during our business hours within 48 hours. For appointment requests, we reserve the right to suggest alternative times."
+                          }
+                        },
+                        {
+                          "component": {
+                            "type": "legal-checkbox",
+                            "id": "terms",
+                            "label": "I have read and accept the terms and conditions",
+                            "linkText": "Read full terms and conditions",
+                            "linkUrl": "/terms",
+                            "required": true,
+                            "errorMessage": "Please accept the terms and conditions."
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "submitButton": {
+          "text": "Send",
+          "loadingText": "Sending...",
+          "successMessage": "Thank you! Your message has been sent successfully.",
+          "errorMessage": "An error occurred. Please try again later."
+        }
+      },
+      {
+        "groupId": "contact-info",
+        "groupStyle": "full-width",
+        "type": "contact-info",
+        "contactPerson": "Djawar Mohamad"
+      }
+    ]
+  }
+}

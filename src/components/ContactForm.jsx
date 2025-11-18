@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useLanguageStore } from "../store";
 import PageSection from "./PageSection";
 
 export default function ContactForm({
@@ -13,6 +14,7 @@ export default function ContactForm({
   const [activeFieldset, setActiveFieldset] = React.useState(0);
   const [legalErrors, setLegalErrors] = React.useState({});
   const [fieldValues, setFieldValues] = React.useState({});
+  const { language } = useLanguageStore();
 
   const fieldInfoTexts = React.useMemo(() => {
     const infoTexts = {};
@@ -35,6 +37,13 @@ export default function ContactForm({
   });
 
   React.useEffect(() => {
+    setFieldValues((prev) => ({
+      ...prev,
+      language,
+    }));
+  });
+
+  React.useEffect(() => {
     console.log("content:", fieldsets);
     console.log("Show contact title;", showTitle);
     console.log("Titel:", title);
@@ -53,6 +62,29 @@ export default function ContactForm({
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:3001/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(fieldValues),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        alert("E-Mail erfolgreich versendet.");
+      } else {
+        alert("Fehler beim Versenden der E-Mail:", result.error);
+      }
+    } catch (error) {
+      console.error("Fehler beim senden:", error);
+      alert("Fehler beim Versenden der E-Mail:", error.message);
+    }
+  };
   const handleChange = (e) => {
     const { name, value, required, type } = e.target;
 
@@ -74,6 +106,10 @@ export default function ContactForm({
       setFormErrors((prev) => ({ ...prev, [name]: hasError }));
       handleFieldError(name, hasError);
     }
+  };
+
+  const handleCheckboxChange = (checkboxName, isChecked) => {
+    setFieldValues((prev) => ({ ...prev, [checkboxName]: isChecked }));
   };
 
   const handelBlur = (e) => {
@@ -215,6 +251,7 @@ export default function ContactForm({
                 ? {
                     ...groupItem.component,
                     onValidationChange: handleLegalValidation,
+                    onValueChange: handleCheckboxChange,
                   }
                 : groupItem.component,
           })),
@@ -230,7 +267,7 @@ export default function ContactForm({
   return (
     <div className="contact-form">
       {showTitle && <h4>{title}</h4>}
-      <form>
+      <form onSubmit={handleSubmit}>
         {fieldsets?.map((fieldset, index) => {
           // Accordion für rechtliche Hinweise
           if (fieldset.type === "legal-accordion") {
