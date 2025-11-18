@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useLanguageStore } from "../store";
 import PageSection from "./PageSection";
 
 export default function ContactForm({
@@ -13,6 +14,7 @@ export default function ContactForm({
   const [activeFieldset, setActiveFieldset] = React.useState(0);
   const [legalErrors, setLegalErrors] = React.useState({});
   const [fieldValues, setFieldValues] = React.useState({});
+  const { language } = useLanguageStore();
 
   const fieldInfoTexts = React.useMemo(() => {
     const infoTexts = {};
@@ -32,6 +34,13 @@ export default function ContactForm({
       initialInfo[key] = fieldInfoTexts[key]?.default || "";
     });
     return initialInfo;
+  });
+
+  React.useEffect(() => {
+    setFieldValues((prev) => ({
+      ...prev,
+      language,
+    }));
   });
 
   React.useEffect(() => {
@@ -242,7 +251,7 @@ export default function ContactForm({
                 ? {
                     ...groupItem.component,
                     onValidationChange: handleLegalValidation,
-                    onValueChange: handleCheckboxChange
+                    onValueChange: handleCheckboxChange,
                   }
                 : groupItem.component,
           })),

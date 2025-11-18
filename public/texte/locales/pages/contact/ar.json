@@ -1,0 +1,188 @@
+{
+  "contact": {
+    "meta": {
+      "title": "اتصل بنا",
+      "content": "تواصل معنا!"
+    },
+    "hero": {
+      "heroPicture": "images/heroImages/AdobeStock_hände_zusammen.jpeg",
+      "heroPictureAlt": "مجموعة من الأشخاص يصافحون بعضهم البعض",
+      "heroMainTitle": "هل لديك استفسار؟",
+      "heroSubTitle": "اكتب لنا، نحن متاحون لك عبر الإنترنت!"
+    },
+    "pageContent": [
+      {
+        "groupId": "page-title",
+        "groupStyle": "page-content-title",
+        "type": "intro",
+        "title": "اتصل بنا",
+        "content": "هل لديك أسئلة أو استفسار؟ شاركنا إياه. يمكنك استخدام نموذج الاتصال الخاص بنا أو كتابة بريد إلكتروني أو رسالة على واتساب، وسنحاول الرد عليك في أقرب وقت ممكن."
+      },
+      {
+        "groupId": "contactForm",
+        "groupStyle": "full-width",
+        "type": "contact-form",
+        "position": "page-full",
+        "title": "نموذج الاتصال",
+        "showTitle": true,
+        "fieldsets": [
+          {
+            "legend": "الاسم",
+            "fields": [
+              {
+                "type": "text",
+                "label": "الاسم الأول",
+                "name": "name",
+                "required": true,
+                "placeholder": "الاسم الأول",
+                "errorMessage": "الرجاء إدخال اسمك الأول.",
+                "infoText": {
+                  "default": "نحتاج إلى اسمك الأول حتى نتمكن من مخاطبتك شخصيًا.",
+                  "error": "الرجاء إدخال اسمك الأول."
+                }
+              },
+              {
+                "type": "text",
+                "label": "اسم العائلة",
+                "name": "lastName",
+                "required": true,
+                "placeholder": "اسم العائلة",
+                "errorMessage": "الرجاء إدخال اسم عائلتك.",
+                "infoText": {
+                  "default": "يساعدنا اسم عائلتك في تحديد طلبك بشكل فريد.",
+                  "error": "الرجاء إدخال اسم عائلتك."
+                }
+              }
+            ],
+            "groupInfoText": "نحتاج إلى اسمك الكامل للمخاطبة الشخصية."
+          },
+          {
+            "legend": "معلومات الاتصال",
+            "fields": [
+              {
+                "type": "email",
+                "label": "البريد الإلكتروني",
+                "name": "email",
+                "required": true,
+                "placeholder": "بريدك الإلكتروني",
+                "errorMessage": "الرجاء إدخال عنوان بريد إلكتروني صحيح.",
+                "infoText": {
+                  "default": "نحتاج إلى عنوان بريدك الإلكتروني للرد عليك. لن يتم مشاركة عنوان بريدك الإلكتروني مع أطراف ثالثة.",
+                  "error": "الرجاء إدخال عنوان بريد إلكتروني صحيح."
+                }
+              },
+              {
+                "type": "tel",
+                "label": "الهاتف",
+                "name": "tel",
+                "required": false,
+                "placeholder": "رقم هاتفك",
+                "errorMessage": "الرجاء إدخال رقم هاتف صحيح.",
+                "infoText": {
+                  "default": "اختياري: أدخل رقم هاتفك إذا كنت ترغب في أن نتصل بك.",
+                  "error": "الرجاء إدخال رقم هاتف صحيح."
+                }
+              }
+            ],
+            "groupInfoText": "نحتاج إلى عنوان بريدك الإلكتروني لإرسال تأكيد باستلام رسالتك."
+          },
+          {
+            "legend": "الرسالة",
+            "fields": [
+              {
+                "type": "textarea",
+                "label": "رسالتك",
+                "name": "message",
+                "required": true,
+                "placeholder": "رسالتك",
+                "errorMessage": "الرجاء إدخال رسالة.",
+                "infoText": {
+                  "default": "صف استفسارك بأكبر قدر ممكن من التفاصيل حتى نتمكن من مساعدتك بشكل مثالي.",
+                  "error": "الرجاء إدخال رسالة."
+                }
+              }
+            ],
+            "groupInfoText": "شاركنا استفسارك هنا"
+          },
+          {
+            "legend": "الإشعارات القانونية",
+            "type": "legal-accordion",
+            "groupInfoText": "الرجاء تأكيد أنك قرأت وأوافق على سياسة الخصوصية والشروط والأحكام.",
+            "groupInfoError": "يجب عليك قبول كل من سياسة الخصوصية والشروط والأحكام لإرسال النموذج.",
+            "accordion": {
+              "groupStyle": "legal-accordion",
+              "items": [
+                {
+                  "title": "سياسة الخصوصية",
+                  "contentGroups": [
+                    {
+                      "direction": "column",
+                      "items": [
+                        {
+                          "component": {
+                            "type": "paragraph",
+                            "content": "من خلال إرسال هذا النموذج، فإنك توافق على استخدام البيانات التي قدمتها لمعالجة طلبك. سيتم نقل بياناتك بشكل مشفر ولن يتم مشاركة بياناتك مع أطراف ثالثة. لديك الحق في الحصول على معلومات وتعديل أو حذف بياناتك في أي وقت."
+                          }
+                        },
+                        {
+                          "component": {
+                            "type": "legal-checkbox",
+                            "id": "privacy",
+                            "label": "لقد قرأت وأوافق على سياسة الخصوصية",
+                            "linkText": "قراءة سياسة الخصوصية الكاملة",
+                            "linkUrl": "/datenschutz",
+                            "required": true,
+                            "errorMessage": "الرجاء قبول سياسة الخصوصية."
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "title": "الشروط والأحكام",
+                  "contentGroups": [
+                    {
+                      "direction": "column",
+                      "items": [
+                        {
+                          "component": {
+                            "type": "paragraph",
+                            "content": "من خلال إرسال هذا الطلب، فإنك توافق على شروطنا وأحكامنا. سيتم معالجة طلبك خلال ساعات العمل الرسمية لدينا خلال 48 ساعة. في حالة طلبات المواعيد، نحتفظ بحق اقتراح أوقات بديلة."
+                          }
+                        },
+                        {
+                          "component": {
+                            "type": "legal-checkbox",
+                            "id": "terms",
+                            "label": "لقد قرأت وأوافق على الشروط والأحكام",
+                            "linkText": "قراءة الشروط والأحكام الكاملة",
+                            "linkUrl": "/agb",
+                            "required": true,
+                            "errorMessage": "الرجاء قبول الشروط والأحكام."
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "submitButton": {
+          "text": "إرسال",
+          "loadingText": "جاري الإرسال...",
+          "successMessage": "شكرًا لك! تم إرسال رسالتك بنجاح.",
+          "errorMessage": "حدث خطأ. الرجاء المحاولة مرة أخرى لاحقًا."
+        }
+      },
+      {
+        "groupId": "contact-info",
+        "groupStyle": "full-width",
+        "type": "contact-info",
+        "contactPerson": "دجوار محمد"
+      }
+    ]
+  }
+}

@@ -1,23 +1,61 @@
 import nodemailer from "nodemailer";
 
 const createTransporter = () => {
-    return nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: process.env.SMTP_PORT,
-        secure: process.env.SMTP_PORT === "465",
-        auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
-    });
-}
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    secure: process.env.SMTP_PORT === "465",
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+    tls: {
+      rejectUnauthorized: false,
+    },
+  });
+};
 
 // Bestätigungs-E-Mail HTML-Template
-const getConfirmationEmailHTML = (formData) => {
-     return `
+const getConfirmationEmailHTML = (formData, language) => {
+  const translations = {
+    de: {
+      subject: "Vielen Dank für Ihre Kontaktanfrage",
+      header: "Vielen Dank für Ihre Nachricht!",
+      greeting: "Hallo",
+      thanks:
+        "wir haben Ihre Nachricht erhalten und werden uns schnellstmöglich bei Ihnen melden.",
+      dataHeader: "Ihre übermittelten Daten:",
+      regards:
+        "Mit freundlichen Grüßen,<br>Ihr Bremerhavener Formularlotsen Team",
+      footer:
+        "Dies ist eine automatische Bestätigungsmail. Bitte antworten Sie nicht direkt auf diese E-Mail.",
+    },
+    en: {
+      subject: "Thank you for your inquiry",
+      header: "Thank you for your message!",
+      greeting: "Hello",
+      thanks:
+        "we have received your message and will get back to you as soon as possible.",
+      dataHeader: "Your submitted data:",
+      regards: "Best regards,<br>Your Bremerhavener Formularlotsen Team",
+      footer:
+        "This is an automatic confirmation email. Please do not reply directly to this email.",
+    },
+    ar: {
+      subject: "شكرًا على التواصل معنا",
+      header: "شكرًا على رسالتك!",
+      greeting: "مرحبًا",
+      thanks: "لقد تلقينا رسالتك وسنرد عليك في أقرب وقت ممكن.",
+      dataHeader: "بياناتك المرسلة:",
+      regards: "مع خالص التحية،<br>فريق بريمرهافن فورمولارلوتسن",
+      footer:
+        "هذه رسالة تأكيد تلقائية. الرجاء عدم الرد مباشرة على هذا البريد الإلكتروني.",
+    },
+  };
+
+  const t = translations[language] || translations.de;
+
+  return `
     <!DOCTYPE html>
     <html>
     <head>
@@ -64,38 +102,46 @@ const getConfirmationEmailHTML = (formData) => {
         }
       </style>
     </head>
-    <body>
-      <div class="container">
+   <body>
+    <div class="container">
         <div class="header">
-          <h1>Vielen Dank für Ihre Nachricht!</h1>
+            <h1>${t.header}</h1>
         </div>
         <div class="content">
-          <p>Hallo ${formData.vorname || 'lieber Interessent'},</p>
-          <p>wir haben Ihre Nachricht erhalten und werden uns schnellstmöglich bei Ihnen melden.</p>
-          
-          <h3>Ihre übermittelten Daten:</h3>
-          ${Object.entries(formData)
-            .filter(([key]) => !key.includes('agb') && !key.includes('dsgvo'))
-            .map(([key, value]) => `
+            <p>${t.greeting} ${formData.name || t.greeting}</p>
+            <p>${t.thanks}</p>
+            <h3>${t.dataHeader}</h3>
+             ${Object.entries(formData)
+               .filter(
+                 ([key]) =>
+                   !key.includes("agb") &&
+                   !key.includes("dsgvo") &&
+                   !key.includes("language")
+               )
+               .map(
+                 ([key, value]) => `
               <div class="field">
-                <span class="label">${formatFieldName(key)}:</span> ${value}
+                <span class="label">${formatFieldName(
+                  key,
+                  language
+                )}:</span> ${value}
               </div>
-            `).join('')}
-          
-          <p>Mit freundlichen Grüßen,<br>
-          Ihr Bremerhavener Formularlotsen Team</p>
+            `
+               )
+               .join("")}
+            <p>${t.regards}</p>
         </div>
         <div class="footer">
-          <p>Dies ist eine automatische Bestätigungsmail. Bitte antworten Sie nicht direkt auf diese E-Mail.</p>
+            <p>${t.footer}</p>
         </div>
-      </div>
-    </body>
+    </div>
+   </body>
     </html>
   `;
-}
+};
 
 const getNotificationEmailHTML = (formData) => {
-     return `
+  return `
     <!DOCTYPE html>
     <html>
     <head>
@@ -158,27 +204,39 @@ const getNotificationEmailHTML = (formData) => {
         </div>
         <div class="content">
           <div class="urgent">
-            ⏰ Eingegangen am: ${new Date().toLocaleString('de-DE')}
+            ⏰ Eingegangen am: ${new Date().toLocaleString("de-DE")}
           </div>
           
           <h3>Kontaktdaten:</h3>
           ${Object.entries(formData)
-            .filter(([key]) => !key.includes('agb') && !key.includes('dsgvo'))
-            .map(([key, value]) => `
+            .filter(
+              ([key]) =>
+                !key.includes("agb") &&
+                !key.includes("dsgvo") &&
+                !key.includes("language")
+            )
+            .map(
+              ([key, value]) => `
               <div class="field">
                 <span class="label">${formatFieldName(key)}:</span>
-                <span class="value">${value || 'Nicht angegeben'}</span>
+                <span class="value">${value || "Nicht angegeben"}</span>
               </div>
-            `).join('')}
+            `
+            )
+            .join("")}
           
           <h3>Rechtliche Zustimmungen:</h3>
           <div class="field">
             <span class="label">AGB akzeptiert:</span> 
-            ${formData.terms ? '✅ Ja' : '❌ Nein'}
+            ${formData.terms ? "✅ Ja" : "❌ Nein"}
           </div>
           <div class="field">
             <span class="label">DSGVO akzeptiert:</span> 
-            ${formData.privacy ? '✅ Ja' : '❌ Nein'}
+            ${formData.privacy ? "✅ Ja" : "❌ Nein"}
+          </div>
+          <div class="field">
+            <span class="label">Sprache:</span> 
+            ${formData.language || "Nicht angegeben"}
           </div>
           
           <p><strong>Bitte zeitnah auf diese Anfrage reagieren!</strong></p>
@@ -187,35 +245,61 @@ const getNotificationEmailHTML = (formData) => {
     </body>
     </html>
   `;
-}
+};
 
 // Formaterung der Feldnamen
-const formatFieldName = (fieldName) => {
-    const fieldNames = {
-        vorname: 'Vorname',
-        nachname: 'Nachname',
-        email: 'E-Mail',
-        telefon: 'Telefon',
-        nachricht: 'Nachricht',
-        agb: 'AGB akzeptiert',
-        dsgvo: 'DSGVO akzeptiert'
-    };
-    return fieldNames[fieldName] || fieldName;
-}
+const formatFieldName = (fieldName, language) => {
+  const fieldNames = {
+    de: {
+      name: "Vorname",
+      lastName: "Nachname",
+      email: "E-Mail",
+      tel: "Telefon",
+      message: "Nachricht",
+      terms: "AGB akzeptiert",
+      privacy: "DSGVO akzeptiert",
+    },
+    en: {
+      name: "First Name",
+      lastName: "Last Name",
+      email: "Email",
+      tel: "Phone",
+      message: "Message",
+      terms: "Terms accepted",
+      privacy: "Privacy policy accepted",
+    },
+    ar: {
+      name: "الاسم الأول",
+      lastName: "اسم العائلة",
+      email: "البريد الإلكتروني",
+      tel: "رقم الهاتف",
+      message: "الرسالة",
+      terms: "الشروط والأحكام مقبولة",
+      privacy: "سياسة الخصوصية مقبولة",
+    },
+  };
 
-// API-Handler 
+  const lang = language || "de";
+  return fieldNames[lang][fieldName] || fieldName;
+};
+
+// API-Handler
 export const sendContactEmail = async (req, res) => {
-    console.log("Eingangsdaten:", req.body)
-    if(req.method !== "POST") {
-        return res.status(405).json({ error: "Method not allowed" });
-    }
+  console.log("Eingangsdaten:", req.body);
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
 
-    try {
+  try {
     const formData = req.body;
+    const language = formData.language || "de";
     console.log("FormData:", formData); // Debugging
-    
-    if(!formData.email || !formData.name) {
-        return res.status(400).json({ error: "Missing required fields", missingFields: ["email", "vorname"] });
+
+    if (!formData.email || !formData.name) {
+      return res.status(400).json({
+        error: "Missing required fields",
+        missingFields: ["email", "vorname"],
+      });
     }
 
     const transporter = createTransporter();
@@ -224,35 +308,40 @@ export const sendContactEmail = async (req, res) => {
 
     // Bestätigung an Absender
     const confirmationMail = {
-        from: `Bremerhavener Formularlotsen <${process.env.SMTP_USER}>`,
-        to: formData.email,
-        subject: "Vielen Dank für Ihre Kontaktanfrage",
-        html: getConfirmationEmailHTML(formData)
+      from: `Bremerhavener Formularlotsen <${process.env.SMTP_USER}>`,
+      to: formData.email,
+      subject:
+        language === "de"
+          ? "Vielen Dank für Ihre Kontaktanfrage!"
+          : "We received your message, thank you!",
+      html: getConfirmationEmailHTML(formData, language),
     };
-    
+
     // Benachrichtigung an Empfänger
     const notificationMail = {
-        from: `"Kontaktformular der Formularlotsen-Webseite" <${process.env.SMTP_USER}>`,
-        to: process.env.RECIPIENT_EMAIL,
-        subject: `Neue Kontaktanfrage von ${formData.name} ${formData.lastname}`,
-        html: getNotificationEmailHTML(formData),
-        replyTo: formData.email
+      from: `"Kontaktformular der Formularlotsen-Webseite" <${process.env.SMTP_USER}>`,
+      to: process.env.RECIPIENT_EMAIL,
+      subject: `Neue Kontaktanfrage von ${formData.name} ${formData.lastname}`,
+      html: getNotificationEmailHTML(formData),
+      replyTo: formData.email,
     };
-    
+
     // Mails versenden
     await Promise.all([
-        transporter.sendMail(confirmationMail),
-        transporter.sendMail(notificationMail)
+      transporter.sendMail(confirmationMail),
+      transporter.sendMail(notificationMail),
     ]);
 
     console.log("✅ Beide E-Mails erfolgreich versendet!");
-    
-    return res.status(200).json({ 
-        success: true,
-        message: "Die E-Mails wurden erfolgreich versendet!" });
 
-    } catch (error) {
-        console.error("❌ Fehler beim E-Mail-Versand:", error);
-        return res.status(500).json({ error:"Fehler beim E-Mail-Versand", details: error.message });
-    }
-}
+    return res.status(200).json({
+      success: true,
+      message: "Die E-Mails wurden erfolgreich versendet!",
+    });
+  } catch (error) {
+    console.error("❌ Fehler beim E-Mail-Versand:", error);
+    return res
+      .status(500)
+      .json({ error: "Fehler beim E-Mail-Versand", details: error.message });
+  }
+};
