@@ -9,6 +9,9 @@ const createTransporter = () => {
             user: process.env.SMTP_USER,
             pass: process.env.SMTP_PASS
         },
+        tls: {
+            rejectUnauthorized: false
+        }
     });
 }
 
@@ -171,11 +174,11 @@ const getNotificationEmailHTML = (formData) => {
           <h3>Rechtliche Zustimmungen:</h3>
           <div class="field">
             <span class="label">AGB akzeptiert:</span> 
-            ${formData.agb ? '✅ Ja' : '❌ Nein'}
+            ${formData.terms ? '✅ Ja' : '❌ Nein'}
           </div>
           <div class="field">
             <span class="label">DSGVO akzeptiert:</span> 
-            ${formData.dsgvo ? '✅ Ja' : '❌ Nein'}
+            ${formData.privacy ? '✅ Ja' : '❌ Nein'}
           </div>
           
           <p><strong>Bitte zeitnah auf diese Anfrage reagieren!</strong></p>
@@ -202,18 +205,22 @@ const formatFieldName = (fieldName) => {
 
 // API-Handler 
 export const sendContactEmail = async (req, res) => {
+    console.log("Eingangsdaten:", req.body)
     if(req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
     }
 
     try {
     const formData = req.body;
+    console.log("FormData:", formData); // Debugging
     
-    if(!formData.email || !formData.vorname) {
+    if(!formData.email || !formData.name) {
         return res.status(400).json({ error: "Missing required fields", missingFields: ["email", "vorname"] });
     }
 
     const transporter = createTransporter();
+    await transporter.verify();
+    console.log("✅ SMTP-Verbindung erfolgreich!");
 
     // Bestätigung an Absender
     const confirmationMail = {
@@ -225,9 +232,9 @@ export const sendContactEmail = async (req, res) => {
     
     // Benachrichtigung an Empfänger
     const notificationMail = {
-        from: `"Kontaktformular" <${process.env.SMTP_USER}>`,
+        from: `"Kontaktformular der Formularlotsen-Webseite" <${process.env.SMTP_USER}>`,
         to: process.env.RECIPIENT_EMAIL,
-        subject: `Neue Kontaktanfrage von ${formData.vorname} ${formData.nachname}`,
+        subject: `Neue Kontaktanfrage von ${formData.name} ${formData.lastname}`,
         html: getNotificationEmailHTML(formData),
         replyTo: formData.email
     };

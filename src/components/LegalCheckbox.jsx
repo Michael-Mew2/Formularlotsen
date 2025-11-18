@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export default function LegalCheckbox({ section, onValidationChange }) {
+export default function LegalCheckbox({ section, onValidationChange, onValueChange}) {
   const [accepted, setAccepted] = React.useState(false);
   const [touched, setTouched] = React.useState(false);
 
@@ -19,6 +19,13 @@ export default function LegalCheckbox({ section, onValidationChange }) {
         section.name || section.id,
         !isChecked && section.required
       );
+    }
+
+    // Callback für den Wert
+    if (onValueChange) {
+      onValueChange(section.id, isChecked);
+      console.log(isChecked, section.id);
+      
     }
   };
 
