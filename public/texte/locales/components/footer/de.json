@@ -9,7 +9,7 @@
       {
         "name": "Kontakt",
         "ariaLabel": "Link zu unserer Kontaktseite",
-        "route": "/"
+        "route": "/contact"
       },
       {
         "name": "Impressum",
@@ -23,60 +23,64 @@
       }
     ],
     "externalLinks": [
-        {
-            "text": "Die Bremerhavener Formularlotsen sind ein ökumenisches Projekt der",
+      {
+        "text": "Die Bremerhavener Formularlotsen sind ein ökumenisches Projekt der",
         "links": [
-            {
-                "name": "katholischen Kirche Bremerhaven",
-                "url": "https://www.katholische-kirche-bremerhaven.de/"
-            },
-            {
-                "name": "evangelisch-lutherischen Kirche Bremerhaven",
-                "url": "https://www.kirchenkreis-bremerhaven.de/"
-            }
+          {
+            "name": "katholischen Kirche Bremerhaven",
+            "url": "https://www.katholische-kirche-bremerhaven.de/"
+          },
+          {
+            "name": "evangelisch-lutherischen Kirche Bremerhaven",
+            "url": "https://www.kirchenkreis-bremerhaven.de/"
+          }
         ]
-        }
+      }
     ],
     "externalPartner": {
-        "partner":{
-            "text": "Ein Projekt von:",
-            "organizations": [
-                {
-                    "name":"katholischen Kirche Bremerhaven",
-                    "src":"./images/external/KKB Logo.svg",
-                    "alt": "Logo der katholischen Kirche Bremerhaven",
-                    "aria":"Klickbares Logo der katholischen Kirche Bremerhaven, welches auf die Homepage der Katholischen Kirche Bremerhaven führt",
-                    "link": "https://www.katholische-kirche-bremerhaven.de/"
-                },
-                {
-                    "name":"evangelisch-lutherischen Kirsche Bremerhaven",
-                    "src":"./images/external/KK_Logo.jpg",
-                    "alt": "Logo der evangelisch-lutherischen Kirsche Bremerhaven",
-                    "aria": "Klickbares Logo der evangelisch-lutherischen Kirche Bremerhaven, welches auf die Homepage deKirchenkreises Bremerhaven führt",
-                    "link": "https://www.kirchenkreis-bremerhaven.de/"
-                }
-            ]
-        },
-        "sponsor": {
-            "text": "Gefördert durch:",
-            "organizations": [
-                {
-                    "name": "Sozialreferat der Seestadt Bremerhaven",
-                    "src": "./images/external/BRHV-Logo-2zeilig_Sozialreferat-1.svg",
-                    "alt": "Logo des Sozialreferates vom Magistrat der Seestadt Bremerhaven",
-                    "aria": "Klickbares Logo des Sozialreferates der Seestadt Bremerhaven, welches auf die Homepage der Stadt Bremerhaven führt",
-                    "link": "https://www.bremerhaven.de/de/"
-                }
-            ]
-        } 
+      "partner": {
+        "text": "Ein Projekt von:",
+        "organizations": [
+          {
+            "name": "katholischen Kirche Bremerhaven",
+            "src": "./images/external/KKB Logo.svg",
+            "alt": "Logo der katholischen Kirche Bremerhaven",
+            "aria": "Klickbares Logo der katholischen Kirche Bremerhaven, welches auf die Homepage der Katholischen Kirche Bremerhaven führt",
+            "link": "https://www.katholische-kirche-bremerhaven.de/"
+          },
+          {
+            "name": "evangelisch-lutherischen Kirsche Bremerhaven",
+            "src": "./images/external/KK_Logo.jpg",
+            "alt": "Logo der evangelisch-lutherischen Kirsche Bremerhaven",
+            "aria": "Klickbares Logo der evangelisch-lutherischen Kirche Bremerhaven, welches auf die Homepage deKirchenkreises Bremerhaven führt",
+            "link": "https://www.kirchenkreis-bremerhaven.de/"
+          }
+        ]
+      },
+      "sponsor": {
+        "text": "Gefördert durch:",
+        "organizations": [
+          {
+            "name": "Sozialreferat der Seestadt Bremerhaven",
+            "src": "./images/external/BRHV-Logo-2zeilig_Sozialreferat-1.svg",
+            "alt": "Logo des Sozialreferates vom Magistrat der Seestadt Bremerhaven",
+            "aria": "Klickbares Logo des Sozialreferates der Seestadt Bremerhaven, welches auf die Homepage der Stadt Bremerhaven führt",
+            "link": "https://www.bremerhaven.de/de/"
+          }
+        ]
+      }
     },
     "credits": {
-        "recreation": {
-            "text": "Diese Seite würde designed und programmiert von Michael"
-        },
-        "original": {
-            "text": "Die originale Seite, auf die diese beruht wurde von Wernke erstellt"
+      "recreation": {
+        "text": "Made with <i class='fa-solid fa-heart'></i> in Bremerhaven by ",
+        "link": {
+          "name": "Michael",
+          "url": "https://google.com"
         }
+      },
+      "original": {
+        "text": "Die originale Seite, auf der diese basiert, wurde von Wernke erstellt."
+      }
     }
   }
 }

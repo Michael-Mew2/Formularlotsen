@@ -15,7 +15,7 @@ export default function Footer() {
 
   return (
     <footer>
-      <div className="seperation--orange" />
+      <div className="separation separation--lightBlue" />
       <FooterNavigation footerTexts={footerTexts} />
       <FooterPartner footerTexts={footerTexts} />
       <FooterExternal footerTexts={footerTexts} />
