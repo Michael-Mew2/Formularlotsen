@@ -217,25 +217,26 @@ footer {
       background: linear-gradient(
         90deg,
         rgba(255, 0, 0, 1) 0%,
-        rgba(255, 0, 0, 1) 10%,
-        rgba(255, 154, 0, 1) 10%,
-        rgba(255, 154, 0, 1) 20%,
-        rgba(208, 222, 33, 1) 20%,
-        rgba(208, 222, 33, 1) 30%,
-        rgba(79, 220, 74, 1) 30%,
-        rgba(79, 220, 74, 1) 40%,
-        rgba(63, 218, 216, 1) 40%,
-        rgba(63, 218, 216, 1) 50%,
-        rgba(47, 201, 226, 1) 50%,
-        rgba(47, 201, 226, 1) 60%,
-        rgba(28, 127, 238, 1) 60%,
-        rgba(28, 127, 238, 1) 70%,
-        rgba(95, 21, 242, 1) 70%,
-        rgba(95, 21, 242, 1) 80%,
-        rgba(186, 12, 248, 1) 80%,
-        rgba(186, 12, 248, 1) 90%,
-        rgba(251, 7, 217, 1) 90%,
-        rgba(251, 7, 217, 1) 100%,
+        rgba(255, 0, 0, 1) 5%,
+        rgba(255, 154, 0, 1) 5%,
+        rgba(255, 154, 0, 1) 15%,
+        rgba(208, 222, 33, 1) 15%,
+        rgba(208, 222, 33, 1) 25%,
+        rgba(79, 220, 74, 1) 25%,
+        rgba(79, 220, 74, 1) 35%,
+        rgba(63, 218, 216, 1) 35%,
+        rgba(63, 218, 216, 1) 45%,
+        rgba(47, 201, 226, 1) 45%,
+        rgba(47, 201, 226, 1) 55%,
+        rgba(28, 127, 238, 1) 55%,
+        rgba(28, 127, 238, 1) 65%,
+        rgba(95, 21, 242, 1) 65%,
+        rgba(95, 21, 242, 1) 75%,
+        rgba(186, 12, 248, 1) 75%,
+        rgba(186, 12, 248, 1) 85%,
+        rgba(251, 7, 217, 1) 85%,
+        rgba(251, 7, 217, 1) 95%,
+        rgba(255, 0, 0, 1) 95%,
         rgba(255, 0, 0, 1) 100%
       );
       opacity: 0; // Anfangs unsichtbar
@@ -315,20 +316,31 @@ footer {
   footer {
    .footerPartner {
     >div {
-      min-height: auto;
+      // min-height: auto;
       // height: auto;
       .footerLogoContainer {
         flex-direction: column-reverse;
-        min-height: auto;
-        // height: auto;
-        // gap: 10px;
-        border: 2px solid hotpink;
+        align-items: stretch;
+        min-height: 100px;
+        height: auto;
+        gap: 10px;
+        // border: 2px solid hotpink;
 
         a {
-          border: 2px solid green;
+          flex: 1 1 auto;
+          min-height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          // border: 2px solid green;
 
           img {
-            border: 2px solid yellow;
+            height: auto;
+            max-height: 100px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            // border: 2px solid yellow;
           }
         }
         
