@@ -247,3 +247,93 @@ footer {
     opacity: 1; // Harter Gradient wird sichtbar
   }
 }
+
+@media screen and (max-width: vars.$breakpoint-lg) {
+  footer {
+    background-color: vars.$warning;
+
+    .separation {
+      background-color: vars.$warning;
+    }
+
+    .footerNavigation {
+      margin-bottom: vars.$margin-site;
+    }
+
+    .footerPartner {
+      flex-direction: column;
+      gap: vars.$margin-site;
+      width: 100%; // Volle Breite des Elterncontainers (z. B. <footer>)
+      margin: 0 auto; // Zentriert den Container horizontal
+      padding: 0 vars.$margin-site; // Seitliches Padding für Abstand
+      box-sizing: border-box; // Padding in die Breite einbeziehen
+
+      > div {
+        width: 100%; // Volle Breite des Elterncontainers (.footerPartner)
+        margin: 0; // Keine zusätzlichen Margins
+        box-sizing: border-box; // Padding und Border in die Breite einbeziehen
+      }
+    }
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-md) {
+  footer {
+    .footerNavigation {
+      @include mix.bold_shadow;
+      background-color: vars.$text-alt-color;
+      ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: vars.$margin-site;
+        row-gap: calc(vars.$margin-site / 2);
+        position: relative; // Für die Trennstriche
+
+        li {
+          // border-radius: 0;
+          border: none;
+          box-shadow: none;
+          position: relative; // Für den Trennstrich
+
+          a {
+            text-decoration: dotted underline 2px vars.$primary-color;
+            text-underline-offset: 2px;
+            
+            &:hover {
+              background-color: vars.$text-alt-color;
+              color: vars.$primary-color;
+              text-decoration:underline 2px vars.$primary-color;
+              text-underline-offset: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: vars.$breakpoint-sm) {
+  footer {
+   .footerPartner {
+    >div {
+      min-height: auto;
+      // height: auto;
+      .footerLogoContainer {
+        flex-direction: column-reverse;
+        min-height: auto;
+        // height: auto;
+        // gap: 10px;
+        border: 2px solid hotpink;
+
+        a {
+          border: 2px solid green;
+
+          img {
+            border: 2px solid yellow;
+          }
+        }
+        
+      }
+    }
+   }
+  }
+}
