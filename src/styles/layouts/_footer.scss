@@ -1,147 +1,351 @@
 @use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/functions" as function;
 
 footer {
-    background-color: white;
-    .footerNavigation {
-        margin: 0 vars.$margin-site;
-        margin-bottom: vars.$margin-main;
+  background-color: vars.$primary-light-color;
 
-        ul {
-            display: flex;
-            // color: grey;
-            justify-content: space-between;
-            align-items: center;
-            background-color: vars.$primary-color;
-            gap: 4px;
-            height: 100%;
+  .footerNavigation {
+    margin: 0 vars.$margin-site;
+    margin-bottom: vars.$margin-main;
 
-            li {
-                display: flex;
-                flex-grow: 1;
-                text-align: center;
-                padding: vars.$margin-xs ;
-                // border: 2px solid orange;
-                background-color: white;
-                
-                a {
-                    width: 100%;
-                    text-decoration: none;
-                    font-size: vars.$font-size-footer-nav;
-                    // font-weight: vars.$primary-weight;
-                    letter-spacing: vars.$spacing-xs;
-                    color: vars.$primary-color;
-                }
-                
-                &:hover {
-                    background-color: vars.$highlight;
-                    
-                    a {
-                        height: 100%;
-                        color: vars.$text-alt-color;
-                    }
-                }
-            }
+    ul {
+      display: flex;
+      // color: grey;
+      justify-content: space-between;
+      align-items: center;
+      // background-color: vars.$primary-color;
+      gap: 16px;
+      height: 100%;
+
+      li {
+        display: flex;
+        flex-grow: 1;
+        text-align: center;
+        // border: 2px solid orange;
+        @include mix.bold_shadow;
+        background-color: vars.$text-alt-color;
+        cursor: pointer;
+
+        a {
+          padding: vars.$margin-xs;
+          width: 100%;
+          text-decoration: none;
+          font-size: vars.$font-size-footer-nav;
+          font-weight: vars.$primary-weight;
+          letter-spacing: vars.$spacing-xs;
+          color: vars.$text-color;
         }
+
+        &:hover {
+          background-color: vars.$highlight;
+
+          a {
+            height: 100%;
+            color: vars.$text-alt-color;
+          }
+        }
+      }
+    }
+  }
+
+  .footerPartner {
+    font-family: vars.$primary-font;
+    display: flex;
+    margin: vars.$margin-site 0;
+    justify-content: space-between;
+    // flex-direction: row-reverse;
+    padding: 0 vars.$margin-site;
+    gap: vars.$margin-main;
+
+    h5 {
+      font-size: vars.$font-size-footer-title;
+      color: vars.$primary-color;
+      margin-bottom: vars.$spacing-md;
+    }
+
+    > div {
+      /* sectionLeft & sectionRight */
+      @include mix.bold_shadow;
+      // border: 2px solid hotpink;
+      gap: 10px;
+      width: 40%;
+      padding: vars.$margin-site;
+      background-color: vars.$text-alt-color;
+
+      .footerLogoContainer {
+        // border: 2px solid green;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        width: auto;
+        gap: 10px;
+
+        a {
+          // border: 2px solid orange;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: auto;
+          // flex: 1; /* Alle <a>-Tags haben gleiche Breite */
+
+          img {
+            height: 100%;
+            width: auto; /* Wichtige Änderung */
+            max-width: 100%;
+            object-fit: cover;
+            // border: 2px solid blue;
+          }
+        }
+      }
+    }
+  }
+
+  .footerExternal {
+    margin: vars.$margin-site;
+    @include mix.bold_shadow;
+    padding: vars.$margin-site;
+    background-color: vars.$text-alt-color;
+    p {
+      font-family: vars.$primary-font;
+      font-size: vars.$font-size-footer-title;
+      color: vars.$primary-color;
+
+      a {
+        text-decoration: none;
+        color: vars.$primary-light-color;
+
+        &:hover {
+          background-color: vars.$highlight;
+          color: vars.$text-alt-color;
+        }
+      }
+    }
+  }
+
+  .footerCredits {
+    text-align: center;
+    font-family: vars.$primary-font;
+
+    .upperBlock {
+      margin: vars.$margin-site 0;
+      margin-bottom: 0;
+      padding: vars.$margin-site;
+      background-color: vars.$primary-color;
+      color: vars.$text-alt-color;
+    }
+    .specialThanks {
+      // margin: vars.$margin-site 0;
+      padding: vars.$margin-site;
+      background-color: vars.$text-alt-color;
+      color: vars.$primary-color;
+    }
+    p {
+      font-size: vars.$font-size-footer-title;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      padding: 2px;
+      position: relative;
+      top: 3px;
+      display: inline-block;
+      overflow: hidden;
+      z-index: 1;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: vars.$highlight;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.25s ease;
+        z-index: -1;
+      }
+
+      &:hover {
+        // background-color: vars.$primary-color;
+        color: vars.$text-alt-color;
+
+        &::before {
+          transform: scaleX(1);
+        }
+      }
+
+      &:not(:hover) {
+        &::before {
+          transform: scaleX(0);
+          transform-origin: right;
+        }
+      }
+    }
+  }
+  .end {
+    display: block;
+    height: 10px;
+    width: 100%;
+    position: relative; // Wichtig für das Pseudoelement
+    background: linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 1) 0%,
+      rgba(255, 154, 0, 1) 10%,
+      rgba(208, 222, 33, 1) 20%,
+      rgba(79, 220, 74, 1) 30%,
+      rgba(63, 218, 216, 1) 40%,
+      rgba(47, 201, 226, 1) 50%,
+      rgba(28, 127, 238, 1) 60%,
+      rgba(95, 21, 242, 1) 70%,
+      rgba(186, 12, 248, 1) 80%,
+      rgba(251, 7, 217, 1) 90%,
+      rgba(255, 0, 0, 1) 100%
+    );
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 0, 0, 1) 5%,
+        rgba(255, 154, 0, 1) 5%,
+        rgba(255, 154, 0, 1) 15%,
+        rgba(208, 222, 33, 1) 15%,
+        rgba(208, 222, 33, 1) 25%,
+        rgba(79, 220, 74, 1) 25%,
+        rgba(79, 220, 74, 1) 35%,
+        rgba(63, 218, 216, 1) 35%,
+        rgba(63, 218, 216, 1) 45%,
+        rgba(47, 201, 226, 1) 45%,
+        rgba(47, 201, 226, 1) 55%,
+        rgba(28, 127, 238, 1) 55%,
+        rgba(28, 127, 238, 1) 65%,
+        rgba(95, 21, 242, 1) 65%,
+        rgba(95, 21, 242, 1) 75%,
+        rgba(186, 12, 248, 1) 75%,
+        rgba(186, 12, 248, 1) 85%,
+        rgba(251, 7, 217, 1) 85%,
+        rgba(251, 7, 217, 1) 95%,
+        rgba(255, 0, 0, 1) 95%,
+        rgba(255, 0, 0, 1) 100%
+      );
+      opacity: 0; // Anfangs unsichtbar
+      transition: opacity 0.5s ease; // Flüssige Animation
+    }
+  }
+  // Beim Hovern über .footerCredits
+  .footerCredits:hover ~ .end::after {
+    opacity: 1; // Harter Gradient wird sichtbar
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-lg) {
+  footer {
+    background-color: vars.$warning;
+
+    .separation {
+      background-color: vars.$warning;
+    }
+
+    .footerNavigation {
+      margin-bottom: vars.$margin-site;
     }
 
     .footerPartner {
-        font-family: vars.$primary-font;
-        display: flex;
-        margin: vars.$margin-site 0;
-        justify-content: space-between;
-        // flex-direction: row-reverse;
-        padding: 0 vars.$margin-site;
-        gap: vars.$margin-main;
-    
-        h5 {
-            font-size: vars.$font-size-footer-title;
-            color: vars.$primary-color;
-            margin-bottom: vars.$spacing-md;
-        }
-        
-        div { /* sectionLeft & sectionRight */
-            // border: 2px solid hotpink;
-            gap: 10px;
-            width: 40%;
-    
-            .footerLogoContainer {
-                // border: 2px solid green;
-                height: 100px;
-                display: flex;
-                align-items: center;
-                justify-content: start;
-                width: auto;
-                gap: 10px;
-    
-                a {
-                    // border: 2px solid orange;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: auto;
-                    // flex: 1; /* Alle <a>-Tags haben gleiche Breite */
-    
-                    img {
-                        height: 100%;
-                        width: auto; /* Wichtige Änderung */
-                        max-width: 100%;
-                        object-fit: cover;
-                        // border: 2px solid blue;
-                    }
-                }
-            }
-        }
+      flex-direction: column;
+      gap: vars.$margin-site;
+      width: 100%; // Volle Breite des Elterncontainers (z. B. <footer>)
+      margin: 0 auto; // Zentriert den Container horizontal
+      padding: 0 vars.$margin-site; // Seitliches Padding für Abstand
+      box-sizing: border-box; // Padding in die Breite einbeziehen
+
+      > div {
+        width: 100%; // Volle Breite des Elterncontainers (.footerPartner)
+        margin: 0; // Keine zusätzlichen Margins
+        box-sizing: border-box; // Padding und Border in die Breite einbeziehen
+      }
     }
-
-    .footerExternal {
-        margin: vars.$margin-site;
-        p {
-            font-family: vars.$primary-font;
-            font-size: vars.$font-size-footer-title;
-            color: vars.$primary-color;
-
-            a {
-                text-decoration: none;
-                color: vars.$primary-light-color;
-
-                &:hover {
-                    background-color: vars.$highlight;
-                    color: vars.$text-alt-color;
-                }
-            }
-        }
-    }
-
-    .footerCredits {
-        text-align: center;
-        font-family: vars.$primary-font;
-        
-        .upperBlock{
-            margin: vars.$margin-site 0;
-            margin-bottom: 0;
-            padding: vars.$margin-site;
-            background-color: vars.$highlight;
-            color: vars.$text-alt-color;
-
-        }
-        .specialThanks{
-            // margin: vars.$margin-site 0;
-            padding: vars.$margin-site;
-            background-color: vars.$text-alt-color;
-            color: vars.$primary-color;
-            
-        }
-        p {
-            font-size: vars.$font-size-footer-title;
-        }
-        
-    }
-    .end {
-    display: block;
-    height: 10px;
-        width: 100%;
-        background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(255, 154, 0, 1) 10%, rgba(208, 222, 33, 1) 20%, rgba(79, 220, 74, 1) 30%, rgba(63, 218, 216, 1) 40%, rgba(47, 201, 226, 1) 50%, rgba(28, 127, 238, 1) 60%, rgba(95, 21, 242, 1) 70%, rgba(186, 12, 248, 1) 80%, rgba(251, 7, 217, 1) 90%, rgba(255, 0, 0, 1) 100%);
-    }
+  }
 }
 
+@media screen and (max-width: vars.$breakpoint-md) {
+  footer {
+    .footerNavigation {
+      @include mix.bold_shadow;
+      background-color: vars.$text-alt-color;
+      ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: vars.$margin-site;
+        row-gap: calc(vars.$margin-site / 2);
+        position: relative; // Für die Trennstriche
+
+        li {
+          // border-radius: 0;
+          border: none;
+          box-shadow: none;
+          position: relative; // Für den Trennstrich
+
+          a {
+            text-decoration: dotted underline 2px vars.$primary-color;
+            text-underline-offset: 2px;
+            
+            &:hover {
+              background-color: vars.$text-alt-color;
+              color: vars.$primary-color;
+              text-decoration:underline 2px vars.$primary-color;
+              text-underline-offset: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: vars.$breakpoint-sm) {
+  footer {
+   .footerPartner {
+    >div {
+      // min-height: auto;
+      // height: auto;
+      .footerLogoContainer {
+        flex-direction: column-reverse;
+        align-items: stretch;
+        min-height: 100px;
+        height: auto;
+        gap: 10px;
+        // border: 2px solid hotpink;
+
+        a {
+          flex: 1 1 auto;
+          min-height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          // border: 2px solid green;
+
+          img {
+            height: auto;
+            max-height: 100px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            // border: 2px solid yellow;
+          }
+        }
+        
+      }
+    }
+   }
+  }
+}
