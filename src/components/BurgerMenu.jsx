@@ -27,21 +27,32 @@ export default function BurgerMenu() {
 
 // Variants für die Seitenleiste (Kreis-Animation)
 const sidebarVariants = {
-  open: (height = 1000) => ({
-    clipPath: `circle(1500px at calc(100% - 60px) 50px)`,
-    transition: {
-      type: "spring",
-      stiffness: 20,
-      restDelta: 2,
-    },
-  }),
+  open: (height = 1000) => {
+    const isRTL =
+      typeof window !== "undefined" && document.documentElement.dir === "rtl";
+    const xPosition = isRTL ? "60px" : "calc(100% - 60px)";
+    return {
+      clipPath: `circle(${height * 2 + 200}px at ${xPosition} 50px)`,
+      transition: {
+        type: "spring",
+        stiffness: 20,
+        restDelta: 2,
+      },
+    };
+  },
   closed: {
-    clipPath: "circle(20px at calc(100% - 50px) 50px)",
-    transition: {
-      delay: 0.2,
-      type: "spring",
-      stiffness: 400,
-      damping: 40,
+    get() {
+      const isRTL = typeof window !== 'undefined' && document.documentElement.dir === "rtl";
+      const xPosition = isRTL ? "60px" : "calc(100% - 60px)";
+      return {
+        clipPath: `circle(20px at ${xPosition} 50px)`,
+        transition: {
+          delay: 0.2,
+          type: "spring",
+          stiffness: 400,
+          damping: 40,
+        },
+      };
     },
   },
 };

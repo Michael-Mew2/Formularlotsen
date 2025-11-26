@@ -104,4 +104,20 @@
       }
     }
   }
+
+  [dir="rtl"] & {
+    &__toggleButton {
+      right: auto;
+      left: vars.$margin-site;
+    }
+
+    &__background {
+      clip-path: circle(30px at 60px 50px);
+      transition: clip-path 0.5s ease-in-out;
+
+      &.open {
+        clip-path: circle(1500px at 60px 50px);
+      }
+    }
+  }
 }
