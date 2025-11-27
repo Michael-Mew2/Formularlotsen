@@ -35,6 +35,10 @@
     pointer-events: auto; /* Aktiviert Klicks nur innerhalb des sichtbaren Bereichs */
   }
 
+  &__background.open {
+      pointer-events: auto;
+  }
+
   &__toggleButton {
     display: flex;
     justify-content: center;
@@ -63,44 +67,149 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 230px;
+    width: 280px;
     height: auto;
     list-style: none;
     margin: 0;
     padding: 0;
-    pointer-events: auto; /* Aktiviert Klicks auf die Liste */
+    pointer-events: none; /* Aktiviert Klicks auf die Liste */
+    border: none;
+
+    &.open {
+      pointer-events: auto;
+    }
 
     &-item {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      width: fit-content;
       padding: 0;
       margin-bottom: 20px;
       cursor: pointer;
+      // border: 2px solid hotpink;
 
       &::before {
         content: none !important;
       }
 
-      &__icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 2px solid #ccc;
-        margin-right: 20px;
+      &:last-of-type {
+        margin-bottom: 0;
+        margin-top: 80px;
       }
 
       &__link {
-        display: block;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
         padding: 0.5rem;
-        color: hsl(0, 0%, 18%);
+        color: vars.$primary-color;
+        background: none;
         text-decoration: none;
-        border: 2px solid #ccc;
-        border-radius: 5px;
-        width: 200px;
-        height: 20px;
+        width: fit-content;
+        height: auto;
         line-height: 20px;
-        text-align: center;
+        text-align: left;
+        overflow: hidden;
+
+        &__icon {
+          svg {
+            font-size: 1rem;
+            color: vars.$highlight;
+          }
+        }
+
+        p {
+          margin: 0;
+          padding: 0;
+          text-transform: uppercase;
+          text-align: left;
+          font-size: 1rem;
+          font-weight: vars.$primary-weight;
+          // color: vars.$primary-color;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          left: 10px;
+          width: 40px;
+          height: 6px;
+          background-color: vars.$highlight;
+          transform: translateX(0);
+          transition: width 0.3s ease, transform 0.3s ease;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          background-color: vars.$highlight;
+          transform: translateX(-100%);
+          transition: transform 0.3s ease 0.3s;
+          z-index: -1;
+        }
+
+        &:hover,
+        &:focus,
+        &:focus-visible {
+          color: vars.$text-alt-color;
+          outline: none;
+          background: none;
+          transition: color 0.3s ease 0.4s;
+
+          &::before {
+            width: 100%;
+            transform: translateX(100%);
+            transition: width 0.3s ease 0s, transform 0.3s ease 0s;
+          }
+
+          &::after {
+            transform: translateX(0);
+            transition: transform 0.3s ease 0.3s;
+          }
+        }
+        &:not(:hover, :focus, :focus-visible) {
+          &:before {
+            width: 40px;
+            transform: translateX(0);
+            transition: width 0.3s ease 0.2s, transform 0.3s ease 0.2s;
+          }
+
+          &:after {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+          }
+        }
+
+        &.active {
+          background: vars.$primary-color;
+          color: vars.$text-alt-color;
+          text-decoration: none;
+
+          &::before,
+          &::after {
+            display: none;
+          }
+
+          &:hover,
+          &:focus,
+          &:focus-visible {
+            // background-color: vars.$highlight;
+            color: vars.$text-alt-color;
+
+            &::before,
+            &::after {
+              display: none;
+            }
+          }
+        }
       }
     }
   }
