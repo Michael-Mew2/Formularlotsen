@@ -2,8 +2,53 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import NavItems from "./NavItems";
 
-export default function BurgerMenu() {
-  const [isOpen, setIsOpen] = React.useState(false);
+export default function BurgerMenu({ isOpen, toggleMenu }) {
+  const [xPosition, setXPosition] = React.useState("calc(100% - 50px)");
+
+  React.useEffect(() => {
+    const updateXPosition = () => {
+      const isRTL =
+        typeof window !== "undefined" && document.documentElement.dir === "rtl";
+      setXPosition(isRTL ? "50px" : "calc(100% - 50px)");
+    };
+
+    updateXPosition();
+
+    // Event-Listener für Änderungen der Textrichtung
+    const observer = new MutationObserver(updateXPosition);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["dir"],
+    });
+
+    // Cleanup-Funktion
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  // Variants für die Seitenleiste (Kreis-Animation)
+  const sidebarVariants = {
+    open: (height = 1000) => {
+      return {
+        clipPath: `circle(${height * 2 + 200}px at ${xPosition} 50px)`,
+        transition: {
+          type: "spring",
+          stiffness: 20,
+          restDelta: 2,
+        },
+      };
+    },
+    closed: {
+      clipPath: `circle(20px at ${xPosition} 50px)`,
+      transition: {
+        delay: 0.2,
+        type: "spring",
+        stiffness: 400,
+        damping: 40,
+      },
+    },
+  };
 
   return (
     <div className="burgerMenu">
@@ -19,43 +64,13 @@ export default function BurgerMenu() {
         <motion.ul className="burgerMenu__list" variants={navVariants}>
           <NavItems isMobile={true} />
         </motion.ul>
-        <MenuToggle toggle={() => setIsOpen(!isOpen)} />
+        <MenuToggle toggle={toggleMenu} />
       </motion.nav>
     </div>
   );
 }
 
-// Variants für die Seitenleiste (Kreis-Animation)
-const sidebarVariants = {
-  open: (height = 1000) => {
-    const isRTL =
-      typeof window !== "undefined" && document.documentElement.dir === "rtl";
-    const xPosition = isRTL ? "60px" : "calc(100% - 60px)";
-    return {
-      clipPath: `circle(${height * 2 + 200}px at ${xPosition} 50px)`,
-      transition: {
-        type: "spring",
-        stiffness: 20,
-        restDelta: 2,
-      },
-    };
-  },
-  closed: {
-    get() {
-      const isRTL = typeof window !== 'undefined' && document.documentElement.dir === "rtl";
-      const xPosition = isRTL ? "60px" : "calc(100% - 60px)";
-      return {
-        clipPath: `circle(20px at ${xPosition} 50px)`,
-        transition: {
-          delay: 0.2,
-          type: "spring",
-          stiffness: 400,
-          damping: 40,
-        },
-      };
-    },
-  },
-};
+// ----------
 
 // ----------
 
