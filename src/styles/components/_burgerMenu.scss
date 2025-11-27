@@ -103,7 +103,7 @@
         position: relative;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
         padding: 0.5rem;
         color: vars.$primary-color;
         background: none;
@@ -115,6 +115,8 @@
         overflow: hidden;
 
         &__icon {
+            width: 20px;
+            text-align: center;
           svg {
             font-size: 1rem;
             color: vars.$highlight;
