@@ -27,7 +27,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(245, 245, 245, 0.95);
+    background: rgba(245, 245, 245, 0.99);
     clip-path: circle(
       30px at calc(100% - 60px) 30px
     ); /* Positioniert den Kreis rechts oben */
@@ -36,7 +36,7 @@
   }
 
   &__background.open {
-      pointer-events: auto;
+    pointer-events: auto;
   }
 
   &__toggleButton {
@@ -90,6 +90,21 @@
       cursor: pointer;
       // border: 2px solid hotpink;
 
+      &__dropdown {
+        position: relative;
+        width: 100%;
+
+        &-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(245, 245, 245, 0.95);
+            z-index: 1001;
+            overflow: hidden;
+        }
+      }
+
       &::before {
         content: none !important;
       }
@@ -115,8 +130,8 @@
         overflow: hidden;
 
         &__icon {
-            width: 20px;
-            text-align: center;
+          width: 20px;
+          text-align: center;
           svg {
             font-size: 1rem;
             color: vars.$highlight;
