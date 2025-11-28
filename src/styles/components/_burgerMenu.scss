@@ -111,6 +111,12 @@
                 }
             }
         }
+
+        .language-text-container {
+            position: relative;
+            height: 20px;
+            overflow: hidden;
+        }
         }
 
         &-content {
@@ -211,6 +217,11 @@
           background-color: vars.$highlight;
           transform: translateX(0);
           transition: width 0.3s ease, transform 0.3s ease;
+
+          [dir = "rtl"] & {
+            left: auto;
+            right: 10px;
+          }
         }
 
         &::after {
