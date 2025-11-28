@@ -75,6 +75,10 @@
     pointer-events: none; /* Aktiviert Klicks auf die Liste */
     border: none;
 
+    > div {
+        width: 100%;
+    }
+
     &.open {
       pointer-events: auto;
     }
@@ -119,6 +123,10 @@
           z-index: 1001;
           overflow: hidden;
           // border: 2px solid red;
+
+          [dir = "rtl"] & {
+               right: 0;
+              }
 
           .headerCard {
             // border: 2px solid green;
