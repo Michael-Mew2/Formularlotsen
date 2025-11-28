@@ -24,7 +24,7 @@ export function BurgerMenuDropdown() {
       <motion.button
         aria-label="Knopf für Sprachen - Button for Languages"
         onClick={toggleDropdown}
-        className="burgerMenu__list-item__link"
+         className={`burgerMenu__list-item__link ${isOpen ? 'open' : ''}`}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >

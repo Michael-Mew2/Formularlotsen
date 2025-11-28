@@ -62,7 +62,7 @@ export default function BurgerMenu({ isOpen, toggleMenu }) {
           variants={sidebarVariants}
         />
         <motion.ul className={`burgerMenu__list ${isOpen ? "open" : ""}`} variants={navVariants}>
-          <NavItems isMobile={true} />
+          <NavItems isMobile={true} toggleMenu={toggleMenu} />
         </motion.ul>
         <MenuToggle toggle={toggleMenu} />
       </motion.nav>

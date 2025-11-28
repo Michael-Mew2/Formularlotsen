@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLanguageStore, useNavigationLanguageStore } from "../store";
-import HeaderDropdown from "./HeaderDropdown";
+import { BurgerMenuDropdown } from "./HeaderDropdown";
 
 // Variants für die einzelnen Menüpunkte
 const itemVariants = {
@@ -23,7 +23,7 @@ const itemVariants = {
   },
 };
 
-export default function NavItems({ isMobile = false }) {
+export default function NavItems({ isMobile = false, toggleMenu }) {
   const { navigationTexts, loadNavigation } = useNavigationLanguageStore();
   const { language } = useLanguageStore();
 
@@ -60,6 +60,12 @@ export default function NavItems({ isMobile = false }) {
     menuItems.push({ type: "dropdown", icon: "language" });
   }
 
+  const handleNavLinkClick = () => {
+    if (isMobile) {
+      toggleMenu();
+    }
+  };
+
   return (
     <div style={isMobile ? { listStyle: "none", padding: 0, margin: 0 } : {}}>
       {menuItems.map((item, i) => (
@@ -71,14 +77,9 @@ export default function NavItems({ isMobile = false }) {
           whileTap={{ scale: 0.95 }}
         >
           {item.type === "dropdown" ? (
-            <div className="burgerMenu__list-item__link">
-              <div className="burgerMenu__list-item__link__icon">
-                <FontAwesomeIcon icon={["fas", item.icon]} />
-              </div>
-              <HeaderDropdown />
-            </div>
+            <BurgerMenuDropdown />
           ) : (
-            <NavLink to={item.to} className="burgerMenu__list-item__link">
+            <NavLink to={item.to} className="burgerMenu__list-item__link" onClick={handleNavLinkClick}>
               {item.icon && (
                 <div className="burgerMenu__list-item__link__icon">
                   <FontAwesomeIcon icon={["fas", item.icon]} />
