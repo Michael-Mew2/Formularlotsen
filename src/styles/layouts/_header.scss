@@ -105,8 +105,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;// Fixierte Größe
+  gap: vars.$spacing-sm;
+  width: fit-content;
   height: 50px;
+  padding: vars.$margin-nav;
   background-color: vars.$secondary-color;
   color: vars.$primary-color;
   font-size: 1.5rem;
@@ -114,6 +116,32 @@
 
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+
+  .language-text-container {
+    position: relative;
+    width: 85px;
+    height: 25px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      font-size: 1rem;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .headerCardContent {
