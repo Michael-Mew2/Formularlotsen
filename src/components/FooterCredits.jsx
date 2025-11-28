@@ -8,7 +8,7 @@ export default function FooterCredits({ footerTexts }) {
     <div className="footerCredits">
       <div className="upperBlock">
         <p>
-          Made with <i class='fa-solid fa-heart'></i> in Bremerhaven by <a href="https://github.com/Michael-Mew2" rel="noopener noreferrer" target="_blank">Michael</a>
+          Made with <i className='fa-solid fa-heart'></i> in Bremerhaven by <a href="https://github.com/Michael-Mew2" rel="noopener noreferrer" target="_blank">Michael</a>
         </p>
       </div>
       <div className="specialThanks">

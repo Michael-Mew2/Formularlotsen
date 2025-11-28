@@ -35,6 +35,10 @@
         bottom: auto;
         transform: none; // Kein weiteres Hochbewegen nach dem Kleben
       }
+      
+      @media (max-width: vars.$breakpoint-md) {
+        display: none;
+      }
     }
 }
 
