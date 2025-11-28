@@ -4,22 +4,28 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { code } from "framer-motion/client";
 
+const languages = [
+  { name: "Deutsch", code: "de", word: "Sprachen" },
+  { name: "English", code: "en", word: "Languages" },
+  { name: "العربية", code: "ar", word: "اللغات" },
+  { name: "فarsi", code: "fa", word: "زبان ها" },
+  { name: "Türkçe", code: "tr", word: "Diller" },
+  { name: "български", code: "bg", word: "Ези" },
+  { name: "Українська", code: "uk", word: "Мови" },
+  { name: "polski", code: "pl", word: "Jezyki" },
+  { name: "Português", code: "pt", word: "Idiomas" },
+];
+
+const textVariants = {
+  enter: { opacity: 0, x: 10 },
+  center: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -10 },
+};
+
 export function BurgerMenuDropdown() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [currentLanguageIndex, setCurrentLanguageIndex] = React.useState(0);
   const dropdownRef = React.useRef(null);
-
-  const languages = [
-    { name: "Deutsch", code: "de", word: "Sprachen" },
-    { name: "English", code: "en", word: "Languages" },
-    { name: "العربية", code: "ar", word: "اللغات" },
-    { name: "فarsi", code: "fa", word: "زبان ها" },
-    { name: "Türkçe", code: "tr", word: "Diller" },
-    { name: "български", code: "bg", word: "Ези" },
-    { name: "Українська", code: "uk", word: "Мови" },
-    { name: "polski", code: "pl", word: "Jezyki" },
-    { name: "Português", code: "pt", word: "Idiomas" },
-  ];
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -42,12 +48,6 @@ export function BurgerMenuDropdown() {
   }, []);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
-
-  const textVariants = {
-    enter: { opacity: 0, x: 10 },
-    center: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -10 },
-  };
 
   return (
     <div className="burgerMenu__list-item__dropdown" ref={dropdownRef}>
@@ -94,6 +94,7 @@ export function BurgerMenuDropdown() {
 
 export default function HeaderDropdown() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [currentLanguageIndex, setCurrentLanguageIndex] = React.useState(0);
   const dropdownRef = React.useRef(null);
 
   React.useEffect(() => {
@@ -104,6 +105,16 @@ export default function HeaderDropdown() {
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentLanguageIndex(
+        (prevIndex) => (prevIndex + 1) % languages.length
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
@@ -124,7 +135,22 @@ export default function HeaderDropdown() {
         <FontAwesomeIcon
           icon={isOpen ? "fa-regular fa-circle-xmark" : "fa-solid fa-language"}
         />
-        {!isOpen && <p>Sprachen</p>}
+        {!isOpen && (
+          <div className="language-text-container">
+            <AnimatePresence mode="sync">
+              <motion.p
+                key={currentLanguageIndex}
+                variants={textVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.5 }}
+              >
+                {languages[currentLanguageIndex].word}
+              </motion.p>
+            </AnimatePresence>
+          </div>
+        )}
       </motion.button>
 
       {/* Content fixiert unter dem Button */}
