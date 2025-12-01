@@ -1,11 +1,11 @@
 import * as React from "react";
 
-export default function WaveLoader() {
+export default function WaveLoader({color}) {
   return (
     <div className="wave-loader">
       <svg width="80" height="60" viewBox="5 0 80 60">
         <path
-          class="wave "
+          class={`wave ${color}`} 
           fill="none"
           /* stroke="#fff" */
           stroke-width="4"

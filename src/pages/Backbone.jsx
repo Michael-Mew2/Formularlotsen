@@ -35,7 +35,7 @@ export default function Backbone() {
       {hasPageContent && (
         <PageContent pageContent={texts.backbone?.pageContent} />
       )}
-      <WaveLoader />
+      <WaveLoader color="orange" />
     </div>
   );
 }
