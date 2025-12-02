@@ -1,0 +1,41 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/functions" as function;
+@use "../abstracts/mixins" as mix;
+
+.wave-loader {
+  height: fit-content;
+  width: fit-content;
+  position: relative;
+  .wave {
+    position: absolute;
+    stroke: vars.$primary-color;
+    animation: moveTheWave 2400ms linear infinite;
+    stroke-dasharray: 0 16 101 16;
+
+    &.yellow {
+      stroke: vars.$secondary-color;
+    }
+
+    &.red {
+      stroke: vars.$highlight;
+    }
+    &.orange {
+      stroke: vars.$warning;
+    }
+    &.white {
+      stroke: vars.$text-alt-color;
+    }
+  }
+}
+
+@keyframes moveTheWave {
+  0% {
+    stroke-dashoffset: 0;
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    stroke-dashoffset: -133;
+    transform: translate3d(-90px, 0, 0);
+  }
+}

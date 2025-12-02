@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useHeroPictureStore, useLanguageStore } from "../store";
 import PageContent from "../components/PageContent";
+import WaveLoader from "../components/WaveLoader";
 
 export default function Backbone() {
   const { texts, setPage } = useLanguageStore();
@@ -34,6 +35,7 @@ export default function Backbone() {
       {hasPageContent && (
         <PageContent pageContent={texts.backbone?.pageContent} />
       )}
+      <WaveLoader color="orange" />
     </div>
   );
 }
