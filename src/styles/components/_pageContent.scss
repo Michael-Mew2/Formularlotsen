@@ -71,12 +71,31 @@
             flex-direction: column;
             width: 100%;
             max-height: fit-content;
+            margin: vars.$margin-site 0;
+            gap: calc(2 * vars.$margin-site);
         }
 
         .flex-two-columns {
             flex-direction: column;
             width: 100%;
             max-height: fit-content;
+
+            > div, figure {
+                width: 100%;
+            }
         }
+
+        .full-width {
+
+            h4, p {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+            
+            h4 {
+                margin-top: vars.$margin-site;
+                // border: 2px solid green;
+            }
     }
 }
