@@ -1,0 +1,54 @@
+{
+    "notFound": {
+        "meta": {
+            "title": "404 - الصفحة غير موجودة",
+            "content": "الصفحة غير موجودة"
+        },
+        "hero": {
+            "heroPicture": "images/heroImages/AdobeStock_Strand.jpeg",
+            "heroPictureAlt": "شاطئ استوائي",
+            "heroMainTitle": "عذرًا... 404",
+            "heroSubTitle": "الصفحة غير موجودة"
+        },
+        "pageContent": [
+            {
+                "type": "loading-wave",
+                "groupId": "loading-wave",
+                "groupStyle": "full-width",
+                "color": "lightBlue"
+            },
+            {
+                "type": "paragraph",
+                "groupId": "first-language-paragraph",
+                "groupStyle": "full-width",
+                "title": "عذرًا – يبدو أن هناك خطأ ما!",
+                "content": [
+                    "لا تقلق، أنت لست ضائعًا. حاول البحث في قائمة التنقل الخاصة بنا على صفحة أخرى – ستجد على الأرجح ما تبحث عنه هناك.",
+                    "إذا لم تجد ما تبحث عنه، فقط أرسل لنا رسالة عبر نموذج الاتصال، وسنسعد بمساعدتك!"
+                ]
+            },
+            {
+                "type": "divider",
+                "groupId": "divider",
+                "groupStyle": "full-width",
+                "color": "lightBlue",
+                "thickness": "thin"
+            },
+            {
+                "type": "loading-wave",
+                "groupId": "loading-wave2",
+                "groupStyle": "full-width"
+            },
+            {
+                "type": "paragraph",
+                "groupId": "second-language-paragraph",
+                "groupStyle": "full-width",
+                "title": "Oops—Looks Like You’ve Taken a Wrong Turn!",
+                "content": [
+                    "No worries, you’re not lost. Try checking our navigation on another page—you’ll likely find what you’re looking for there.",
+                    "If not, just drop us a message via our contact form, and we’ll be happy to assist!"
+                ]
+            }
+        ]
+    }
+}

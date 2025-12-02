@@ -25,6 +25,9 @@
     &.white {
       stroke: vars.$text-alt-color;
     }
+    &.lightBlue {
+      stroke: vars.$primary-light-color;
+    }
   }
 }
 

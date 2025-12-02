@@ -1,0 +1,46 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/functions" as function;
+
+.divider-component {
+    width: 100%;
+    height: vars.$spacing-md;
+    background-color: vars.$shadow-color;
+
+    &.thick {
+        height: vars.$spacing-lg;
+    }
+    
+    &.ten {
+        height: vars.$spacing-10;
+    }
+
+    &.thin {
+        height: vars.$spacing-sm;
+    }
+
+    &.blue {
+        background-color: vars.$primary-color;
+    }
+
+    &.lightBlue {
+        background-color: vars.$primary-light-color;
+    }
+
+    &.lightYellow {
+        background-color: vars.$secondary-light-color;
+    }
+
+    &.yellow {
+        background-color: vars.$secondary-color;
+    }
+
+    &.red {
+        background-color: vars.$highlight;
+    }
+
+    &.orange {
+        background-color: vars.$warning;
+    }
+
+}

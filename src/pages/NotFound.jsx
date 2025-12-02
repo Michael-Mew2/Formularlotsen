@@ -1,5 +1,8 @@
-import React from "react";
+import * as React from "react";
+import PageSetter from "../components/PageSetter";
 
 export default function NotFound() {
-  return <div>NotFound</div>;
+  return (
+    <PageSetter targetPage="notFound" />
+  )
 }

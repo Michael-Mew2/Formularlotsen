@@ -1,0 +1,26 @@
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
+
+#notFound {
+    @include mix.background_pages(vars.$secondary-light-color);
+
+    .page-content {
+        #loading-wave {
+            margin-bottom: 0;
+        }
+        #loading-wave2 {
+            margin-bottom: 0;
+        }
+        #first-language-paragraph, #second-language-paragraph {
+            margin-top: 0;
+
+            h4,p {
+                margin: vars.$font-size-page-text 0;
+            }
+
+            p:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
