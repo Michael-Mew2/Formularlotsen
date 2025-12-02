@@ -20,7 +20,7 @@ $accordion-margin: 10px 0;
     padding: vars.$margin-site;
     margin-bottom: $accordion-gap;
     overflow: hidden;
-    border-radius: calc(50px + vars.$margin-site);
+    border-radius: calc(10px + vars.$margin-site);
     border: 0px solid transparent;
     transition: border 0.3s ease, border-radius 0.3s ease;
     position: relative;
@@ -44,7 +44,7 @@ $accordion-margin: 10px 0;
     }
 
     .accordion-title {
-      @include mix.title_pill($bg-clr: vars.$text-alt-color);
+      @include mix.bold_shadow;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -84,7 +84,7 @@ $accordion-margin: 10px 0;
     &.open {
         @include mix.bold_shadow($rad: calc(50px + vars.$margin-site));
         border: 0px solid vars.$text-color;
-      border-radius: calc(30px + vars.$margin-site);
+      border-radius: calc(10px + vars.$margin-site);
 
       &::before {
         border-color: vars.$text-color;;
@@ -111,9 +111,6 @@ $accordion-margin: 10px 0;
       gap: $accordion-gap * 2;
       align-items: flex-start;
 
-      @media (max-width: 768px) {
-        flex-direction: column;
-      }
     }
 
     > .flex-column {
@@ -121,5 +118,18 @@ $accordion-margin: 10px 0;
       flex-direction: column;
       gap: $accordion-gap;
     }
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-lg) {
+  .accordion-content {
+   .row {
+    flex-direction: column-reverse !important;
+    gap: 3rem !important;
+   }
+
+   .column {
+    gap: 1.5rem !important;
+   }
   }
 }

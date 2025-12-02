@@ -8,6 +8,10 @@
   margin-bottom: 6px;
   position: relative;
 
+  @media screen and (max-width: var.$breakpoint-lg) {
+    max-height: none;
+  }
+
   .innerBox {
     @include mix.bold_shadow;
     padding: var.$margin-site;
