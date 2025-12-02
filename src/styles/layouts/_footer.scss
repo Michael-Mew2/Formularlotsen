@@ -249,7 +249,7 @@ footer {
   }
 }
 
-@media screen and (max-width: vars.$breakpoint-lg) {
+@media screen and (max-width: vars.$breakpoint-xl) {
   footer {
     background-color: vars.$warning;
 
