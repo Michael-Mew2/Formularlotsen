@@ -16,7 +16,10 @@ $accordion-margin: 10px 0;
   // margin: $accordion-margin;
 
   &-item {
-    @include mix.bold_shadow($rad: calc(50px + vars.$margin-site), $clr: transparent);
+    @include mix.bold_shadow(
+      $rad: calc(50px + vars.$margin-site),
+      $clr: transparent
+    );
     padding: vars.$margin-site;
     margin-bottom: $accordion-gap;
     overflow: hidden;
@@ -57,7 +60,8 @@ $accordion-margin: 10px 0;
         background-color: vars.$secondary-light-color;
       }
 
-      h3, h4 {
+      h3,
+      h4 {
         margin: 0;
         font-size: vars.$font-size-page-text;
       }
@@ -82,17 +86,17 @@ $accordion-margin: 10px 0;
     }
 
     &.open {
-        @include mix.bold_shadow($rad: calc(50px + vars.$margin-site));
-        border: 0px solid vars.$text-color;
+      @include mix.bold_shadow($rad: calc(10px + vars.$margin-site));
+      border: 0px solid vars.$text-color;
       border-radius: calc(10px + vars.$margin-site);
 
       &::before {
-        border-color: vars.$text-color;;
+        border-color: vars.$text-color;
         opacity: 1;
       }
 
       .accordion-content {
-       // border: 4px solid brown;
+        // border: 4px solid brown;
         max-height: 2000px;
         opacity: 1;
         // padding: vars.$margin-site 0;
@@ -110,7 +114,6 @@ $accordion-margin: 10px 0;
       flex-direction: row;
       gap: $accordion-gap * 2;
       align-items: flex-start;
-
     }
 
     > .flex-column {
@@ -123,13 +126,13 @@ $accordion-margin: 10px 0;
 
 @media screen and (max-width: vars.$breakpoint-lg) {
   .accordion-content {
-   .row {
-    flex-direction: column-reverse !important;
-    gap: 3rem !important;
-   }
+    .row {
+      flex-direction: column-reverse !important;
+      gap: 3rem !important;
+    }
 
-   .column {
-    gap: 1.5rem !important;
-   }
+    .column {
+      gap: 1.5rem !important;
+    }
   }
 }
