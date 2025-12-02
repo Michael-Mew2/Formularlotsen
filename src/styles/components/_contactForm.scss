@@ -22,7 +22,7 @@ $legal-gap: 2rem;
       border-radius: vars.$border-radius-st;
       padding: vars.$margin-xs;
       cursor: pointer;
-      
+
       &:hover {
         box-shadow: inset 4px 4px 8px 0px rgba(0, 0, 0, 0.25);
         background-color: vars.$highlight;
@@ -253,6 +253,87 @@ $legal-gap: 2rem;
 
                     .error-message {
                       color: vars.$highlight;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-xl) {
+  .contact-form {
+    width: function.calculate-max-width(
+      $brdr-wdt: calc(#{vars.$margin-site} + 4px)
+    );
+
+    h4 {
+      margin-top: 0;
+    }
+
+    form {
+      fieldset {
+        .fieldset-flex {
+          flex-direction: column-reverse;
+
+          .form-info {
+            flex-basis: 0;
+            border-top-left-radius: 5px;
+            border-bottom-right-radius: 0;
+          }
+
+          .form-inputs {
+            flex-direction: column;
+
+            label {
+              width: 100%;
+
+              .label-text {
+                padding-left: vars.$spacing-10;
+              }
+            }
+          }
+        }
+
+        &.legal-fieldset {
+          border-color: purple;
+          max-width: 100%;
+
+          .fieldset-flex {
+            .form-inputs {
+              .accordion {
+                .accordion-item {
+                  width: 100%;
+                  .accordion-title {
+                    h3 {
+                      color: purple;
+                    }
+                  }
+
+                  .accordion-content {
+                    padding: 0 vars.$margin-site;
+
+                    div {
+                      .legal-checkbox-wrapper {
+                        padding: 0;
+
+                        .legal-checkbox {
+                          // flex-direction: column;
+                          justify-content: flex-start;
+                          gap: vars.$spacing-10;
+                          // border: 2px solid green;
+                          padding-bottom: $legal-gap;
+
+                          input {
+                            flex-basis: 20px;
+                            min-width: 0;
+                          }
+                        }
+                      }
                     }
                   }
                 }
