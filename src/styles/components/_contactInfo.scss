@@ -72,9 +72,8 @@
         }
 
         &:focus {
-            border-color: vars.$warning;
+          border-color: vars.$warning;
         }
-
 
         > span {
           font-weight: vars.$font-weight-page-title-main;
@@ -128,7 +127,6 @@
       }
 
       .contact-info-whatsapp {
-
         &::before {
           content: "\f232";
           font-family: "Font Awesome 6 Brands";
@@ -137,8 +135,29 @@
         }
 
         &:hover {
-            background-color: #075E54;
-            color: vars.$text-alt-color;
+          background-color: #075e54;
+          color: vars.$text-alt-color;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-xl) {
+  .contact-info-outer-container {
+    .contact-info-inner-container {
+      flex-direction: column;
+
+      .contact-info-image {
+        margin-top: 30px;
+        max-width: 60%;
+      }
+
+      .contact-info-content {
+        margin-top: 0 !important;
+
+        .contact-info-organization {
+          margin-bottom: vars.$margin-site;
         }
       }
     }
