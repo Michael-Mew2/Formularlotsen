@@ -84,7 +84,7 @@ export default function LanguageSelector() {
       </button>
 
       <button
-        onClick={() => setLanguage("fe")}
+        onClick={() => setLanguage("fa")}
         className="flag-carousel-container"
       >
         <div className="flag-container">

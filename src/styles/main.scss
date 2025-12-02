@@ -39,8 +39,10 @@
 @use "components/contactInfo" as contactInfo;
 @use "components/burgerMenu" as burgerMenu;
 @use "components/waveLoader" as waveLoader;
+@use "components/divider" as divider;
 
 // Seiten
 @use "pages/backbone" as backbone;
 @use "pages/home" as home;
 @use "pages/timeAndPlace" as timeAndPlace;
+@use "pages/notFound" as notFound;

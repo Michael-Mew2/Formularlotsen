@@ -15,6 +15,8 @@ import AccContact from "./AccContact";
 import ContactForm from "./ContactForm";
 import LegalCheckbox from "./LegalCheckbox";
 import ContactInfo from "./ContactInfo";
+import WaveLoader from "./WaveLoader";
+import Divider from "./Divider";
 
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;
@@ -80,6 +82,12 @@ export default function PageSection({ section }) {
 
     case "contact-info":
       return <ContactInfo section={section.contactPerson} />;
+
+    case "loading-wave":
+      return <WaveLoader color={section.color} />
+
+    case "divider":
+      return <Divider color={section.color} thickness={section.thickness} />
 
     default:
       return null;

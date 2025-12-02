@@ -1,0 +1,54 @@
+{
+    "notFound": {
+        "meta": {
+            "title": "404 - Strona nie znaleziona",
+            "content": "Strona nie znaleziona"
+        },
+        "hero": {
+            "heroPicture": "images/heroImages/AdobeStock_Strand.jpeg",
+            "heroPictureAlt": "Tropikalna plaża",
+            "heroMainTitle": "Ups... 404",
+            "heroSubTitle": "Strona nie znaleziona"
+        },
+        "pageContent": [
+            {
+                "type": "loading-wave",
+                "groupId": "loading-wave",
+                "groupStyle": "full-width",
+                "color": "lightBlue"
+            },
+            {
+                "type": "paragraph",
+                "groupId": "first-language-paragraph",
+                "groupStyle": "full-width",
+                "title": "Przepraszamy – wygląda na to, że coś poszło nie tak!",
+                "content": [
+                    "Nie martw się, nie jesteś zgubiony. Spróbuj sprawdzić naszą nawigację na innej stronie – prawdopodobnie znajdziesz tam to, czego szukasz.",
+                    "Jeśli nie, po prostu wyślij do nas wiadomość przez formularz kontaktowy – chętnie pomogiemy!"
+                ]
+            },
+            {
+                "type": "divider",
+                "groupId": "divider",
+                "groupStyle": "full-width",
+                "color": "lightBlue",
+                "thickness": "thin"
+            },
+            {
+                "type": "loading-wave",
+                "groupId": "loading-wave2",
+                "groupStyle": "full-width"
+            },
+            {
+                "type": "paragraph",
+                "groupId": "second-language-paragraph",
+                "groupStyle": "full-width",
+                "title": "Oops—Looks Like You’ve Taken a Wrong Turn!",
+                "content": [
+                    "No worries, you’re not lost. Try checking our navigation on another page—you’ll likely find what you’re looking for there.",
+                    "If not, just drop us a message via our contact form, and we’ll be happy to assist!"
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,54 @@
+{
+    "notFound": {
+        "meta": {
+            "title": "404 - صفحه یافت نشد",
+            "content": "صفحه یافت نشد"
+        },
+        "hero": {
+            "heroPicture": "images/heroImages/AdobeStock_Strand.jpeg",
+            "heroPictureAlt": "ساحل گرمسیری",
+            "heroMainTitle": "اوه... 404",
+            "heroSubTitle": "صفحه یافت نشد"
+        },
+        "pageContent": [
+            {
+                "type": "loading-wave",
+                "groupId": "loading-wave",
+                "groupStyle": "full-width",
+                "color": "lightBlue"
+            },
+            {
+                "type": "paragraph",
+                "groupId": "first-language-paragraph",
+                "groupStyle": "full-width",
+                "title": "عذرخواهی – به نظر می‌رسد مشکلی پیش آمده است!",
+                "content": [
+                    "نگران نباشید، شما گم نشده‌اید. سعی کنید از طریق منوی ناوبری ما در صفحه دیگری جستجو کنید – احتمالاً آنچه را که به دنبالش هستید پیدا خواهید کرد.",
+                    "اگر موفق نشدید، فقط از طریق فرم تماس با ما پیام بگذارید – خوشحال می‌شویم به شما کمک کنیم!"
+                ]
+            },
+            {
+                "type": "divider",
+                "groupId": "divider",
+                "groupStyle": "full-width",
+                "color": "lightBlue",
+                "thickness": "thin"
+            },
+            {
+                "type": "loading-wave",
+                "groupId": "loading-wave2",
+                "groupStyle": "full-width"
+            },
+            {
+                "type": "paragraph",
+                "groupId": "second-language-paragraph",
+                "groupStyle": "full-width",
+                "title": "Oops—Looks Like You’ve Taken a Wrong Turn!",
+                "content": [
+                    "No worries, you’re not lost. Try checking our navigation on another page—you’ll likely find what you’re looking for there.",
+                    "If not, just drop us a message via our contact form, and we’ll be happy to assist!"
+                ]
+            }
+        ]
+    }
+}
