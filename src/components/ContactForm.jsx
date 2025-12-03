@@ -41,7 +41,7 @@ export default function ContactForm({
       ...prev,
       language,
     }));
-  });
+  }, [language]);
 
   React.useEffect(() => {
     console.log("content:", fieldsets);
