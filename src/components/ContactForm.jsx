@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useLanguageStore } from "../store";
 import PageSection from "./PageSection";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ContactForm({
   fieldsets,
@@ -41,7 +43,7 @@ export default function ContactForm({
       ...prev,
       language,
     }));
-  });
+  }, [language]);
 
   React.useEffect(() => {
     console.log("content:", fieldsets);
@@ -65,6 +67,8 @@ export default function ContactForm({
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const toastId = toast.loading("E-Mail wird versendet...");
+
     try {
       const response = await fetch("http://localhost:3001/api/send-email", {
         method: "POST",
@@ -75,14 +79,30 @@ export default function ContactForm({
       });
 
       const result = await response.json();
-      if (result.success) {
-        alert("E-Mail erfolgreich versendet.");
-      } else {
-        alert("Fehler beim Versenden der E-Mail:", result.error);
-      }
+     
+      if(!response.ok) throw new Error(result.error || "Unbekannter Serverfehler");
+
+      if(!result.success) throw new Error(result.error || "Fehler beim versenden der Email");
+
+      toast.update(toastId, {
+        render: "E-Mail erfolgreich versendet! 🎉",
+        type: "success",
+        isLoading: false,
+        autoClose: 10000,
+      });
+
+      // setFieldValues({})
+      // setTouchedFields({})
+      // setFormErrors({})
+
     } catch (error) {
       console.error("Fehler beim senden:", error);
-      alert("Fehler beim Versenden der E-Mail:", error.message);
+      toast.update(toastId, {
+        render: `Fehler beim versenden der E-Mail: ${error.message}`,
+        type: "error",
+        isLoading: false,
+        autoClose: 10000,
+      })
     }
   };
   const handleChange = (e) => {
@@ -266,6 +286,19 @@ export default function ContactForm({
 
   return (
     <div className="contact-form">
+      <ToastContainer 
+        position="top-right"
+        autoClose={10000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        toastClassName="toast-custom"
+      />
       {showTitle && <h4>{title}</h4>}
       <form onSubmit={handleSubmit}>
         {fieldsets?.map((fieldset, index) => {

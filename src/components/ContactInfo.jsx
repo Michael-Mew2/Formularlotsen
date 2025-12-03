@@ -13,30 +13,41 @@ export default function ContactInfo({ section }) {
   const content = React.useRef(null);
 
   React.useEffect(() => {
-      const listBox = outerContainer.current;
-      const listTitle = title.current;
-      const listUl = content.current;
-  
-      if (listBox && listTitle && listUl) {
-        const listTitleHeight = listTitle.offsetHeight;
-        // console.log(listTitleHeight);
-  
-        const additionalContentSpacing = 0;
-        const additionalBoxSpacing = 0;
-  
-        listUl.style.marginTop = `${
-          listTitleHeight / 2 + additionalContentSpacing
-        }px`;
-        listBox.style.marginTop = `${
-          listTitleHeight / 2 + additionalBoxSpacing
-        }px`;
-      }
-    }, []);
+    const listBox = outerContainer.current;
+    const listTitle = title.current;
+    const listUl = content.current;
+
+    if (listBox && listTitle && listUl) {
+      const listTitleHeight = listTitle.offsetHeight;
+      // console.log(listTitleHeight);
+
+      const additionalContentSpacing = 0;
+      const additionalBoxSpacing = 0;
+
+      listUl.style.marginTop = `${
+        listTitleHeight / 2 + additionalContentSpacing
+      }px`;
+      listBox.style.marginTop = `${
+        listTitleHeight / 2 + additionalBoxSpacing
+      }px`;
+    }
+  }, []);
 
   const formatPhoneForWhatsApp = (phoneNumber) => {
     if (!phoneNumber) return "";
     const cleaned = phoneNumber.replace(/[\s-]/g, "");
     return cleaned.startsWith("0") ? `+49${cleaned.substring(1)}` : cleaned;
+  };
+
+  const formatWebsite = (website) => {
+    if (!website) return "";
+    console.log(`Folgende Webseite wird Formatiert ${website}`);
+    
+    return website
+      .replace(/^https?:\/\/(www\.)?/, "")
+      .replace(/^www\./, "")
+      .replace(/^\/+/, "")
+      .split(/[/?#]/)[0];
   };
 
   React.useEffect(() => {
@@ -78,7 +89,7 @@ export default function ContactInfo({ section }) {
         <figure className="image contact-info-image peoplePortrait">
           <img src={personalData?.picture} alt={personalData?.pictureAlt} />
         </figure>
-        <h3 ref={title}  className="contact-info-title">
+        <h3 ref={title} className="contact-info-title">
           {personalData?.showPositionAsTitle ? personalData?.position : section}
         </h3>
         <div ref={content} className="contact-info-content">
@@ -100,7 +111,9 @@ export default function ContactInfo({ section }) {
             <a
               href={
                 personalData?.whatsappInsteadOfTelephone
-                  ? `https://wa.me/${formatPhoneForWhatsApp(personalData?.phone)}`
+                  ? `https://wa.me/${formatPhoneForWhatsApp(
+                      personalData?.phone
+                    )}`
                   : `tel:${personalData?.phone}`
               }
               className="contact-info-phone"
@@ -124,12 +137,14 @@ export default function ContactInfo({ section }) {
               target="_blank"
               className="contact-info-website"
             >
-              <span>{translationData?.website}</span>: {personalData?.website}
+              <span>{translationData?.website}</span>: {formatWebsite(personalData?.website)}
             </a>
           )}
           {personalData?.whatsappButton && (
             <a
-              href={`https://wa.me/${formatPhoneForWhatsApp(personalData?.phone)}`}
+              href={`https://wa.me/${formatPhoneForWhatsApp(
+                personalData?.phone
+              )}`}
               className="contact-info-whatsapp"
               target="_blank"
             >
