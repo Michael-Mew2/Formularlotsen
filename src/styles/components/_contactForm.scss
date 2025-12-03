@@ -12,6 +12,12 @@ $legal-gap: 2rem;
     $brdr-wdt: vars.$border-width-st,
     $padding: 0px
   );
+  // box-sizing: border-box;
+  overflow-x: hidden;
+
+  * {
+    box-sizing: border-box;
+  }
 
   form {
     button {
@@ -300,7 +306,7 @@ $legal-gap: 2rem;
         }
 
         &.legal-fieldset {
-          border-color: purple;
+          // border-color: purple;
           max-width: 100%;
 
           .fieldset-flex {
@@ -309,9 +315,10 @@ $legal-gap: 2rem;
                 .accordion-item {
                   width: 100%;
                   .accordion-title {
-                    h3 {
-                      color: purple;
-                    }
+                    word-break: break-all;
+                    /* h3 {
+                      //color: purple;
+                    } */
                   }
 
                   .accordion-content {
@@ -337,6 +344,118 @@ $legal-gap: 2rem;
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-smart) {
+  .contact-form {
+    // padding:  vars.$spacing-10;
+    margin: 0;
+    // width: 100%;
+    
+    form {
+
+      fieldset {
+        max-width: 100%;
+        
+        /* legend {
+          // color: vars.$highlight;
+        } */
+
+        .fieldset-flex {
+          // border: 2px solid green;
+
+          /* .form-info {
+            // border: 2px solid orange;
+          } */
+
+          .form-inputs {
+            // border: 2px solid hotpink;
+            width: 100%;
+
+            .accordion.legal-accordion {
+              width: 100%;
+              max-width: 100%;
+
+              .accordion-item {
+                width: 100%;
+
+                .accordion-title {
+                  width: 100%;
+                  word-break: break-word;
+                  
+                  h3 {
+                    font-size: 1rem;
+                  }
+                }
+
+                .accordion-content {
+                  width: 100%;
+                  // border: 2px solid hotpink;
+
+                  > div {
+                    width: 100%;
+                    ;
+                    .paragraph {
+                      width: 100%;
+                      // border: 2px solid orange;
+
+                      p {
+                        font-size: 0.9rem;
+                        line-height: 1.5;
+                      }
+                    }
+
+                    .legal-checkbox-wrapper {
+                      //border: 2px solid hotpink;
+                      width: 100%;
+
+                      a {
+                        // color: green;
+                        width: 100%;
+                        font-size: 0.9rem;
+                      }
+
+                      .legal-checkbox {
+                        width: 100%;
+                        gap: 4px;
+                        input[type="checkbox"] {
+                          width: 15px;
+                          height: 15px;
+                          margin-top: 4px;
+                        }
+                        .label-text {
+                          font-size: 0.9rem;
+                          line-height: 1.5;
+                          padding: 0;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            label {
+              // border: 2px solid limegreen;
+              width: 100%;
+              min-width: unset;
+              max-width: 100%;
+
+              /* .label-text {
+                color: red;
+              } */
+
+              input, textarea {
+                // color: blue;
+                width: 100%;
+                min-width: unset;
               }
             }
           }
