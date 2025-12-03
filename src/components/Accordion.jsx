@@ -29,13 +29,35 @@ const FlexItem = ({ flex, children, className = "" }) => {
 export default function Accordion({ section }) {
   const [openIndex, setOpenIndex] = React.useState(-1);
 
-  const toggleAccordion = (index) =>
+  const toggleAccordion = (index) => {
     setOpenIndex(index === openIndex ? -1 : index);
+
+  // Fokus auf den ersten fokussierbaren Inhalt setzen, wenn geöffnet
+  if (index !== openIndex) {
+    setTimeout(() => {
+      const content = document.getElementById(`accordion-content-${index}`);
+      if (content) {
+        const focusableElements = content.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusableElements.length > 0) {
+          focusableElements[0].focus();
+        }
+      }
+    }, 100); // Zeitverzögerung um sicherzustellen, das der Inhalt gerendert ist
+  }
+}
 
   console.log("Accordion section:", section);
 
   return (
-    <div className={`accordion ${section.groupStyle || ""}`}>
+    <div
+      className={`accordion ${section.groupStyle || ""}`}
+      role="tablist"
+      aria-labelledby={
+        section.title ? `accordion-title-${section.id}` : `undefined`
+      }
+    >
       {section.items?.map((item, index) => (
         <div
           key={index}
@@ -43,54 +65,76 @@ export default function Accordion({ section }) {
         >
           {item.title && (
             <div
+              id={`accordion-title-${item.title}`}
               className={`accordion-title ${openIndex === index ? "open" : ""}`}
               onClick={() => toggleAccordion(index)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault(); // Verhindert Scrollen bei Leertaste
+                  toggleAccordion(index);
+                }
+              }}
+              tabIndex="0" // Macht Element fokussierbar
+              role="tab" // Informiert Screenreader, dass es sich wie ein Button verhält
+              aria-expanded={openIndex === index} // Informiert Screenreader, ob Element geöffnet ist
+              aria-controls={`accordion-content-${index}`} // Verknüpft den Titel mit dem Inhalt
               style={{ cursor: "pointer" }}
             >
               <h3>{item.title}</h3>
-              <FontAwesomeIcon className={`accordion-icon ${openIndex === index ? "open" : ""}`} icon="fa-solid fa-play" />
+              <FontAwesomeIcon
+                className={`accordion-icon ${
+                  openIndex === index ? "open" : ""
+                }`}
+                icon="fa-solid fa-play"
+              />
             </div>
           )}
           {/* {openIndex === index && ( */}
-            <div className="accordion-content">
-              {item.contentGroups?.map((group, groupIdx) => (
-                <FlexGroup
-                  key={groupIdx}
-                  direction={group.direction}
-                  flex={group.flex}
-                  className={group.direction}
-                >
-                  {group.items?.map((groupItem, itemIdx) =>
-                    groupItem.direction ? (
-                      <FlexGroup
-                        key={itemIdx}
-                        direction={groupItem.direction}
-                        flex={groupItem.flex}
-                        className={groupItem.direction}
-                      >
-                        {groupItem.items?.map((nestedItem, nestedIdx) => (
-                          <FlexItem
-                            key={nestedIdx}
-                            flex={nestedItem.flex}
-                            className={nestedItem.className}
-                          >
-                            <PageSection section={nestedItem.component} />
-                          </FlexItem>
-                        ))}
-                      </FlexGroup>
-                    ) : (
-                      <FlexItem
-                        key={itemIdx}
-                        flex={groupItem.flex}
-                        className={groupItem.className}
-                      >
-                        <PageSection section={groupItem.component} />
-                      </FlexItem>
-                    )
-                  )}
-                </FlexGroup>
-              ))}
-            </div>
+          <div
+            id={`accordion-content-${index}`}
+            className="accordion-content"
+            role="tabpanel"
+            aria-labelledby={`accordion-title-${item.title}`}
+            aria-hidden={openIndex !== index} // Verbirgt Inhalt, wenn nicht geöffnet
+          >
+            {item.contentGroups?.map((group, groupIdx) => (
+              <FlexGroup
+                key={groupIdx}
+                direction={group.direction}
+                flex={group.flex}
+                className={group.direction}
+              >
+                {group.items?.map((groupItem, itemIdx) =>
+                  groupItem.direction ? (
+                    <FlexGroup
+                      key={itemIdx}
+                      direction={groupItem.direction}
+                      flex={groupItem.flex}
+                      className={groupItem.direction}
+                    >
+                      {groupItem.items?.map((nestedItem, nestedIdx) => (
+                        <FlexItem
+                          key={nestedIdx}
+                          flex={nestedItem.flex}
+                          className={nestedItem.className}
+                        >
+                          <PageSection section={nestedItem.component} />
+                        </FlexItem>
+                      ))}
+                    </FlexGroup>
+                  ) : (
+                    <FlexItem
+                      key={itemIdx}
+                      flex={groupItem.flex}
+                      className={groupItem.className}
+                    >
+                      <PageSection section={groupItem.component} />
+                    </FlexItem>
+                  )
+                )}
+              </FlexGroup>
+            ))}
+          </div>
           {/* )} */}
         </div>
       ))}
