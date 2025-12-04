@@ -11,18 +11,26 @@ export default function AccTimes({ openingTimes }) {
     const timeIcon = timeIconRef.current;
     const content = contentRef.current;
 
-    if (timeBox && timeIcon && content) {
-      const timeIconHeight = timeIcon.offsetHeight;
+    if (!timeBox || !timeIcon || !content) return;
 
-      const additionalSpacing = 0;
-      const additionalBoxSpacing = 0;
+    // ResizeObserver überwacht Änderungen der Titel-Höhe
+    const observer = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const timeIconHeight = timeIcon.offsetHeight;
+        // console.error("timeIconHeight (ResizeObserver):", timeIconHeight);
 
-      /* content.style.marginTop = `${timeIconHeight / 2 + additionalSpacing}px`; */
-      timeBox.style.marginTop = `${
-        timeIconHeight / 2 + additionalBoxSpacing
-      }px`;
-    }
-  }, []);
+        if (timeIconHeight > 0) {
+          content.style.marginTop = `${timeIconHeight / 4}px`;
+          timeBox.style.marginTop = `${timeIconHeight / 2}px`;
+        }
+      }
+    }, 50); // 50ms Debounce
+
+    observer.observe(timeIcon);
+
+    // Cleanup: Observer entfernen, wenn die Komponente unmountet
+    return () => observer.disconnect();
+  }, [openingTimes]);
 
   return (
     <div className="times-outerBox" ref={timeBoxRef}>

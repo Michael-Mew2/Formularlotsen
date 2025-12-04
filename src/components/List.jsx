@@ -17,26 +17,37 @@ export default function List({
     const listTitle = listTitleRef.current;
     const listUl = listUlRef.current;
 
-    if (listBox && listTitle && listUl) {
-      const listTitleHeight = listTitle.offsetHeight;
-      // console.log(listTitleHeight);
+    if (!listBox || !listTitle || !listUl) return;
 
-      const additionalContentSpacing = 0;
-      const additionalBoxSpacing = 0;
+    // ResizeObserver überwacht Änderungen der Titel-Höhe
+    const observer = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const listTitleHeight = listTitle.offsetHeight;
+        // console.log("ListtitleHeight (ResizeObserver):", listTitleHeight);
 
-      listUl.style.marginTop = `${
-        listTitleHeight / 2 + additionalContentSpacing
-      }px`;
-      listBox.style.marginTop = `${
-        listTitleHeight / 2 + additionalBoxSpacing
-      }px`;
-    }
-  }, []);
+        if (listTitleHeight > 0) {
+          listUl.style.marginTop = `${listTitleHeight / 2}px`;
+          listBox.style.marginTop = `${listTitleHeight / 2}px`;
+        }
+      }
+    }, 50); // 50ms Debounce
+
+    observer.observe(listTitle);
+
+    // Cleanup: Observer entfernen, wenn die Komponente unmountet
+    return () => observer.disconnect();
+  }, [items]);
 
   return (
-    <div ref={listBoxRef} className={`${type} ${position || "page-full"}`.trim()}>
+    <div
+      ref={listBoxRef}
+      className={`${type} ${position || "page-full"}`.trim()}
+    >
       <div className="innerBox">
-        <div ref={listTitleRef} className={`list-title ${titleColor || "yellow"}`.trim()}>
+        <div
+          ref={listTitleRef}
+          className={`list-title ${titleColor || "yellow"}`.trim()}
+        >
           <h4>{title}</h4>
         </div>
         <ul ref={listUlRef} className={`${listStyle || "lifeRing"}`.trim()}>

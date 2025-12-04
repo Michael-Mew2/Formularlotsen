@@ -12,20 +12,26 @@ export default function AccContact({ contactData }) {
     const contactIcon = contactIconRef.current;
     const contactContent = contentRef.current;
 
-    if (contactBox && contactIcon && contactContent) {
-      const contactIconHeight = contactIcon.offsetHeight;
+    if (!contactBox || !contactIcon || !contactContent) return;
 
-      const additionalSpacing = 0;
-      const additionalBoxSpacing = 0;
+    // ResizeObserver überwacht Änderungen der Titel-Höhe
+    const observer = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const contactIconHeight = contactIcon.offsetHeight;
+        // console.error("contactIconHeight (ResizeObserver):", contactIconHeight);
 
-      /* contactContent.style.marginTop = `${
-        contactIconHeight / 2 + additionalSpacing
-      }px`; */
-      contactBox.style.marginTop = `${
-        contactIconHeight / 2 + additionalBoxSpacing
-      }px`;
-    }
-  }, []);
+        if (contactIconHeight > 0) {
+          contactContent.style.marginTop = `${contactIconHeight / 4}px`;
+          contactBox.style.marginTop = `${contactIconHeight / 2}px`;
+        }
+      }
+    }, 50); // 50ms Debounce
+
+    observer.observe(contactIcon);
+
+    // Cleanup: Observer entfernen, wenn die Komponente unmountet
+    return () => observer.disconnect();
+  }, [contactData]);
 
   // Formatierung der Werte
   const formatValue = (value, type) => {
@@ -35,7 +41,7 @@ export default function AccContact({ contactData }) {
         .replace(/^https?:\/\/(www\.)?/, "")
         .replace(/^www\./, "")
         .replace(/^\/+/, "")
-        .split(/[/?#]/)[0]; 
+        .split(/[/?#]/)[0];
     }
     // WhatsApp
     else if (type === "whatsapp") {
