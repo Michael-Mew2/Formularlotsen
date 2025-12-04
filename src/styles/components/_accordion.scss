@@ -133,11 +133,11 @@ $accordion-margin: 10px 0;
   .accordion-content {
     .row {
       flex-direction: column-reverse !important;
-      gap: 3rem !important;
+      //gap: 3rem !important;
     }
 
-    .column {
-      gap: 1.5rem !important;
-    }
+    /* .column {
+      // gap: 1.5rem !important;
+    } */
   }
 }
