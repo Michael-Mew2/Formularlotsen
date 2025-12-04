@@ -1,6 +1,7 @@
 @use "../abstracts/variables" as vars;
 @use "../abstracts/mixins" as mix;
 
+//----------
 // Variablen (können in deine globale _variables.scss oder hier definiert werden)
 $accordion-border-color: #ddd;
 $accordion-border-radius: 50px;
@@ -9,6 +10,7 @@ $accordion-gap: 10px;
 $accordion-item-padding: 10px;
 $accordion-margin: 10px 0;
 
+// ==========
 // Accordion Haupt-Styles
 .accordion {
   // border: 2px solid green;
@@ -119,6 +121,9 @@ $accordion-margin: 10px 0;
       flex-direction: row;
       gap: $accordion-gap * 2;
       align-items: flex-start;
+      @media screen and (max-width: vars.$breakpoint-lg) {
+        flex-direction: column;
+      }
     }
 
     > .flex-column {
@@ -129,15 +134,3 @@ $accordion-margin: 10px 0;
   }
 }
 
-@media screen and (max-width: vars.$breakpoint-lg) {
-  .accordion-content {
-    .row {
-      flex-direction: column-reverse !important;
-      gap: 3rem !important;
-    }
-
-    .column {
-      gap: 1.5rem !important;
-    }
-  }
-}

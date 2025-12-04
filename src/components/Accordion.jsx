@@ -9,7 +9,7 @@ const FlexGroup = ({ direction = "row", flex, children, className = "" }) => {
         display: "flex",
         flexDirection: direction,
         flex: flex,
-        gap: "2rem",
+        //gap: "2rem",
       }}
       className={className}
     >
