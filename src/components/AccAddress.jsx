@@ -19,7 +19,7 @@ export default function AccAddress({ content }) {
     const observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
         const mapIconHeight = mapIcon.offsetHeight;
-        console.error("mapIconHeight (ResizeObserver):", mapIconHeight);
+        // console.error("mapIconHeight (ResizeObserver):", mapIconHeight);
 
         if (mapIconHeight > 0) {
           content.style.marginTop = `${mapIconHeight / 4}px`;

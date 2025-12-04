@@ -18,7 +18,7 @@ export default function AccContact({ contactData }) {
     const observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
         const contactIconHeight = contactIcon.offsetHeight;
-        console.error("contactIconHeight (ResizeObserver):", contactIconHeight);
+        // console.error("contactIconHeight (ResizeObserver):", contactIconHeight);
 
         if (contactIconHeight > 0) {
           contactContent.style.marginTop = `${contactIconHeight / 4}px`;

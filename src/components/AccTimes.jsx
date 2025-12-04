@@ -17,7 +17,7 @@ export default function AccTimes({ openingTimes }) {
     const observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
         const timeIconHeight = timeIcon.offsetHeight;
-        console.error("timeIconHeight (ResizeObserver):", timeIconHeight);
+        // console.error("timeIconHeight (ResizeObserver):", timeIconHeight);
 
         if (timeIconHeight > 0) {
           content.style.marginTop = `${timeIconHeight / 4}px`;

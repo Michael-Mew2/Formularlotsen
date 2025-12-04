@@ -23,7 +23,7 @@ export default function List({
     const observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
         const listTitleHeight = listTitle.offsetHeight;
-        console.log("ListtitleHeight (ResizeObserver):", listTitleHeight);
+        // console.log("ListtitleHeight (ResizeObserver):", listTitleHeight);
 
         if (listTitleHeight > 0) {
           listUl.style.marginTop = `${listTitleHeight / 2}px`;
