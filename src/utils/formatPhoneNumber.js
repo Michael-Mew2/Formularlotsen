@@ -3,7 +3,7 @@ export const formatPhoneNumber = (phoneNumber) => {
 
   // Leerzeichen entfernen
   const cleanedNumber = phoneNumber.replace(/\s+/g, "");
-  console.log("cleanedNumber:", cleanedNumber);
+  // console.log("cleanedNumber:", cleanedNumber);
 
   // Prüfung ob Deutsche Nummer (mit +49 oder 0049)
   if (cleanedNumber.startsWith("+49") || cleanedNumber.startsWith("0049")) {
@@ -67,13 +67,13 @@ const formatGermanNumber = (number) => {
 const formatInternationalNumber = (number) => {
   // 1. Ländercode extrahieren (nur + gefragt von Leerzeichen/Bindestrichen)
   const countryCodeMatch = number.match(/^(\+|00)(\d{1,3})/);
-  console.log("countryCodeMatch:", countryCodeMatch);
+  // console.log("countryCodeMatch:", countryCodeMatch);
   
   if (!countryCodeMatch) return number; // Kein Ländercode gefunden → unverändert zurückgeben
 
   const prefix = countryCodeMatch[1]; // "+" oder "00"
   const countryCode = countryCodeMatch[2]; // z. B. "1" für USA/Kanada
-  console.log("countryCode:", countryCode);
+  // console.log("countryCode:", countryCode);
   
 
   // 2. Rest der Nummer (ohne Ländercode) extrahieren und Sonderzeichen entfernen

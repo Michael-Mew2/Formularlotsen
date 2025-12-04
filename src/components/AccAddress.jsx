@@ -2,31 +2,37 @@ import * as React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function AccAddress({ content }) {
-  console.log("Address:", content);
+  // console.log("Address:", content);
 
   const addressBoxRef = React.useRef(null);
   const mapIconRef = React.useRef(null);
   const contentRef = React.useRef(null);
 
-  React.useEffect (() =>{
+  React.useEffect(() => {
     const addressBox = addressBoxRef.current;
     const mapIcon = mapIconRef.current;
     const content = contentRef.current;
 
-    if (addressBox && mapIcon && content) {
-      const mapIconHeight = mapIcon.offsetHeight;
+    if (!addressBox || !mapIcon || !content) return;
 
-      const additionalSpacing = 0;
-      const additionalBoxSpacing = 0;
+    // ResizeObserver überwacht Änderungen der Titel-Höhe
+    const observer = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const mapIconHeight = mapIcon.offsetHeight;
+        console.error("mapIconHeight (ResizeObserver):", mapIconHeight);
 
-      /* content.style.marginTop = `${
-        mapIconHeight / 2 + additionalSpacing
-      }px`; */
-      addressBox.style.marginTop = `${
-        mapIconHeight / 2 + additionalBoxSpacing
-      }px`;
-    }
-  }, []);
+        if (mapIconHeight > 0) {
+          content.style.marginTop = `${mapIconHeight / 4}px`;
+          addressBox.style.marginTop = `${mapIconHeight / 2}px`;
+        }
+      }
+    }, 50); // 50ms Debounce
+
+    observer.observe(mapIcon);
+
+    // Cleanup: Observer entfernen, wenn die Komponente unmountet
+    return () => observer.disconnect();
+  }, [content]);
 
   return (
     <div ref={addressBoxRef} className="address-outerBox">
