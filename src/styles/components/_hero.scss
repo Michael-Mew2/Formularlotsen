@@ -1,67 +1,160 @@
 @use "../abstracts/variables" as vars;
 
 .hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+
+  &--picture {
     width: 100%;
     height: 100vh;
+    object-fit: cover;
+  }
+
+  &--overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    // padding: vars.$margin-site;
+    //     -webkit-backdrop-filter: blur(5px);
+    // backdrop-filter: blur(8px);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: vars.$primary-color;
+    opacity: 80%;
+    z-index: -1;
+  }
+
+  &--insidebox {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: vars.$hero-secondary-fs;
+    // border: 2px solid lime;
+    width: 80%;
+    height: fit-content;
+    opacity: 100%;
+
+    h1,
+    h2 {
+      display: inline-block;
+      // background-color: vars.$primary-light-color;
+      font-family: vars.$primary-font;
+      font-weight: vars.$primary-weight;
+      font-size: vars.$hero-main-fs;
+      color: vars.$secondary-color;
+      width: 60%;
+    }
+
+    h2 {
+      align-self: flex-end;
+      color: white;
+    }
+  }
+
+  &--scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2;
+    pointer-events: none;
+    // opacity: 0;
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-md) {
+  .hero {
+    height: 100dvh;
 
     &--picture {
-        width: 100%;
-        height: 100vh;
-        object-fit: cover;
+      height: 100dvh;
     }
 
     &--overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        // padding: vars.$margin-site;
-    //     -webkit-backdrop-filter: blur(5px);
-    // backdrop-filter: blur(8px);
-    }      
-
-    &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: vars.$primary-color;
-        opacity: 80%;
-        z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
-    
+
     &--insidebox {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        gap: vars.$hero-secondary-fs;
-        // border: 2px solid lime;
-        width: 80%;
-        height: fit-content;
-        opacity: 100%;
+      gap: calc(2 * vars.$hero-secondary-fs);
 
-        h1, h2 {
-            display: inline-block;
-            // background-color: vars.$primary-light-color;
-            font-family: vars.$primary-font;
-            font-weight: vars.$primary-weight;
-            font-size: vars.$hero-main-fs;
-            color: vars.$secondary-color;
-            width: 60%;
-        }
+      h1,
+      h2 {
+        width: 100%;
+        // word-break: break-all;
+      }
 
-        h2 {
-            align-self: flex-end;
-            color: white;
-    
-        }
+      h2 {
+        align-self: flex-start;
+        text-align: right;
+      }
     }
+
+    &--scroll-indicator {
+      opacity: 0;
+      animation: fadeIn 0.5s forwards 6s;
+
+      svg {
+        color: white;
+        font-size: 24px;
+        animation: scrollDown 2s infinite ease-in-out;
+        opacity: 0;
+
+        &:nth-of-type(1) {
+          animation-delay: 0s;
+        }
+        &:nth-of-type(2) {
+          animation-delay: 0.5s;
+        }
+        &:nth-of-type(3) {
+          animation-delay: 1s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

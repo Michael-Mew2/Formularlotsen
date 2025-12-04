@@ -1,6 +1,7 @@
 import * as React from "react";
 import HeroPicture from "./HeroPicture";
 import { useLanguageStore } from "../store";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Hero() {
   const { texts, page } = useLanguageStore();
@@ -21,6 +22,11 @@ export default function Hero() {
               {texts[currentPage]?.hero?.heroSubTitle || "lädt..."}
             </h2>
           </div>
+        </div>
+        <div className="hero--scroll-indicator">
+          <FontAwesomeIcon icon="fa-solid fa-angles-down" />
+          <FontAwesomeIcon icon="fa-solid fa-angles-down" />
+          <FontAwesomeIcon icon="fa-solid fa-angles-down" />
         </div>
       </div>
     </>
