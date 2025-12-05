@@ -13,11 +13,12 @@
 // ===== Dialog Container =====
 .location-dialog-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; // wenn tabs unten = flex-direction: column / wenn tabs oben = flex-direction: column-reverse
   width: 100%;
-  max-width: 800px;
+  //max-width: 800px;
   height: 100%;
   // margin: vars.$margin-site 0;
+  // border:6px solid grey;
 
   // Moderner Toggle-Switch
   .toggle-switch-container {
@@ -128,6 +129,7 @@
   // Äußere Tabs (Stadtteile/Tage) - UNTEN
   .outer-tabs {
     display: flex;
+    flex-direction: column-reverse; //wenn nebeneinander = auskommentieren! 
     gap: 0; /* Kein Abstand zwischen den Tabs */
     padding: 0;
     margin: 0;
@@ -137,12 +139,12 @@
     // margin-top: vars.$spacing-md;
     // border: 2px solid brown;
     position: relative;
-    top: -4px;
+    left: -4px; // wenn tabs unten = top: -4 / wenn tabs oben = top: 4  
   }
 
   .outer-tab {
     flex: 1;
-    padding: vars.$spacing-10;
+    padding: vars.$spacing-md vars.$spacing-10;
     background: vars.$primary-color;
     font-size: vars.$header-secondary-fs;
     font-weight: vars.$primary-weight;
@@ -152,8 +154,11 @@
     text-align: center;
     @include mix.bold_shadow;
     border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    // border-top-right-radius: 0; // wenn unten auskommentieren
+    border-bottom-left-radius: 0; // wenn rechts oder oben auskommentieren
+    // border-bottom-right-radius: 0; // wenn oben auskommentieren
     z-index: 550;
+    width: 111px;
 
     &:hover {
       background: vars.$primary-light-color;
@@ -163,17 +168,26 @@
       background: vars.$warning;
       color: vars.$text-color;
       z-index: 561;
-      border-top: none;
+      // border-top: none; // wenn unten auskommentieren
+      // border-bottom: none; // wenn oben auskommentieren
+      border-left: none; // wenn rechts auskommentieren
     }
   }
 
   .content-and-inner-tabs-container {
+    display: flex; // auskommentieren wenn tabs unten
+    flex-direction: row; //wenn tabs nach oben = flex-direction: column-reverse, nach rechts = flex-direction: row
+    align-items: flex-start;
     padding: vars.$spacing-md;
     background-color: vars.$warning;
     @include mix.bold_shadow;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    // border-bottom-left-radius: 0; // wenn tabs unten auskommentieren
+    // border-bottom-right-radius: 0; //wenn tabs unten auskommentieren
+    // border-top-left-radius: 0; // wenn tabs oben auskommentieren
+    border-top-right-radius: 0; // wenn tabs rechts oder oben auskommentieren 
     z-index: 560;
+    width: 100%;
+    overflow: hidden;
 
     // Container für innere Tabs
     .react-tabs__tab-panel {
@@ -191,6 +205,10 @@
     // Innere Tabs (Standorte/Uhrzeiten)
     .inner-tabs {
       display: flex;
+      flex-direction: column; // wenn nebeneinander = auskommentieren!
+      //flex-shrink: 1;
+      width: 90px;
+      flex-shrink: 0;
       gap: 0; /* Kein Abstand zwischen den Tabs */
       padding: 0;
       margin: 0;
@@ -198,12 +216,11 @@
       flex-wrap: wrap;
       border-bottom: none; /* Kein unterer Rand */
       position: relative;
-      top: -4px;
+      left: -4px; // wenn tabs unten = top: -4 / wenn tabs oben = top: 4
     }
 
     .inner-tab {
       z-index: 565;
-      flex: 1;
       padding: vars.$spacing-10;
       background-color: vars.$secondary-color;
       cursor: pointer;
@@ -212,8 +229,12 @@
       font-weight: vars.$primary-weight;
       color: vars.$text-color;
       @include mix.bold_shadow;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+      border-top-left-radius: 0; // wenn tabs unten oder rechts auskommentieren
+      // border-top-right-radius: 0; // wenn tabs unten auskommentieren
+      border-bottom-left-radius: 0; // wenn tabs oben oder rechts auskommentieren
+      // border-bottom-right-radius: 0; // wenn tabs oben auskommentieren
+      word-break: break-word;
+      max-width: 100%;
 
       &:hover {
         background: vars.$secondary-light-color;
@@ -222,7 +243,9 @@
       &.react-tabs__tab--selected {
         // color: vars.$text-alt-color;
         background-color: vars.$highlight;
-        border-top: none;
+        // border-top: none; // wenn tabs unten auskommentieren
+        // border-bottom: none; // wenn tabs oben auskommentieren
+        border-left: none; // wenn tabs rechts auskommentieren
         z-index: 571;
       }
     }
@@ -230,13 +253,18 @@
 
   // ===== Content Panel (Details) =====
   .content-panel {
+    flex: 1;
+    min-width: 0;
+    width: auto;
     position: relative;
     z-index: 570;
     padding: vars.$spacing-md;
     background-color: vars.$highlight;
     @include mix.bold_shadow;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    // border-bottom-left-radius: 0; // wenn tabs unten auskommentieren 
+    // border-bottom-right-radius: 0; // wenn tabs unten auskommentieren
+    // border-top-left-radius: 0; // wenn tabs oben auskommentieren
+    border-top-right-radius: 0; // wenn tabs rechts oder oben auskommentieren 
 
     .location-title-shell {
       @include mix.title_pill($bg-clr: vars.$text-alt-color);

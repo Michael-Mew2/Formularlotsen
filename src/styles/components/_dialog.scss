@@ -18,7 +18,7 @@
     position: relative;
     @include mix.bold_shadow;
     @include mix.background_pages(vars.$text-alt-color);
-    max-width: 80vw;
+    max-width: 84vw;
     // width: 500px;
     max-height: 80vh;
     z-index: 501;
