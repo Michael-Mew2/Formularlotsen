@@ -23,7 +23,7 @@
   // Moderner Toggle-Switch
   .toggle-switch-container {
     @include mix.title_pill(
-          $bg-clr: vars.$secondary-light-color,
+          $bg-clr: vars.$text-alt-color,
           $tx-clr: vars.$text-alt-color
         );
     padding: vars.$margin-xs;
