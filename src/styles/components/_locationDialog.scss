@@ -187,6 +187,7 @@
     border-top-right-radius: 0; // wenn tabs rechts oder oben auskommentieren 
     z-index: 560;
     width: 100%;
+    height: 100%;
     overflow: hidden;
 
     // Container für innere Tabs
@@ -253,6 +254,7 @@
 
   // ===== Content Panel (Details) =====
   .content-panel {
+    height: 65vh;
     flex: 1;
     min-width: 0;
     width: auto;
