@@ -23,21 +23,21 @@
   // Moderner Toggle-Switch
   .toggle-switch-container {
     @include mix.title_pill(
-          $bg-clr: vars.$text-alt-color,
-          $tx-clr: vars.$text-alt-color
-        );
+      $bg-clr: vars.$text-alt-color,
+      $tx-clr: vars.$text-alt-color
+    );
     padding: vars.$margin-xs;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: vars.$spacing-md;
-    
+
     position: absolute;
     top: 0;
     left: vars.$margin-site;
     transform: translateY(-50%);
     z-index: 502;
-   /*  @include mix.bold_shadow(
+    /*  @include mix.bold_shadow(
       vars.$border-radius-st,
       vars.$text-color,
       vars.$shadow-size-sm
@@ -129,7 +129,7 @@
   // Äußere Tabs (Stadtteile/Tage) - UNTEN
   .outer-tabs {
     display: flex;
-    flex-direction: column-reverse; //wenn nebeneinander = auskommentieren! 
+    flex-direction: column-reverse; //wenn nebeneinander = auskommentieren!
     gap: 0; /* Kein Abstand zwischen den Tabs */
     padding: 0;
     margin: 0;
@@ -139,7 +139,7 @@
     // margin-top: vars.$spacing-md;
     // border: 2px solid brown;
     position: relative;
-    left: -4px; // wenn tabs unten = top: -4 / wenn tabs oben = top: 4  
+    left: -4px; // wenn tabs unten = top: -4 / wenn tabs oben = top: 4
   }
 
   .outer-tab {
@@ -184,7 +184,7 @@
     // border-bottom-left-radius: 0; // wenn tabs unten auskommentieren
     // border-bottom-right-radius: 0; //wenn tabs unten auskommentieren
     // border-top-left-radius: 0; // wenn tabs oben auskommentieren
-    border-top-right-radius: 0; // wenn tabs rechts oder oben auskommentieren 
+    border-top-right-radius: 0; // wenn tabs rechts oder oben auskommentieren
     z-index: 560;
     width: 100%;
     height: 100%;
@@ -223,12 +223,12 @@
     .inner-tab {
       z-index: 565;
       padding: vars.$spacing-10;
-      background-color: vars.$secondary-color;
+      background-color: vars.$primary-color;
       cursor: pointer;
       transition: all 0.2s ease;
       font-size: vars.$header-secondary-fs;
       font-weight: vars.$primary-weight;
-      color: vars.$text-color;
+      color: vars.$text-alt-color;
       @include mix.bold_shadow;
       border-top-left-radius: 0; // wenn tabs unten oder rechts auskommentieren
       // border-top-right-radius: 0; // wenn tabs unten auskommentieren
@@ -238,12 +238,12 @@
       max-width: 100%;
 
       &:hover {
-        background: vars.$secondary-light-color;
+        background: vars.$primary-light-color;
       }
 
       &.react-tabs__tab--selected {
-        // color: vars.$text-alt-color;
-        background-color: vars.$highlight;
+        color: vars.$text-color;
+        background-color: vars.$text-alt-color;
         // border-top: none; // wenn tabs unten auskommentieren
         // border-bottom: none; // wenn tabs oben auskommentieren
         border-left: none; // wenn tabs rechts auskommentieren
@@ -261,24 +261,27 @@
     position: relative;
     z-index: 570;
     padding: vars.$spacing-md;
-    background-color: vars.$highlight;
+    background-color: vars.$text-alt-color;
     @include mix.bold_shadow;
-    // border-bottom-left-radius: 0; // wenn tabs unten auskommentieren 
+    // border-bottom-left-radius: 0; // wenn tabs unten auskommentieren
     // border-bottom-right-radius: 0; // wenn tabs unten auskommentieren
     // border-top-left-radius: 0; // wenn tabs oben auskommentieren
-    border-top-right-radius: 0; // wenn tabs rechts oder oben auskommentieren 
+    border-top-right-radius: 0; // wenn tabs rechts oder oben auskommentieren
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .location-title-shell {
-      @include mix.title_pill($bg-clr: vars.$text-alt-color);
+      @include mix.title_pill($bg-clr: vars.$primary-light-color);
       width: fit-content;
       max-width: 80%;
       padding: 10px;
-      margin-bottom: vars.$margin-site;
+      // margin-bottom: vars.$margin-site;
 
       h5 {
         font-size: vars.$font-size-page-text;
         font-weight: vars.$font-weight-page-title-main;
-        color: vars.$text-color;
+        color: vars.$text-alt-color;
       }
     }
 
@@ -288,11 +291,16 @@
       flex-direction: row;
       justify-content: space-between;
       gap: 1rem;
+      width: 100%;
+      min-width: 0;
 
       > div {
-        width: 50%;
+        width: 49%;
+        min-width: 0;
         display: flex;
+        flex-shrink: 1;
         flex-direction: column;
+        justify-content: flex-end;
         gap: vars.$spacing-md;
 
         > div {
@@ -409,17 +417,35 @@
         }
       }
 
+      .entrance-description {
+        @include mix.bold_shadow;
+        padding: vars.$spacing-sm;
+        background-color: vars.$text-alt-color;
+        margin: 0 6px 0 0;
+        width: calc(100% - 6px); // ← Berücksichtigt den rechten Margin (6px)
+        max-width: 100%; // ← Verhindert Überlauf
+        margin: 0; // ← Keine negativen Margins
+        box-sizing: border-box; // ← Padding wird in die Breite eingerechnet
+
+        p {
+          margin: 0;
+          font-size: vars.$font-size-page-figcaption;
+          color: vars.$text-color;
+          line-height: 1.2;
+        }
+      }
+
       .inclusiveAmenities {
-        order: 2;
+        // order: 2;
         @include mix.bold_shadow;
         padding: vars.$spacing-sm;
         background-color: vars.$text-alt-color;
         font-size: vars.$font-size-page-figcaption;
         color: vars.$text-color;
         margin: 0 6px 0 0;
-        height: 15%;
-        overflow-y: scroll;
-        margin-bottom: -17px;
+        height: fit-content;
+        // overflow-y: scroll;
+        // margin-bottom: -17px;
 
         .accessibility-list {
           // border: 2px solid brown;
@@ -447,7 +473,7 @@
         margin: 0 6px 0 8px;
 
         .entrance-picture {
-          height: 140px;
+          height: 180px;
           width: 100%;
           @include mix.bold_shadow;
           overflow: hidden;
@@ -457,26 +483,6 @@
             width: 100%;
             object-fit: cover;
             object-position: center;
-          }
-        }
-
-        .entrance-description {
-          @include mix.bold_shadow;
-          padding: vars.$spacing-sm;
-          background-color: vars.$text-alt-color;
-          color: vars.$text-color;
-          margin: -50px 6px 0 0;
-          width: fit-content;
-          max-width: 80%;
-          max-height: 20%;
-          overflow-y: overlay;
-          align-self: flex-start;
-
-          p {
-            margin: 0;
-            font-size: vars.$font-size-page-figcaption;
-            color: vars.$text-color;
-            line-height: 1.2;
           }
         }
       }
