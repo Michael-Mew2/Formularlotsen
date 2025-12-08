@@ -257,6 +257,7 @@
     height: 65vh;
     flex: 1;
     min-width: 0;
+    min-height: 0;
     width: auto;
     position: relative;
     z-index: 570;
@@ -269,9 +270,11 @@
     border-top-right-radius: 0; // wenn tabs rechts oder oben auskommentieren
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    overflow: hidden;
 
     .location-title-shell {
+      flex-shrink: 0;
       @include mix.title_pill($bg-clr: vars.$primary-light-color);
       width: fit-content;
       max-width: 80%;
@@ -286,7 +289,10 @@
     }
 
     .location-content {
-      height: fit-content;
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -300,7 +306,7 @@
         display: flex;
         flex-shrink: 1;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: center;
         gap: vars.$spacing-md;
 
         > div {
@@ -526,8 +532,14 @@
 @media screen and (max-width: vars.$breakpoint-md) {
   .location-dialog-content {
     flex-direction: column-reverse;
+    overflow: visible;
+    min-width: 0;
+    width: calc(100% - 6px);
+    height: 100%;
+    border: 2px solid green;
 
     .outer-tabs {
+      flex-shrink: 0;
       flex-direction: row; //wenn nebeneinander = auskommentieren!
       gap: 0; /* Kein Abstand zwischen den Tabs */
       padding: 0;
@@ -542,6 +554,7 @@
       top: 4px; // wenn tabs unten = top: -4 / wenn tabs oben = top: 4
       width: auto;
       max-width: 90%;
+      border: 2px solid red
     }
 
     .outer-tab {
@@ -581,23 +594,23 @@
     }
 
     .content-and-inner-tabs-container {
-      flex-direction: column-reverse; //wenn tabs nach oben = flex-direction: column-reverse, nach rechts = flex-direction: row
-      align-items: flex-start;
+      flex-grow: 1;
+      min-width: 0;
+      min-height: 0;
+      box-sizing: border-box;
+      flex-direction: column-reverse;
       padding: vars.$spacing-md;
-      background-color: vars.$warning;
-      @include mix.bold_shadow;
-      // border-bottom-left-radius: 0; // wenn tabs unten auskommentieren
-      // border-bottom-right-radius: 0; //wenn tabs unten auskommentieren
-      // border-top-left-radius: 0; // wenn tabs oben auskommentieren
-      // border-top-right-radius: 0; // wenn tabs rechts oder oben auskommentieren
-      z-index: 560;
-      width: 100%;
-      height: 100%;
+      width: calc(100% - 6px);
       overflow: hidden;
+      border-top-right-radius: vars.$border-radius-st;
+      @include mix.bold_shadow;
+      display: flex;
+      border: 2px solid lime;
 
       .inner-tabs {
+        flex-shrink: 0;
+        min-width: 0;
         flex-direction: row; // wenn nebeneinander = auskommentieren!
-        //flex-shrink: 1;
         width: auto;
         max-width: 90%;
         flex-wrap: nowrap;
@@ -605,8 +618,10 @@
         position: relative;
         left: 0;
         bottom: -4px;
+        border: 2px solid magenta;
 
         .inner-tab {
+          min-width: 0;
           border-left: vars.$border-width-st solid vars.$text-color; // wenn tabs rechts auskommentieren
           border-top-left-radius: vars.$border-radius-st;
           // border-top-left-radius: 0; // wenn tabs unten oder rechts auskommentieren
@@ -620,15 +635,77 @@
           &.react-tabs__tab--selected {
             position: relative;
 
-           &::after {
-            content: "";
-            position: absolute;
-            width: calc(100% + 11px);
-            height: 7px;
-            background-color: vars.$text-alt-color;
-            left: 0;
-            bottom: -7px;
-           }
+            &::after {
+              content: "";
+              position: absolute;
+              width: calc(100% + 11px);
+              height: 7px;
+              background-color: vars.$text-alt-color;
+              left: 0;
+              bottom: -7px;
+            }
+          }
+        }
+      }
+      .content-panel {
+        flex: 1;
+        min-width: 0;
+        min-height: 0;
+        align-items: center;
+        padding-top: 32px;
+        height: auto;
+        max-height: 100%;
+        border-top-right-radius: vars.$border-radius-st;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        border: 4px solid green;
+
+        .location-title-shell {
+          flex-shrink: 0;
+        }
+
+        .location-content {
+          flex: 1;
+          min-height: 0;
+          min-width: 0;
+          overflow-y: auto;
+          overflow-x: hidden;
+          flex-direction: column;
+          border: 2px solid red;
+
+          > div {
+            width: 100%;
+          }
+
+          .right-side {
+            flex-direction: column-reverse;
+            margin-bottom: 10px;
+          }
+
+          .map-container {
+            // display:none;
+
+            .address {
+            }
+
+            .map {
+            }
+          }
+
+          .times {
+          }
+
+          .entrance-description {
+           display: none;
+          }
+
+          .inclusiveAmenities {
+          // display: none;
+          }
+
+          .entrance {
+          // display: none;
           }
         }
       }

@@ -24,7 +24,8 @@
     z-index: 501;
 
     .dialog-inner-box {
-    
+      height: 100%;
+      // overflow: hidden;
 
       .close-button {
         @include mix.title_pill(
@@ -45,6 +46,23 @@
           background-color: vars.$secondary-light-color;
           color: vars.$highlight;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-md) {
+  .dialog-overlay {
+    .dialog-content-container {
+      display: flex;
+      flex-direction: column;
+      overflow: visible;
+
+      .dialog-inner-box {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        border: 2px solid grey;
       }
     }
   }
