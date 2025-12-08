@@ -158,7 +158,7 @@
     border-bottom-left-radius: 0; // wenn rechts oder oben auskommentieren
     // border-bottom-right-radius: 0; // wenn oben auskommentieren
     z-index: 550;
-    width: 111px;
+    // width: 111px;
 
     &:hover {
       background: vars.$primary-light-color;
@@ -496,6 +496,141 @@
 
       &:first-of-type {
         margin-top: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-sxl) {
+  .location-dialog-content {
+    .content-panel {
+      gap: vars.$spacing-md;
+      .location-content {
+        flex-direction: column;
+        overflow-y: scroll;
+        height: 100%;
+
+        > div {
+          width: 100%;
+        }
+
+        .right-side {
+          flex-direction: column-reverse;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-md) {
+  .location-dialog-content {
+    flex-direction: column-reverse;
+
+    .outer-tabs {
+      flex-direction: row; //wenn nebeneinander = auskommentieren!
+      gap: 0; /* Kein Abstand zwischen den Tabs */
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      // background: vars.$primary-color;
+      border-radius: 0; /* Keine abgerundeten Ecken */
+      // margin-top: vars.$spacing-md;
+      // border: 2px solid brown;
+      position: relative;
+      left: 16px;
+      top: 4px; // wenn tabs unten = top: -4 / wenn tabs oben = top: 4
+      width: auto;
+      max-width: 90%;
+    }
+
+    .outer-tab {
+      flex: 1;
+      padding: vars.$spacing-md vars.$spacing-10;
+      background: vars.$primary-color;
+      font-size: vars.$header-secondary-fs;
+      font-weight: vars.$primary-weight;
+      color: vars.$text-alt-color;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      @include mix.bold_shadow;
+      // border-top-left-radius: 0;
+      // border-top-right-radius: 0; // wenn unten auskommentieren
+      border-bottom-left-radius: 0; // wenn rechts oder oben auskommentieren
+      border-bottom-right-radius: 0; // wenn oben auskommentieren
+      z-index: 550;
+      max-width: 80px;
+
+      &.react-tabs__tab--selected {
+        position: relative;
+        // border-top: none; // wenn unten auskommentieren
+        border-bottom: none; // wenn oben auskommentieren
+        border-left: vars.$border-width-st solid vars.$text-color; // wenn rechts auskommentieren
+
+        &::after {
+          content: "";
+          width: calc(100% + 11px);
+          height: 7px;
+          background-color: vars.$warning;
+          position: absolute;
+          left: 0;
+          bottom: -7px;
+        }
+      }
+    }
+
+    .content-and-inner-tabs-container {
+      flex-direction: column-reverse; //wenn tabs nach oben = flex-direction: column-reverse, nach rechts = flex-direction: row
+      align-items: flex-start;
+      padding: vars.$spacing-md;
+      background-color: vars.$warning;
+      @include mix.bold_shadow;
+      // border-bottom-left-radius: 0; // wenn tabs unten auskommentieren
+      // border-bottom-right-radius: 0; //wenn tabs unten auskommentieren
+      // border-top-left-radius: 0; // wenn tabs oben auskommentieren
+      // border-top-right-radius: 0; // wenn tabs rechts oder oben auskommentieren
+      z-index: 560;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      .inner-tabs {
+        flex-direction: row; // wenn nebeneinander = auskommentieren!
+        //flex-shrink: 1;
+        width: auto;
+        max-width: 90%;
+        flex-wrap: nowrap;
+        border-bottom: none; /* Kein unterer Rand */
+        position: relative;
+        left: 0;
+        bottom: -4px;
+
+        .inner-tab {
+          border-left: vars.$border-width-st solid vars.$text-color; // wenn tabs rechts auskommentieren
+          border-top-left-radius: vars.$border-radius-st;
+          // border-top-left-radius: 0; // wenn tabs unten oder rechts auskommentieren
+          // border-top-right-radius: 0; // wenn tabs unten auskommentieren
+          border-bottom-left-radius: 0; // wenn tabs oben oder rechts auskommentieren
+          border-bottom-right-radius: 0; // wenn tabs oben auskommentieren
+          word-break: break-word;
+          max-width: 100%;
+          border-bottom: none;
+
+          &.react-tabs__tab--selected {
+            position: relative;
+
+           &::after {
+            content: "";
+            position: absolute;
+            width: calc(100% + 11px);
+            height: 7px;
+            background-color: vars.$text-alt-color;
+            left: 0;
+            bottom: -7px;
+           }
+          }
+        }
       }
     }
   }
