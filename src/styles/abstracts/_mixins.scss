@@ -70,3 +70,7 @@
     // $strg $strg 0 $clr, // bottom right
     $shdw-wth 0 $shdw-clr;
 }
+
+@mixin standard_width($shadow: 6px, $width: 100%) {
+  width: functions.calc-width-100($shadow, $width);
+}

@@ -15,10 +15,7 @@
   .innerBox {
     @include mix.bold_shadow;
     padding: var.$margin-site;
-    width: function.calculate-max-width(
-        $brdr-wdt: 4px,
-        $padding: var.$margin-site
-      );
+    @include mix.standard_width;
 
       .list-title {
       @include mix.title_pill;

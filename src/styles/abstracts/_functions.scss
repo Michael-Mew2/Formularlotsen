@@ -31,7 +31,16 @@
   $border: #{$brdr-wdt};
   $padd: #{$padding};
 
-  $max-width: calc($base-width - ($shadow + ($border * 2) + ($padd * 2)));
+  $max-width: calc($base-width - ($shadow + $border + ($padd * 2)));
+
+  @return $max-width;
+}
+
+@function calc-width-100(
+  $shadow: 6px,
+$width: 100%,
+) {
+  $max-width: calc($width - $shadow);
 
   @return $max-width;
 }
