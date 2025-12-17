@@ -507,13 +507,13 @@
   }
 }
 
-@media screen and (max-width: vars.$breakpoint-sxl) {
+@media screen and (max-width: vars.$breakpoint-hxl) {
   .location-dialog-content {
     .content-panel {
       gap: vars.$spacing-md;
       .location-content {
         flex-direction: column;
-        overflow-y: scroll;
+        // overflow-y: scroll;
         height: 100%;
 
         > div {
