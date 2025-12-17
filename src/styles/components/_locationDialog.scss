@@ -17,6 +17,7 @@
   width: 100%;
   //max-width: 800px;
   height: 100%;
+  overflow: hidden;
   // margin: vars.$margin-site 0;
   // border:6px solid grey;
 
@@ -258,6 +259,7 @@
     flex: 1;
     min-width: 0;
     min-height: 0;
+    height: 100%;
     width: auto;
     position: relative;
     z-index: 570;
@@ -554,7 +556,7 @@
       top: 4px; // wenn tabs unten = top: -4 / wenn tabs oben = top: 4
       width: auto;
       max-width: 90%;
-      border: 2px solid red
+      // border: 2px solid red
     }
 
     .outer-tab {
@@ -605,7 +607,7 @@
       border-top-right-radius: vars.$border-radius-st;
       @include mix.bold_shadow;
       display: flex;
-      border: 2px solid lime;
+      // border: 2px solid lime;
       margin-bottom: 6px;
 
       .inner-tabs {
@@ -619,7 +621,7 @@
         position: relative;
         left: 0;
         bottom: -4px;
-        border: 2px solid magenta;
+        // border: 2px solid magenta;
 
         .inner-tab {
           min-width: 0;
@@ -657,7 +659,8 @@
         height: auto;
         max-height: 100%;
         border-top-right-radius: vars.$border-radius-st;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: scroll;
         display: flex;
         flex-direction: column;
         border: 4px solid green;
@@ -670,7 +673,8 @@
           flex: 1;
           min-height: 0;
           min-width: 0;
-          overflow-y: auto;
+          height: fit-content;
+          overflow-y: visible;
           overflow-x: hidden;
           flex-direction: column;
           border: 2px solid red;
@@ -685,10 +689,10 @@
           }
 
           .map-container {
-            display:none;
+            // display:none;
 
             .address {
-              display: none;
+              // display: none;
             }
 
             .map {
@@ -697,19 +701,19 @@
           }
 
           .times {
-            display: none;
+            // display: none;
           }
 
           .entrance-description {
-           display: none;
+           // display: none;
           }
 
           .inclusiveAmenities {
-           display: none;
+           // display: none;
           }
 
           .entrance {
-          display: none;
+          // display: none;
           }
         }
       }

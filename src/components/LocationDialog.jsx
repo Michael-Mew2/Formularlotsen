@@ -16,6 +16,9 @@ export default function LocationDialog({ location }) {
 
   const { language } = useLanguageStore();
 
+  const toggleRef = React.useRef(null);
+  const outerContainerRef = React.useRef(null); 
+
   // Daten fetchen
   React.useEffect(() => {
     const fetchData = async () => {
@@ -40,6 +43,29 @@ export default function LocationDialog({ location }) {
 
     fetchData();
   }, [language]);
+
+  React.useEffect(() => {
+    const toggleBox = toggleRef.current;
+    const outerContainer = outerContainerRef.current;
+    
+    
+    if (toggleBox && outerContainer) {
+      const toggleBoxHeight = toggleBox.offsetHeight;
+      
+      const computedStyles = window.getComputedStyle(outerContainer);
+
+      const borderTop = parseFloat(computedStyles.borderTopWidth);
+      const borderBottom = parseFloat(computedStyles.borderBottomWidth);
+      
+      const totalOffset = toggleBoxHeight + borderTop + borderBottom;
+      
+      console.log("toggleHeight", toggleBoxHeight);
+      console.log("borderTop/Bottom", borderTop, borderBottom);
+      console.log("totalOffset", totalOffset);
+      
+      outerContainer.style.height = `calc(100% - ${totalOffset}px)`;
+    }
+  }, [data, tabMode]);
 
   // Standorte nach Stadtteilen Gruppieren
   const groupLocationsByBorough = (locations) => {
@@ -242,7 +268,7 @@ export default function LocationDialog({ location }) {
   return (
     <div className="location-dialog-content">
       {/* Switch-Button für Tab-Modi */}
-      <div className="toggle-switch-container">
+      <div className="toggle-switch-container" ref={toggleRef}>
         <span
           className={`toggle-label ${tabMode === "borough" ? "active" : ""}`}
           onClick={() => setTabMode("borough")}
@@ -271,7 +297,7 @@ export default function LocationDialog({ location }) {
       </div>
 
       {/* Container für Inhalt und innerer Tabs */}
-      <div className="content-and-inner-tabs-container">
+      <div className="content-and-inner-tabs-container" ref={outerContainerRef}>
         {/* Content des LocationDialogs */}
         <LocationDialogContent
           location={currentLocation}
