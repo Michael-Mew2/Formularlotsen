@@ -714,3 +714,173 @@
     }
   }
 }
+
+@media screen and (max-width: vars.$breakpoint-sm) {
+  .location-dialog-content {
+    .mobile-tab-dropdown {
+      display: flex;
+      flex-direction: row;
+      gap: 0;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      position: relative;
+      left: 16px;
+      border: 2px solid green;
+
+      &.outer {
+        top: 4px;
+        width: auto;
+        max-width: 90%;
+        flex-shrink: 0;
+        border: 2px solid lime;
+      }
+
+      .active-mobile-tab {
+         padding: vars.$spacing-sm vars.$spacing-sm;
+        background: vars.$text-alt-color;
+        font-size: vars.$header-secondary-fs;
+        font-weight: vars.$primary-weight;
+        color: vars.$text-color;
+        text-align: center;
+        @include mix.bold_shadow;
+        cursor: default;
+        z-index: 571;
+        position: relative;
+
+        // Border-Radius wie bei selected inner-tab (oben)
+        border-left: vars.$border-width-st solid vars.$text-color;
+        border-top-left-radius: vars.$border-radius-st;
+        border-top-right-radius: vars.$border-radius-st;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom: none;
+
+        // Der "Übergang" nach unten (wie bei selected tabs)
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 7px;
+          background-color: vars.$text-alt-color;
+          left: 0;
+          bottom: -7px;
+        }
+      }
+
+      // Dropdown-Toggle-Button (sieht aus wie normale Tabs)
+      .mobile-dropdown-toggle {
+        padding: vars.$spacing-md vars.$spacing-10;
+        background: vars.$primary-color;
+        font-size: vars.$header-secondary-fs;
+        font-weight: vars.$primary-weight;
+        color: vars.$text-alt-color;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: center;
+        @include mix.bold_shadow;
+        border: vars.$border-width-st solid vars.$text-color;
+        outline: none;
+        z-index: 555;
+        min-width: 50px;
+
+         // Border-Radius wie normale inner-tabs
+        border-top-left-radius: vars.$border-radius-st;
+        border-top-right-radius: vars.$border-radius-st;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+         // Hover wie normale Tabs
+        &:hover {
+          background: vars.$primary-light-color;
+        }
+      }
+
+      // Dropdown-Menü
+      .mobile-dropdown-menu {
+        display: flex;
+        flex-direction: column;
+        background-color: vars.$text-alt-color;
+        @include mix.bold_shadow;
+        overflow: hidden;
+        margin-top: -4px; // Verbindet sich mit dem Button
+        z-index: 560;
+        max-height: 300px;
+        overflow-y: auto;
+
+         // Border-Radius unten
+        border-bottom-left-radius: vars.$border-radius-st;
+        border-bottom-right-radius: vars.$border-radius-st;
+      }
+
+       // Einzelne Dropdown-Items
+      .mobile-dropdown-item {
+        padding: vars.$spacing-md vars.$spacing-10;
+        cursor: pointer;
+        border-bottom: vars.$border-width-st solid rgba(0, 0, 0, 0.1);
+        font-size: vars.$header-secondary-fs;
+        font-weight: vars.$primary-weight;
+        color: vars.$text-color;
+        transition: background-color 0.2s ease;
+        text-align: center;
+
+        // Letztes Item hat keinen unteren Border
+        &:last-child {
+          border-bottom: none;
+        }
+
+         // Hover-Effekt
+        &:hover {
+          background-color: rgba(vars.$primary-color, 0.1);
+        }
+      }
+    }
+
+    // Anpassungen für äußere Dropdown (Stadtteile/Tage)
+    .mobile-tab-dropdown.outer {
+      .active-mobile-tab {
+         // Border-Radius wie outer-tabs (selected)
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: vars.$border-radius-st;
+        border-top-right-radius: vars.$border-radius-st;
+        border-bottom: none;
+        background-color: vars.$warning;
+
+        &::after {
+          background-color: vars.$warning;
+          bottom: -6px;
+          width: calc(100% + 11px);
+        }
+      }
+
+      .mobile-dropdown-toggle {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: vars.$border-radius-st;
+        border-top-right-radius: vars.$border-radius-st;
+        border-top: vars.$border-width-st solid vars.$text-color;
+        border-left: vars.$border-width-st solid vars.$text-color;
+      }
+
+      .mobile-dropdown-menu {
+        margin-top: 0;
+        margin-bottom: -4px;
+        border-top-left-radius: vars.$border-radius-st;
+        border-top-right-radius: vars.$border-radius-st;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+     // Toggle-Switch Icons anpassen
+    .toggle-switch-container {
+      .toggle-label {
+        // Icons sollten etwas größer sein für Touch-Targets
+        svg {
+          font-size: calc(vars.$header-main-fs * 1.2);
+        }
+      }
+    }
+  }
+}

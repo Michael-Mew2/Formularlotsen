@@ -409,7 +409,11 @@ export default function LocationDialog({ location }) {
           // MOBILE VERSION mit Dropdown
           <div className="mobile-tab-dropdown">
             <div className="active-mobile-tab">
-              {locationsByDay[Object.keys(locationsByDay)[dayTabIndex]][timeTabIndex].timeRange}
+              {
+                locationsByDay[Object.keys(locationsByDay)[dayTabIndex]][
+                  timeTabIndex
+                ].timeRange
+              }
             </div>
 
             {locationsByDay[Object.keys(locationsByDay)[dayTabIndex]].length >
@@ -471,31 +475,121 @@ export default function LocationDialog({ location }) {
 
       {/* Äuere Tabs: Stadtteile/Tage - Unten */}
       {tabMode === "borough" ? (
-        /* Tabs nach Stadtteilen und Standorten: */
-        <Tabs
-          selectedIndex={boroughTabIndex}
-          onSelect={(index) => {
-            setBoroughTabIndex(index);
-            setLocationTabIndex(0);
-            // Ersetzt (wird dank useEffect nicht mehr benötigt)
-            /* setBoroughTabIndex(index);
+        isMobile ? (
+          // MOBILE VERSION
+          <div className="mobile-tab-dropdown outer">
+            <div className="active-mobile-tab">
+              {Object.keys(locationsByBorough)[boroughTabIndex]}
+            </div>
+
+            {Object.keys(locationsByBorough).length > 1 && (
+              <>
+                <button
+                  className="mobile-dropdown-toggle"
+                  onClick={() =>
+                    setIsOuterDropdownOpen(!isOuterDropdownOpen)
+                  }
+                >
+                  ...
+                </button>
+
+                {isOuterDropdownOpen && (
+                  <div className="mobile-dropdown-menu">
+                    {Object.keys(locationsByBorough).map((borough, index) => {
+                      // aktiven Tab überspringen
+                      if (index === boroughTabIndex) return null;
+
+                      return (
+                        <div
+                          key={index}
+                          className="mobile-dropdown-item"
+                          onClick={() => {
+                            setBoroughTabIndex(index);
+                            setLocationTabIndex(0);
+                            setIsOuterDropdownOpen(false);
+                          }}
+                        >
+                          {borough}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+        ) : (
+          // DESKTOP VERSION
+          /* Tabs nach Stadtteilen und Standorten: */
+          <Tabs
+            selectedIndex={boroughTabIndex}
+            onSelect={(index) => {
+              setBoroughTabIndex(index);
+              setLocationTabIndex(0);
+              // Ersetzt (wird dank useEffect nicht mehr benötigt)
+              /* setBoroughTabIndex(index);
             const boroughs = Object.keys(locationsByBorough);
             const selectedBorough = boroughs[index];
             const firstLocation = locationsByBorough[selectedBorough][0];
             setSelectedLocation(firstLocation); */
-          }}
-        >
-          {/* Äußere Tabs: Stadtteile */}
-          <TabList className="outer-tabs">
-            {Object.keys(locationsByBorough).map((borough, index) => (
-              <Tab key={index} className="outer-tab">
-                {borough}
-              </Tab>
-            ))}
-          </TabList>
-        </Tabs>
+            }}
+          >
+            {/* Äußere Tabs: Stadtteile */}
+            <TabList className="outer-tabs">
+              {Object.keys(locationsByBorough).map((borough, index) => (
+                <Tab key={index} className="outer-tab">
+                  {borough}
+                </Tab>
+              ))}
+            </TabList>
+          </Tabs>
+        )
+      ) : /* Tabs nach Tagen und Uhrzeiten: */
+      /* Äußere Tabs: Tage - Unten */
+
+      isMobile ? (
+        // MOBILE VERSION
+        <div className="mobile-tab-dropdown outer">
+          <div className="active-mobile-tab">
+            {Object.keys(locationsByDay)[dayTabIndex]}
+          </div>
+
+          {Object.keys(locationsByDay).length > 1 && (
+            <>
+              <button
+                className="mobile-dropdown-toggle"
+                onClick={() => setIsOuterDropdownOpen(!isOuterDropdownOpen)}
+              >
+                ...
+              </button>
+
+              {isOuterDropdownOpen && (
+                <div className="mobile-dropdown-menu">
+                  {Object.keys(locationsByDay).map((day, index) => {
+                    // aktiven Tab überspringen
+                    if (index === dayTabIndex) return null;
+
+                    return (
+                      <div
+                        key={index}
+                        className="mobile-dropdown-item"
+                        onClick={() => {
+                          setDayTabIndex(index);
+                          setTimeTabIndex(0);
+                          setIsOuterDropdownOpen(false);
+                        }}
+                      >
+                        {day}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </>
+          )}
+        </div>
       ) : (
-        /* Tabs nach Tagen und Uhrzeiten: */
+        // DESKTOP VERSION
         <Tabs
           selectedIndex={dayTabIndex}
           onSelect={(index) => {
@@ -503,7 +597,6 @@ export default function LocationDialog({ location }) {
             setTimeTabIndex(0);
           }}
         >
-          {/* Äußere Tabs: Tage - Unten */}
           <TabList className="outer-tabs">
             {Object.keys(locationsByDay).map((day, index) => (
               <Tab key={index} className="outer-tab">
