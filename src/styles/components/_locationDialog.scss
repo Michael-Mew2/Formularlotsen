@@ -274,6 +274,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     overflow: hidden;
+    gap: 1rem;
 
     .location-title-shell {
       flex-shrink: 0;
@@ -305,11 +306,13 @@
       > div {
         width: 49%;
         min-width: 0;
+        height: 100%;
         display: flex;
         flex-shrink: 1;
         flex-direction: column;
         justify-content: center;
         gap: vars.$spacing-md;
+        margin: 45px 0;
 
         > div {
           position: relative;
@@ -522,9 +525,15 @@
           width: 100%;
         }
 
+        .left-side {
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+
         .right-side {
           flex-direction: column-reverse;
-          margin-bottom: 10px;
+          margin-top: 20px;
+          margin-bottom: 50px;
         }
       }
     }
@@ -536,8 +545,8 @@
     flex-direction: column-reverse;
     overflow: visible;
     min-width: 0;
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 6px);
+    height: calc(100% - 25px);
     // border: 2px solid green;
 
     .outer-tabs {
@@ -575,7 +584,7 @@
       border-bottom-left-radius: 0; // wenn rechts oder oben auskommentieren
       border-bottom-right-radius: 0; // wenn oben auskommentieren
       z-index: 550;
-      max-width: 80px;
+      max-width: 110px;
 
       &.react-tabs__tab--selected {
         position: relative;
@@ -603,7 +612,8 @@
       flex-direction: column-reverse;
       padding: vars.$spacing-md;
       width: 100%;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: scroll;
       border-top-right-radius: vars.$border-radius-st;
       @include mix.bold_shadow;
       display: flex;
@@ -653,14 +663,14 @@
       .content-panel {
         min-width: 0;
         min-height: 0;
-        flex: 1;
+        // flex: 1;
         align-items: center;
         padding-top: 32px;
         height: auto;
-        max-height: 100%;
+        max-height: none;
         border-top-right-radius: vars.$border-radius-st;
         overflow-x: hidden;
-        overflow-y: scroll;
+        overflow-y: visible;
         display: flex;
         flex-direction: column;
         border: 4px solid green;
@@ -670,10 +680,10 @@
         }
 
         .location-content {
-          flex: 1;
+          // flex: 1;
           min-height: 0;
           min-width: 0;
-          height: fit-content;
+          height: auto;
           overflow-y: visible;
           overflow-x: hidden;
           flex-direction: column;
