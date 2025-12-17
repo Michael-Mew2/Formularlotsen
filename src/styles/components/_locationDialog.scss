@@ -299,7 +299,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 2rem;
       width: 100%;
       min-width: 0;
 
@@ -526,14 +526,21 @@
         }
 
         .left-side {
-          margin-top: 40px;
-          margin-bottom: 50px;
+          margin-top: 90px;
+          margin-bottom: 68px;
         }
 
         .right-side {
           flex-direction: column-reverse;
-          margin-top: 50px;
-          margin-bottom: 60px;
+          margin-top: 68px;
+          margin-bottom: 70px;
+        }
+        .map-container {
+          margin-left: 0;
+        }
+
+        .entrance {
+          margin-left: 0;
         }
       }
     }
@@ -687,6 +694,7 @@
           overflow-y: visible;
           overflow-x: hidden;
           flex-direction: column;
+          gap: 1rem;
           // border: 2px solid red;
           justify-content: flex-start;
 
