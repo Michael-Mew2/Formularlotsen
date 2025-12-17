@@ -2,6 +2,7 @@ import * as React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { useLanguageStore } from "../store";
 import LocationDialogContent from "./LocationDialogContent";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function LocationDialog({ location }) {
   const [data, setData] = React.useState(null);
@@ -13,11 +14,28 @@ export default function LocationDialog({ location }) {
   const [locationTabIndex, setLocationTabIndex] = React.useState(0);
   const [dayTabIndex, setDayTabIndex] = React.useState(0);
   const [timeTabIndex, setTimeTabIndex] = React.useState(0);
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 580); // Größe des Fensters abfragen
+
+  const [isInnerDropdownOpen, setIsInnerDropdownOpen] = React.useState(false);
+  const [isOuterDropdownOpen, setIsOuterDropdownOpen] = React.useState(false);
 
   const { language } = useLanguageStore();
 
   const toggleRef = React.useRef(null);
-  const outerContainerRef = React.useRef(null); 
+  const outerContainerRef = React.useRef(null);
+
+  // Reaktion auf Änderungen der Fenstergröße
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 580);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   // Daten fetchen
   React.useEffect(() => {
@@ -47,22 +65,21 @@ export default function LocationDialog({ location }) {
   React.useEffect(() => {
     const toggleBox = toggleRef.current;
     const outerContainer = outerContainerRef.current;
-    
-    
+
     if (toggleBox && outerContainer) {
       const toggleBoxHeight = toggleBox.offsetHeight;
-      
+
       const computedStyles = window.getComputedStyle(outerContainer);
 
       const borderTop = parseFloat(computedStyles.borderTopWidth);
       const borderBottom = parseFloat(computedStyles.borderBottomWidth);
-      
+
       const totalOffset = toggleBoxHeight + borderTop + borderBottom;
-      
+
       console.log("toggleHeight", toggleBoxHeight);
       console.log("borderTop/Bottom", borderTop, borderBottom);
       console.log("totalOffset", totalOffset);
-      
+
       outerContainer.style.height = `calc(100% - ${totalOffset}px)`;
     }
   }, [data, tabMode]);
@@ -201,7 +218,9 @@ export default function LocationDialog({ location }) {
     if (!data?.locationData?.variables.accessibility) return [];
 
     return Object.entries(data.locationData.variables.accessibility)
-      .filter(([__, accessibility]) => accessibilityIds.includes(accessibility.id))
+      .filter(([__, accessibility]) =>
+        accessibilityIds.includes(accessibility.id)
+      )
       .map(([_, accessibility]) => ({
         icon: accessibility.icon,
         description: accessibility.descriptionShort,
@@ -273,7 +292,11 @@ export default function LocationDialog({ location }) {
           className={`toggle-label ${tabMode === "borough" ? "active" : ""}`}
           onClick={() => setTabMode("borough")}
         >
-          Nach Stadtteilen
+          {isMobile ? (
+            <FontAwesomeIcon icon="fa-solid fa-map" />
+          ) : (
+            "Nach Stadtteilen"
+          )}
         </span>
 
         <div className="toggle-switch">
@@ -292,7 +315,11 @@ export default function LocationDialog({ location }) {
           className={`toggle-label ${tabMode === "schedule" ? "active" : ""}`}
           onClick={() => setTabMode("schedule")}
         >
-          Nach Tagen
+          {isMobile ? (
+            <FontAwesomeIcon icon="fa-solid fa-clock" />
+          ) : (
+            "Nach Tagen"
+          )}
         </span>
       </div>
 
@@ -308,24 +335,121 @@ export default function LocationDialog({ location }) {
 
         {tabMode === "borough" ? (
           /* Innere Tabs: Standorte pro Stadtteil - MITTE */
-          <Tabs
-            selectedIndex={locationTabIndex}
-            onSelect={(tabIndex) => {
-              setLocationTabIndex(tabIndex);
-            }}
-          >
-            <TabList className="inner-tabs">
+          isMobile ? (
+            // MOBILE VERSION mit Dropdown
+            <div className="mobile-tab-dropdown">
+              {/* Aktiver Tab immer sichtbar */}
+              <div className="active-mobile-tab">
+                {
+                  locationsByBorough[
+                    Object.entries(locationsByBorough)[boroughTabIndex][0]
+                  ][locationTabIndex].location
+                }
+              </div>
+
+              {/* Dropdown-Button für weitere Tabs */}
               {locationsByBorough[
                 Object.entries(locationsByBorough)[boroughTabIndex][0]
-              ].map((loc, locIndex) => (
-                <Tab key={locIndex} className="inner-tab">
-                  {loc.location}
-                </Tab>
-              ))}
-            </TabList>
-          </Tabs>
+              ].length > 1 && (
+                <>
+                  <button
+                    className="mobile-dropdown-toggle"
+                    onClick={() => setIsInnerDropdownOpen(!isInnerDropdownOpen)}
+                  >
+                    ...
+                  </button>
+
+                  {isInnerDropdownOpen && (
+                    <div className="mobile-dropdown-menu">
+                      {locationsByBorough[
+                        Object.entries(locationsByBorough)[boroughTabIndex][0]
+                      ].map((loc, locIndex) => {
+                        // aktiven Tab überspringen
+                        if (locIndex === locationTabIndex) return null;
+
+                        return (
+                          <div
+                            key={locIndex}
+                            className="mobile-dropdown-item"
+                            onClick={() => {
+                              setLocationTabIndex(locIndex);
+                              setIsInnerDropdownOpen(false);
+                            }}
+                          >
+                            {loc.location}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+          ) : (
+            // DESKTOP VERSION
+            <Tabs
+              selectedIndex={locationTabIndex}
+              onSelect={(tabIndex) => {
+                setLocationTabIndex(tabIndex);
+              }}
+            >
+              <TabList className="inner-tabs">
+                {locationsByBorough[
+                  Object.entries(locationsByBorough)[boroughTabIndex][0]
+                ].map((loc, locIndex) => (
+                  <Tab key={locIndex} className="inner-tab">
+                    {loc.location}
+                  </Tab>
+                ))}
+              </TabList>
+            </Tabs>
+          )
+        ) : /* Innere Tabs: Uhrzeiten - MITTE */
+        isMobile ? (
+          // MOBILE VERSION mit Dropdown
+          <div className="mobile-tab-dropdown">
+            <div className="active-mobile-tab">
+              {locationsByDay[Object.keys(locationsByDay)[dayTabIndex]][timeTabIndex].timeRange}
+            </div>
+
+            {locationsByDay[Object.keys(locationsByDay)[dayTabIndex]].length >
+              1 && (
+              <>
+                <button
+                  className="mobile-dropdown-toggle"
+                  onClick={() => setIsInnerDropdownOpen(!isInnerDropdownOpen)}
+                >
+                  ...
+                </button>
+
+                {isInnerDropdownOpen && (
+                  <div className="mobile-dropdown-menu">
+                    {locationsByDay[
+                      Object.keys(locationsByDay)[dayTabIndex]
+                    ].map((loc, locIndex) => {
+                      // aktiven Tab überspringen
+                      if (locIndex === timeTabIndex) return null;
+
+                      return (
+                        <div
+                          key={locIndex}
+                          className="mobile-dropdown-item"
+                          onClick={() => {
+                            setTimeTabIndex(locIndex);
+                            setIsInnerDropdownOpen(false);
+                          }}
+                        >
+                          {loc.timeRange}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </>
+            )}
+          </div>
         ) : (
-          /* Innere Tabs: Uhrzeiten - MITTE */
+          // DESKTOP VERSION
           <Tabs
             selectedIndex={timeTabIndex}
             onSelect={(tabIndex) => {
