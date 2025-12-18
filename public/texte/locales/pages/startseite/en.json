@@ -2,7 +2,8 @@
   "startseite": {
     "meta": {
       "title": "Welcome to the Bremerhaven Form Helpers (Bremerhavener Formularlotsen)",
-      "content": "We help you fill out your forms, completely free of charge!"
+      "content": "We help you fill out your forms, completely free of charge!",
+      "language": "en"
     },
     "hero": {
       "heroPicture": "images/heroImages/AdobeStock_548190067.jpeg",
