@@ -78,7 +78,7 @@ export default function LocationDialogContent({
       {/* Inhalt  */}
       <div className="location-content">
         {/* Linke Seite */}
-        <div className="left-side" style={{order: "2"}}>
+        <div className="left-side" style={{ order: "1" }}>
           {/* Karte mit Adresse */}
           <div className="map-container">
             <div className="address">
@@ -88,7 +88,7 @@ export default function LocationDialogContent({
             <div
               className="map"
               style={{
-                height: "120px",
+                height: "150px",
                 width: "100%",
               }}
               onClick={handleOpenMap}
@@ -154,10 +154,15 @@ export default function LocationDialogContent({
                 "Keine Informationen verfügbar"}
             </p>
           </div> */}
+          {location.entrance.entranceDescription && (
+            <div className="entrance-description">
+              <p>{location.entrance.entranceDescription}</p>
+            </div>
+          )}
         </div>
 
         {/* Rechte Seite */}
-        <div className="right-side" style={{order: "0"}}>
+        <div className="right-side" style={{ order: "2" }}>
           {/* Inklusive Annehmlichkeiten */}
           <div className="inclusiveAmenities">
             {location.accessibilityIds &&
@@ -191,11 +196,6 @@ export default function LocationDialogContent({
                 alt="entrancePicture"
               />
             </div>
-            {/* {location.entrance.entranceDescription && (
-              <div className="entrance-description">
-                <p>{location.entrance.entranceDescription}</p>
-              </div>
-            )} */}
           </div>
 
           {/* In Google/apple-Maps speichern */}

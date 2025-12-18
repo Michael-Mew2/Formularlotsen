@@ -13,30 +13,32 @@
 // ===== Dialog Container =====
 .location-dialog-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; // wenn tabs unten = flex-direction: column / wenn tabs oben = flex-direction: column-reverse
   width: 100%;
-  max-width: 800px;
+  //max-width: 800px;
   height: 100%;
+  overflow: hidden;
   // margin: vars.$margin-site 0;
+  // border:6px solid grey;
 
   // Moderner Toggle-Switch
   .toggle-switch-container {
     @include mix.title_pill(
-          $bg-clr: vars.$secondary-light-color,
-          $tx-clr: vars.$text-alt-color
-        );
+      $bg-clr: vars.$text-alt-color,
+      $tx-clr: vars.$text-alt-color
+    );
     padding: vars.$margin-xs;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: vars.$spacing-md;
-    
+
     position: absolute;
     top: 0;
     left: vars.$margin-site;
     transform: translateY(-50%);
     z-index: 502;
-   /*  @include mix.bold_shadow(
+    /*  @include mix.bold_shadow(
       vars.$border-radius-st,
       vars.$text-color,
       vars.$shadow-size-sm
@@ -50,7 +52,7 @@
       opacity: 0.7;
 
       &.active {
-        color: vars.$highlight;
+        color: vars.$primary-color;
         // font-weight: 700;
         opacity: 1;
         // text-decoration: underline;
@@ -128,6 +130,7 @@
   // Äußere Tabs (Stadtteile/Tage) - UNTEN
   .outer-tabs {
     display: flex;
+    flex-direction: column-reverse; //wenn nebeneinander = auskommentieren!
     gap: 0; /* Kein Abstand zwischen den Tabs */
     padding: 0;
     margin: 0;
@@ -137,12 +140,12 @@
     // margin-top: vars.$spacing-md;
     // border: 2px solid brown;
     position: relative;
-    top: -4px;
+    left: -4px; // wenn tabs unten = top: -4 / wenn tabs oben = top: 4
   }
 
   .outer-tab {
     flex: 1;
-    padding: vars.$spacing-10;
+    padding: vars.$spacing-md vars.$spacing-10;
     background: vars.$primary-color;
     font-size: vars.$header-secondary-fs;
     font-weight: vars.$primary-weight;
@@ -152,8 +155,11 @@
     text-align: center;
     @include mix.bold_shadow;
     border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    // border-top-right-radius: 0; // wenn unten auskommentieren
+    border-bottom-left-radius: 0; // wenn rechts oder oben auskommentieren
+    // border-bottom-right-radius: 0; // wenn oben auskommentieren
     z-index: 550;
+    // width: 111px;
 
     &:hover {
       background: vars.$primary-light-color;
@@ -163,17 +169,27 @@
       background: vars.$warning;
       color: vars.$text-color;
       z-index: 561;
-      border-top: none;
+      // border-top: none; // wenn unten auskommentieren
+      // border-bottom: none; // wenn oben auskommentieren
+      border-left: none; // wenn rechts auskommentieren
     }
   }
 
   .content-and-inner-tabs-container {
+    display: flex; // auskommentieren wenn tabs unten
+    flex-direction: row; //wenn tabs nach oben = flex-direction: column-reverse, nach rechts = flex-direction: row
+    align-items: flex-start;
     padding: vars.$spacing-md;
     background-color: vars.$warning;
     @include mix.bold_shadow;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    // border-bottom-left-radius: 0; // wenn tabs unten auskommentieren
+    // border-bottom-right-radius: 0; //wenn tabs unten auskommentieren
+    // border-top-left-radius: 0; // wenn tabs oben auskommentieren
+    border-top-right-radius: 0; // wenn tabs rechts oder oben auskommentieren
     z-index: 560;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 
     // Container für innere Tabs
     .react-tabs__tab-panel {
@@ -191,6 +207,10 @@
     // Innere Tabs (Standorte/Uhrzeiten)
     .inner-tabs {
       display: flex;
+      flex-direction: column; // wenn nebeneinander = auskommentieren!
+      //flex-shrink: 1;
+      width: 90px;
+      flex-shrink: 0;
       gap: 0; /* Kein Abstand zwischen den Tabs */
       padding: 0;
       margin: 0;
@@ -198,31 +218,36 @@
       flex-wrap: wrap;
       border-bottom: none; /* Kein unterer Rand */
       position: relative;
-      top: -4px;
+      left: -4px; // wenn tabs unten = top: -4 / wenn tabs oben = top: 4
     }
 
     .inner-tab {
       z-index: 565;
-      flex: 1;
       padding: vars.$spacing-10;
-      background-color: vars.$secondary-color;
+      background-color: vars.$primary-color;
       cursor: pointer;
       transition: all 0.2s ease;
       font-size: vars.$header-secondary-fs;
       font-weight: vars.$primary-weight;
-      color: vars.$text-color;
+      color: vars.$text-alt-color;
       @include mix.bold_shadow;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+      border-top-left-radius: 0; // wenn tabs unten oder rechts auskommentieren
+      // border-top-right-radius: 0; // wenn tabs unten auskommentieren
+      border-bottom-left-radius: 0; // wenn tabs oben oder rechts auskommentieren
+      // border-bottom-right-radius: 0; // wenn tabs oben auskommentieren
+      word-break: break-word;
+      max-width: 100%;
 
       &:hover {
-        background: vars.$secondary-light-color;
+        background: vars.$primary-light-color;
       }
 
       &.react-tabs__tab--selected {
-        // color: vars.$text-alt-color;
-        background-color: vars.$highlight;
-        border-top: none;
+        color: vars.$text-color;
+        background-color: vars.$text-alt-color;
+        // border-top: none; // wenn tabs unten auskommentieren
+        // border-bottom: none; // wenn tabs oben auskommentieren
+        border-left: none; // wenn tabs rechts auskommentieren
         z-index: 571;
       }
     }
@@ -230,40 +255,65 @@
 
   // ===== Content Panel (Details) =====
   .content-panel {
+    // height: 65vh;
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    width: auto;
     position: relative;
     z-index: 570;
     padding: vars.$spacing-md;
-    background-color: vars.$highlight;
+    background-color: vars.$text-alt-color;
     @include mix.bold_shadow;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    // border-bottom-left-radius: 0; // wenn tabs unten auskommentieren
+    // border-bottom-right-radius: 0; // wenn tabs unten auskommentieren
+    // border-top-left-radius: 0; // wenn tabs oben auskommentieren
+    border-top-right-radius: 0; // wenn tabs rechts oder oben auskommentieren
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow: hidden;
+    gap: 1rem;
 
     .location-title-shell {
-      @include mix.title_pill($bg-clr: vars.$text-alt-color);
+      flex-shrink: 0;
+      @include mix.title_pill($bg-clr: vars.$primary-light-color);
       width: fit-content;
       max-width: 80%;
       padding: 10px;
-      margin-bottom: vars.$margin-site;
+      text-align: center;
+      // margin-bottom: vars.$margin-site;
 
       h5 {
         font-size: vars.$font-size-page-text;
         font-weight: vars.$font-weight-page-title-main;
-        color: vars.$text-color;
+        color: vars.$text-alt-color;
       }
     }
 
     .location-content {
-      height: fit-content;
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 2rem;
+      width: 100%;
+      min-width: 0;
 
       > div {
-        width: 50%;
+        width: 49%;
+        min-width: 0;
+        height: 100%;
         display: flex;
+        flex-shrink: 1;
         flex-direction: column;
+        justify-content: center;
         gap: vars.$spacing-md;
+        margin: 45px 0;
 
         > div {
           position: relative;
@@ -379,17 +429,35 @@
         }
       }
 
+      .entrance-description {
+        @include mix.bold_shadow;
+        padding: vars.$spacing-sm;
+        background-color: vars.$text-alt-color;
+        margin: 0 6px 0 0;
+        width: calc(100% - 6px); // ← Berücksichtigt den rechten Margin (6px)
+        max-width: 100%; // ← Verhindert Überlauf
+        margin: 0; // ← Keine negativen Margins
+        box-sizing: border-box; // ← Padding wird in die Breite eingerechnet
+
+        p {
+          margin: 0;
+          font-size: vars.$font-size-page-figcaption;
+          color: vars.$text-color;
+          line-height: 1.2;
+        }
+      }
+
       .inclusiveAmenities {
-        order: 2;
+        // order: 2;
         @include mix.bold_shadow;
         padding: vars.$spacing-sm;
         background-color: vars.$text-alt-color;
         font-size: vars.$font-size-page-figcaption;
         color: vars.$text-color;
         margin: 0 6px 0 0;
-        height: 15%;
-        overflow-y: scroll;
-        margin-bottom: -17px;
+        height: fit-content;
+        // overflow-y: scroll;
+        // margin-bottom: -17px;
 
         .accessibility-list {
           // border: 2px solid brown;
@@ -417,7 +485,7 @@
         margin: 0 6px 0 8px;
 
         .entrance-picture {
-          height: 140px;
+          height: 180px;
           width: 100%;
           @include mix.bold_shadow;
           overflow: hidden;
@@ -427,26 +495,6 @@
             width: 100%;
             object-fit: cover;
             object-position: center;
-          }
-        }
-
-        .entrance-description {
-          @include mix.bold_shadow;
-          padding: vars.$spacing-sm;
-          background-color: vars.$text-alt-color;
-          color: vars.$text-color;
-          margin: -50px 6px 0 0;
-          width: fit-content;
-          max-width: 80%;
-          max-height: 20%;
-          overflow-y: overlay;
-          align-self: flex-start;
-
-          p {
-            margin: 0;
-            font-size: vars.$font-size-page-figcaption;
-            color: vars.$text-color;
-            line-height: 1.2;
           }
         }
       }
@@ -460,6 +508,415 @@
 
       &:first-of-type {
         margin-top: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-hxl) {
+  .location-dialog-content {
+    .content-panel {
+      gap: vars.$spacing-md;
+      .location-content {
+        flex-direction: column;
+        // overflow-y: scroll;
+        height: 100%;
+
+        > div {
+          width: 100%;
+        }
+
+        .left-side {
+          margin-top: 90px;
+          margin-bottom: 68px;
+        }
+
+        .right-side {
+          flex-direction: column-reverse;
+          margin-top: 68px;
+          margin-bottom: 70px;
+        }
+        .map-container {
+          margin-left: 0;
+        }
+
+        .entrance {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-md) {
+  .location-dialog-content {
+    flex-direction: column-reverse;
+    overflow: visible;
+    min-width: 0;
+    width: calc(100% - 6px);
+    height: calc(100% - 25px);
+    // border: 2px solid green;
+
+    .outer-tabs {
+      flex-shrink: 0;
+      flex-direction: row; //wenn nebeneinander = auskommentieren!
+      gap: 0; /* Kein Abstand zwischen den Tabs */
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      // background: vars.$primary-color;
+      border-radius: 0; /* Keine abgerundeten Ecken */
+      // margin-top: vars.$spacing-md;
+      // border: 2px solid brown;
+      position: relative;
+      left: 16px;
+      top: 4px; // wenn tabs unten = top: -4 / wenn tabs oben = top: 4
+      width: auto;
+      max-width: 90%;
+      // border: 2px solid red
+    }
+
+    .outer-tab {
+      flex: 1;
+      padding: vars.$spacing-md vars.$spacing-10;
+      background: vars.$primary-color;
+      font-size: vars.$header-secondary-fs;
+      font-weight: vars.$primary-weight;
+      color: vars.$text-alt-color;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      @include mix.bold_shadow;
+      // border-top-left-radius: 0;
+      // border-top-right-radius: 0; // wenn unten auskommentieren
+      border-bottom-left-radius: 0; // wenn rechts oder oben auskommentieren
+      border-bottom-right-radius: 0; // wenn oben auskommentieren
+      z-index: 550;
+      max-width: 110px;
+
+      &.react-tabs__tab--selected {
+        position: relative;
+        // border-top: none; // wenn unten auskommentieren
+        border-bottom: none; // wenn oben auskommentieren
+        border-left: vars.$border-width-st solid vars.$text-color; // wenn rechts auskommentieren
+
+        &::after {
+          content: "";
+          width: calc(100% + 11px);
+          height: 7px;
+          background-color: vars.$warning;
+          position: absolute;
+          left: 0;
+          bottom: -7px;
+        }
+      }
+    }
+
+    .content-and-inner-tabs-container {
+      flex-grow: 1;
+      min-width: 0;
+      min-height: 0;
+      box-sizing: border-box;
+      flex-direction: column-reverse;
+      padding: vars.$spacing-md;
+      width: 100%;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      border-top-right-radius: vars.$border-radius-st;
+      @include mix.bold_shadow;
+      display: flex;
+      // border: 2px solid lime;
+      margin-bottom: 6px;
+
+      .inner-tabs {
+        flex-shrink: 0;
+        min-width: 0;
+        flex-direction: row; // wenn nebeneinander = auskommentieren!
+        width: auto;
+        max-width: 90%;
+        flex-wrap: nowrap;
+        border-bottom: none; /* Kein unterer Rand */
+        position: relative;
+        left: 0;
+        bottom: -4px;
+        // border: 2px solid magenta;
+
+        .inner-tab {
+          min-width: 0;
+          border-left: vars.$border-width-st solid vars.$text-color; // wenn tabs rechts auskommentieren
+          border-top-left-radius: vars.$border-radius-st;
+          // border-top-left-radius: 0; // wenn tabs unten oder rechts auskommentieren
+          // border-top-right-radius: 0; // wenn tabs unten auskommentieren
+          border-bottom-left-radius: 0; // wenn tabs oben oder rechts auskommentieren
+          border-bottom-right-radius: 0; // wenn tabs oben auskommentieren
+          word-break: break-word;
+          max-width: 100%;
+          border-bottom: none;
+
+          &.react-tabs__tab--selected {
+            position: relative;
+
+            &::after {
+              content: "";
+              position: absolute;
+              width: calc(100% + 11px);
+              height: 7px;
+              background-color: vars.$text-alt-color;
+              left: 0;
+              bottom: -7px;
+            }
+          }
+        }
+      }
+      .content-panel {
+        min-width: 0;
+        min-height: 800px;
+        // flex: 1;
+        align-items: center;
+        padding-top: 32px;
+        height: auto;
+        max-height: none;
+        border-top-right-radius: vars.$border-radius-st;
+        overflow-x: hidden;
+        overflow-y: visible;
+        display: flex;
+        flex-direction: column;
+        // border: 4px solid green;
+
+        .location-title-shell {
+          flex-shrink: 0;
+        }
+
+        .location-content {
+          // flex: 1;
+          min-height: 0;
+          min-width: 0;
+          height: auto;
+          overflow-y: visible;
+          overflow-x: hidden;
+          flex-direction: column;
+          gap: 1rem;
+          // border: 2px solid red;
+          justify-content: flex-start;
+
+          > div {
+            width: 100%;
+            margin: 0;
+            justify-content: flex-start;
+            height: fit-content;
+          }
+
+          .right-side {
+            flex-direction: column-reverse;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-sm) {
+  .location-dialog-content {
+    .content-and-inner-tabs-container {
+      padding: vars.$spacing-md vars.$spacing-sm;
+    }
+
+    .mobile-tab-dropdown {
+      display: flex;
+      flex-direction: row;
+      // gap: vars.$spacing-sm;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      position: relative;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      left: 16px;
+      // border: 2px solid green;
+      width: fit-content;
+      max-width: 90%;
+
+      &.outer {
+        top: 4px;
+        // width: auto;
+        // max-width: 90%;
+        flex-shrink: 0;
+        // border: 2px solid lime;
+      }
+
+      .active-mobile-tab {
+         padding: vars.$spacing-sm vars.$spacing-sm;
+        background: vars.$text-alt-color;
+        font-size: vars.$header-secondary-fs;
+        font-weight: vars.$primary-weight;
+        color: vars.$text-color;
+        text-align: center;
+        @include mix.bold_shadow;
+        cursor: default;
+        z-index: 571;
+        position: relative;
+        white-space: nowrap;
+        flex-shrink: 0;
+        min-width: fit-content;
+        word-break: break-all;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        // Border-Radius wie bei selected inner-tab (oben)
+        border-left: vars.$border-width-st solid vars.$text-color;
+        border-top-left-radius: vars.$border-radius-st;
+        border-top-right-radius: vars.$border-radius-st;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom: none;
+
+        // Der "Übergang" nach unten (wie bei selected tabs)
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 7px;
+          background-color: vars.$text-alt-color;
+          left: 0;
+          bottom: -7px;
+        }
+      }
+
+      // Dropdown-Toggle-Button (sieht aus wie normale Tabs)
+      .mobile-dropdown-toggle {
+        position: relative;
+        padding: vars.$spacing-sm vars.$spacing-sm;
+        background: vars.$secondary-light-color;
+        font-size: vars.$header-secondary-fs;
+        font-weight: vars.$primary-weight;
+        color: vars.$primary-color;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: center;
+        @include mix.bold_shadow;
+        border: vars.$border-width-st solid vars.$text-color;
+        outline: none;
+        z-index: 555;
+        white-space: nowrap;
+        flex-shrink: 0;
+        width: fit-content;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: 45px;
+
+         // Border-Radius wie normale inner-tabs
+        border-top-left-radius: vars.$border-radius-st;
+        border-top-right-radius: vars.$border-radius-st;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom: none;
+
+         // Hover wie normale Tabs
+        &:hover {
+          background: vars.$secondary-color;
+        }
+      }
+
+      // Dropdown-Menü
+      .mobile-dropdown-menu {
+        position: absolute; 
+        top: 100%;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: vars.$secondary-light-color;
+        @include mix.bold_shadow;
+        overflow: hidden;
+        margin-top: -4px; // Verbindet sich mit dem Button
+        z-index: 575;
+        max-height: 300px;
+        overflow-y: auto;
+      
+
+         // Border-Radius unten
+        border-bottom-left-radius: vars.$border-radius-st;
+        border-bottom-right-radius: vars.$border-radius-st;
+      }
+
+       // Einzelne Dropdown-Items
+      .mobile-dropdown-item {
+        padding: vars.$spacing-md vars.$spacing-10;
+        cursor: pointer;
+        border-bottom: vars.$border-width-st solid rgba(0, 0, 0, 0.1);
+        font-size: vars.$header-secondary-fs;
+        font-weight: vars.$primary-weight;
+        color: vars.$text-color;
+        transition: background-color 0.2s ease;
+        text-align: center;
+
+        // Letztes Item hat keinen unteren Border
+        &:last-child {
+          border-bottom: none;
+        }
+
+         // Hover-Effekt
+        &:hover {
+          background-color: rgba(vars.$primary-color, 0.1);
+        }
+      }
+    }
+
+    // Anpassungen für äußere Dropdown (Stadtteile/Tage)
+    .mobile-tab-dropdown.outer {
+      .active-mobile-tab {
+         // Border-Radius wie outer-tabs (selected)
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: vars.$border-radius-st;
+        border-top-right-radius: vars.$border-radius-st;
+        border-bottom: none;
+        background-color: vars.$warning;
+
+        &::after {
+          background-color: vars.$warning;
+          bottom: -7px;
+          width: calc(100% + 11px);
+        }
+      }
+
+      .mobile-dropdown-toggle {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: vars.$border-radius-st;
+        border-top-right-radius: vars.$border-radius-st;
+        border-top: vars.$border-width-st solid vars.$text-color;
+        border-left: vars.$border-width-st solid vars.$text-color;
+      }
+
+      .mobile-dropdown-menu {
+        margin-top: 0;
+        margin-bottom: -4px;
+        border-top-left-radius: vars.$border-radius-st;
+        border-top-right-radius: vars.$border-radius-st;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    // Wrapper um relativer Positionierung für das Dropdown zu ermöglichen
+    .mobile-tab-dropdown {
+      position: relative; // ← Wichtig für absolute Positionierung des Menüs
+    }
+
+     // Toggle-Switch Icons anpassen
+    .toggle-switch-container {
+      left: vars.$spacing-10;
+      .toggle-label {
+        // Icons sollten etwas größer sein für Touch-Targets
+        svg {
+          font-size: calc(vars.$header-main-fs * 1.2);
+        }
       }
     }
   }

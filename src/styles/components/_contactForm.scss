@@ -7,11 +7,7 @@ $legal-gap: 2rem;
 .contact-form {
   @include mix.bold_shadow;
   padding: vars.$margin-site;
-  width: function.calculate-max-width(
-    $shdw-sz: 14px,
-    $brdr-wdt: vars.$border-width-st,
-    $padding: 0px
-  );
+ @include mix.standard_width;
   // box-sizing: border-box;
   overflow-x: hidden;
 
@@ -197,7 +193,7 @@ $legal-gap: 2rem;
 
                 .accordion-content {
                   //border: 4px solid aqua;
-                  
+
                   > div {
                     gap: 2rem;
                     flex-direction: column !important;
@@ -274,10 +270,7 @@ $legal-gap: 2rem;
 
 @media screen and (max-width: vars.$breakpoint-xl) {
   .contact-form {
-    width: function.calculate-max-width(
-      $brdr-wdt: calc(#{vars.$margin-site} + 4px)
-    );
-
+    @include mix.standard_width;
     h4 {
       margin-top: 0;
     }
@@ -359,12 +352,11 @@ $legal-gap: 2rem;
     // padding:  vars.$spacing-10;
     margin: 0;
     // width: 100%;
-    
-    form {
 
+    form {
       fieldset {
         max-width: 100%;
-        
+
         /* legend {
           // color: vars.$highlight;
         } */
@@ -390,7 +382,7 @@ $legal-gap: 2rem;
                 .accordion-title {
                   width: 100%;
                   word-break: break-word;
-                  
+
                   h3 {
                     font-size: 1rem;
                   }
@@ -402,7 +394,6 @@ $legal-gap: 2rem;
 
                   > div {
                     width: 100%;
-                    ;
                     .paragraph {
                       width: 100%;
                       // border: 2px solid orange;
@@ -453,7 +444,8 @@ $legal-gap: 2rem;
                 color: red;
               } */
 
-              input, textarea {
+              input,
+              textarea {
                 // color: blue;
                 width: 100%;
                 min-width: unset;

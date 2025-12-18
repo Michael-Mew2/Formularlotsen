@@ -18,13 +18,20 @@
     position: relative;
     @include mix.bold_shadow;
     @include mix.background_pages(vars.$text-alt-color);
-    max-width: 80vw;
+    width: 84vw;
     // width: 500px;
-    max-height: 80vh;
+    height: 80vh;
     z-index: 501;
 
     .dialog-inner-box {
-    
+      height: 100%;
+      overflow: hidden;
+
+      .dialog-content {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
 
       .close-button {
         @include mix.title_pill(
@@ -44,6 +51,44 @@
           cursor: pointer;
           background-color: vars.$secondary-light-color;
           color: vars.$highlight;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-md) {
+  .dialog-overlay {
+    .dialog-content-container {
+      display: flex;
+      flex-direction: column;
+      overflow: visible;
+
+      .dialog-inner-box {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        // border: 2px solid grey;
+
+        .dialog-content {
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: vars.$breakpoint-sm) {
+  .dialog-overlay {
+    .dialog-content-container {
+      height: 85vh;
+      width: 92vw;
+      padding: vars.$spacing-sm;
+
+      .dialog-inner-box {
+        .close-button {
+          right: vars.$spacing-10;
         }
       }
     }

@@ -5,6 +5,7 @@
         {
           "borough": "Leherheide",
           "location": "Gemeindehaus der Lukaskirche",
+          "locationShort": "Lukaskirche",
           "address": ["Hans-Böckler-Str. 40", "27578 Bremerhaven"],
           "schedule": [{ "dayId": 0, "timeId": 0 }],
           "additionalInformation": {
@@ -28,6 +29,7 @@
         {
           "borough": "Geestemünde",
           "location": "Gemeindebüro der Emmaus-Kirchengemeinde",
+          "locationShort": "Emmaus-Kichengem.",
           "address": ["Haberstraße 12a", "27574 Bremerhaven"],
           "schedule": [{ "dayId": 4, "timeId": 1 }],
           "additionalInformation": {
@@ -52,6 +54,7 @@
         {
           "borough": "Geestemünde",
           "location": "Pfarrheim der Herz-Jesu Geestemünde",
+          "locationShort": "Herz-Jesu Geeste.",
           "address": ["Buchtstr. 54", "27570 Bremerhaven"],
           "schedule": [{ "dayId": 1, "timeId": 0 }],
           "additionalInformation": {
@@ -75,6 +78,7 @@
         {
           "borough": "Lehe",
           "location": "Pfarrheim der Herz-Jesu Lehe",
+          "locationShort": "Herz-Jesu Lehe",
           "address": ["Geibelstr. 11", "27576 Bremerhaven"],
           "schedule": [{ "dayId": 2, "timeId": 0 }],
           "additionalInformation": {
@@ -98,6 +102,7 @@
         {
           "borough": "Geestemünde",
           "location": "Gemeindehaus der Marienkirche",
+          "locationShort": "Marienkirche",
           "address": ["An der Mühle 12", "27570 Bremerhaven"],
           "schedule": [{ "dayId": 2, "timeId": 1 }],
           "additionalInformation": {
@@ -121,6 +126,7 @@
         {
           "borough": "Mitte",
           "location": "Kirchengemeinde der St. Marien",
+          "locationShort": "St. Marien",
           "address": ["Grazer Str. 15", "27568 Bremerhaven"],
           "schedule": [
             { "dayId": 3, "timeId": 0 },
