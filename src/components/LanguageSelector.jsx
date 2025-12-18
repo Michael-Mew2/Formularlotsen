@@ -134,7 +134,7 @@ export default function LanguageSelector() {
             />
           </AnimatePresence>
         </div>
-        Portugês
+        Português
       </button>
     </div>
   );
