@@ -282,6 +282,7 @@
       width: fit-content;
       max-width: 80%;
       padding: 10px;
+      text-align: center;
       // margin-bottom: vars.$margin-site;
 
       h5 {
@@ -788,10 +789,10 @@
       .mobile-dropdown-toggle {
         position: relative;
         padding: vars.$spacing-sm vars.$spacing-sm;
-        background: vars.$primary-color;
+        background: vars.$secondary-light-color;
         font-size: vars.$header-secondary-fs;
         font-weight: vars.$primary-weight;
-        color: vars.$text-alt-color;
+        color: vars.$primary-color;
         cursor: pointer;
         transition: all 0.2s ease;
         text-align: center;
@@ -818,7 +819,7 @@
 
          // Hover wie normale Tabs
         &:hover {
-          background: vars.$primary-light-color;
+          background: vars.$secondary-color;
         }
       }
 
@@ -829,7 +830,7 @@
         right: 0;
         display: flex;
         flex-direction: column;
-        background-color: vars.$text-alt-color;
+        background-color: vars.$secondary-light-color;
         @include mix.bold_shadow;
         overflow: hidden;
         margin-top: -4px; // Verbindet sich mit dem Button
@@ -879,7 +880,7 @@
 
         &::after {
           background-color: vars.$warning;
-          bottom: -6px;
+          bottom: -7px;
           width: calc(100% + 11px);
         }
       }
