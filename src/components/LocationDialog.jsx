@@ -343,7 +343,7 @@ export default function LocationDialog({ location }) {
                 {
                   locationsByBorough[
                     Object.entries(locationsByBorough)[boroughTabIndex][0]
-                  ][locationTabIndex].location
+                  ][locationTabIndex].locationShort
                 }
               </div>
 
@@ -376,7 +376,7 @@ export default function LocationDialog({ location }) {
                               setIsInnerDropdownOpen(false);
                             }}
                           >
-                            {loc.location}
+                            {loc.locationShort}
                           </div>
                         );
                       })}

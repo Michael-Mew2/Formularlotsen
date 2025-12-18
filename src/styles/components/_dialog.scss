@@ -78,3 +78,19 @@
     }
   }
 }
+
+@media screen and (max-width: vars.$breakpoint-sm) {
+  .dialog-overlay {
+    .dialog-content-container {
+      height: 85vh;
+      width: 92vw;
+      padding: vars.$spacing-sm;
+
+      .dialog-inner-box {
+        .close-button {
+          right: vars.$spacing-10;
+        }
+      }
+    }
+  }
+}
