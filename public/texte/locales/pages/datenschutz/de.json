@@ -109,6 +109,33 @@
                 "content": "Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und lit. f DSGVO (berechtigtes Interesse an einer reibungslosen Kommunikation)."
               }
             ]
+          },
+          {
+            "title": "2.3 Nutzung von Kartendiensten (Leaflet/OpenStreetMap)",
+            "titleColor": "light-blue",
+            "content": "Für die Anzeige von Karten auf unserer Website nutzen wir die Open-Source-Bibliothek Leaflet in Kombination mit **OpenStreetMap.",
+            "subParagraphs": [
+              {
+                "title": "Keine Cookies oder Tracking:",
+                "titleColor": "red",
+                "content": " Nach unserer Kenntnis setzen diese Dienste **keine Cookies** und speichern **keine personenbezogenen Daten** von Ihnen."
+              },
+              {
+                "title": "Verarbeitung von IP-Adressen:",
+                "titleColor": "red",
+                "content": "Beim Laden der Karten **könnte Ihre IP-Adresse** an die Server von OpenStreetMap übermittelt werden. Diese wird jedoch nicht gespeichert oder weiterverarbeitet"
+              },
+              {
+                "title": "Datenschutzerklärung von OpenStreetMap:",
+                "titleColor": "red",
+                "content": "Weitere Informationen finden Sie in der Datenschutzerklärung der OpenStreetMap Foundation (https://wiki.osmfoundation.org/wiki/Privacy_Policy)."
+              },
+              {
+                "title": "Rechtsgrundlage",
+                "titleColor": "red",
+                "content": "Die Einbindung erfolgt auf Basis von **Art. 6 Abs. 1 lit. f DSGVO** (berechtigtes Interesse an einer nutzerfreundlichen Darstellung von Standorten)."
+              }
+            ]
           }
         ]
       },
@@ -121,11 +148,15 @@
         "titleColor": "light-blue",
         "content": "Während der Entwicklungsphase unserer Website nutzen wir für die E-Mail-Kommunikation den Dienst Gmail von Google LLC (USA). Dies bedeutet, dass die von Ihnen über das Kontaktformular übermittelten Daten (Name, E-Mail-Adresse, Nachricht) kurzzeitig an Server von Google in den USA übermittelt werden.",
         "subParagraphs": [
-            {
-                "title": "WIchtig:",
-                "titleColor": "red",
-                "content": ["Diese Lösung ist nicht vollständig DSGVO-konform, da Google LLC in den USA ansässig ist und wir keinen Auftragsverarbeitungsvertrag (AVV) mit Google abgeschlossen haben.", "Wir arbeiten bereits an einer DSGVO-konformen Alternative und werden die Datenverarbeitung so bald wie möglich auf einen europäischen Anbieter umstellen.", "Bitte senden Sie uns keine sensiblen personenbezogenen Daten (z B. Sozialversicherungsnummern, Gesundheitsdaten) über das Kontaktformular."]
-            },
+          {
+            "title": "WIchtig:",
+            "titleColor": "red",
+            "content": [
+              "Diese Lösung ist nicht vollständig DSGVO-konform, da Google LLC in den USA ansässig ist und wir keinen Auftragsverarbeitungsvertrag (AVV) mit Google abgeschlossen haben.",
+              "Wir arbeiten bereits an einer DSGVO-konformen Alternative und werden die Datenverarbeitung so bald wie möglich auf einen europäischen Anbieter umstellen.",
+              "Bitte senden Sie uns keine sensiblen personenbezogenen Daten (z B. Sozialversicherungsnummern, Gesundheitsdaten) über das Kontaktformular."
+            ]
+          },
           {
             "title": "Rechtsgrundlage für die Datenübermittlung an Google:",
             "titleColor": "light-blue",
