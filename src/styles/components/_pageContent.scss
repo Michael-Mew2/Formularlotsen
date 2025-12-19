@@ -52,6 +52,12 @@
             margin-right: vars.$margin-site;
         }
 
+        h5, h6 {
+            margin-left: vars.$margin-site;
+            margin-right: vars.$margin-site;
+            margin-top: vars.$margin-site;
+        }
+
         p {
             margin: 0 vars.$margin-site;
         }
@@ -87,7 +93,7 @@
 
         .full-width {
 
-            h4, p {
+            h4, h5, h6, p {
                 margin-left: 0;
                 margin-right: 0;
             }

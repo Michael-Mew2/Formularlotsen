@@ -12,49 +12,52 @@
       "heroSubTitle": "Die Bremerhavener Formularlotsen"
     },
     "pageContent": [
-        {
-            "groupId": "title",
-            "groupStyle": "page-content-title",
-            "type": "intro",
-            "title": "Impressum",
-            "content": "Angaben gemäß § 5 TMG"
-        },
-        {
-            "groupId": "address",
-            "groupStyle": "full-width",
-            "type": "paragraph",
-            "position": "page-full",
-            "title": "Ökumenisches Projekt Bremerhavener Formularlotsen",
-            "titleColor": "light-blue",
-            "content": ["Geibelstr. 9 A", "27576 Bremerhaven"]
-        },
-        {
-            "groupId": "represent",
-            "groupStyle": "full-width",
-            "type": "paragraph",
-            "position": "page-full",
-            "title": "Vertreten durch",
-            "titleColor": "light-blue",
-            "content": "Djawar Mohamad"
-        },
-        {
-            "groupId": "contact",
-            "groupStyle": "full-width",
-            "type": "paragraph",
-            "position": "page-full",
-            "title": "Kontakt",
-            "titleColor": "light-blue",
-            "content": ["E-Mail: info@formularlotsen-bremerhaven.de", "Telefon: 0157 526 834 74"]
-        },
-        {
-            "groupId": "externalLinks",
-            "groupStyle": "full-width",
-            "type": "paragraph",
-            "position": "page-full",
-            "title": "Hinweis zu externen Links:",
-            "titleColor": "light-blue",
-            "content": "Für Inhalte verlinkter externer Seiten übernehmen wir keine Haftung. Die Verantwortung liegt bei den jeweiligen Betreibern."
-        }
+      {
+        "groupId": "title",
+        "groupStyle": "page-content-title",
+        "type": "intro",
+        "title": "Impressum",
+        "content": "Angaben gemäß § 5 TMG"
+      },
+      {
+        "groupId": "address",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "Ökumenisches Projekt Bremerhavener Formularlotsen",
+        "titleColor": "light-blue",
+        "content": ["Geibelstr. 9 A", "27576 Bremerhaven"]
+      },
+      {
+        "groupId": "represent",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "Vertreten durch",
+        "titleColor": "light-blue",
+        "content": "Djawar Mohamad"
+      },
+      {
+        "groupId": "contact",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "Kontakt",
+        "titleColor": "light-blue",
+        "content": [
+          "E-Mail: info@formularlotsen-bremerhaven.de",
+          "Telefon: 0157 526 834 74"
+        ]
+      },
+      {
+        "groupId": "externalLinks",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "Hinweis zu externen Links:",
+        "titleColor": "light-blue",
+        "content": "Für Inhalte verlinkter externer Seiten übernehmen wir keine Haftung. Die Verantwortung liegt bei den jeweiligen Betreibern."
+      }
     ]
   }
 }
