@@ -20,6 +20,11 @@
         "name": "Datenschutz",
         "ariaLabel": "Link zu unseren Datenschutzbestimmungen",
         "route": "/data-protection"
+      },
+      {
+        "name": "AGB",
+        "ariaLabel": "Link zu unseren AGB",
+        "route": "/agb"
       }
     ],
     "externalLinks": [

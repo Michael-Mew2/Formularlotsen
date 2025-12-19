@@ -1,0 +1,190 @@
+{
+  "agb": {
+    "meta": {
+      "title": "Allgemeine Geschäftsbedingungen",
+      "content": "Allgemeine Geschäftsbedingungen der Bremerhavener Formularlotsen",
+      "language": "de"
+    },
+    "hero": {
+      "heroPicture": "images/heroImages/AdobeStock_548190067.jpeg",
+      "heroPictureAlt": "Personen bei einem Beratungsgespralach",
+      "heroMainTitle": "Allgemeine Geschäftsbedingungen",
+      "heroSubTitle": "..."
+    },
+    "pageContent": [
+      {
+        "groupId": "title",
+        "groupStyle": "page-content-title",
+        "type": "intro",
+        "title": "Allgemeine Geschäftsbedingungen (AGB) der Bremerhavener Formularlotsen",
+        "content": "Stand: Dezember 2025"
+      },
+      {
+        "groupId": "whoAreWe",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "§1 Wer wir sind und was wir tun",
+        "titleColor": "light-blue",
+        "content": [
+          "Wir sind das Ökumenische Projekt Bremerhavener Formularlotsen und unterstützen kostenlos beim Ausfüllen von Anträgen (z. B. für Bürgergeld, Kindergeld oder Wohngeld).",
+          "Unser Angebot richtet sich an alle, die Hilfe bei Formularen brauchen – ohne Bürokratie, ohne Verpflichtungen.."
+        ]
+      },
+      {
+        "groupId": "whatWeDo",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "§2 Unsere Unterstützung: Was wir leisten – und was nicht",
+        "titleColor": "light-blue",
+        "subParagraphs": [
+          {
+            "title": "Was wir tun:",
+            "titleColor": "light-blue",
+            "content": [
+              "Wir helfen Ihnen, Ihre Angaben in Anträge einzutragen.",
+              "Wir erklären Ihnen, welche Felder wie ausgefüllt werden müssen.",
+              "Wir arbeiten neutral und unparteiisch – ohne Ihre Daten zu prüfen oder zu bewerten."
+            ]
+          },
+          {
+            "title": "Was wir NICHT tun:",
+            "titleColor": "red",
+            "content": [
+              "Keine Rechtsberatung: Wir sind keine Anwält:innen oder Behördenmitarbeiter:innen. Wir können keine rechtliche Beratung geben.",
+              "Keine Garantie für Erfolg: Wir können nicht versprechen, dass Ihr Antrag bewilligt wird.",
+              "Keine Prüfung Ihrer Daten: Wir tragen nur ein, was Sie uns sagen. Sie sind selbst verantwortlich, dass Ihre Angaben richtig und vollständig sind."
+            ]
+          }
+        ]
+      },
+      {
+        "groupId": "yourDecisions",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "§3 Ihre Verantwortung",
+        "titleColor": "light-blue",
+        "subParagraphs": [
+          {
+            "title": "Ihre Daten, Ihre Verantwortung:",
+            "titleColor": "light-blue",
+            "content": [
+              "Sie entscheiden, welche Informationen Sie uns mitteilen.",
+              "Wir gehen davon aus, dass die von Ihnen gemachten Angaben Ihren Kenntnissen entsprechen.",
+              "Wir prüfen keine Unterlagen und können keine Haftung für falsche oder unvollständige Angaben übernehmen."
+            ]
+          },
+          {
+            "title": "Keine Weitergabe an Dritte:",
+            "titleColor": "light-blue",
+            "content": "Ihre Daten werden nur für die Ausfüllhilfe verwendet und nicht an Dritte weitergegeben (außer Sie bitten uns darum, z. B. für die Weiterleitung an eine Behörde)."
+          }
+        ]
+      },
+      {
+        "groupId": "datasafty",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "§4 Datenschutz",
+        "titleColor": "light-blue",
+        "content": [
+          "Wir nehmen den Schutz Ihrer Daten ernst.",
+          "Wie wir Ihre Daten verarbeiten, steht in unserer Datenschutzerklärung.",
+          "Wichtig: Wir speichern keine Daten, die Sie uns mündlich mitteilen. Nur Daten aus dem Kontaktformular werden temporär gespeichert (siehe Datenschutzerklärung)."
+        ]
+      },
+      {
+        "groupId": "liability",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "§5 Haftung: Was wir nicht versprechen können",
+        "titleColor": "light-blue",
+        "subParagraphs": [
+          {
+            "title": "Keine Haftung für Antragserfolge:",
+            "titleColor": "red",
+            "content": "Ob Ihr Antrag bewilligt wird, hängt von der zuständigen Behörde ab – nicht von uns"
+          },
+          {
+            "title": "Keine Haftung für falsche Angaben:",
+            "titleColor": "red",
+            "content": "Wenn Sie uns falsche Daten nennen, können wir dafür keine Verantwortung übernehmen."
+          },
+          {
+            "title": "Keine Haftung für technische Probleme:",
+            "titleColor": "red",
+            "content": "Falls unsere Website oder E-Mails mal nicht funktionieren, arbeiten wir schnellstmöglich an einer Lösung – aber wir haften nicht für daraus entstehende Nachteile."
+          }
+        ]
+      },
+      {
+        "groupId": "use",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "§6 Wie Sie uns nutzen können",
+        "titleColor": "light-blue",
+        "subParagraphs": [
+          {
+            "title": "Kostenlos und freiwillig:",
+            "titleColor": "light-blue",
+            "content": "Unser Angebot ist unverbindlich und kostenfrei. Sie entscheiden, ob und wie Sie es nutzen."
+          },
+          {
+            "title": "Keine Anmeldung nötig:",
+            "titleColor": "light-blue",
+            "content": "Sie müssen sich nicht registrieren und können unsere Hilfe ohne Verpflichtungen in Anspruch nehmen."
+          },
+          {
+            "title": "Fairer Umgang:",
+            "titleColor": "light-blue",
+            "content": "Bitte behandeln Sie uns mit Respekt. Beleidigungen oder Missbrauch unseres Angebots führen zum Ausschluss."
+          }
+        ]
+      },
+      {
+        "groupId": "changes",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "§7 Änderungen dieser AGB",
+        "titleColor": "light-blue",
+        "content": [
+          "Wir behalten uns vor, diese AGB anzupassen, wenn sich unser Angebot oder die rechtlichen Rahmenbedingungen ändern.",
+          "Wesentliche Änderungen kündigen wir auf unserer Website an."
+        ]
+      },
+      {
+        "groupId": "salv",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "§8 Salvatorische Klausel (Falls etwas unwirksam ist)",
+        "titleColor": "light-blue",
+        "content": "Falls ein Teil dieser AGB unwirksam sein sollte, bleibt der Rest weiterhin gültig."
+      },
+      {
+        "groupId": "add",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "subParagraphs": [
+          {
+            "title": "Wo finden Sie diese AGB?",
+            "titleColor": "blue",
+            "content": "Diese AGB sind auf unserer Website einsehbar. Sie gelten automatisch, sobald Sie unser Angebot nutzen."
+          },
+          {
+            "title": "Fragen?",
+            "titleColor": "blue",
+            "content": "Wenn Sie etwas nicht verstehen oder Fragen haben, schreiben Sie uns einfach: info@formularlotsen-bremerhaven.de"
+          }
+        ]
+      }
+    ]
+  }
+}
