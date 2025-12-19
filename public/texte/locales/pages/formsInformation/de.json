@@ -25,218 +25,217 @@
         "type": "accordion",
         "position": "page-full",
         "items": [
-            {
-  "title": "Bürgergeld",
-  "contentGroups": [
-    {
-      "direction": "row",
-      "items": [
-        {
-          "direction": "column",
-          "flex": 2,
-          "items": [
-            {
-              "component": {
-                "type": "paragraph",
-                "content": [
-                  "Das **Bürgergeld** ist eine finanzielle Unterstützung des Staates für Menschen, die ihren Lebensunterhalt nicht selbst bestreiten können. Es ersetzt seit 2023 das ehemalige Arbeitslosengeld II (Hartz IV) und soll existenzsichernd wirken. Hier findest du alle wichtigen Infos, um deinen Anspruch zu prüfen und den Antrag erfolgreich zu stellen."
-                ]
-              }
-            },
-            {
-              "component": {
-                "type": "list",
-                "titleColor": "lightYellow",
-                "listStyle": "lifeRing",
-                "title": "Wer hat Anspruch auf Bürgergeld?",
-                "items": [
-                  "Erwerbsfähige Personen ab 15 Jahren, die **kein oder zu geringes Einkommen** haben.",
-                  "Personen, die **kein oder nur geringes Vermögen** besitzen (Freigrenzen: z. B. 15.000 € für Alleinstehende, 30.000 € für Paare).",
-                  "Deutsche Staatsbürger:innen, EU-Bürger:innen mit Aufenthaltsrecht und Geflüchtete mit anerkannter Aufenthaltsgestattung/Duldung.",
-                  "Auch **Selbstständige, Teilzeitbeschäftigte oder Minijobber:innen**, deren Einkommen unter dem Bürgergeld-Satz liegt.",
-                  "Studierende, die **keinen BAföG-Anspruch** mehr haben oder deren BAföG nicht ausreicht."
-                ]
-              }
-            },
-            {
-              "component": {
-                "type": "list",
-                "titleColor": "lightYellow",
-                "listStyle": "lifeRing",
-                "title": "Wo kann ich Bürgergeld beantragen?",
-                "items": [
-                  "Beim **Jobcenter Bremerhaven** (zuständig für erwerbsfähige Personen).",
-                  "Adresse: **Jobcenter Bremerhaven, Hindenburgstraße 2–6, 27570 Bremerhaven**.",
-                  "Online über das **[Portal der Bundesagentur für Arbeit](https://www.arbeitsagentur.de/)** (Antrag auf Leistungen nach SGB II).",
-                  "Telefonisch unter **0800 4 5555 00** (kostenlos).",
-                  "Persönlich während der **Öffnungszeiten** (Mo–Fr 8–12 Uhr, Do zusätzlich 14–16 Uhr)."
-                ]
-              }
-            },
-            {
-              "component": {
-                "type": "list",
-                "titleColor": "lightYellow",
-                "listStyle": "lifeRing",
-                "title": "Welche Schritte sollte ich befolgen, damit alles reibungslos klappt?",
+          {
+            "title": "Bürgergeld",
+            "contentGroups": [
+              {
+                "direction": "row",
                 "items": [
                   {
-                    "text": "1. **Anspruch prüfen:** Nutze den [Bürgergeld-Rechner](https://www.arbeitsagentur.de/buergergeld/rechner) der Arbeitsagentur, um zu schätzen, ob du Anspruch hast.",
-                    "subItems": [
-                      "Trage dein Einkommen, Miete und Haushaltsgröße ein.",
-                      "Das Tool zeigt dir, ob und wie viel Bürgergeld du voraussichtlich erhalten würdest."
+                    "direction": "column",
+                    "flex": 2,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "paragraph",
+                          "content": [
+                            "Das Bürgergeld ist eine finanzielle Unterstützung des Staates für Menschen, die ihren Lebensunterhalt nicht selbst bestreiten können. Es ersetzt seit 2023 das ehemalige Arbeitslosengeld II (Hartz IV) und soll existenzsichernd wirken. Hier findest du alle wichtigen Infos, um deinen Anspruch zu prüfen und den Antrag erfolgreich zu stellen."
+                          ]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "list",
+                          "titleColor": "lightYellow",
+                          "listStyle": "lifeRing",
+                          "title": "Wer hat Anspruch auf Bürgergeld?",
+                          "items": [
+                            "Erwerbsfähige Personen ab 15 Jahren, die kein oder zu geringes Einkommen haben.",
+                            "Personen, die kein oder nur geringes Vermögen besitzen (Freigrenzen: z. B. 15.000 € für Alleinstehende, 30.000 € für Paare).",
+                            "Deutsche Staatsbürger:innen, EU-Bürger:innen mit Aufenthaltsrecht und Geflüchtete mit anerkannter Aufenthaltsgestattung/Duldung.",
+                            "Auch Selbstständige, Teilzeitbeschäftigte oder Minijobber:innen, deren Einkommen unter dem Bürgergeld-Satz liegt.",
+                            "Studierende, die keinen BAföG-Anspruch mehr haben oder deren BAföG nicht ausreicht."
+                          ]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "list",
+                          "titleColor": "lightYellow",
+                          "listStyle": "lifeRing",
+                          "title": "Wo kann ich Bürgergeld beantragen?",
+                          "items": [
+                            "Beim Jobcenter Bremerhaven (zuständig für erwerbsfähige Personen).",
+                            "Adresse: Jobcenter Bremerhaven, Hindenburgstraße 2–6, 27570 Bremerhaven.",
+                            "Online über das Portal der Bundesagentur für Arbeit (Antrag auf Leistungen nach SGB II).",
+                            "Telefonisch unter 0800 4 5555 00 (kostenlos).",
+                            "Persönlich während der Öffnungszeiten (Mo–Fr 8–12 Uhr, Do zusätzlich 14–16 Uhr)."
+                          ]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "list",
+                          "titleColor": "lightYellow",
+                          "listStyle": "lifeRing",
+                          "title": "Welche Schritte sollte ich befolgen, damit alles reibungslos klappt?",
+                          "items": [
+                            {
+                              "text": "1. Anspruch prüfen: Nutze den Bürgergeld-Rechner der Arbeitsagentur, um zu schätzen, ob du Anspruch hast.",
+                              "subItems": [
+                                "Trage dein Einkommen, Miete und Haushaltsgröße ein.",
+                                "Das Tool zeigt dir, ob und wie viel Bürgergeld du voraussichtlich erhalten würdest."
+                              ]
+                            },
+                            {
+                              "text": "2. Unterlagen vorbereiten: Sammle alle benötigten Dokumente (siehe nächste Liste).",
+                              "subItems": [
+                                "Fehlende Unterlagen können den Antrag verzögern!"
+                              ]
+                            },
+                            {
+                              "text": "3. Antrag stellen: Entweder online, telefonisch oder persönlich im Jobcenter.",
+                              "subItems": [
+                                "Online ist oft am schnellsten – du kannst den Antrag auch von zu Hause aus starten."
+                              ]
+                            },
+                            {
+                              "text": "4. Termin wahrnehmen: Nach dem Antrag bekommst du einen Termin zur persönlichen Vorsprache.",
+                              "subItems": [
+                                "Dort werden deine Unterlagen geprüft und Fragen geklärt."
+                              ]
+                            },
+                            {
+                              "text": "5. Bescheid abwarten: Du erhältst schriftlich Bescheid, ob und wie viel Bürgergeld du bekommst.",
+                              "subItems": [
+                                "Falls abgelehnt: Du kannst Widerspruch einlegen (Frist: 1 Monat)."
+                              ]
+                            },
+                            {
+                              "text": "6. Regelmäßig melden: Informiere das Jobcenter über Änderungen (z. B. Umzug, neues Einkommen).",
+                              "subItems": [
+                                "Unterlassene Meldungen können zu Rückforderungen führen!"
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "list",
+                          "titleColor": "lightYellow",
+                          "listStyle": "lifeRing",
+                          "title": "Welche Dokumente und Daten sollte ich mitbringen, damit die Formularlotsen mir helfen können?",
+                          "items": [
+                            {
+                              "text": "Personenstand:",
+                              "subItems": [
+                                "Personalausweis oder Reisepass (für alle Haushaltsmitglieder).",
+                                "Geburtsurkunde (bei Kindern).",
+                                "Aufenthaltstitel (falls nicht deutsch).",
+                                "Heiratsurkunde oder Scheidungsurteil (falls zutreffend)."
+                              ]
+                            },
+                            {
+                              "text": "Wohnsituation:",
+                              "subItems": [
+                                "Mietvertrag oder Wohnungsgeberbestätigung.",
+                                "Letzte Mietkostenabrechnung oder Nebenkostenabrechnung.",
+                                "Wohngeldbescheid (falls vorhanden)."
+                              ]
+                            },
+                            {
+                              "text": "Einkommen:",
+                              "subItems": [
+                                "Letzte 3 Gehaltsabrechnungen (bei Beschäftigung).",
+                                "Bescheide über Kindergeld, Unterhalt, Rente oder andere Leistungen.",
+                                "Nachweise über selbstständiges Einkommen (z. B. Steuerbescheide)."
+                              ]
+                            },
+                            {
+                              "text": "Vermögen:",
+                              "subItems": [
+                                "Kontoauszüge der letzten 3 Monate (aller Konten!).",
+                                "Nachweise über Sparbücher, Aktien, Immobilien oder Fahrzeuge.",
+                                "Schuldennachweise (z. B. Kreditverträge)."
+                              ]
+                            },
+                            {
+                              "text": "Kosten:",
+                              "subItems": [
+                                "Nachweise über hohe Ausgaben (z. B. Medikamente, Schuldenratentilgung).",
+                                "Versicherungsunterlagen (z. B. Kranken-, Haftpflichtversicherung)."
+                              ]
+                            },
+                            {
+                              "text": "Sonstiges:",
+                              "subItems": [
+                                "Schulbescheinigungen (für Kinder).",
+                                "Behindertenausweis oder Atteste (falls zutreffend).",
+                                "Arbeitsverträge oder Kündigungsbestätigungen."
+                              ]
+                            },
+                            {
+                              "text": "Wichtig für die Formularlotsen:",
+                              "subItems": [
+                                "Je vollständiger deine Unterlagen sind, desto schneller und einfacher können wir dir helfen!",
+                                "Falls du etwas nicht hast: Sag uns Bescheid – wir helfen dir, Alternativen zu finden."
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "paragraph",
+                          "content": [
+                            "💡 Tipp: Bring alle Unterlagen mit, wir kopieren sie dir – die Originale behältst du! Falls du etwas nicht verstehst oder unsicher bist, frag einfach bei uns nach. Wir helfen dir, alles richtig auszufüllen!"
+                          ]
+                        }
+                      }
                     ]
                   },
                   {
-                    "text": "2. **Unterlagen vorbereiten:** Sammle alle benötigten Dokumente (siehe nächste Liste).",
-                    "subItems": [
-                      "Fehlende Unterlagen können den Antrag verzögern!"
-                    ]
-                  },
-                  {
-                    "text": "3. **Antrag stellen:** Entweder online, telefonisch oder persönlich im Jobcenter.",
-                    "subItems": [
-                      "Online ist oft am schnellsten – du kannst den Antrag auch von zu Hause aus starten."
-                    ]
-                  },
-                  {
-                    "text": "4. **Termin wahrnehmen:** Nach dem Antrag bekommst du einen Termin zur persönlichen Vorsprache.",
-                    "subItems": [
-                      "Dort werden deine Unterlagen geprüft und Fragen geklärt."
-                    ]
-                  },
-                  {
-                    "text": "5. **Bescheid abwarten:** Du erhältst schriftlich Bescheid, ob und wie viel Bürgergeld du bekommst.",
-                    "subItems": [
-                      "Falls abgelehnt: Du kannst **Widerspruch einlegen** (Frist: 1 Monat)."
-                    ]
-                  },
-                  {
-                    "text": "6. **Regelmäßig melden:** Informiere das Jobcenter über Änderungen (z. B. Umzug, neues Einkommen).",
-                    "subItems": [
-                      "Unterlassene Meldungen können zu **Rückforderungen** führen!"
+                    "direction": "column",
+                    "flex": 1,
+                    "items": [
+                      {
+                        "component": {
+                          "type": "image",
+                          "picture": "images/external/aidOrganizations/buergergeld_logo.png",
+                          "imageType": "logo",
+                          "alt": "Logo Bürgergeld"
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "accordion-address",
+                          "content": [
+                            "Jobcenter Bremerhaven",
+                            "Hindenburgstraße 2–6",
+                            "27570 Bremerhaven"
+                          ]
+                        }
+                      },
+                      {
+                        "component": {
+                          "type": "accordion-contact",
+                          "content": {
+                            "Webseite": "https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/buergergeld/finanziell-absichern/voraussetzungen-einkommen-vermoegen",
+                            "Telefon": "0800 4 5555 00",
+                            "E-Mail": "bremerhaven.jobcenter@jobcenter-ge.de",
+                            "Öffnungszeiten": "Mo–Fr 8–12 Uhr, Do zusätzlich 14–16 Uhr"
+                          }
+                        }
+                      }
                     ]
                   }
                 ]
               }
-            },
-            {
-              "component": {
-                "type": "list",
-                "titleColor": "lightYellow",
-                "listStyle": "lifeRing",
-                "title": "Welche Dokumente und Daten sollte ich mitbringen, damit die Formularlotsen mir helfen können?",
-                "items": [
-                  {
-                    "text": "**Personenstand:**",
-                    "subItems": [
-                      "Personalausweis oder Reisepass (für alle Haushaltsmitglieder).",
-                      "Geburtsurkunde (bei Kindern).",
-                      "Aufenthaltstitel (falls nicht deutsch).",
-                      "Heiratsurkunde oder Scheidungsurteil (falls zutreffend)."
-                    ]
-                  },
-                  {
-                    "text": "**Wohnsituation:**",
-                    "subItems": [
-                      "Mietvertrag oder Wohnungsgeberbestätigung.",
-                      "Letzte Mietkostenabrechnung oder Nebenkostenabrechnung.",
-                      "Wohngeldbescheid (falls vorhanden)."
-                    ]
-                  },
-                  {
-                    "text": "**Einkommen:**",
-                    "subItems": [
-                      "Letzte 3 Gehaltsabrechnungen (bei Beschäftigung).",
-                      "Bescheide über Kindergeld, Unterhalt, Rente oder andere Leistungen.",
-                      "Nachweise über selbstständiges Einkommen (z. B. Steuerbescheide)."
-                    ]
-                  },
-                  {
-                    "text": "**Vermögen:**",
-                    "subItems": [
-                      "Kontoauszüge der letzten 3 Monate (aller Konten!).",
-                      "Nachweise über Sparbücher, Aktien, Immobilien oder Fahrzeuge.",
-                      "Schuldennachweise (z. B. Kreditverträge)."
-                    ]
-                  },
-                  {
-                    "text": "**Kosten:**",
-                    "subItems": [
-                      "Nachweise über **hohe Ausgaben** (z. B. Medikamente, Schuldenratentilgung).",
-                      "Versicherungsunterlagen (z. B. Kranken-, Haftpflichtversicherung)."
-                    ]
-                  },
-                  {
-                    "text": "**Sonstiges:**",
-                    "subItems": [
-                      "Schulbescheinigungen (für Kinder).",
-                      "Behindertenausweis oder Atteste (falls zutreffend).",
-                      "Arbeitsverträge oder Kündigungsbestätigungen."
-                    ]
-                  },
-                  {
-                    "text": "**Wichtig für die Formularlotsen:**",
-                    "subItems": [
-                      "Je **vollständiger** deine Unterlagen sind, desto schneller und einfacher können wir dir helfen!",
-                      "Falls du etwas nicht hast: Sag uns Bescheid – wir helfen dir, Alternativen zu finden."
-                    ]
-                  }
-                ]
-              }
-            },
-            {
-              "component": {
-                "type": "paragraph",
-                "content": [
-                  "💡 **Tipp:** Bring alle Unterlagen **in Kopie** mit – die Originale behältst du! Falls du etwas nicht verstehst oder unsicher bist, frag einfach bei uns nach. Wir helfen dir, alles richtig auszufüllen!"
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "direction": "column",
-          "flex": 1,
-          "items": [
-            {
-              "component": {
-                "type": "image",
-                "picture": "images/external/aidOrganizations/buergergeld_logo.png",
-                "imageType": "logo",
-                "alt": "Logo Bürgergeld"
-              }
-            },
-            {
-              "component": {
-                "type": "accordion-address",
-                "content": [
-                  "Jobcenter Bremerhaven",
-                  "Hindenburgstraße 2–6",
-                  "27570 Bremerhaven"
-                ]
-              }
-            },
-            {
-              "component": {
-                "type": "accordion-contact",
-                "content": {
-                  "Webseite": "https://www.arbeitsagentur.de/buergergeld",
-                  "Telefon": "0800 4 5555 00 (kostenlos)",
-                  "E-Mail": "bremerhaven.jobcenter@jobcenter-ge.de",
-                  "Öffnungszeiten": "Mo–Fr 8–12 Uhr, Do zusätzlich 14–16 Uhr"
-                }
-              }
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-
+            ]
+          }
         ]
-    }
+      }
     ]
   }
 }
