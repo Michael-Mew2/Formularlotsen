@@ -11,6 +11,7 @@ import Contact from "../pages/Contact";
 import Impressum from "../pages/Impressum";
 import Datenschutz from "../pages/Datenschutz";
 import Agb from "../pages/Agb";
+import FormsInformation from "../pages/FormsInformation";
 
 export default function Routing() {
   return (
@@ -19,6 +20,7 @@ export default function Routing() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="join" element={<JoinUs />} />
+          <Route path="forms-info" element={<FormsInformation />} />
           <Route path="timeAndLocation" element={<TimeAndPlace />} />
           <Route path="aidOrganizations" element={<AidOrganizations />} />
           <Route path="contact" element={<Contact />} />

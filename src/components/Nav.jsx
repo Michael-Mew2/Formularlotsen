@@ -23,7 +23,7 @@ export default function Nav() {
         </li>
         <li>
           <NavLink
-            to="/"
+            to="/forms-info"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             {navigationTexts.navigation?.formsInformation || "lädt..."}
