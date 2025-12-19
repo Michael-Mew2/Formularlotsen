@@ -34,7 +34,7 @@ export default function NavItems({ isMobile = false, toggleMenu }) {
   const menuItems = [
     { to: "/", text: navigationTexts.navigation?.home, icon: "house" },
     {
-      to: "/formsInformation",
+      to: "/forms-info",
       text: navigationTexts.navigation?.formsInformation,
       icon: "info",
     },

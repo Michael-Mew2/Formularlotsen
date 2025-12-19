@@ -38,6 +38,31 @@ export default function List({
     return () => observer.disconnect();
   }, [items]);
 
+  // Hilfsfunktion zur überprüfung ob Item ein Objekt mit subItem ist
+  const isItemWithSubItems = (item) => {
+    return typeof item === "object" && item !== null && "subItems" in item;
+  };
+
+  // Funktion zum Rendern eines Listeneintrags (mit oder ohne subItem)
+  const renderListItem = (item, index) => {
+    if (isItemWithSubItems(item)) {
+      return (
+        <li key={index}>
+          <span>{item.text}</span>
+          {item.subItems && item.subItems.length > 0 && (
+            <ul class-name="sub-list">
+              {item.subItems.map((subItem, subIndex) => (
+                <li key={`${index}-${subIndex}`}>{subItem}</li>
+              ))}
+            </ul>
+          )}
+        </li>
+      );
+    } else {
+      return <li key={index}>{item}</li>;
+    }
+  };
+
   return (
     <div
       ref={listBoxRef}
@@ -51,9 +76,7 @@ export default function List({
           <h4>{title}</h4>
         </div>
         <ul ref={listUlRef} className={`${listStyle || "lifeRing"}`.trim()}>
-          {items.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
+          {items.map((item, index) => renderListItem(item, index))}
         </ul>
       </div>
     </div>
