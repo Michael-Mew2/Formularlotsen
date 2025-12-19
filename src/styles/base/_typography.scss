@@ -25,6 +25,7 @@ body {
 
     h5 {
         font-size: vars.$font-size-page-text;
+        margin-bottom: calc(vars.$margin-site / 2);
     }
 
     h6 {

@@ -25,7 +25,7 @@ export default function Home() {
   const hasPageContent = texts.startseite?.pageContent && Array.isArray(texts.startseite?.pageContent)
 
   return (
-    <div id="home">
+    <div id="home" lang={texts.startseite?.meta?.language} aria-live="polite">
 
       {/* 👾 Metadata: */}
       <title>

@@ -32,7 +32,7 @@ export default function PageSection({ section }) {
 
     case "paragraph":
       return (
-       <Paragraph type={section.type} position={section.position} title={section.title} content={section.content} titleColor={section.titleColor} contentColor={section.contentColor} />
+       <Paragraph type={section.type} position={section.position} title={section.title} content={section.content} titleColor={section.titleColor} contentColor={section.contentColor} subParagraphs={section.subParagraphs} />
       );
 
     case "list":

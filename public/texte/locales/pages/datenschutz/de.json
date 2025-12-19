@@ -1,0 +1,265 @@
+{
+  "datenschutz": {
+    "meta": {
+      "title": "Datenschutzerklärung",
+      "content": "Datenschutzerklärung der Bremerhavener Formularlotsen",
+      "language": "de"
+    },
+    "hero": {
+      "heroPicture": "images/heroImages/AdobeStock_548190067.jpeg",
+      "heroPictureAlt": "Personen bei einem Beratungsgespralach",
+      "heroMainTitle": "Datenschutz",
+      "heroSubTitle": "Ihre Daten in sicheren Händen"
+    },
+    "pageContent": [
+      {
+        "groupId": "title",
+        "groupStyle": "page-content-title",
+        "type": "intro",
+        "title": "Datenschutzerklärung",
+        "content": "Stand: Dezember 2025"
+      },
+      {
+        "groupId": "responsibility",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "1. Verantwortliche Stelle",
+        "titleColor": "light-blue",
+        "content": "Ökumenisches Projekt Bremerhavener Formularlotsen",
+        "subParagraphs": [
+          {
+            "title": "Adresse:",
+            "titleColor": "light-blue",
+            "content": ["Geibelstr. 9 A", "27576 Bremerhaven"]
+          },
+          {
+            "title": "Vertreten durch:",
+            "titleColor": "light-blue",
+            "content": "Djawar Mohamad"
+          },
+          {
+            "title": "Kontakt:",
+            "titleColor": "light-blue",
+            "content": [
+              "E-Mail: info@formularlotsen-bremerhaven.de",
+              "Telefon: 015752683474"
+            ]
+          }
+        ]
+      },
+      {
+        "groupId": "collection",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "2. Erhebung und Verarbeitung personenbezogener Daten",
+        "titleColor": "light-blue",
+        "subParagraphs": [
+          {
+            "title": "2.1 Datenverarbeitung im persönlichen Gespräch",
+            "titleColor": "light-blue",
+            "content": [
+              "Im Rahmen unserer Ausfüllhilfe für Anträge (z.B. Bürgergeld, Kindergeld, Wohngeld) erheben wir temporär personenbezogene Daten wie:",
+              "Name, Adresse, Geburtsdatum",
+              "Sozialversicherungsnummern, Einkommensdaten",
+              "Sonstige für den Antrag relevante Daten"
+            ],
+            "subParagraphs": [
+              {
+                "title": "Zweck der Verarbeitung:",
+                "titleColor": "red",
+                "content": "Die Daten werden ausschließlich verwendet, um Sie bei der Ausfüllung von Anträgen zu unterstützen."
+              },
+              {
+                "title": "Rechtsgrundlage:",
+                "titleColor": "red",
+                "content": "Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und lit. f DSGVO (berechtigtes Interesse an der Erfüllung unserer Dienstleistung)."
+              },
+              {
+                "title": "Speicherdauer:",
+                "titleColor": "red",
+                "content": "Die Daten werden nicht gespeichert und nach Beendigung des Gesprächs sofort vernichtet."
+              }
+            ]
+          },
+          {
+            "title": "2.2 Datenverarbeitung über das Kontaktformular",
+            "titleColor": "light-blue",
+            "content": [
+              "Wenn Sie uns über das Kontaktformular eine Nachricht zukommen lassen, erheben wir folgende Daten:",
+              "Name",
+              "E-Mail-Adresse",
+              "Telefonnummer (falls angegeben)",
+              "Ihre Nachricht"
+            ],
+            "subParagraphs": [
+              {
+                "title": "Zweck der Verarbeitung:",
+                "titleColor": "red",
+                "content": [
+                  "Bearbeitung Ihrer Anfrage",
+                  "Zusendung einer Bestätigungsmail an Sie",
+                  "Weiterleitung Ihrer Anfrage an die zuständigen Formularlotsen"
+                ]
+              },
+              {
+                "title": "Rechtsgrundlage:",
+                "titleColor": "red",
+                "content": "Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) und lit. f DSGVO (berechtigtes Interesse an einer reibungslosen Kommunikation)."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "groupId": "google",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "3. Nutzung von Google als E-Mail-Dienstleister",
+        "titleColor": "light-blue",
+        "content": "Während der Entwicklungsphase unserer Website nutzen wir für die E-Mail-Kommunikation den Dienst Gmail von Google LLC (USA). Dies bedeutet, dass die von Ihnen über das Kontaktformular übermittelten Daten (Name, E-Mail-Adresse, Nachricht) kurzzeitig an Server von Google in den USA übermittelt werden.",
+        "subParagraphs": [
+            {
+                "title": "WIchtig:",
+                "titleColor": "red",
+                "content": ["Diese Lösung ist nicht vollständig DSGVO-konform, da Google LLC in den USA ansässig ist und wir keinen Auftragsverarbeitungsvertrag (AVV) mit Google abgeschlossen haben.", "Wir arbeiten bereits an einer DSGVO-konformen Alternative und werden die Datenverarbeitung so bald wie möglich auf einen europäischen Anbieter umstellen.", "Bitte senden Sie uns keine sensiblen personenbezogenen Daten (z B. Sozialversicherungsnummern, Gesundheitsdaten) über das Kontaktformular."]
+            },
+          {
+            "title": "Rechtsgrundlage für die Datenübermittlung an Google:",
+            "titleColor": "light-blue",
+            "content": "Die Datenverarbeitung erfolgt auf Basis von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer funktionsfähigen Kommunikation während der Entwicklungsphase)."
+          },
+          {
+            "title": "Hinweis zur Datenverarbeitung in den USA:",
+            "titleColor": "light-blue",
+            "content": "Google verarbeitet die Daten im Rahmen des EU-US Data Privacy Frameworks. Weitere Informationen finden Sie in der Datenschutzerklärung von Google."
+          },
+          {
+            "title": "Ihre Rechte:",
+            "titleColor": "light-blue",
+            "content": "Sie haben das Recht, der Verarbeitung Ihrer Daten zu widersprechen. Bitte kontaktieren Sie uns in diesem Fall über eine alternative Kontaktmöglichkeit (z.B. Telefon)."
+          }
+        ]
+      },
+      {
+        "groupId": "thirdParties",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "4. Datenweitergabe an Dritte",
+        "titleColor": "light-blue",
+        "content": "Ihre Daten werden nicht an Dritte weitergegeben, außer:",
+        "subParagraphs": [
+          {
+            "title": "Erstens",
+            "titleColor": "light-blue",
+            "content": "Wenn dies zur Erfüllung unserer Verpflichtungen gem. Art. 6 Abs. 1 lit. f DSGVO erforderlich ist;"
+          },
+          {
+            "title": "Zweitens",
+            "titleColor": "light-blue",
+            "content": "Es besteht eine gesetzliche Verpflichtung (z.B. Weitergabe an Behörden im Rahmen der Antragsstellung)."
+          },
+          {
+            "title": "Drittens",
+            "titleColor": "light-blue",
+            "content": "Die Weitergabe erfolgt an Auftragsverarbeiter (z.B. Google), die uns bei der Bereitstellung unserer Dienste unterstützen."
+          }
+        ]
+      },
+      {
+        "groupId": "duration",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "5. Speicherdauer",
+        "titleColor": "light-blue",
+        "subParagraphs": [
+          {
+            "title": "5.1 Daten aus Kontaktformular",
+            "titleColor": "light-blue",
+            "content": "Daten aus dem Kontaktformular werden nach Bearbeitung Ihrer Anfrage gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten bestehen."
+          },
+          {
+            "title": "5.2 Daten aus persönlichen Gesprächen",
+            "titleColor": "light-blue",
+            "subParagraphs": [
+              {
+                "content": "Daten aus persönlichen Gesprächen werden grundsätzlich nicht gespeichert und nach Beendigung des Gesprächs sofort vernichtet."
+              },
+              {
+                "title": "Ausnahme:",
+                "titleColor": "red",
+                "content": "Falls Sie uns ausdrücklich bitten, Ihre Daten für die weitere Bearbeitung Ihres Anliegens zu speichern, werden diese nur für die Dauer der Bearbeitung aufbewahrt und anschließend gelöscht."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "groupId": "personalRights",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "6. Ihre Rechte",
+        "titleColor": "light-blue",
+        "content": "Sie haben folgende Rechte in Bezug auf Ihre personenbezogenen Daten:",
+        "subParagraphs": [
+          {
+            "subParagraphs": [
+              {
+                "title": "Recht auf Auskunft",
+                "content": "gem. Art. 15 DSGVO"
+              },
+              {
+                "title": "Recht auf Berichtigung",
+                "content": "gem. Art. 16 DSGVO"
+              },
+              {
+                "title": "Recht auf Löschung",
+                "content": "gem. Art. 17 DSGVO"
+              },
+              {
+                "title": "Recht auf Einschränkung der Verarbeitung",
+                "content": "gem. Art. 18 DSGVO"
+              },
+              {
+                "title": "Recht auf Wiederspruch",
+                "content": "gem. Art. 21 DSGVO"
+              },
+              {
+                "title": "Recht auf Datenübertragbarkeit",
+                "content": "gem. Art. 20 DSGVO"
+              }
+            ]
+          },
+          {
+            "title": "Hinweis:",
+            "titleColor": "red",
+            "content": "Falls Sie Ihre Rechte geltend machen möchten, wenden Sie sich bitte an uns."
+          }
+        ]
+      },
+      {
+        "groupId": "safty",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "7. Datensicherheit",
+        "titleColor": "light-blue",
+        "content": "Wir setzen technische und organisatorische Maßnahmen ein, um Ihre Daten vor Verlust, Manipulation oder unbefugtem Zugriff zu schützen."
+      },
+      {
+        "groupId": "update",
+        "groupStyle": "full-width",
+        "type": "paragraph",
+        "position": "page-full",
+        "title": "8. Aktualisierung dieser Datenschutzerklärung",
+        "titleColor": "light-blue",
+        "content": "Diese Datenschutzerklärung wird bei Bedarf aktualisiert. Die aktuelle Version ist auf unserer Website abrufbar."
+      }
+    ]
+  }
+}

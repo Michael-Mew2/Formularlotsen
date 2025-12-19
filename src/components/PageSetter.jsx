@@ -29,7 +29,7 @@ export default function PageSetter({ targetPage, pageBackground }) {
     Array.isArray(texts[targetPage]?.pageContent);
 
   return (
-    <div id={targetPage} className={pageBackground ? pageBackground : "pageDefaultBackground"}>
+    <div id={targetPage} className={pageBackground ? pageBackground : "pageDefaultBackground"} lang={texts[targetPage]?.meta?.language || "de"}>
       {/* 👾 Metadata: */}
       <title>
         {texts[targetPage]?.meta?.title ||

@@ -52,7 +52,7 @@ export function BurgerMenuDropdown() {
   return (
     <div className="burgerMenu__list-item__dropdown" ref={dropdownRef}>
       <motion.button
-        aria-label="Knopf für Sprachen - Button for Languages"
+        aria-label="Sprache ändern / Change Languages"
         onClick={toggleDropdown}
         className={`burgerMenu__list-item__link ${isOpen ? "open" : ""}`}
         whileHover={{ scale: 1.05 }}
@@ -96,6 +96,13 @@ export default function HeaderDropdown() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [currentLanguageIndex, setCurrentLanguageIndex] = React.useState(0);
   const dropdownRef = React.useRef(null);
+  const dropdownContentRef = React.useRef(null); // Für Sprachausgabe wichtig!
+
+  React.useEffect(() => {
+    if (isOpen && dropdownContentRef.current) {
+      dropdownContentRef.current.focus();
+    }
+  }, [isOpen])
 
   React.useEffect(() => {
     function handleClickOutside(event) {
@@ -117,14 +124,21 @@ export default function HeaderDropdown() {
     return () => clearInterval(interval);
   }, []);
 
-  const toggleDropdown = () => setIsOpen(!isOpen);
+  const toggleDropdown = (e) =>{
+    if (e.key === "Enter" || e.key === " " || e.type === "click") {
+      e.preventDefault();
+      setIsOpen(!isOpen);
+    }
+  };
 
   return (
     <div className="headerDropdown" ref={dropdownRef}>
       {/* Button bleibt fixiert */}
       <motion.button
-        aria-label="Knopf für Sprachen - Button for Languages"
+        aria-label="Sprache ändern - Change Language"
+        aria-expanded={isOpen}
         onClick={toggleDropdown}
+        onKeyDown={toggleDropdown}
         className="headerCardToggleButton"
         animate={{
           borderRadius: isOpen ? "50px 50px 0 0" : "50px",
@@ -155,6 +169,8 @@ export default function HeaderDropdown() {
 
       {/* Content fixiert unter dem Button */}
       <motion.div
+        ref={dropdownContentRef}
+        tabIndex="-1" // div wird Fokusierbar
         className="headerCardContent"
         initial={{ height: 0, opacity: 0 }}
         animate={{
@@ -162,6 +178,7 @@ export default function HeaderDropdown() {
           opacity: isOpen ? 1 : 0,
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
+        aria-hidden={!isOpen}
       >
         <HeaderCard />
       </motion.div>

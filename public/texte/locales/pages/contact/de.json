@@ -121,7 +121,7 @@
                         {
                           "component": {
                             "type": "paragraph",
-                            "content": "Mit dem Absenden dieses Formulars stimmen Sie zu, dass Ihre angegebenen Daten zur Bearbeitung Ihrer Anfrage verwendet werden. Ihre Daten werden verschlüsselt übertragen und nicht an Dritte weitergegeben. Sie haben jederzeit das Recht auf Auskunft, Berichtigung oder Löschung Ihrer Daten."
+                            "content": ["Mit dem Absenden dieses Formulars stimmen Sie zu, dass Ihre angegebenen Daten zur Bearbeitung Ihrer Anfrage verwendet werden. Ihre Daten werden verschlüsselt übertragen und nicht an Dritte weitergegeben. Sie haben jederzeit das Recht auf Auskunft, Berichtigung oder Löschung Ihrer Daten.", "-", "Hinweis: Während der Entwicklungsphase unserer Website nutzen wir Gmail für die E-Mail-Kommunikation. Diese Lösung ist nicht vollständig DSGVO-konform. Wir arbeiten an einer Alternative. Bitte senden Sie uns keine sensiblen Daten über dieses Formular.", "Alternativ können Sie uns telefonisch, oder direkt über unsere Email-Adresse kontaktieren."]
                           }
                         },
                         {

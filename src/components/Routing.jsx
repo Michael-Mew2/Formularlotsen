@@ -8,6 +8,9 @@ import TimeAndPlace from "../pages/TimeAndPlace";
 import Backbone from "../pages/Backbone";
 import AidOrganizations from "../pages/AidOrganizations";
 import Contact from "../pages/Contact";
+import Impressum from "../pages/Impressum";
+import Datenschutz from "../pages/Datenschutz";
+import Agb from "../pages/Agb";
 
 export default function Routing() {
   return (
@@ -19,6 +22,9 @@ export default function Routing() {
           <Route path="timeAndLocation" element={<TimeAndPlace />} />
           <Route path="aidOrganizations" element={<AidOrganizations />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="imprint" element={<Impressum />} />
+          <Route path="data-protection" element={<Datenschutz />} />
+          <Route path="agb" element={<Agb/>} />
           <Route path="§backbone" element={<Backbone />} />
           <Route path="*" element={<NotFound />} />
         </Route>

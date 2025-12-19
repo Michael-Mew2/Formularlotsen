@@ -2,7 +2,8 @@
   "startseite": {
     "meta":{
         "title":"Willkommen bei den Bremerhavener Formularlotsen",
-        "content": "Wir helfen Ihnen bei Ausfüllen Ihrer Formulare, ganz kostenlos!"
+        "content": "Wir helfen Ihnen bei Ausfüllen Ihrer Formulare, ganz kostenlos!",
+        "language": "de"
     },
     "hero": {
       "heroPicture": "images/heroImages/AdobeStock_548190067.jpeg",
@@ -49,7 +50,7 @@
         "type": "paragraph",
         "position": "page-full",
         "title": "Schnelle und einfache Unterstützung:",
-        "titleColor": "orange",
+        "titleColor": "red",
         "content": "Unsere Formularlotsen sind für Sie da, um Ihnen bei Ihren Anliegen zu helfen. Sie stehen Ihnen zu regelmäßigen Zeiten an festen Orten zur Verfügung, und Sie müssen keinen Termin vereinbaren. Dies ermöglicht Ihnen einen bequemen und unkomplizierten Zugang zu unseren Dienstleistungen. Wir sind darauf spezialisiert, vollständige Anträge mit allen erforderlichen Unterlagen zu bearbeiten, sodass die Ämter diese zügig verarbeiten können. Bei uns geht es darum, Ihre Anforderungen so einfach und effizient wie möglich zu erfüllen."
       },
       {

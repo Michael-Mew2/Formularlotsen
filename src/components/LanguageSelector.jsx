@@ -55,15 +55,18 @@ export default function LanguageSelector() {
 
   return (
     <div className="languageContent">
-      <button onClick={() => setLanguage("de")}>
-        <img src="./images/flags/de.svg" alt="deutsche Flagge" /> Deutsch
+      <button onClick={() => setLanguage("de")} aria-label="Deutsch" lang="de">
+        <img src="./images/flags/de.svg" alt="Deutsche Flagge" /> Deutsch
       </button>
-      <button onClick={() => setLanguage("en")}>
+
+      <button onClick={() => setLanguage("en")} aria-label="English" lang="en">
         <img src="./images/flags/en.svg" alt="english flag" /> English
       </button>
 
       <button
         onClick={() => setLanguage("ar")}
+        aria-label="العربية"
+        lang="ar"
         className="flag-carousel-container"
       >
         <div className="flag-container">
@@ -85,6 +88,8 @@ export default function LanguageSelector() {
 
       <button
         onClick={() => setLanguage("fa")}
+        aria-label="فارسی"
+        lang="fa"
         className="flag-carousel-container"
       >
         <div className="flag-container">
@@ -103,21 +108,35 @@ export default function LanguageSelector() {
         </div>
         فارسی
       </button>
-      <button onClick={() => setLanguage("tr")}>
+
+      <button onClick={() => setLanguage("tr")} aria-label="Türkçe" lang="tr">
         <img src="./images/flags/tr.svg" alt="Türkische Flagge" /> Türkçe
       </button>
-      <button onClick={() => setLanguage("bg")}>
+
+      <button
+        onClick={() => setLanguage("bg")}
+        aria-label="български"
+        lang="bg"
+      >
         <img src="./images/flags/bg.svg" alt="Bulgarsische Flagge" /> български
       </button>
-      <button onClick={() => setLanguage("uk")}>
+
+      <button
+        onClick={() => setLanguage("uk")}
+        aria-label="Українська"
+        lang="uk"
+      >
         <img src="./images/flags/uk.svg" alt="Ukrainische Flagge" /> Українська
       </button>
-      <button onClick={() => setLanguage("pl")}>
+
+      <button onClick={() => setLanguage("pl")} aria-label="polski" lang="pl">
         <img src="./images/flags/pol.svg" alt="Polnische Flagge" /> polski
       </button>
 
       <button
         onClick={() => setLanguage("pt")}
+        aria-label="Português"
+        lang="pt"
         className="flag-carousel-container"
       >
         <div className="flag-container">
@@ -134,7 +153,7 @@ export default function LanguageSelector() {
             />
           </AnimatePresence>
         </div>
-        Portugês
+        Português
       </button>
     </div>
   );

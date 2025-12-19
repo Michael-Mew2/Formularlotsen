@@ -14,12 +14,17 @@
       {
         "name": "Impressum",
         "ariaLabel": "Link zu unserem Impressum",
-        "route": "/"
+        "route": "/imprint"
       },
       {
         "name": "Datenschutz",
         "ariaLabel": "Link zu unseren Datenschutzbestimmungen",
-        "route": "/"
+        "route": "/data-protection"
+      },
+      {
+        "name": "AGB",
+        "ariaLabel": "Link zu unseren AGB",
+        "route": "/agb"
       }
     ],
     "externalLinks": [
