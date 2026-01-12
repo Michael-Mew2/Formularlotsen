@@ -11,6 +11,7 @@ import Impressum from "../pages/Impressum";
 import Datenschutz from "../pages/Datenschutz";
 import Agb from "../pages/Agb";
 import FormsInformation from "../pages/FormsInformation";
+import { TestPage } from "../pages/Test.jsx";
 
 export default function Routing() {
   return (
@@ -27,6 +28,7 @@ export default function Routing() {
           <Route path="data-protection" element={<Datenschutz />} />
           <Route path="agb" element={<Agb/>} />
           <Route path="§backbone" element={<Backbone />} />
+          <Route path="test" element={<TestPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

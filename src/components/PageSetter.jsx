@@ -18,18 +18,21 @@ export default function PageSetter({ targetPage, pageBackground }) {
     }
   }, [texts]);
 
-    React.useEffect(() => {
-      console.log(texts[targetPage]?.pageContent);
-      console.log(hasPageContent);
-      
-    }, [texts]);
+  React.useEffect(() => {
+    console.log(texts[targetPage]?.pageContent);
+    console.log(hasPageContent);
+  }, [texts]);
 
   const hasPageContent =
     texts[targetPage]?.pageContent &&
     Array.isArray(texts[targetPage]?.pageContent);
 
   return (
-    <div id={targetPage} className={pageBackground ? pageBackground : "pageDefaultBackground"} lang={texts[targetPage]?.meta?.language || "de"}>
+    <div
+      id={targetPage}
+      className={pageBackground ? pageBackground : "pageDefaultBackground"}
+      lang={texts[targetPage]?.meta?.language || "de"}
+    >
       {/* 👾 Metadata: */}
       <title>
         {texts[targetPage]?.meta?.title ||

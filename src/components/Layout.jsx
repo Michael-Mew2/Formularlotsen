@@ -1,12 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Header from "./Header";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "./Footer";
 import Hero from "./Hero";
 import Dialog from "./Dialog";
 import { useLanguageStore } from "../store";
 
 export default function Layout() {
+  const afterHeroRef = useRef(null);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    afterHeroRef.current?.scrollIntoView({
+      behavior: "instant",
+      block: "start",
+    });
+  }, [pathname]);
 
   // Funktion um alle Texte die von rechts nach links geschrieben werden richtig anzuzeigen:
   useEffect(() => {
@@ -31,6 +40,8 @@ export default function Layout() {
       <Header />
       <main>
         <Hero />
+        {/* MARKER – DAS ist entscheidend */}
+        <div ref={afterHeroRef} />
         <Outlet />
         <Dialog />
       </main>
