@@ -127,7 +127,7 @@ const Path = (props) => (
 
 const MenuToggle = ({ toggle, isMobile, isOpen, buttonTexts }) => (
   <button onClick={toggle} className={`burgerMenu__toggleButton ${isMobile ?  "": "burgerMenu__desktop"} ${isOpen ? "burgerMenu__desktop-open": ""}`}>
-    {!isMobile && isOpen ? (<p aria-label={buttonTexts?.buttons?.closeMenuButton.ariaLabel}>{buttonTexts?.buttons?.closeMenuButton?.name}</p>):(<p className={buttonTexts?.buttons?.openMenuButton?.ariaLabel}>{buttonTexts?.buttons?.openMenuButton?.name}</p>)}
+    {!isMobile && (isOpen ? (<p aria-label={buttonTexts?.buttons?.closeMenuButton.ariaLabel}>{buttonTexts?.buttons?.closeMenuButton?.name}</p>):(<p className={buttonTexts?.buttons?.openMenuButton?.ariaLabel}>{buttonTexts?.buttons?.openMenuButton?.name}</p>))}
     <svg
       width="23"
       height="23"
