@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { code } from "framer-motion/client";
 
 const languages = [
-  { name: "Deutsch", code: "de", word: "Sprachen" },
+ /*  { name: "Deutsch", code: "de", word: "Sprachen" }, */
   { name: "English", code: "en", word: "Languages" },
   { name: "العربية", code: "ar", word: "اللغات" },
   { name: "فarsi", code: "fa", word: "زبان ها" },
@@ -65,6 +65,7 @@ export function BurgerMenuDropdown() {
             }
           />
         </div>
+          <p>Sprache | </p>
         <div className="language-text-container">
           <AnimatePresence mode="sync">
             <motion.p
