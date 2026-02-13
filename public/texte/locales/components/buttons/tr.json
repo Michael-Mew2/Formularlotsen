@@ -1,0 +1,12 @@
+{
+  "buttons": {
+    "openMenuButton": {
+      "name": "Ana Menü",
+      "ariaLabel": "Menüyü aç"
+    },
+    "closeMenuButton": {
+      "name": "Kapat",
+      "ariaLabel": "Menüyü kapat"
+    }
+  }
+}

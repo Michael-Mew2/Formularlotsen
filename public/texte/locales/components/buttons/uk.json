@@ -1,0 +1,12 @@
+{
+  "buttons": {
+    "openMenuButton": {
+      "name": "Головне меню",
+      "ariaLabel": "Відкрити меню"
+    },
+    "closeMenuButton": {
+      "name": "Закрити",
+      "ariaLabel": "Закрити меню"
+    }
+  }
+}

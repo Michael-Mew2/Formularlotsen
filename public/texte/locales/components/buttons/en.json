@@ -1,0 +1,12 @@
+{
+  "buttons": {
+    "openMenuButton": {
+      "name": "Menu",
+      "ariaLabel": "Open menu"
+    },
+    "closeMenuButton": {
+      "name": "Close",
+      "ariaLabel": "Close menu"
+    }
+  }
+}
