@@ -49,12 +49,12 @@ export default function StickyHeader() {
   return (
     <header className="header">
       <HeaderTop ref={headerTopRef} isScrolled={isScrolled} />
-      <HeaderBottom
+     {/*  <HeaderBottom
         ref={headerBottomRef}
         isSticky={isSticky}
         topOffset={topOffset}
         scrollY={scrollY}
-      />
+      /> */}
     </header>
   );
 }
