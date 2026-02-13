@@ -2,7 +2,7 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import NavItems from "./NavItems";
 
-export default function BurgerMenu({ isOpen, toggleMenu }) {
+export default function BurgerMenu({ isMobile, isOpen, toggleMenu }) {
   const [xPosition, setXPosition] = React.useState("calc(100% - 50px)");
 
   React.useEffect(() => {
@@ -64,7 +64,7 @@ export default function BurgerMenu({ isOpen, toggleMenu }) {
         <motion.ul className={`burgerMenu__list ${isOpen ? "open" : ""}`} variants={navVariants}>
           <NavItems isMobile={true} toggleMenu={toggleMenu} />
         </motion.ul>
-        <MenuToggle toggle={toggleMenu} />
+        <MenuToggle toggle={toggleMenu} isMobile={isMobile} />
       </motion.nav>
     </div>
   );
@@ -115,14 +115,15 @@ const Path = (props) => (
   />
 );
 
-const MenuToggle = ({ toggle }) => (
-  <button onClick={toggle} className="burgerMenu__toggleButton">
+const MenuToggle = ({ toggle, isMobile }) => (
+  <button onClick={toggle} className={`burgerMenu__toggleButton ${isMobile ?  "": "burgerMenu__desktop"}`}>
+    {!isMobile && <p>Menu</p>}
     <svg
       width="23"
       height="23"
       viewBox="0 0 23 23"
       style={{ display: "block", margin: "0 auto" }}
-    >
+      >
       <Path
         variants={{
           closed: { d: "M 2 2.5 L 20 2.5" },
