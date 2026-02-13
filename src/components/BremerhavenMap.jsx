@@ -36,12 +36,25 @@ export default function BremerhavenMap({ position }) {
     openDialog(<LocationDialog location={location} />);
   };
 
+  const handleBoroughClick = (borough) => {
+    console.log("Stadtteil gecklickt:", borough);
+    openDialog(<LocationDialog location={getFirstLocationFromBorough(borough)} />)
+    
+  } 
+
+  const getFirstLocationFromBorough = (borough) => {
+    if(!locationData) return null
+
+    const firstLocation = locationData.find((location) => location.borough === borough);
+    return firstLocation || null
+  }
+
   React.useEffect(() => {
     const loadLocationInfo = async () => {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `texte/locales/components/locationData/${language}.json`
+          `texte/locales/components/locationData/${language}.json`,
         );
         if (!response.ok) throw new Error(`HTTP-Fehler: ${response.status}`);
 
@@ -115,10 +128,38 @@ export default function BremerhavenMap({ position }) {
     });
   }; */
 
+  const getBoroughsFromLocationData = () => {
+    if (!locationData) return [];
+    const boroughs = new Set();
+    locationData.forEach((location) => {
+      boroughs.add(location.borough);
+    });
+    return Array.from(boroughs);
+  };
+
   function onEachBorough(borough, layer) {
     const boroughName = borough.properties.BEZ_ST;
     console.log(boroughName);
-    layer.bindPopup(boroughName);
+    const allowedBoroughs = getBoroughsFromLocationData();
+
+    // Standart-Style für alle:
+    layer.setStyle({
+      fillColor: "#006176",
+      fillOpacity: 0.8, // 0-1
+      color: "#FBFBFF",
+      weight: 2,
+    });
+
+    if (allowedBoroughs.includes(boroughName)) {
+      layer.on({
+        click: () => {
+          handleBoroughClick(boroughName);
+        },
+      });
+      layer.bindTooltip(boroughName, { permanent: false, direction: "center" });
+    } else {
+      layer.options.interactive = false;
+    }
   }
 
   // ----------
