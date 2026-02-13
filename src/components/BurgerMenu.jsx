@@ -1,9 +1,19 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import NavItems from "./NavItems";
+import { useMiscButtonsStore, useLanguageStore } from "../store";
 
 export default function BurgerMenu({ isMobile, isOpen, toggleMenu }) {
   const [xPosition, setXPosition] = React.useState("calc(100% - 50px)");
+  const {buttonTexts, loadButtonText} = useMiscButtonsStore();
+  const {language} = useLanguageStore()
+
+  React.useEffect(() => {
+    loadButtonText(language);
+    
+  }, [language])
+
+  console.log(buttonTexts);
 
   React.useEffect(() => {
     const updateXPosition = () => {
@@ -64,7 +74,7 @@ export default function BurgerMenu({ isMobile, isOpen, toggleMenu }) {
         <motion.ul className={`burgerMenu__list ${isOpen ? "open" : ""}`} variants={navVariants}>
           <NavItems isMobile={true} toggleMenu={toggleMenu} />
         </motion.ul>
-        <MenuToggle toggle={toggleMenu} isMobile={isMobile} />
+        <MenuToggle toggle={toggleMenu} isMobile={isMobile} isOpen={isOpen} buttonTexts={buttonTexts} />
       </motion.nav>
     </div>
   );
@@ -115,14 +125,14 @@ const Path = (props) => (
   />
 );
 
-const MenuToggle = ({ toggle, isMobile }) => (
-  <button onClick={toggle} className={`burgerMenu__toggleButton ${isMobile ?  "": "burgerMenu__desktop"}`}>
-    {!isMobile && <p>Menu</p>}
+const MenuToggle = ({ toggle, isMobile, isOpen, buttonTexts }) => (
+  <button onClick={toggle} className={`burgerMenu__toggleButton ${isMobile ?  "": "burgerMenu__desktop"} ${isOpen ? "burgerMenu__desktop-open": ""}`}>
+    {!isMobile && isOpen ? (<p aria-label={buttonTexts?.buttons?.closeMenuButton.ariaLabel}>{buttonTexts?.buttons?.closeMenuButton?.name}</p>):(<p className={buttonTexts?.buttons?.openMenuButton?.ariaLabel}>{buttonTexts?.buttons?.openMenuButton?.name}</p>)}
     <svg
       width="23"
       height="23"
       viewBox="0 0 23 23"
-      style={{ display: "block", margin: "0 auto" }}
+      style={{ display: "block", margin: `${isMobile ? "0 auto" : "0 0"}` }}
       >
       <Path
         variants={{
