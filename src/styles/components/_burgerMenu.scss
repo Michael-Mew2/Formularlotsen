@@ -58,8 +58,33 @@
     right: vars.$margin-site;
     z-index: 1002;
     pointer-events: auto; /* Aktiviert Klicks auf den Button */
-  }
 
+  }
+  &__desktop {
+    width: fit-content;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 70px;
+    padding: vars.$margin-nav;
+    gap: vars.$spacing-sm;
+
+    p {
+      font-size: 1rem;
+      text-transform: uppercase;
+      position: relative;
+      top: -5%;
+    }
+    svg {
+      position: relative;
+      top: 10%;
+    }
+
+    &:hover {
+      background-color: vars.$secondary-color;
+    }
+
+  }
+  
   &__list {
     display: flex;
     flex-direction: column;

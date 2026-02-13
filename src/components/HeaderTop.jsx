@@ -27,11 +27,11 @@ const HeaderTop = React.forwardRef(({ isScrolled }, ref) => {
     <div ref={ref} className={`header--top ${isScrolled ? "scrolled" : ""}`}>
       <div className="headerContentTop">
         <HeaderLogo />
-        {isMobile ? (
-          <BurgerMenu isOpen={isBurgerOpen} toggleMenu={toggleBurgerMenu} />
-        ) : (
+        {/* isMobile ? ( */
+          <BurgerMenu isMobile={isMobile} isOpen={isBurgerOpen} toggleMenu={toggleBurgerMenu} />
+        /* ) : (
           <HeaderDropdown />
-        )}
+        ) */}
       </div>
     </div>
   );

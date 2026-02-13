@@ -15,7 +15,7 @@ export default function StickyHeader() {
     const headerTop = headerTopRef.current;
     const headerBottom = headerBottomRef.current;
 
-    if (!headerTop || !headerBottom) return;
+    if (!headerTop) return;
 
     setTopOffset(headerTop.offsetHeight); // Speichert die Höhe von HeaderTop
 
@@ -23,21 +23,14 @@ export default function StickyHeader() {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
 
-      const bottomOffset = window.innerHeight - headerBottom.offsetHeight; // Startpunkt für HeaderBottom
-
-      if (currentScrollY >= bottomOffset - headerTop.offsetHeight) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
+      if (headerBottom) {
+        const bottomOffset = window.innerHeight - headerBottom.offsetHeight; // Startpunkt für HeaderBottom
+        setIsSticky(currentScrollY >= bottomOffset - headerTop.offsetHeight);
       }
 
       // Für den Scrolleffekt vom Top-Header:
-      if (currentScrollY > 20) {
-        // wert je nach bedarf anpassbar
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      // wert je nach bedarf anpassbar
+      setIsScrolled(currentScrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -46,15 +39,17 @@ export default function StickyHeader() {
     };
   }, []);
 
+  console.log(isScrolled);
+
   return (
     <header className="header">
       <HeaderTop ref={headerTopRef} isScrolled={isScrolled} />
-      <HeaderBottom
+      {/* <HeaderBottom
         ref={headerBottomRef}
         isSticky={isSticky}
         topOffset={topOffset}
         scrollY={scrollY}
-      />
+      />  */}
     </header>
   );
 }
