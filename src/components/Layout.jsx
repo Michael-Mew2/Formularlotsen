@@ -7,7 +7,6 @@ import Dialog from "./Dialog";
 import { useLanguageStore } from "../store";
 
 export default function Layout() {
-
   // Funktion um alle Texte die von rechts nach links geschrieben werden richtig anzuzeigen:
   useEffect(() => {
     const language = useLanguageStore.getState().language;
@@ -25,6 +24,11 @@ export default function Layout() {
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      />
+      <link
+        rel="icon"
+        type="image/svg+xml"
+        href="/images/logos/FORMULARLOTSEN_Logo-ganz.svg"
       />
 
       {/* 📄 Content: */}
