@@ -1,4 +1,4 @@
-import * as React from "react";
+// import * as React from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "../pages/Home";
@@ -26,7 +26,7 @@ export default function Routing() {
           <Route path="contact" element={<Contact />} />
           <Route path="imprint" element={<Impressum />} />
           <Route path="data-protection" element={<Datenschutz />} />
-          <Route path="agb" element={<Agb/>} />
+          <Route path="agb" element={<Agb />} />
           <Route path="§backbone" element={<Backbone />} />
           <Route path="*" element={<NotFound />} />
         </Route>
