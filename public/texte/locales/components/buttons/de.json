@@ -1,12 +1,7 @@
 {
-    "buttons": {
-        "openMenuButton": {
-            "name": "Hauptmenü",
-            "ariaLabel": "Menü öffnen"
-        },
-        "closeMenuButton": {
-            "name": "Schließen",
-            "ariaLabel": "Menü schließen"
-        }
+  "buttons": {
+    "openMenuButton": {
+      "name": "Hauptmenü öffnen"
     }
+  }
 }

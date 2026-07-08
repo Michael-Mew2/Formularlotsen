@@ -11,5 +11,28 @@ export const componentCollection = {
     },
   },
 
-  fields: [],
+  fields: [
+    // temporäre Felder
+    {
+      type: "object",
+      name: "buttons",
+      label: "Knöpfe",
+
+      fields: [
+        {
+          type: "object",
+          name: "openMenuButton",
+          label: "Menü-öffnen-Knopf",
+
+          fields: [
+            {
+              type: "string",
+              name: "name",
+              label: "Knopf-Name",
+            },
+          ],
+        },
+      ],
+    },
+  ],
 };

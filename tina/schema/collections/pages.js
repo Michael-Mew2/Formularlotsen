@@ -1,3 +1,5 @@
+import { paragraphTemplate } from "../templates/paragraph";
+
 export const pageCollection = {
   name: "startseite",
   label: "Startseite",
@@ -32,6 +34,13 @@ export const pageCollection = {
               label: "Seitentitel",
             },
           ],
+        },
+        {
+          type: "object",
+          name: "pageContent",
+          label: "Seiteninhalt",
+          list: true,
+          templates: [paragraphTemplate],
         },
       ],
     },
