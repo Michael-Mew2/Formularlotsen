@@ -1,91 +1,69 @@
-import { defineConfig, defineSchema } from "tinacms";
+import { defineConfig } from "tinacms";
+
+// Your hosting provider likely exposes this as an environment variable
+const branch = "main";
 
 export default defineConfig({
-  schema: defineSchema({
+  branch,
+
+  // Get this from tina.io
+  clientId: "",
+  // Get this from tina.io
+  token: "",
+
+  build: {
+    outputFolder: "admin",
+    publicFolder: "public",
+  },
+  // Uncomment to allow cross-origin requests from non-localhost origins
+  // during local development (e.g. GitHub Codespaces, Gitpod, Docker).
+  // Use 'private' to allow all private-network IPs (WSL2, Docker, etc.)
+  // server: {
+  //   allowedOrigins: ['https://your-codespace.github.dev'],
+  // },
+  media: {
+    tina: {
+      mediaRoot: "images",
+      publicFolder: "public",
+    },
+  },
+  // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/r/content-modelling-collections/
+  schema: {
     collections: [
       {
-        label: "Seiteninhalte",
-        name: "page_content",
-        path: "public/texte/locales/pages",
+        name: "startseite",
+        label: "Startseite",
+        path: "public/texte/locales/pages/startseite",
+        format: "json",
+        ui: {
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        // ----------
+        // Bausteine/Felder:
         fields: [
+          // Beispiel: Startseite
           {
-            label: "Seiten-Name",
-            name: "page_name",
-            type: "string",
-            required: true,
-          },
-          {
-            label: "Meta-Daten",
-            name: "meta",
             type: "object",
-            fields: [
-              { label: "Titel", name: "title", type: "string" },
-              { label: "Beschreibung", name: "content", type: "string" },
-            ],
-          },
-          {
-            label: "Hero-Bereich",
-            // description:
-            //   "Das erste was die Besucher sehen, wenn diese die Seite öffnen.",
-            name: "hero",
-            type: "object",
-            fields: [
-              { label: "Bild", name: "heroPicture", type: "image" },
-              { label: "Alt-Text", name: "heroPictureAlt", type: "string" },
-              { label: "Haupttitel", name: "heroMainTitle", type: "string" },
-              { label: "Untertitel", name: "heroSubTitle", type: "string" },
-            ],
-          },
-          {
-            label: "Inhaltsblöcke",
-            name: "pageContent",
-            type: "object",
-            list: "true",
+            name: "startseite",
+            label: "Startseite",
+
+            // -----
+            // Meta
             fields: [
               {
-                label: "Typ",
-                name: "type",
-                type: "string",
-                options: [
-                  "intro",
-                  "list",
-                  "paragraph",
-                  "image",
-                  "table",
-                  "svg-map",
-                  "city-map",
-                  "time-table",
-                  "accordion",
-                  "accordion-address",
-                  "accordion-contact",
-                  "accordion-times",
-                  "contact-form",
-                  "legal-checkbox",
-                  "contact-info",
-                  "loading-wave",
-                  "divider",
-                ],
-              },
-              { label: "Gruppen-ID", name: "groupId", type: "string" },
-              {
-                label: "Gruppen-Stil",
-                name: "groupStyle",
-                type: "string",
-                list: "true",
-                options: [
-                  { label: "Eine Spalte", name: "full-width" },
-                  { label: "Zwei Spalten", name: "flex-two-columns" },
-                ],
-              },
-              {
-                label: "Position",
-                name: "position",
-                type: "string",
-                list: "true",
-                options: [
-                  { label: "Links", name: "flex-item-left" },
-                  { label: "Rechts", name: "flex-item-right" },
-                  { label: "Ganze Breite", name: "page-full" },
+                type: "object",
+                name: "meta",
+                label: "Meta",
+
+                fields: [
+                  {
+                    type: "string",
+                    name: "title",
+                    label: "Titel",
+                  },
                 ],
               },
             ],
@@ -93,5 +71,5 @@ export default defineConfig({
         ],
       },
     ],
-  }),
+  },
 });
