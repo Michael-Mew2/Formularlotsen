@@ -2,6 +2,13 @@
   "startseite": {
     "meta": {
       "title": "[Tina-Test-2] Willkommen bei den Bremerhavener Formularlotsen"
-    }
+    },
+    "pageContent": [
+      {
+        "titleColor": "orange",
+        "contentColor": "red",
+        "_template": "paragraph"
+      }
+    ]
   }
 }

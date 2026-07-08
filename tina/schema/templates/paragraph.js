@@ -1,5 +1,5 @@
 import { commonFields } from "../fields/common";
-import { contentColors, titleColors } from "../options";
+import { contentColors, titleColors } from "../options/colors";
 
 export const paragraphTemplate = {
   name: "paragraph",
