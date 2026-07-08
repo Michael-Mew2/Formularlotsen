@@ -1,3 +1,5 @@
+import { contentColors } from "../../options";
+
 export const contentColorField = {
   type: "string",
   name: "contentColor",
