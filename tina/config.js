@@ -1,4 +1,6 @@
 import { defineConfig } from "tinacms";
+import { pageCollection } from "./schema/collections/pages";
+import { componentCollection } from "./schema/collections/componens";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = "main";
@@ -29,47 +31,6 @@ export default defineConfig({
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/r/content-modelling-collections/
   schema: {
-    collections: [
-      {
-        name: "startseite",
-        label: "Startseite",
-        path: "public/texte/locales/pages/startseite",
-        format: "json",
-        ui: {
-          allowedActions: {
-            create: false,
-            delete: false,
-          },
-        },
-        // ----------
-        // Bausteine/Felder:
-        fields: [
-          // Beispiel: Startseite
-          {
-            type: "object",
-            name: "startseite",
-            label: "Startseite",
-
-            // -----
-            // Meta
-            fields: [
-              {
-                type: "object",
-                name: "meta",
-                label: "Meta",
-
-                fields: [
-                  {
-                    type: "string",
-                    name: "title",
-                    label: "Titel",
-                  },
-                ],
-              },
-            ],
-          },
-        ],
-      },
-    ],
+    collections: [pageCollection, componentCollection],
   },
 });
