@@ -1,5 +1,5 @@
 export const altField = {
   type: "string",
-  alt: "alt",
+  name: "alt",
   label: "Alternativtext",
 };

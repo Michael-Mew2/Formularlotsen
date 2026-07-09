@@ -23,6 +23,17 @@
         ],
         "contentColor": "",
         "_template": "paragraph"
+      },
+      {
+        "visible": true,
+        "groupId": "Bild ",
+        "groupStyle": "flex-two-columns",
+        "position": "flex-item-right",
+        "picture": "/images/pages/home/AdobeStock_124267298.jpeg",
+        "description": [
+          "Wir füllen nicht alles aus, nur das wichtigste!"
+        ],
+        "_template": "image"
       }
     ]
   }

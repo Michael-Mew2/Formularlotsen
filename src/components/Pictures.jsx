@@ -32,10 +32,18 @@ export default function Pictures({
       className={`${type} ${position || "page-full"}`.trim()}
     >
       <img src={picture} alt={alt} className={imageType ? imageType : ""} />
-      {description && description?.isArray ? (
-        description.map((paragraph, index) => <p key={index}>{paragraph}</p>)
+      {description ? (
+        description?.isArray ? (
+          description.map((paragraph, index) => (
+            <figcaption key={index} ref={descriptionRef}>
+              <p>{paragraph}</p>{" "}
+            </figcaption>
+          ))
+        ) : (
+          <figcaption ref={descriptionRef}>{description}</figcaption>
+        )
       ) : (
-        <figcaption ref={descriptionRef}>{description}</figcaption>
+        ""
       )}
     </figure>
   );
