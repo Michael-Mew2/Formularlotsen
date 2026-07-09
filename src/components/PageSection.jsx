@@ -26,7 +26,7 @@ export default function PageSection({ section }) {
   switch (componentType) {
     case "intro":
       return (
-        <div className={componentType || "intro"}>
+        <div className={(componentType || "intro", "page-content-title")}>
           {section.title && <h3>{section.title}</h3>}
 
           {section.content?.isArray ? (

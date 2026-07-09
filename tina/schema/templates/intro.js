@@ -7,12 +7,4 @@ export const introTemplate = {
   label: "Intro",
 
   fields: [groupIdField, titleField(), contentField],
-
-  ui: {
-    defaultItem: {
-      visible: true,
-      position: "page-full",
-      groupStyle: "page-content-title",
-    },
-  },
 };

@@ -6,14 +6,10 @@
     "pageContent": [
       {
         "groupId": "Intro-Startseite",
-        "groupStyle": "full-width",
-        "position": "page-full",
         "title": "Willkommen bei den Bremerhavener Formularlotsen",
-        "titleColor": "blue",
         "content": [
-          "Wir führen sie sicher durch Formulare"
+          "Wir führen sie sicher durch Formulare und das mit freude!"
         ],
-        "contentColor": "",
         "_template": "intro"
       },
       {
