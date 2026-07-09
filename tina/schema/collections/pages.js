@@ -1,5 +1,6 @@
 import { imageTemplate } from "../templates/image";
 import { introTemplate } from "../templates/intro";
+import { listTemplate } from "../templates/list";
 import { paragraphTemplate } from "../templates/paragraph";
 
 export const pageCollection = {
@@ -42,7 +43,12 @@ export const pageCollection = {
           name: "pageContent",
           label: "Seiteninhalt",
           list: true,
-          templates: [paragraphTemplate, introTemplate, imageTemplate],
+          templates: [
+            paragraphTemplate,
+            introTemplate,
+            imageTemplate,
+            listTemplate,
+          ],
         },
       ],
     },
