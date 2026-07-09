@@ -1,3 +1,4 @@
+import { annotationTemplate } from "../templates/annotation";
 import { imageTemplate } from "../templates/image";
 import { introTemplate } from "../templates/intro";
 import { listTemplate } from "../templates/list";
@@ -48,6 +49,7 @@ export const pageCollection = {
             introTemplate,
             imageTemplate,
             listTemplate,
+            annotationTemplate,
           ],
         },
       ],
