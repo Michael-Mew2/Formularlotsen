@@ -3,4 +3,5 @@ export const itemField = {
   list: true,
   name: "items",
   label: "Listeneinträge",
+  ui: { component: "textarea" },
 };
