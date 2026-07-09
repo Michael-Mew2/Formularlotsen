@@ -62,7 +62,11 @@ export default function Annotation({
           })()}
         </div>
         <div ref={annotationContentRef} className="annotationContent">
-          <p>{content}</p>
+          {content?.isArray ? (
+            content?.map((paragraph, index) => <p key={index}>{paragraph}</p>)
+          ) : (
+            <p>{content}</p>
+          )}
         </div>
       </div>
     </div>

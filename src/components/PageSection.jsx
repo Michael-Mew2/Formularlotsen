@@ -26,16 +26,23 @@ export default function PageSection({ section }) {
   switch (componentType) {
     case "intro":
       return (
-        <div className={section.type || "intro"}>
-          <h3>{section.title}</h3>
-          <p>{section.content}</p>
+        <div className={componentType || "intro"}>
+          {section.title && <h3>{section.title}</h3>}
+
+          {section.content?.isArray ? (
+            section.content?.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))
+          ) : (
+            <p>{section.content}</p>
+          )}
         </div>
       );
 
     case "paragraph":
       return (
         <Paragraph
-          type={section.type}
+          type={componentType}
           position={section.position}
           title={section.title}
           content={section.content}
@@ -48,7 +55,7 @@ export default function PageSection({ section }) {
     case "list":
       return (
         <List
-          type={section.type}
+          type={componentType}
           position={section.position}
           titleColor={section.titleColor}
           title={section.title}
@@ -60,7 +67,7 @@ export default function PageSection({ section }) {
     case "annotation":
       return (
         <Annotation
-          type={section.type}
+          type={componentType}
           annotationStyle={section.position}
           annotationType={section.annotationType}
           content={section.content}
@@ -70,7 +77,7 @@ export default function PageSection({ section }) {
     case "image":
       return (
         <Pictures
-          type={section.type}
+          type={componentType}
           position={section.position}
           picture={section.picture}
           alt={section.alt}
