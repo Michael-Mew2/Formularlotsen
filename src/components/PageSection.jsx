@@ -21,7 +21,9 @@ import Divider from "./Divider";
 export default function PageSection({ section }) {
   if (!section.visible && section.visible !== undefined) return null;
 
-  switch (section.type) {
+  const componentType = section._template ?? section.type;
+
+  switch (componentType) {
     case "intro":
       return (
         <div className={section.type || "intro"}>
@@ -32,32 +34,59 @@ export default function PageSection({ section }) {
 
     case "paragraph":
       return (
-       <Paragraph type={section.type} position={section.position} title={section.title} content={section.content} titleColor={section.titleColor} contentColor={section.contentColor} subParagraphs={section.subParagraphs} />
+        <Paragraph
+          type={section.type}
+          position={section.position}
+          title={section.title}
+          content={section.content}
+          titleColor={section.titleColor}
+          contentColor={section.contentColor}
+          subParagraphs={section.subParagraphs}
+        />
       );
 
     case "list":
       return (
-        <List type={section.type} position={section.position} titleColor={section.titleColor} title={section.title} listStyle={section.listStyle} items={section.items} />
+        <List
+          type={section.type}
+          position={section.position}
+          titleColor={section.titleColor}
+          title={section.title}
+          listStyle={section.listStyle}
+          items={section.items}
+        />
       );
 
     case "annotation":
       return (
-        <Annotation type={section.type} annotationStyle={section.position} annotationType={section.annotationType} content={section.content} />
+        <Annotation
+          type={section.type}
+          annotationStyle={section.position}
+          annotationType={section.annotationType}
+          content={section.content}
+        />
       );
 
     case "image":
       return (
-       <Pictures type={section.type} position={section.position} picture={section.picture} alt={section.alt} description={section.description} imageType={section.imageType} />
+        <Pictures
+          type={section.type}
+          position={section.position}
+          picture={section.picture}
+          alt={section.alt}
+          description={section.description}
+          imageType={section.imageType}
+        />
       );
 
     case "table":
       return <GridTable data={section.data} title={section.title} />;
 
     case "svg-map":
-      return <SimpleSVGMap />
+      return <SimpleSVGMap />;
 
     case "city-map":
-      return <BremerhavenMap position={section.position} />
+      return <BremerhavenMap position={section.position} />;
 
     case "time-table":
       return <TimeTable position={section.position} />;
@@ -70,24 +99,38 @@ export default function PageSection({ section }) {
 
     case "accordion-contact":
       return <AccContact contactData={section.content} />;
-    
+
     case "accordion-times":
       return <AccTimes openingTimes={section.content} />;
 
     case "contact-form":
-      return <ContactForm title={section.title} showTitle={section.showTitle} fieldsets={section.fieldsets} items={section.items} submitButton={section.submitButton} />;
+      return (
+        <ContactForm
+          title={section.title}
+          showTitle={section.showTitle}
+          fieldsets={section.fieldsets}
+          items={section.items}
+          submitButton={section.submitButton}
+        />
+      );
 
     case "legal-checkbox":
-      return <LegalCheckbox section={section} onValidationChange={section.onValidationChange} onValueChange={section.onValueChange} />;
+      return (
+        <LegalCheckbox
+          section={section}
+          onValidationChange={section.onValidationChange}
+          onValueChange={section.onValueChange}
+        />
+      );
 
     case "contact-info":
       return <ContactInfo section={section.contactPerson} />;
 
     case "loading-wave":
-      return <WaveLoader color={section.color} />
+      return <WaveLoader color={section.color} />;
 
     case "divider":
-      return <Divider color={section.color} thickness={section.thickness} />
+      return <Divider color={section.color} thickness={section.thickness} />;
 
     default:
       return null;

@@ -1,5 +1,8 @@
 import { commonFields } from "../fields/common";
-import { contentColors, titleColors } from "../options";
+import { contentColorField } from "../fields/style/contentColor";
+import { titleColorField } from "../fields/style/titleColor";
+import { paragraphField } from "../fields/text/paragraph";
+import { titleField } from "../fields/text/title";
 
 export const paragraphTemplate = {
   name: "paragraph",
@@ -8,35 +11,12 @@ export const paragraphTemplate = {
   fields: [
     ...commonFields,
 
-    {
-      type: "string",
-      name: "title",
-      label: "Überschrift",
-    },
+    titleField(),
 
-    {
-      type: "string",
-      name: "titleColor",
-      label: "Farbe der Überschrift",
-      ui: {
-        component: "select",
-      },
-      options: titleColors,
-    },
+    titleColorField,
 
-    {
-      type: "string",
-      name: "contentColor",
-      label: "Textfarbe",
-      ui: { component: "select" },
-      options: contentColors,
-    },
+    paragraphField,
 
-    {
-      type: "string",
-      list: true,
-      name: "content",
-      label: "Absätze",
-    },
+    contentColorField,
   ],
 };
