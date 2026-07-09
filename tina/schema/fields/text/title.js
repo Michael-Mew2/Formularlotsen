@@ -1,5 +1,5 @@
-export const titleField = {
+export const titleField = (label = "Überschrift") => ({
   type: "string",
   name: "title",
-  label: "Überschrift",
-};
+  label,
+});
