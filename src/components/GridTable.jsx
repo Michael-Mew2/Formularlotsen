@@ -10,7 +10,7 @@ export default function GridTable() {
   const currentPageData = texts[currentPage];
   // console.log(currentPageData);
   const tableSection = currentPageData.pageContent?.find(
-    (section) => section.type === "table"
+    (section) => section.type ?? section._template === "table",
   );
 
   console.log(tableSection);
@@ -37,7 +37,7 @@ export default function GridTable() {
       <div className="grid-body">
         {days.map((day) => {
           const locationsForDay = locations.filter((location) =>
-            location.schedule.some((schedule) => schedule.dayId === day.id)
+            location.schedule.some((schedule) => schedule.dayId === day.id),
           );
 
           if (locationsForDay.length === 0) return null;
@@ -56,7 +56,7 @@ export default function GridTable() {
                     "Unbekannt";
                   const accessIcons = location.accessabilityIds.map((id) => {
                     const access = Object.values(accessability).find(
-                      (a) => a.id === id
+                      (a) => a.id === id,
                     );
                     return access ? (
                       <i
@@ -76,13 +76,13 @@ export default function GridTable() {
 
                       {/* location + icons */}
                       <div className="grid-cell location" onClick={""}>
-                          <div className="grid-cell-borough">
-                            <p>{location.borough}</p>
-                          </div>
-                          <div className="grid-cell-location">
-                            <p>{location.location}</p>
-                          </div>
-                          <div className="grid-cell-icons">{accessIcons}</div>
+                        <div className="grid-cell-borough">
+                          <p>{location.borough}</p>
+                        </div>
+                        <div className="grid-cell-location">
+                          <p>{location.location}</p>
+                        </div>
+                        <div className="grid-cell-icons">{accessIcons}</div>
                       </div>
                     </React.Fragment>
                   );
