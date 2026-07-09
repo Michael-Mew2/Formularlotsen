@@ -1,8 +1,10 @@
 import { groupStyles } from "../../options";
 
-export const groupStyleField = {
+export const createGroupStyleField = (defaultValue = "") => ({
   type: "string",
   name: "groupStyle",
   label: "Gruppenlayout",
   options: groupStyles,
-};
+
+  ui: { defaultValue },
+});
